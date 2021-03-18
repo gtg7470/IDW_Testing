@@ -1,0 +1,336 @@
+ARM GAS  /tmp/ccUySJDm.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"wifi_globals.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.Set_UartMsgHandle,"ax",%progbits
+  18              		.align	1
+  19              		.global	Set_UartMsgHandle
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	Set_UartMsgHandle:
+  27              	.LVL0:
+  28              	.LFB279:
+  29              		.file 1 "Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c"
+   1:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** /**
+   2:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  ******************************************************************************
+   3:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * @file    wifi_globals.c
+   4:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * @author  Central LAB
+   5:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * @version V2.1.0
+   6:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * @date    06-April-2016
+   7:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * @brief   Store all global variables
+   8:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  ******************************************************************************
+   9:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * @attention
+  10:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  *
+  11:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * <h2><center>&copy; COPYRIGHT(c) 2015 STMicroelectronics</center></h2>
+  12:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  *
+  13:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * Redistribution and use in source and binary forms, with or without modification,
+  14:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * are permitted provided that the following conditions are met:
+  15:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  *   1. Redistributions of source code must retain the above copyright notice,
+  16:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  *      this list of conditions and the following disclaimer.
+  17:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  *   2. Redistributions in binary form must reproduce the above copyright notice,
+  18:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  *      this list of conditions and the following disclaimer in the documentation
+  19:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  *      and/or other materials provided with the distribution.
+  20:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  *   3. Neither the name of STMicroelectronics nor the names of its contributors
+  21:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  *      may be used to endorse or promote products derived from this software
+  22:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  *      without specific prior written permission.
+  23:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  *
+  24:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  25:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  26:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+  27:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+  28:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+  29:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ARM GAS  /tmp/ccUySJDm.s 			page 2
+
+
+  30:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  31:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+  32:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  33:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  34:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  *
+  35:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  ******************************************************************************
+  36:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****  */
+  37:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+  38:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** /* Includes ------------------------------------------------------------------*/
+  39:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** #include "wifi_globals.h"
+  40:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+  41:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** /** @addtogroup MIDDLEWARES
+  42:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** * @{
+  43:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** */ 
+  44:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+  45:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** /** @addtogroup NUCLEO_WIFI_MODULE_Private_Variables
+  46:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****   * @{
+  47:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****   */
+  48:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+  49:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** /***********All Buffers**************/
+  50:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** #if defined (USE_STM32L0XX_NUCLEO) && defined (WIFI_USE_VCOM) 
+  51:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** char UserDataBuff[1];   /* Not used in case of VCOM */
+  52:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** uint8_t pop_buffer[1];
+  53:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** #else
+  54:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** char UserDataBuff[MAX_BUFFER_GLOBAL];   /* Used to store data that is to be send in callback to use
+  55:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** uint8_t pop_buffer[MAX_BUFFER_GLOBAL];
+  56:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** #endif
+  57:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+  58:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** wifi_event_TypeDef element;
+  59:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** /* Middleware version, Compatible Firmware version */
+  60:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** SW_FW_COMPATIBILITY_t SW_FW_COMPATIBILITY[1] = {
+  61:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****   {"3.1.0", "1.1.0"}
+  62:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** };
+  63:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+  64:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** /* TIM handle declaration */
+  65:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** TIM_HandleTypeDef    TimHandle, PushTimHandle;
+  66:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+  67:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** /* UART handle declaration */
+  68:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** UART_HandleTypeDef UartWiFiHandle,*UartMsgHandle;
+  69:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+  70:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** WiFi_Config_HandleTypeDef WiFi_Config_Variables;
+  71:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** WiFi_Counter_Variables_t WiFi_Counter_Variables;
+  72:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** WiFi_Control_Variables_t WiFi_Control_Variables;
+  73:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** __IO IO_status_flag_typedef IO_status_flag;
+  74:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+  75:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** volatile uint8_t wifi_connected = WIFI_FALSE;   //Set once if wifi is connected for first time
+  76:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** volatile uint8_t wifi_client_connected = 0;     //Set once if client is connected
+  77:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** volatile uint8_t wifi_client_disconnected = 0;  //Set once if client is dis-connected
+  78:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+  79:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** wifi_bool open_sockets[CLIENT_SOCKET_COUNT];  // Each array element depicts one socket (true=open, 
+  80:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** wifi_bool open_server_sockets[SERVER_SOCKET_COUNT];
+  81:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** wifi_bool open_web_socket[WEB_CLIENT_SOCKET_COUNT]; 
+  82:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** wifi_bool Client_Socket_Close_Callback[CLIENT_SOCKET_COUNT];
+  83:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** wifi_bool client_connected_on_server_socket[SERVER_SOCKET_COUNT][CLIENT_SOCKET_COUNT];
+  84:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** wifi_scan *wifi_scanned_list;            // [MAX_WIFI_SCAN_NETWORK]
+  85:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+  86:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** char *wifi_scan_string = "%d:\t BSS %[^ ] CHAN: %d RSSI: -%d SSID: '%[^'] %[^\n]";
+ARM GAS  /tmp/ccUySJDm.s 			page 3
+
+
+  87:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+  88:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** #if defined (USE_STM32F4XX_NUCLEO) || defined(USE_STM32L4XX_NUCLEO)
+  89:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** #ifdef SPI_VCOM
+  90:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** uint8_t SPI_VCOM_Buff[3072];//3K size!
+  91:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** #endif
+  92:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+  93:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** uint8_t WiFi_AT_Cmd_Buff[2048];
+  94:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** uint8_t WiFi_SPI_Packet[128];
+  95:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+  96:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** /* SPI handle declaration */
+  97:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** SPI_HandleTypeDef SpiHandle;
+  98:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** #else
+  99:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+ 100:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** #if defined (USE_STM32L0XX_NUCLEO) && defined (WIFI_USE_VCOM)
+ 101:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** uint8_t WiFi_AT_Cmd_Buff[1];
+ 102:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** #else
+ 103:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** uint8_t WiFi_AT_Cmd_Buff[1024];
+ 104:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** #endif
+ 105:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** #endif
+ 106:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+ 107:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** uint8_t dma_buffer[DMA_BUFFER_SIZE];
+ 108:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** uint8_t * dma_buffer_ptr = dma_buffer;
+ 109:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+ 110:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** wifi_bool packet_payload_data_available;
+ 111:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** WiFi_Mqtt_t mqtt_type = NO_TYPE;
+ 112:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** struct tftp_recv *ROOT = NULL;
+ 113:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** struct tftp_recv *curr_node = NULL;
+ 114:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** 
+ 115:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** /* Private Function ------------------------------------------------------------------*/
+ 116:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** void Set_UartMsgHandle(UART_HandleTypeDef *UART_MsgHandle)
+ 117:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** {
+  30              		.loc 1 117 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+ 118:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c ****   UartMsgHandle = UART_MsgHandle;
+  35              		.loc 1 118 3 view .LVU1
+  36              		.loc 1 118 17 is_stmt 0 view .LVU2
+  37 0000 014B     		ldr	r3, .L2
+  38 0002 1860     		str	r0, [r3]
+ 119:Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.c **** }
+  39              		.loc 1 119 1 view .LVU3
+  40 0004 7047     		bx	lr
+  41              	.L3:
+  42 0006 00BF     		.align	2
+  43              	.L2:
+  44 0008 00000000 		.word	UartMsgHandle
+  45              		.cfi_endproc
+  46              	.LFE279:
+  48              		.global	curr_node
+  49              		.global	ROOT
+  50              		.global	mqtt_type
+  51              		.comm	packet_payload_data_available,1,1
+  52              		.global	dma_buffer_ptr
+  53              		.comm	dma_buffer,2048,4
+  54              		.comm	SpiHandle,88,4
+ARM GAS  /tmp/ccUySJDm.s 			page 4
+
+
+  55              		.comm	WiFi_SPI_Packet,128,4
+  56              		.comm	WiFi_AT_Cmd_Buff,2048,4
+  57              		.global	wifi_scan_string
+  58              		.section	.rodata.str1.4,"aMS",%progbits,1
+  59              		.align	2
+  60              	.LC0:
+  61 0000 25643A09 		.ascii	"%d:\011 BSS %[^ ] CHAN: %d RSSI: -%d SSID: '%[^'] %"
+  61      20425353 
+  61      20255B5E 
+  61      205D2043 
+  61      48414E3A 
+  62 0030 5B5E0A5D 		.ascii	"[^\012]\000"
+  62      00
+  63              		.comm	wifi_scanned_list,4,4
+  64              		.comm	client_connected_on_server_socket,16,4
+  65              		.comm	Client_Socket_Close_Callback,8,4
+  66              		.comm	open_web_socket,1,4
+  67              		.comm	open_server_sockets,2,4
+  68              		.comm	open_sockets,8,4
+  69              		.global	wifi_client_disconnected
+  70              		.global	wifi_client_connected
+  71              		.global	wifi_connected
+  72              		.comm	IO_status_flag,24,4
+  73              		.comm	WiFi_Control_Variables,10,4
+  74              		.comm	WiFi_Counter_Variables,252,4
+  75              		.comm	WiFi_Config_Variables,52,4
+  76              		.comm	UartMsgHandle,4,4
+  77              		.comm	UartWiFiHandle,64,4
+  78              		.comm	PushTimHandle,60,4
+  79              		.comm	TimHandle,60,4
+  80              		.global	SW_FW_COMPATIBILITY
+  81 0035 000000   		.align	2
+  82              	.LC1:
+  83 0038 332E312E 		.ascii	"3.1.0\000"
+  83      3000
+  84 003e 0000     		.align	2
+  85              	.LC2:
+  86 0040 312E312E 		.ascii	"1.1.0\000"
+  86      3000
+  87              		.comm	element,8,4
+  88              		.comm	pop_buffer,512,4
+  89              		.comm	UserDataBuff,512,4
+  90              		.section	.bss.ROOT,"aw",%nobits
+  91              		.align	2
+  94              	ROOT:
+  95 0000 00000000 		.space	4
+  96              		.section	.bss.curr_node,"aw",%nobits
+  97              		.align	2
+ 100              	curr_node:
+ 101 0000 00000000 		.space	4
+ 102              		.section	.bss.mqtt_type,"aw",%nobits
+ 105              	mqtt_type:
+ 106 0000 00       		.space	1
+ 107              		.section	.bss.wifi_client_connected,"aw",%nobits
+ 110              	wifi_client_connected:
+ 111 0000 00       		.space	1
+ 112              		.section	.bss.wifi_client_disconnected,"aw",%nobits
+ARM GAS  /tmp/ccUySJDm.s 			page 5
+
+
+ 115              	wifi_client_disconnected:
+ 116 0000 00       		.space	1
+ 117              		.section	.bss.wifi_connected,"aw",%nobits
+ 120              	wifi_connected:
+ 121 0000 00       		.space	1
+ 122              		.section	.data.SW_FW_COMPATIBILITY,"aw"
+ 123              		.align	2
+ 126              	SW_FW_COMPATIBILITY:
+ 127 0000 38000000 		.word	.LC1
+ 128 0004 40000000 		.word	.LC2
+ 129              		.section	.data.dma_buffer_ptr,"aw"
+ 130              		.align	2
+ 133              	dma_buffer_ptr:
+ 134 0000 00000000 		.word	dma_buffer
+ 135              		.section	.data.wifi_scan_string,"aw"
+ 136              		.align	2
+ 139              	wifi_scan_string:
+ 140 0000 00000000 		.word	.LC0
+ 141              		.text
+ 142              	.Letext0:
+ 143              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 144              		.file 3 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h"
+ 145              		.file 4 "/usr/include/newlib/sys/_types.h"
+ 146              		.file 5 "/usr/include/newlib/sys/reent.h"
+ 147              		.file 6 "/usr/include/newlib/sys/lock.h"
+ 148              		.file 7 "/usr/include/newlib/sys/_stdint.h"
+ 149              		.file 8 "/usr/include/newlib/stdlib.h"
+ 150              		.file 9 "Drivers/CMSIS/Include/core_cm4.h"
+ 151              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 152              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 153              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 154              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 155              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 156              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 157              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 158              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 159              		.file 18 "Middlewares/ST/STM32_SPWF0xSy/Inc/wifi_interface.h"
+ 160              		.file 19 "Middlewares/ST/STM32_SPWF0xSy/Utils/event_buffer.h"
+ 161              		.file 20 "/usr/include/newlib/time.h"
+ 162              		.file 21 "Middlewares/ST/STM32_SPWF0xSy/Inc/wifi_module.h"
+ 163              		.file 22 "Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.h"
+ 164              		.file 23 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h"
+ARM GAS  /tmp/ccUySJDm.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 wifi_globals.c
+     /tmp/ccUySJDm.s:18     .text.Set_UartMsgHandle:0000000000000000 $t
+     /tmp/ccUySJDm.s:26     .text.Set_UartMsgHandle:0000000000000000 Set_UartMsgHandle
+     /tmp/ccUySJDm.s:44     .text.Set_UartMsgHandle:0000000000000008 $d
+                            *COM*:0000000000000004 UartMsgHandle
+     /tmp/ccUySJDm.s:100    .bss.curr_node:0000000000000000 curr_node
+     /tmp/ccUySJDm.s:94     .bss.ROOT:0000000000000000 ROOT
+     /tmp/ccUySJDm.s:105    .bss.mqtt_type:0000000000000000 mqtt_type
+                            *COM*:0000000000000001 packet_payload_data_available
+     /tmp/ccUySJDm.s:133    .data.dma_buffer_ptr:0000000000000000 dma_buffer_ptr
+                            *COM*:0000000000000800 dma_buffer
+                            *COM*:0000000000000058 SpiHandle
+                            *COM*:0000000000000080 WiFi_SPI_Packet
+                            *COM*:0000000000000800 WiFi_AT_Cmd_Buff
+     /tmp/ccUySJDm.s:139    .data.wifi_scan_string:0000000000000000 wifi_scan_string
+     /tmp/ccUySJDm.s:59     .rodata.str1.4:0000000000000000 $d
+                            *COM*:0000000000000004 wifi_scanned_list
+                            *COM*:0000000000000010 client_connected_on_server_socket
+                            *COM*:0000000000000008 Client_Socket_Close_Callback
+                            *COM*:0000000000000001 open_web_socket
+                            *COM*:0000000000000002 open_server_sockets
+                            *COM*:0000000000000008 open_sockets
+     /tmp/ccUySJDm.s:115    .bss.wifi_client_disconnected:0000000000000000 wifi_client_disconnected
+     /tmp/ccUySJDm.s:110    .bss.wifi_client_connected:0000000000000000 wifi_client_connected
+     /tmp/ccUySJDm.s:120    .bss.wifi_connected:0000000000000000 wifi_connected
+                            *COM*:0000000000000018 IO_status_flag
+                            *COM*:000000000000000a WiFi_Control_Variables
+                            *COM*:00000000000000fc WiFi_Counter_Variables
+                            *COM*:0000000000000034 WiFi_Config_Variables
+                            *COM*:0000000000000040 UartWiFiHandle
+                            *COM*:000000000000003c PushTimHandle
+                            *COM*:000000000000003c TimHandle
+     /tmp/ccUySJDm.s:126    .data.SW_FW_COMPATIBILITY:0000000000000000 SW_FW_COMPATIBILITY
+                            *COM*:0000000000000008 element
+                            *COM*:0000000000000200 pop_buffer
+                            *COM*:0000000000000200 UserDataBuff
+     /tmp/ccUySJDm.s:91     .bss.ROOT:0000000000000000 $d
+     /tmp/ccUySJDm.s:97     .bss.curr_node:0000000000000000 $d
+     /tmp/ccUySJDm.s:106    .bss.mqtt_type:0000000000000000 $d
+     /tmp/ccUySJDm.s:111    .bss.wifi_client_connected:0000000000000000 $d
+     /tmp/ccUySJDm.s:116    .bss.wifi_client_disconnected:0000000000000000 $d
+     /tmp/ccUySJDm.s:121    .bss.wifi_connected:0000000000000000 $d
+     /tmp/ccUySJDm.s:123    .data.SW_FW_COMPATIBILITY:0000000000000000 $d
+     /tmp/ccUySJDm.s:130    .data.dma_buffer_ptr:0000000000000000 $d
+     /tmp/ccUySJDm.s:136    .data.wifi_scan_string:0000000000000000 $d
+
+NO UNDEFINED SYMBOLS

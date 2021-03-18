@@ -1,0 +1,3548 @@
+ARM GAS  /tmp/ccElJLLx.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f4xx_nucleo.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.SPIx_MspInit,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	SPIx_MspInit:
+  26              	.LVL0:
+  27              	.LFB144:
+  28              		.file 1 "Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c"
+   1:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+   2:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   ******************************************************************************
+   3:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @file    stm32f4xx_nucleo.c
+   4:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @author  MCD Application Team
+   5:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @version V1.2.5
+   6:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @date    06-May-2016
+   7:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief   This file provides set of firmware functions to manage:
+   8:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *          - LEDs and push-button available on STM32F4XX-Nucleo Kit 
+   9:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *            from STMicroelectronics
+  10:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *          - LCD, joystick and microSD available on Adafruit 1.8" TFT LCD 
+  11:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *            shield (reference ID 802)
+  12:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   ******************************************************************************
+  13:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @attention
+  14:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *
+  15:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
+  16:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *
+  17:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * Redistribution and use in source and binary forms, with or without modification,
+  18:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * are permitted provided that the following conditions are met:
+  19:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *   1. Redistributions of source code must retain the above copyright notice,
+  20:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *      this list of conditions and the following disclaimer.
+  21:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *   2. Redistributions in binary form must reproduce the above copyright notice,
+  22:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *      this list of conditions and the following disclaimer in the documentation
+  23:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *      and/or other materials provided with the distribution.
+  24:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *   3. Neither the name of STMicroelectronics nor the names of its contributors
+  25:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *      may be used to endorse or promote products derived from this software
+  26:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *      without specific prior written permission.
+  27:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *
+  28:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  29:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  30:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ARM GAS  /tmp/ccElJLLx.s 			page 2
+
+
+  31:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+  32:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+  33:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+  34:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  35:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+  36:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  37:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  38:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *
+  39:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   ******************************************************************************
+  40:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */ 
+  41:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+  42:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /* Includes ------------------------------------------------------------------*/
+  43:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #include "stm32f4xx_nucleo.h"
+  44:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+  45:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /** @defgroup BSP BSP
+  46:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @{
+  47:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */ 
+  48:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+  49:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /** @defgroup STM32F4XX_NUCLEO STM32F4XX NUCLEO
+  50:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @{
+  51:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */   
+  52:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     
+  53:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /** @defgroup STM32F4XX_NUCLEO_LOW_LEVEL STM32F4XX NUCLEO LOW LEVEL
+  54:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief This file provides set of firmware functions to manage Leds and push-button
+  55:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *        available on STM32F4xx-Nucleo Kit from STMicroelectronics.
+  56:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @{
+  57:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */ 
+  58:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+  59:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /** @defgroup STM32F4XX_NUCLEO_LOW_LEVEL_Private_TypesDefinitions STM32F4XX NUCLEO LOW LEVEL Privat
+  60:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @{
+  61:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */ 
+  62:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+  63:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @}
+  64:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */ 
+  65:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+  66:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+  67:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /** @defgroup STM32F4XX_NUCLEO_LOW_LEVEL_Private_Defines STM32F4XX NUCLEO LOW LEVEL Private Defines
+  68:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @{
+  69:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */ 
+  70:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+  71:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+  72:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief STM32F4xx NUCLEO BSP Driver version number V1.2.5
+  73:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+  74:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #define __STM32F4xx_NUCLEO_BSP_VERSION_MAIN   (0x01) /*!< [31:24] main version */
+  75:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #define __STM32F4xx_NUCLEO_BSP_VERSION_SUB1   (0x02) /*!< [23:16] sub1 version */
+  76:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #define __STM32F4xx_NUCLEO_BSP_VERSION_SUB2   (0x05) /*!< [15:8]  sub2 version */
+  77:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #define __STM32F4xx_NUCLEO_BSP_VERSION_RC     (0x00) /*!< [7:0]  release candidate */ 
+  78:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #define __STM32F4xx_NUCLEO_BSP_VERSION        ((__STM32F4xx_NUCLEO_BSP_VERSION_MAIN << 24)\
+  79:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****                                              |(__STM32F4xx_NUCLEO_BSP_VERSION_SUB1 << 16)\
+  80:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****                                              |(__STM32F4xx_NUCLEO_BSP_VERSION_SUB2 << 8 )\
+  81:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****                                              |(__STM32F4xx_NUCLEO_BSP_VERSION_RC))   
+  82:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+  83:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+  84:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief LINK SD Card
+  85:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+  86:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #define SD_DUMMY_BYTE            0xFF    
+  87:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #define SD_NO_RESPONSE_EXPECTED  0x80
+ARM GAS  /tmp/ccElJLLx.s 			page 3
+
+
+  88:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+  89:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+  90:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @}
+  91:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */ 
+  92:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+  93:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /** @defgroup STM32F4XX_NUCLEO_LOW_LEVEL_Private_Macros STM32F4XX NUCLEO LOW LEVEL Private Macros
+  94:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @{
+  95:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */ 
+  96:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+  97:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @}
+  98:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */ 
+  99:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 100:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /** @defgroup STM32F4XX_NUCLEO_LOW_LEVEL_Private_Variables STM32F4XX NUCLEO LOW LEVEL Private Varia
+ 101:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @{
+ 102:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */ 
+ 103:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** GPIO_TypeDef* GPIO_PORT[LEDn] = {LED2_GPIO_PORT};
+ 104:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 105:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** const uint16_t GPIO_PIN[LEDn] = {LED2_PIN};
+ 106:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 107:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** GPIO_TypeDef* BUTTON_PORT[BUTTONn] = {KEY_BUTTON_GPIO_PORT}; 
+ 108:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** const uint16_t BUTTON_PIN[BUTTONn] = {KEY_BUTTON_PIN}; 
+ 109:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** const uint8_t BUTTON_IRQn[BUTTONn] = {KEY_BUTTON_EXTI_IRQn};
+ 110:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 111:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 112:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****  * @brief BUS variables
+ 113:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****  */
+ 114:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 115:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #ifdef ADAFRUIT_TFT_JOY_SD_ID802
+ 116:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #ifdef HAL_SPI_MODULE_ENABLED
+ 117:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** uint32_t SpixTimeout = NUCLEO_SPIx_TIMEOUT_MAX; /*<! Value of Timeout when SPI communication fails 
+ 118:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static SPI_HandleTypeDef hnucleo_Spi;
+ 119:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #endif /* HAL_SPI_MODULE_ENABLED */
+ 120:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 121:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #ifdef HAL_ADC_MODULE_ENABLED
+ 122:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static ADC_HandleTypeDef hnucleo_Adc;
+ 123:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /* ADC channel configuration structure declaration */
+ 124:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static ADC_ChannelConfTypeDef sConfig;
+ 125:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #endif /* HAL_ADC_MODULE_ENABLED */
+ 126:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #endif /* ADAFRUIT_TFT_JOY_SD_ID802 */
+ 127:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 128:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 129:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @}
+ 130:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */ 
+ 131:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 132:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /** @defgroup STM32F4XX_NUCLEO_LOW_LEVEL_Private_FunctionPrototypes STM32F4XX NUCLEO LOW LEVEL Priv
+ 133:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @{
+ 134:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 135:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #ifdef ADAFRUIT_TFT_JOY_SD_ID802
+ 136:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 137:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #ifdef HAL_SPI_MODULE_ENABLED
+ 138:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void       SPIx_Init(void);
+ 139:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void       SPIx_Write(uint8_t Value);
+ 140:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void       SPIx_WriteReadData(const uint8_t *DataIn, uint8_t *DataOut, uint16_t DataLegnth);
+ 141:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void       SPIx_Error(void);
+ 142:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void       SPIx_MspInit(SPI_HandleTypeDef *hspi);
+ 143:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 144:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /* SD IO functions */
+ARM GAS  /tmp/ccElJLLx.s 			page 4
+
+
+ 145:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void              SD_IO_Init(void);
+ 146:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void              SD_IO_CSState(uint8_t state);
+ 147:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void              SD_IO_WriteReadData(const uint8_t *DataIn, uint8_t *DataOut, uint16_t DataLength)
+ 148:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** uint8_t           SD_IO_WriteByte(uint8_t Data);
+ 149:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 150:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /* LCD IO functions */
+ 151:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void              LCD_IO_Init(void);
+ 152:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void              LCD_IO_WriteData(uint8_t Data);
+ 153:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void              LCD_IO_WriteMultipleData(uint8_t *pData, uint32_t Size);
+ 154:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void              LCD_IO_WriteReg(uint8_t LCDReg);
+ 155:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void              LCD_Delay(uint32_t delay);
+ 156:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #endif /* HAL_SPI_MODULE_ENABLED */
+ 157:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 158:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #ifdef HAL_ADC_MODULE_ENABLED
+ 159:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void       ADCx_Init(void);
+ 160:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void       ADCx_DeInit(void);
+ 161:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void       ADCx_MspInit(ADC_HandleTypeDef *hadc);
+ 162:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void ADCx_MspDeInit(ADC_HandleTypeDef *hadc);
+ 163:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #endif /* HAL_ADC_MODULE_ENABLED */
+ 164:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 165:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #endif /* ADAFRUIT_TFT_JOY_SD_ID802 */
+ 166:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 167:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 168:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @}
+ 169:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */ 
+ 170:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 171:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /** @defgroup STM32F4XX_NUCLEO_LOW_LEVEL_Private_Functions STM32F4XX NUCLEO LOW LEVEL Private Funct
+ 172:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @{
+ 173:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */ 
+ 174:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 175:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 176:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  This method returns the STM32F4xx NUCLEO BSP Driver revision
+ 177:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @retval version: 0xXYZR (8bits for each decimal, R for RC)
+ 178:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 179:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** uint32_t BSP_GetVersion(void)
+ 180:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 181:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   return __STM32F4xx_NUCLEO_BSP_VERSION;
+ 182:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 183:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 184:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 185:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Configures LED GPIO.
+ 186:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  Led: Specifies the Led to be configured. 
+ 187:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *   This parameter can be one of following parameters:
+ 188:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *     @arg LED2
+ 189:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 190:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void BSP_LED_Init(Led_TypeDef Led)
+ 191:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 192:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef  GPIO_InitStruct;
+ 193:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 194:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Enable the GPIO_LED Clock */
+ 195:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LEDx_GPIO_CLK_ENABLE(Led);
+ 196:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 197:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Configure the GPIO_LED pin */
+ 198:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pin = GPIO_PIN[Led];
+ 199:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 200:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 201:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FAST;
+ARM GAS  /tmp/ccElJLLx.s 			page 5
+
+
+ 202:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 203:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_Init(GPIO_PORT[Led], &GPIO_InitStruct);
+ 204:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 205:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_WritePin(GPIO_PORT[Led], GPIO_PIN[Led], GPIO_PIN_RESET); 
+ 206:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 207:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 208:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 209:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  DeInit LEDs.
+ 210:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  Led: LED to be de-init. 
+ 211:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *   This parameter can be one of the following values:
+ 212:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *     @arg  LED2
+ 213:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @note Led DeInit does not disable the GPIO clock nor disable the Mfx 
+ 214:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 215:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void BSP_LED_DeInit(Led_TypeDef Led)
+ 216:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 217:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef  gpio_init_structure;
+ 218:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 219:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Turn off LED */
+ 220:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_WritePin(GPIO_PORT[Led], GPIO_PIN[Led], GPIO_PIN_RESET);
+ 221:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* DeInit the GPIO_LED pin */
+ 222:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   gpio_init_structure.Pin = GPIO_PIN[Led];
+ 223:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_DeInit(GPIO_PORT[Led], gpio_init_structure.Pin);
+ 224:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 225:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 226:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 227:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Turns selected LED On.
+ 228:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  Led: Specifies the Led to be set on. 
+ 229:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *   This parameter can be one of following parameters:
+ 230:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *     @arg LED2
+ 231:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 232:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void BSP_LED_On(Led_TypeDef Led)
+ 233:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 234:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_WritePin(GPIO_PORT[Led], GPIO_PIN[Led], GPIO_PIN_SET); 
+ 235:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 236:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 237:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 238:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Turns selected LED Off.
+ 239:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  Led: Specifies the Led to be set off. 
+ 240:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *   This parameter can be one of following parameters:
+ 241:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *     @arg LED2
+ 242:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 243:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void BSP_LED_Off(Led_TypeDef Led)
+ 244:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 245:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_WritePin(GPIO_PORT[Led], GPIO_PIN[Led], GPIO_PIN_RESET); 
+ 246:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 247:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 248:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 249:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Toggles the selected LED.
+ 250:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  Led: Specifies the Led to be toggled. 
+ 251:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *   This parameter can be one of following parameters:
+ 252:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *     @arg LED2  
+ 253:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 254:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void BSP_LED_Toggle(Led_TypeDef Led)
+ 255:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 256:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_TogglePin(GPIO_PORT[Led], GPIO_PIN[Led]);
+ 257:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 258:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ARM GAS  /tmp/ccElJLLx.s 			page 6
+
+
+ 259:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 260:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Configures Button GPIO and EXTI Line.
+ 261:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  Button: Specifies the Button to be configured.
+ 262:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *   This parameter should be: BUTTON_KEY
+ 263:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  ButtonMode: Specifies Button mode.
+ 264:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *   This parameter can be one of following parameters:   
+ 265:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *     @arg BUTTON_MODE_GPIO: Button will be used as simple IO 
+ 266:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *     @arg BUTTON_MODE_EXTI: Button will be connected to EXTI line with interrupt
+ 267:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *                            generation capability  
+ 268:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 269:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void BSP_PB_Init(Button_TypeDef Button, ButtonMode_TypeDef ButtonMode)
+ 270:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 271:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef GPIO_InitStruct;
+ 272:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 273:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Enable the BUTTON Clock */
+ 274:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   BUTTONx_GPIO_CLK_ENABLE(Button);
+ 275:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 276:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   if(ButtonMode == BUTTON_MODE_GPIO)
+ 277:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 278:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     /* Configure Button pin as input */
+ 279:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Pin = BUTTON_PIN[Button];
+ 280:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 281:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+ 282:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FAST;
+ 283:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_GPIO_Init(BUTTON_PORT[Button], &GPIO_InitStruct);
+ 284:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 285:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 286:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   if(ButtonMode == BUTTON_MODE_EXTI)
+ 287:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 288:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     /* Configure Button pin as input with External interrupt */
+ 289:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Pin = BUTTON_PIN[Button];
+ 290:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 291:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING; 
+ 292:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_GPIO_Init(BUTTON_PORT[Button], &GPIO_InitStruct);
+ 293:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     
+ 294:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     /* Enable and set Button EXTI Interrupt to the lowest priority */
+ 295:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_NVIC_SetPriority((IRQn_Type)(BUTTON_IRQn[Button]), 0x0F, 0x00);
+ 296:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_NVIC_EnableIRQ((IRQn_Type)(BUTTON_IRQn[Button]));
+ 297:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 298:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 299:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 300:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 301:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Push Button DeInit.
+ 302:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  Button: Button to be configured
+ 303:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *   This parameter should be: BUTTON_KEY
+ 304:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @note PB DeInit does not disable the GPIO clock
+ 305:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 306:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void BSP_PB_DeInit(Button_TypeDef Button)
+ 307:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 308:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitTypeDef gpio_init_structure;
+ 309:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 310:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     gpio_init_structure.Pin = BUTTON_PIN[Button];
+ 311:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_NVIC_DisableIRQ((IRQn_Type)(BUTTON_IRQn[Button]));
+ 312:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_GPIO_DeInit(BUTTON_PORT[Button], gpio_init_structure.Pin);
+ 313:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 314:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 315:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ARM GAS  /tmp/ccElJLLx.s 			page 7
+
+
+ 316:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Returns the selected Button state.
+ 317:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  Button: Specifies the Button to be checked.
+ 318:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *   This parameter should be: BUTTON_KEY  
+ 319:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @retval The Button GPIO pin value.
+ 320:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 321:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** uint32_t BSP_PB_GetState(Button_TypeDef Button)
+ 322:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 323:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   return HAL_GPIO_ReadPin(BUTTON_PORT[Button], BUTTON_PIN[Button]);
+ 324:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 325:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 326:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /******************************************************************************
+ 327:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****                             BUS OPERATIONS
+ 328:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** *******************************************************************************/
+ 329:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #ifdef ADAFRUIT_TFT_JOY_SD_ID802
+ 330:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 331:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /******************************* SPI ********************************/
+ 332:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #ifdef HAL_SPI_MODULE_ENABLED
+ 333:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 334:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 335:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Initializes SPI MSP.
+ 336:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 337:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void SPIx_MspInit(SPI_HandleTypeDef *hspi)
+ 338:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+  29              		.loc 1 338 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 32
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		.loc 1 338 1 is_stmt 0 view .LVU1
+  34 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 24
+  37              		.cfi_offset 4, -24
+  38              		.cfi_offset 5, -20
+  39              		.cfi_offset 6, -16
+  40              		.cfi_offset 7, -12
+  41              		.cfi_offset 8, -8
+  42              		.cfi_offset 14, -4
+  43 0004 88B0     		sub	sp, sp, #32
+  44              	.LCFI1:
+  45              		.cfi_def_cfa_offset 56
+ 339:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef  GPIO_InitStruct;  
+  46              		.loc 1 339 3 is_stmt 1 view .LVU2
+ 340:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 341:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /*** Configure the GPIOs ***/  
+ 342:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Enable GPIO clock */
+ 343:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   NUCLEO_SPIx_SCK_GPIO_CLK_ENABLE();
+  47              		.loc 1 343 3 view .LVU3
+  48              	.LBB2:
+  49              		.loc 1 343 3 view .LVU4
+  50 0006 0025     		movs	r5, #0
+  51 0008 0095     		str	r5, [sp]
+  52              		.loc 1 343 3 view .LVU5
+  53 000a 214C     		ldr	r4, .L3
+  54 000c 236B     		ldr	r3, [r4, #48]
+  55 000e 43F00103 		orr	r3, r3, #1
+  56 0012 2363     		str	r3, [r4, #48]
+  57              		.loc 1 343 3 view .LVU6
+ARM GAS  /tmp/ccElJLLx.s 			page 8
+
+
+  58 0014 236B     		ldr	r3, [r4, #48]
+  59 0016 03F00103 		and	r3, r3, #1
+  60 001a 0093     		str	r3, [sp]
+  61              		.loc 1 343 3 view .LVU7
+  62 001c 009B     		ldr	r3, [sp]
+  63              	.LBE2:
+  64              		.loc 1 343 3 view .LVU8
+ 344:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   NUCLEO_SPIx_MISO_MOSI_GPIO_CLK_ENABLE();
+  65              		.loc 1 344 3 view .LVU9
+  66              	.LBB3:
+  67              		.loc 1 344 3 view .LVU10
+  68 001e 0195     		str	r5, [sp, #4]
+  69              		.loc 1 344 3 view .LVU11
+  70 0020 236B     		ldr	r3, [r4, #48]
+  71 0022 43F00103 		orr	r3, r3, #1
+  72 0026 2363     		str	r3, [r4, #48]
+  73              		.loc 1 344 3 view .LVU12
+  74 0028 236B     		ldr	r3, [r4, #48]
+  75 002a 03F00103 		and	r3, r3, #1
+  76 002e 0193     		str	r3, [sp, #4]
+  77              		.loc 1 344 3 view .LVU13
+  78 0030 019B     		ldr	r3, [sp, #4]
+  79              	.LBE3:
+  80              		.loc 1 344 3 view .LVU14
+ 345:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 346:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Configure SPI SCK */
+ 347:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pin = NUCLEO_SPIx_SCK_PIN;
+  81              		.loc 1 347 3 view .LVU15
+  82              		.loc 1 347 23 is_stmt 0 view .LVU16
+  83 0032 2023     		movs	r3, #32
+  84 0034 0393     		str	r3, [sp, #12]
+ 348:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  85              		.loc 1 348 3 is_stmt 1 view .LVU17
+  86              		.loc 1 348 24 is_stmt 0 view .LVU18
+  87 0036 0227     		movs	r7, #2
+  88 0038 0497     		str	r7, [sp, #16]
+ 349:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pull  = GPIO_PULLUP;
+  89              		.loc 1 349 3 is_stmt 1 view .LVU19
+  90              		.loc 1 349 25 is_stmt 0 view .LVU20
+  91 003a 0123     		movs	r3, #1
+  92 003c 0593     		str	r3, [sp, #20]
+ 350:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+  93              		.loc 1 350 3 is_stmt 1 view .LVU21
+  94              		.loc 1 350 25 is_stmt 0 view .LVU22
+  95 003e 0323     		movs	r3, #3
+  96 0040 0693     		str	r3, [sp, #24]
+ 351:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Alternate = NUCLEO_SPIx_SCK_AF;
+  97              		.loc 1 351 3 is_stmt 1 view .LVU23
+  98              		.loc 1 351 29 is_stmt 0 view .LVU24
+  99 0042 4FF00508 		mov	r8, #5
+ 100 0046 CDF81C80 		str	r8, [sp, #28]
+ 352:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_Init(NUCLEO_SPIx_SCK_GPIO_PORT, &GPIO_InitStruct);
+ 101              		.loc 1 352 3 is_stmt 1 view .LVU25
+ 102 004a 124E     		ldr	r6, .L3+4
+ 103 004c 03A9     		add	r1, sp, #12
+ 104 004e 3046     		mov	r0, r6
+ 105              	.LVL1:
+ARM GAS  /tmp/ccElJLLx.s 			page 9
+
+
+ 106              		.loc 1 352 3 is_stmt 0 view .LVU26
+ 107 0050 FFF7FEFF 		bl	HAL_GPIO_Init
+ 108              	.LVL2:
+ 353:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 354:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Configure SPI MISO and MOSI */ 
+ 355:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pin = NUCLEO_SPIx_MOSI_PIN;
+ 109              		.loc 1 355 3 is_stmt 1 view .LVU27
+ 110              		.loc 1 355 23 is_stmt 0 view .LVU28
+ 111 0054 8023     		movs	r3, #128
+ 112 0056 0393     		str	r3, [sp, #12]
+ 356:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Alternate = NUCLEO_SPIx_MISO_MOSI_AF;
+ 113              		.loc 1 356 3 is_stmt 1 view .LVU29
+ 114              		.loc 1 356 29 is_stmt 0 view .LVU30
+ 115 0058 CDF81C80 		str	r8, [sp, #28]
+ 357:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pull  = GPIO_PULLDOWN;
+ 116              		.loc 1 357 3 is_stmt 1 view .LVU31
+ 117              		.loc 1 357 25 is_stmt 0 view .LVU32
+ 118 005c 0597     		str	r7, [sp, #20]
+ 358:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_Init(NUCLEO_SPIx_MISO_MOSI_GPIO_PORT, &GPIO_InitStruct);
+ 119              		.loc 1 358 3 is_stmt 1 view .LVU33
+ 120 005e 03A9     		add	r1, sp, #12
+ 121 0060 3046     		mov	r0, r6
+ 122 0062 FFF7FEFF 		bl	HAL_GPIO_Init
+ 123              	.LVL3:
+ 359:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 360:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pin = NUCLEO_SPIx_MISO_PIN;
+ 124              		.loc 1 360 3 view .LVU34
+ 125              		.loc 1 360 23 is_stmt 0 view .LVU35
+ 126 0066 4023     		movs	r3, #64
+ 127 0068 0393     		str	r3, [sp, #12]
+ 361:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pull  = GPIO_PULLDOWN;
+ 128              		.loc 1 361 3 is_stmt 1 view .LVU36
+ 129              		.loc 1 361 25 is_stmt 0 view .LVU37
+ 130 006a 0597     		str	r7, [sp, #20]
+ 362:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_Init(NUCLEO_SPIx_MISO_MOSI_GPIO_PORT, &GPIO_InitStruct);
+ 131              		.loc 1 362 3 is_stmt 1 view .LVU38
+ 132 006c 03A9     		add	r1, sp, #12
+ 133 006e 3046     		mov	r0, r6
+ 134 0070 FFF7FEFF 		bl	HAL_GPIO_Init
+ 135              	.LVL4:
+ 363:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 364:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /*** Configure the SPI peripheral ***/ 
+ 365:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Enable SPI clock */
+ 366:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   NUCLEO_SPIx_CLK_ENABLE();
+ 136              		.loc 1 366 3 view .LVU39
+ 137              	.LBB4:
+ 138              		.loc 1 366 3 view .LVU40
+ 139 0074 0295     		str	r5, [sp, #8]
+ 140              		.loc 1 366 3 view .LVU41
+ 141 0076 636C     		ldr	r3, [r4, #68]
+ 142 0078 43F48053 		orr	r3, r3, #4096
+ 143 007c 6364     		str	r3, [r4, #68]
+ 144              		.loc 1 366 3 view .LVU42
+ 145 007e 636C     		ldr	r3, [r4, #68]
+ 146 0080 03F48053 		and	r3, r3, #4096
+ 147 0084 0293     		str	r3, [sp, #8]
+ 148              		.loc 1 366 3 view .LVU43
+ARM GAS  /tmp/ccElJLLx.s 			page 10
+
+
+ 149 0086 029B     		ldr	r3, [sp, #8]
+ 150              	.LBE4:
+ 151              		.loc 1 366 3 view .LVU44
+ 367:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 152              		.loc 1 367 1 is_stmt 0 view .LVU45
+ 153 0088 08B0     		add	sp, sp, #32
+ 154              	.LCFI2:
+ 155              		.cfi_def_cfa_offset 24
+ 156              		@ sp needed
+ 157 008a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 158              	.L4:
+ 159 008e 00BF     		.align	2
+ 160              	.L3:
+ 161 0090 00380240 		.word	1073887232
+ 162 0094 00000240 		.word	1073872896
+ 163              		.cfi_endproc
+ 164              	.LFE144:
+ 166              		.section	.text.ADCx_MspInit,"ax",%progbits
+ 167              		.align	1
+ 168              		.syntax unified
+ 169              		.thumb
+ 170              		.thumb_func
+ 171              		.fpu fpv4-sp-d16
+ 173              	ADCx_MspInit:
+ 174              	.LVL5:
+ 175              	.LFB158:
+ 368:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 369:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 370:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Initializes SPI HAL.
+ 371:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 372:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void SPIx_Init(void)
+ 373:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 374:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   if(HAL_SPI_GetState(&hnucleo_Spi) == HAL_SPI_STATE_RESET)
+ 375:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 376:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     /* SPI Config */
+ 377:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Instance = NUCLEO_SPIx;
+ 378:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       /* SPI baudrate is set to 12,5 MHz maximum (APB1/SPI_BaudRatePrescaler = 100/8 = 12,5 MHz) 
+ 379:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****        to verify these constraints:
+ 380:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****           - ST7735 LCD SPI interface max baudrate is 15MHz for write and 6.66MHz for read
+ 381:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****             Since the provided driver doesn't use read capability from LCD, only constraint 
+ 382:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****             on write baudrate is considered.
+ 383:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****           - SD card SPI interface max baudrate is 25MHz for write/read
+ 384:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****           - PCLK2 max frequency is 100 MHz 
+ 385:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****        */ 
+ 386:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
+ 387:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.Direction = SPI_DIRECTION_2LINES;
+ 388:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.CLKPhase = SPI_PHASE_2EDGE;
+ 389:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.CLKPolarity = SPI_POLARITY_HIGH;
+ 390:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
+ 391:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.CRCPolynomial = 7;
+ 392:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.DataSize = SPI_DATASIZE_8BIT;
+ 393:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.FirstBit = SPI_FIRSTBIT_MSB;
+ 394:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.NSS = SPI_NSS_SOFT;
+ 395:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.TIMode = SPI_TIMODE_DISABLED;
+ 396:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.Mode = SPI_MODE_MASTER;
+ 397:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 398:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     SPIx_MspInit(&hnucleo_Spi);
+ARM GAS  /tmp/ccElJLLx.s 			page 11
+
+
+ 399:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_SPI_Init(&hnucleo_Spi);
+ 400:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 401:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 402:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 403:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 404:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  SPI Write a byte to device
+ 405:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  DataIn: value to be written
+ 406:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  DataOut: value to be read
+ 407:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  DataLegnth: length of data
+ 408:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 409:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void SPIx_WriteReadData(const uint8_t *DataIn, uint8_t *DataOut, uint16_t DataLegnth)
+ 410:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 411:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 412:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 413:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   status = HAL_SPI_TransmitReceive(&hnucleo_Spi, (uint8_t*) DataIn, DataOut, DataLegnth, SpixTimeou
+ 414:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 415:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Check the communication status */
+ 416:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   if(status != HAL_OK)
+ 417:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 418:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     /* Execute user timeout callback */
+ 419:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     SPIx_Error();
+ 420:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 421:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 422:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 423:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 424:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  SPI Write a byte to device.
+ 425:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  Value: value to be written
+ 426:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 427:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void SPIx_Write(uint8_t Value)
+ 428:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 429:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 430:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   uint8_t data;
+ 431:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 432:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   status = HAL_SPI_TransmitReceive(&hnucleo_Spi, (uint8_t*) &Value, &data, 1, SpixTimeout);
+ 433:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     
+ 434:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Check the communication status */
+ 435:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   if(status != HAL_OK)
+ 436:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 437:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     /* Execute user timeout callback */
+ 438:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     SPIx_Error();
+ 439:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 440:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 441:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 442:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 443:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  SPI error treatment function.
+ 444:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 445:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void SPIx_Error (void)
+ 446:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 447:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* De-initialize the SPI communication BUS */
+ 448:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_SPI_DeInit(&hnucleo_Spi);
+ 449:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 450:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Re-Initiaize the SPI communication BUS */
+ 451:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   SPIx_Init();
+ 452:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 453:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 454:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /******************************************************************************
+ 455:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****                             LINK OPERATIONS
+ARM GAS  /tmp/ccElJLLx.s 			page 12
+
+
+ 456:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** *******************************************************************************/
+ 457:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 458:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /********************************* LINK SD ************************************/
+ 459:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 460:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Initializes the SD Card and put it into StandBy State (Ready for 
+ 461:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *         data transfer).
+ 462:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 463:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void SD_IO_Init(void)
+ 464:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 465:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef  GPIO_InitStruct;
+ 466:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   uint8_t counter;
+ 467:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 468:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* SD_CS_GPIO Periph clock enable */
+ 469:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   SD_CS_GPIO_CLK_ENABLE();
+ 470:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 471:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Configure SD_CS_PIN pin: SD Card CS pin */
+ 472:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pin = SD_CS_PIN;
+ 473:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 474:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
+ 475:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+ 476:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_Init(SD_CS_GPIO_PORT, &GPIO_InitStruct);
+ 477:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 478:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /*------------Put SD in SPI mode--------------*/
+ 479:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* SD SPI Config */
+ 480:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   SPIx_Init();
+ 481:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 482:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* SD chip select high */
+ 483:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   SD_CS_HIGH();
+ 484:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 485:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Send dummy byte 0xFF, 10 times with CS high */
+ 486:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Rise CS and MOSI for 80 clocks cycles */
+ 487:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   for (counter = 0; counter <= 9; counter++)
+ 488:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 489:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     /* Send dummy byte 0xFF */
+ 490:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     SD_IO_WriteByte(SD_DUMMY_BYTE);
+ 491:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 492:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 493:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 494:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 495:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief Set the SD_CS pin.
+ 496:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param val: pin value.
+ 497:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 498:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void SD_IO_CSState(uint8_t val)
+ 499:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 500:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   if(val == 1) 
+ 501:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 502:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     SD_CS_HIGH();
+ 503:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 504:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   else
+ 505:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 506:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     SD_CS_LOW();
+ 507:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 508:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 509:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 510:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 511:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief Write a byte on the SD.
+ 512:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  DataIn: value to be written
+ARM GAS  /tmp/ccElJLLx.s 			page 13
+
+
+ 513:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  DataOut: value to be read
+ 514:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  DataLength: length of data
+ 515:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 516:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void SD_IO_WriteReadData(const uint8_t *DataIn, uint8_t *DataOut, uint16_t DataLength)
+ 517:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 518:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Send the byte */
+ 519:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   SPIx_WriteReadData(DataIn, DataOut, DataLength);
+ 520:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 521:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 522:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 523:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Writes a byte on the SD.
+ 524:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  Data: byte to send.
+ 525:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 526:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** uint8_t SD_IO_WriteByte(uint8_t Data)
+ 527:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 528:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   uint8_t tmp;
+ 529:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Send the byte */
+ 530:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   SPIx_WriteReadData(&Data,&tmp,1);
+ 531:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   return tmp;
+ 532:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 533:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 534:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /********************************* LINK LCD ***********************************/
+ 535:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 536:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Initializes the LCD.
+ 537:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 538:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void LCD_IO_Init(void)
+ 539:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 540:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef  GPIO_InitStruct;
+ 541:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****    
+ 542:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* LCD_CS_GPIO and LCD_DC_GPIO Periph clock enable */
+ 543:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_CS_GPIO_CLK_ENABLE();
+ 544:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_DC_GPIO_CLK_ENABLE();
+ 545:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 546:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Configure LCD_CS_PIN pin: LCD Card CS pin */
+ 547:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pin = LCD_CS_PIN;
+ 548:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 549:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 550:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+ 551:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_Init(LCD_CS_GPIO_PORT, &GPIO_InitStruct);
+ 552:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 553:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Configure LCD_DC_PIN pin: LCD Card DC pin */
+ 554:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pin = LCD_DC_PIN;
+ 555:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_Init(LCD_DC_GPIO_PORT, &GPIO_InitStruct);
+ 556:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 557:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* LCD chip select high */
+ 558:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_CS_HIGH();
+ 559:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 560:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* LCD SPI Config */
+ 561:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   SPIx_Init();
+ 562:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 563:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 564:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 565:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Writes command to select the LCD register.
+ 566:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  LCDReg: Address of the selected register.
+ 567:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 568:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void LCD_IO_WriteReg(uint8_t LCDReg)
+ 569:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ARM GAS  /tmp/ccElJLLx.s 			page 14
+
+
+ 570:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Reset LCD control line CS */
+ 571:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_CS_LOW();
+ 572:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 573:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Set LCD data/command line DC to Low */
+ 574:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_DC_LOW();
+ 575:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     
+ 576:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Send Command */
+ 577:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   SPIx_Write(LCDReg);
+ 578:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 579:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Deselect : Chip Select high */
+ 580:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_CS_HIGH();
+ 581:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 582:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 583:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 584:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Writes data to select the LCD register.
+ 585:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *         This function must be used after st7735_WriteReg() function
+ 586:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  Data: data to write to the selected register.
+ 587:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 588:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void LCD_IO_WriteData(uint8_t Data)
+ 589:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 590:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Reset LCD control line CS */
+ 591:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_CS_LOW();
+ 592:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 593:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Set LCD data/command line DC to High */
+ 594:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_DC_HIGH();
+ 595:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 596:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Send Data */
+ 597:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   SPIx_Write(Data);
+ 598:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 599:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Deselect : Chip Select high */
+ 600:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_CS_HIGH();
+ 601:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 602:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 603:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 604:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Writes register value.
+ 605:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  pData: Pointer on the register value
+ 606:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  Size: Size of byte to transmit to the register
+ 607:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 608:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void LCD_IO_WriteMultipleData(uint8_t *pData, uint32_t Size)
+ 609:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 610:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   uint32_t counter = 0;
+ 611:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   __IO uint32_t data = 0;
+ 612:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 613:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Reset LCD control line CS */
+ 614:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_CS_LOW();
+ 615:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 616:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Set LCD data/command line DC to High */
+ 617:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_DC_HIGH();
+ 618:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 619:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   if (Size == 1)
+ 620:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 621:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     /* Only 1 byte to be sent to LCD - general interface can be used */
+ 622:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     /* Send Data */
+ 623:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     SPIx_Write(*pData);
+ 624:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 625:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   else
+ 626:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ARM GAS  /tmp/ccElJLLx.s 			page 15
+
+
+ 627:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     /* Several data should be sent in a raw */
+ 628:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     /* Direct SPI accesses for optimization */
+ 629:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     for (counter = Size; counter != 0; counter--)
+ 630:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     {
+ 631:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       while(((hnucleo_Spi.Instance->SR) & SPI_FLAG_TXE) != SPI_FLAG_TXE)
+ 632:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       {
+ 633:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       }
+ 634:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       /* Need to invert bytes for LCD*/
+ 635:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       *((__IO uint8_t*)&hnucleo_Spi.Instance->DR) = *(pData+1);
+ 636:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       
+ 637:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       while(((hnucleo_Spi.Instance->SR) & SPI_FLAG_TXE) != SPI_FLAG_TXE)
+ 638:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       {
+ 639:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       }
+ 640:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       *((__IO uint8_t*)&hnucleo_Spi.Instance->DR) = *pData;
+ 641:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       counter--;
+ 642:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       pData += 2;
+ 643:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       }
+ 644:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 645:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     /* Wait until the bus is ready before releasing Chip select */ 
+ 646:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     while(((hnucleo_Spi.Instance->SR) & SPI_FLAG_BSY) != RESET)
+ 647:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     {
+ 648:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     } 
+ 649:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   } 
+ 650:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 651:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Empty the Rx fifo */
+ 652:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   data = *(&hnucleo_Spi.Instance->DR);
+ 653:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   UNUSED(data);
+ 654:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 655:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Deselect : Chip Select high */
+ 656:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_CS_HIGH();
+ 657:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 658:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 659:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 660:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Wait for loop in ms.
+ 661:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @param  Delay in ms.
+ 662:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 663:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void LCD_Delay(uint32_t Delay)
+ 664:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 665:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_Delay(Delay);
+ 666:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 667:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #endif /* HAL_SPI_MODULE_ENABLED */
+ 668:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 669:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /******************************* ADC driver ********************************/
+ 670:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #ifdef HAL_ADC_MODULE_ENABLED
+ 671:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 672:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 673:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Initializes ADC MSP.
+ 674:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 675:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void ADCx_MspInit(ADC_HandleTypeDef *hadc)
+ 676:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 176              		.loc 1 676 1 is_stmt 1 view -0
+ 177              		.cfi_startproc
+ 178              		@ args = 0, pretend = 0, frame = 32
+ 179              		@ frame_needed = 0, uses_anonymous_args = 0
+ 180              		.loc 1 676 1 is_stmt 0 view .LVU47
+ 181 0000 30B5     		push	{r4, r5, lr}
+ 182              	.LCFI3:
+ARM GAS  /tmp/ccElJLLx.s 			page 16
+
+
+ 183              		.cfi_def_cfa_offset 12
+ 184              		.cfi_offset 4, -12
+ 185              		.cfi_offset 5, -8
+ 186              		.cfi_offset 14, -4
+ 187 0002 89B0     		sub	sp, sp, #36
+ 188              	.LCFI4:
+ 189              		.cfi_def_cfa_offset 48
+ 677:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef  GPIO_InitStruct;
+ 190              		.loc 1 677 3 is_stmt 1 view .LVU48
+ 678:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 679:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /*** Configure the GPIOs ***/  
+ 680:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Enable GPIO clock */
+ 681:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   NUCLEO_ADCx_GPIO_CLK_ENABLE();
+ 191              		.loc 1 681 3 view .LVU49
+ 192              	.LBB5:
+ 193              		.loc 1 681 3 view .LVU50
+ 194 0004 0025     		movs	r5, #0
+ 195 0006 0195     		str	r5, [sp, #4]
+ 196              		.loc 1 681 3 view .LVU51
+ 197 0008 0F4C     		ldr	r4, .L7
+ 198 000a 236B     		ldr	r3, [r4, #48]
+ 199 000c 43F00203 		orr	r3, r3, #2
+ 200 0010 2363     		str	r3, [r4, #48]
+ 201              		.loc 1 681 3 view .LVU52
+ 202 0012 236B     		ldr	r3, [r4, #48]
+ 203 0014 03F00203 		and	r3, r3, #2
+ 204 0018 0193     		str	r3, [sp, #4]
+ 205              		.loc 1 681 3 view .LVU53
+ 206 001a 019B     		ldr	r3, [sp, #4]
+ 207              	.LBE5:
+ 208              		.loc 1 681 3 view .LVU54
+ 682:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 683:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Configure the selected ADC Channel as analog input */
+ 684:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pin = NUCLEO_ADCx_GPIO_PIN ;
+ 209              		.loc 1 684 3 view .LVU55
+ 210              		.loc 1 684 23 is_stmt 0 view .LVU56
+ 211 001c 0123     		movs	r3, #1
+ 212 001e 0393     		str	r3, [sp, #12]
+ 685:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+ 213              		.loc 1 685 3 is_stmt 1 view .LVU57
+ 214              		.loc 1 685 24 is_stmt 0 view .LVU58
+ 215 0020 0323     		movs	r3, #3
+ 216 0022 0493     		str	r3, [sp, #16]
+ 686:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 217              		.loc 1 686 3 is_stmt 1 view .LVU59
+ 218              		.loc 1 686 24 is_stmt 0 view .LVU60
+ 219 0024 0595     		str	r5, [sp, #20]
+ 687:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_Init(NUCLEO_ADCx_GPIO_PORT, &GPIO_InitStruct);
+ 220              		.loc 1 687 3 is_stmt 1 view .LVU61
+ 221 0026 03A9     		add	r1, sp, #12
+ 222 0028 0848     		ldr	r0, .L7+4
+ 223              	.LVL6:
+ 224              		.loc 1 687 3 is_stmt 0 view .LVU62
+ 225 002a FFF7FEFF 		bl	HAL_GPIO_Init
+ 226              	.LVL7:
+ 688:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 689:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /*** Configure the ADC peripheral ***/ 
+ARM GAS  /tmp/ccElJLLx.s 			page 17
+
+
+ 690:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Enable ADC clock */
+ 691:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   NUCLEO_ADCx_CLK_ENABLE(); 
+ 227              		.loc 1 691 3 is_stmt 1 view .LVU63
+ 228              	.LBB6:
+ 229              		.loc 1 691 3 view .LVU64
+ 230 002e 0295     		str	r5, [sp, #8]
+ 231              		.loc 1 691 3 view .LVU65
+ 232 0030 636C     		ldr	r3, [r4, #68]
+ 233 0032 43F48073 		orr	r3, r3, #256
+ 234 0036 6364     		str	r3, [r4, #68]
+ 235              		.loc 1 691 3 view .LVU66
+ 236 0038 636C     		ldr	r3, [r4, #68]
+ 237 003a 03F48073 		and	r3, r3, #256
+ 238 003e 0293     		str	r3, [sp, #8]
+ 239              		.loc 1 691 3 view .LVU67
+ 240 0040 029B     		ldr	r3, [sp, #8]
+ 241              	.LBE6:
+ 242              		.loc 1 691 3 view .LVU68
+ 692:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 243              		.loc 1 692 1 is_stmt 0 view .LVU69
+ 244 0042 09B0     		add	sp, sp, #36
+ 245              	.LCFI5:
+ 246              		.cfi_def_cfa_offset 12
+ 247              		@ sp needed
+ 248 0044 30BD     		pop	{r4, r5, pc}
+ 249              	.L8:
+ 250 0046 00BF     		.align	2
+ 251              	.L7:
+ 252 0048 00380240 		.word	1073887232
+ 253 004c 00040240 		.word	1073873920
+ 254              		.cfi_endproc
+ 255              	.LFE158:
+ 257              		.section	.text.ADCx_MspDeInit,"ax",%progbits
+ 258              		.align	1
+ 259              		.syntax unified
+ 260              		.thumb
+ 261              		.thumb_func
+ 262              		.fpu fpv4-sp-d16
+ 264              	ADCx_MspDeInit:
+ 265              	.LVL8:
+ 266              	.LFB159:
+ 693:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 694:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 695:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  DeInitializes ADC MSP.
+ 696:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @note ADC DeInit does not disable the GPIO clock
+ 697:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 698:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void ADCx_MspDeInit(ADC_HandleTypeDef *hadc)
+ 699:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 267              		.loc 1 699 1 is_stmt 1 view -0
+ 268              		.cfi_startproc
+ 269              		@ args = 0, pretend = 0, frame = 0
+ 270              		@ frame_needed = 0, uses_anonymous_args = 0
+ 271              		.loc 1 699 1 is_stmt 0 view .LVU71
+ 272 0000 08B5     		push	{r3, lr}
+ 273              	.LCFI6:
+ 274              		.cfi_def_cfa_offset 8
+ 275              		.cfi_offset 3, -8
+ARM GAS  /tmp/ccElJLLx.s 			page 18
+
+
+ 276              		.cfi_offset 14, -4
+ 700:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef  GPIO_InitStruct;
+ 277              		.loc 1 700 3 is_stmt 1 view .LVU72
+ 701:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 702:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /*** DeInit the ADC peripheral ***/ 
+ 703:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Disable ADC clock */
+ 704:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   NUCLEO_ADCx_CLK_DISABLE(); 
+ 278              		.loc 1 704 3 view .LVU73
+ 279 0002 054A     		ldr	r2, .L11
+ 280 0004 536C     		ldr	r3, [r2, #68]
+ 281 0006 23F48073 		bic	r3, r3, #256
+ 282 000a 5364     		str	r3, [r2, #68]
+ 705:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 706:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Configure the selected ADC Channel as analog input */
+ 707:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pin = NUCLEO_ADCx_GPIO_PIN ;
+ 283              		.loc 1 707 3 view .LVU74
+ 708:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_DeInit(NUCLEO_ADCx_GPIO_PORT, GPIO_InitStruct.Pin);
+ 284              		.loc 1 708 3 view .LVU75
+ 285 000c 0121     		movs	r1, #1
+ 286 000e 0348     		ldr	r0, .L11+4
+ 287              	.LVL9:
+ 288              		.loc 1 708 3 is_stmt 0 view .LVU76
+ 289 0010 FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 290              	.LVL10:
+ 709:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 710:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Disable GPIO clock has to be done by the application*/
+ 711:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* NUCLEO_ADCx_GPIO_CLK_DISABLE(); */
+ 712:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 291              		.loc 1 712 1 view .LVU77
+ 292 0014 08BD     		pop	{r3, pc}
+ 293              	.L12:
+ 294 0016 00BF     		.align	2
+ 295              	.L11:
+ 296 0018 00380240 		.word	1073887232
+ 297 001c 00040240 		.word	1073873920
+ 298              		.cfi_endproc
+ 299              	.LFE159:
+ 301              		.section	.text.SPIx_Init,"ax",%progbits
+ 302              		.align	1
+ 303              		.syntax unified
+ 304              		.thumb
+ 305              		.thumb_func
+ 306              		.fpu fpv4-sp-d16
+ 308              	SPIx_Init:
+ 309              	.LFB145:
+ 373:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   if(HAL_SPI_GetState(&hnucleo_Spi) == HAL_SPI_STATE_RESET)
+ 310              		.loc 1 373 1 is_stmt 1 view -0
+ 311              		.cfi_startproc
+ 312              		@ args = 0, pretend = 0, frame = 0
+ 313              		@ frame_needed = 0, uses_anonymous_args = 0
+ 314 0000 10B5     		push	{r4, lr}
+ 315              	.LCFI7:
+ 316              		.cfi_def_cfa_offset 8
+ 317              		.cfi_offset 4, -8
+ 318              		.cfi_offset 14, -4
+ 374:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 319              		.loc 1 374 3 view .LVU79
+ARM GAS  /tmp/ccElJLLx.s 			page 19
+
+
+ 374:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 320              		.loc 1 374 6 is_stmt 0 view .LVU80
+ 321 0002 1148     		ldr	r0, .L17
+ 322 0004 FFF7FEFF 		bl	HAL_SPI_GetState
+ 323              	.LVL11:
+ 374:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 324              		.loc 1 374 5 view .LVU81
+ 325 0008 00B1     		cbz	r0, .L16
+ 326              	.L13:
+ 401:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 327              		.loc 1 401 1 view .LVU82
+ 328 000a 10BD     		pop	{r4, pc}
+ 329              	.L16:
+ 377:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       /* SPI baudrate is set to 12,5 MHz maximum (APB1/SPI_BaudRatePrescaler = 100/8 = 12,5 MHz) 
+ 330              		.loc 1 377 5 is_stmt 1 view .LVU83
+ 377:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       /* SPI baudrate is set to 12,5 MHz maximum (APB1/SPI_BaudRatePrescaler = 100/8 = 12,5 MHz) 
+ 331              		.loc 1 377 26 is_stmt 0 view .LVU84
+ 332 000c 0E4C     		ldr	r4, .L17
+ 333 000e 0F4B     		ldr	r3, .L17+4
+ 334 0010 2360     		str	r3, [r4]
+ 386:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.Direction = SPI_DIRECTION_2LINES;
+ 335              		.loc 1 386 5 is_stmt 1 view .LVU85
+ 386:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.Direction = SPI_DIRECTION_2LINES;
+ 336              		.loc 1 386 40 is_stmt 0 view .LVU86
+ 337 0012 1023     		movs	r3, #16
+ 338 0014 E361     		str	r3, [r4, #28]
+ 387:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.CLKPhase = SPI_PHASE_2EDGE;
+ 339              		.loc 1 387 5 is_stmt 1 view .LVU87
+ 387:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.CLKPhase = SPI_PHASE_2EDGE;
+ 340              		.loc 1 387 32 is_stmt 0 view .LVU88
+ 341 0016 0023     		movs	r3, #0
+ 342 0018 A360     		str	r3, [r4, #8]
+ 388:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.CLKPolarity = SPI_POLARITY_HIGH;
+ 343              		.loc 1 388 5 is_stmt 1 view .LVU89
+ 388:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.CLKPolarity = SPI_POLARITY_HIGH;
+ 344              		.loc 1 388 31 is_stmt 0 view .LVU90
+ 345 001a 0122     		movs	r2, #1
+ 346 001c 6261     		str	r2, [r4, #20]
+ 389:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
+ 347              		.loc 1 389 5 is_stmt 1 view .LVU91
+ 389:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
+ 348              		.loc 1 389 34 is_stmt 0 view .LVU92
+ 349 001e 0222     		movs	r2, #2
+ 350 0020 2261     		str	r2, [r4, #16]
+ 390:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.CRCPolynomial = 7;
+ 351              		.loc 1 390 5 is_stmt 1 view .LVU93
+ 390:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.CRCPolynomial = 7;
+ 352              		.loc 1 390 37 is_stmt 0 view .LVU94
+ 353 0022 A362     		str	r3, [r4, #40]
+ 391:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.DataSize = SPI_DATASIZE_8BIT;
+ 354              		.loc 1 391 5 is_stmt 1 view .LVU95
+ 391:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.DataSize = SPI_DATASIZE_8BIT;
+ 355              		.loc 1 391 36 is_stmt 0 view .LVU96
+ 356 0024 0722     		movs	r2, #7
+ 357 0026 E262     		str	r2, [r4, #44]
+ 392:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.FirstBit = SPI_FIRSTBIT_MSB;
+ 358              		.loc 1 392 5 is_stmt 1 view .LVU97
+ARM GAS  /tmp/ccElJLLx.s 			page 20
+
+
+ 392:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.FirstBit = SPI_FIRSTBIT_MSB;
+ 359              		.loc 1 392 31 is_stmt 0 view .LVU98
+ 360 0028 E360     		str	r3, [r4, #12]
+ 393:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.NSS = SPI_NSS_SOFT;
+ 361              		.loc 1 393 5 is_stmt 1 view .LVU99
+ 393:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.NSS = SPI_NSS_SOFT;
+ 362              		.loc 1 393 31 is_stmt 0 view .LVU100
+ 363 002a 2362     		str	r3, [r4, #32]
+ 394:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.TIMode = SPI_TIMODE_DISABLED;
+ 364              		.loc 1 394 5 is_stmt 1 view .LVU101
+ 394:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.TIMode = SPI_TIMODE_DISABLED;
+ 365              		.loc 1 394 26 is_stmt 0 view .LVU102
+ 366 002c 4FF40072 		mov	r2, #512
+ 367 0030 A261     		str	r2, [r4, #24]
+ 395:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.Mode = SPI_MODE_MASTER;
+ 368              		.loc 1 395 5 is_stmt 1 view .LVU103
+ 395:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Spi.Init.Mode = SPI_MODE_MASTER;
+ 369              		.loc 1 395 29 is_stmt 0 view .LVU104
+ 370 0032 6362     		str	r3, [r4, #36]
+ 396:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 371              		.loc 1 396 5 is_stmt 1 view .LVU105
+ 396:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 372              		.loc 1 396 27 is_stmt 0 view .LVU106
+ 373 0034 4FF48273 		mov	r3, #260
+ 374 0038 6360     		str	r3, [r4, #4]
+ 398:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_SPI_Init(&hnucleo_Spi);
+ 375              		.loc 1 398 5 is_stmt 1 view .LVU107
+ 376 003a 2046     		mov	r0, r4
+ 377 003c FFF7FEFF 		bl	SPIx_MspInit
+ 378              	.LVL12:
+ 399:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 379              		.loc 1 399 5 view .LVU108
+ 380 0040 2046     		mov	r0, r4
+ 381 0042 FFF7FEFF 		bl	HAL_SPI_Init
+ 382              	.LVL13:
+ 401:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 383              		.loc 1 401 1 is_stmt 0 view .LVU109
+ 384 0046 E0E7     		b	.L13
+ 385              	.L18:
+ 386              		.align	2
+ 387              	.L17:
+ 388 0048 00000000 		.word	.LANCHOR0
+ 389 004c 00300140 		.word	1073819648
+ 390              		.cfi_endproc
+ 391              	.LFE145:
+ 393              		.section	.text.SPIx_Error,"ax",%progbits
+ 394              		.align	1
+ 395              		.syntax unified
+ 396              		.thumb
+ 397              		.thumb_func
+ 398              		.fpu fpv4-sp-d16
+ 400              	SPIx_Error:
+ 401              	.LFB148:
+ 446:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* De-initialize the SPI communication BUS */
+ 402              		.loc 1 446 1 is_stmt 1 view -0
+ 403              		.cfi_startproc
+ 404              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccElJLLx.s 			page 21
+
+
+ 405              		@ frame_needed = 0, uses_anonymous_args = 0
+ 406 0000 08B5     		push	{r3, lr}
+ 407              	.LCFI8:
+ 408              		.cfi_def_cfa_offset 8
+ 409              		.cfi_offset 3, -8
+ 410              		.cfi_offset 14, -4
+ 448:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 411              		.loc 1 448 3 view .LVU111
+ 412 0002 0348     		ldr	r0, .L21
+ 413 0004 FFF7FEFF 		bl	HAL_SPI_DeInit
+ 414              	.LVL14:
+ 451:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 415              		.loc 1 451 3 view .LVU112
+ 416 0008 FFF7FEFF 		bl	SPIx_Init
+ 417              	.LVL15:
+ 452:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 418              		.loc 1 452 1 is_stmt 0 view .LVU113
+ 419 000c 08BD     		pop	{r3, pc}
+ 420              	.L22:
+ 421 000e 00BF     		.align	2
+ 422              	.L21:
+ 423 0010 00000000 		.word	.LANCHOR0
+ 424              		.cfi_endproc
+ 425              	.LFE148:
+ 427              		.section	.text.SPIx_WriteReadData,"ax",%progbits
+ 428              		.align	1
+ 429              		.syntax unified
+ 430              		.thumb
+ 431              		.thumb_func
+ 432              		.fpu fpv4-sp-d16
+ 434              	SPIx_WriteReadData:
+ 435              	.LVL16:
+ 436              	.LFB146:
+ 410:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 437              		.loc 1 410 1 is_stmt 1 view -0
+ 438              		.cfi_startproc
+ 439              		@ args = 0, pretend = 0, frame = 0
+ 440              		@ frame_needed = 0, uses_anonymous_args = 0
+ 410:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 441              		.loc 1 410 1 is_stmt 0 view .LVU115
+ 442 0000 00B5     		push	{lr}
+ 443              	.LCFI9:
+ 444              		.cfi_def_cfa_offset 4
+ 445              		.cfi_offset 14, -4
+ 446 0002 83B0     		sub	sp, sp, #12
+ 447              	.LCFI10:
+ 448              		.cfi_def_cfa_offset 16
+ 449 0004 1346     		mov	r3, r2
+ 411:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 450              		.loc 1 411 3 is_stmt 1 view .LVU116
+ 451              	.LVL17:
+ 413:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 452              		.loc 1 413 3 view .LVU117
+ 413:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 453              		.loc 1 413 12 is_stmt 0 view .LVU118
+ 454 0006 074A     		ldr	r2, .L27
+ 455              	.LVL18:
+ARM GAS  /tmp/ccElJLLx.s 			page 22
+
+
+ 413:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 456              		.loc 1 413 12 view .LVU119
+ 457 0008 1268     		ldr	r2, [r2]
+ 458 000a 0092     		str	r2, [sp]
+ 459 000c 0A46     		mov	r2, r1
+ 460 000e 0146     		mov	r1, r0
+ 461              	.LVL19:
+ 413:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 462              		.loc 1 413 12 view .LVU120
+ 463 0010 0548     		ldr	r0, .L27+4
+ 464              	.LVL20:
+ 413:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 465              		.loc 1 413 12 view .LVU121
+ 466 0012 FFF7FEFF 		bl	HAL_SPI_TransmitReceive
+ 467              	.LVL21:
+ 416:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 468              		.loc 1 416 3 is_stmt 1 view .LVU122
+ 416:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 469              		.loc 1 416 5 is_stmt 0 view .LVU123
+ 470 0016 10B9     		cbnz	r0, .L26
+ 471              	.LVL22:
+ 472              	.L23:
+ 421:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 473              		.loc 1 421 1 view .LVU124
+ 474 0018 03B0     		add	sp, sp, #12
+ 475              	.LCFI11:
+ 476              		.cfi_remember_state
+ 477              		.cfi_def_cfa_offset 4
+ 478              		@ sp needed
+ 479 001a 5DF804FB 		ldr	pc, [sp], #4
+ 480              	.LVL23:
+ 481              	.L26:
+ 482              	.LCFI12:
+ 483              		.cfi_restore_state
+ 419:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 484              		.loc 1 419 5 is_stmt 1 view .LVU125
+ 485 001e FFF7FEFF 		bl	SPIx_Error
+ 486              	.LVL24:
+ 421:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 487              		.loc 1 421 1 is_stmt 0 view .LVU126
+ 488 0022 F9E7     		b	.L23
+ 489              	.L28:
+ 490              		.align	2
+ 491              	.L27:
+ 492 0024 00000000 		.word	.LANCHOR1
+ 493 0028 00000000 		.word	.LANCHOR0
+ 494              		.cfi_endproc
+ 495              	.LFE146:
+ 497              		.section	.text.SPIx_Write,"ax",%progbits
+ 498              		.align	1
+ 499              		.syntax unified
+ 500              		.thumb
+ 501              		.thumb_func
+ 502              		.fpu fpv4-sp-d16
+ 504              	SPIx_Write:
+ 505              	.LVL25:
+ 506              	.LFB147:
+ARM GAS  /tmp/ccElJLLx.s 			page 23
+
+
+ 428:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 507              		.loc 1 428 1 is_stmt 1 view -0
+ 508              		.cfi_startproc
+ 509              		@ args = 0, pretend = 0, frame = 16
+ 510              		@ frame_needed = 0, uses_anonymous_args = 0
+ 428:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 511              		.loc 1 428 1 is_stmt 0 view .LVU128
+ 512 0000 00B5     		push	{lr}
+ 513              	.LCFI13:
+ 514              		.cfi_def_cfa_offset 4
+ 515              		.cfi_offset 14, -4
+ 516 0002 87B0     		sub	sp, sp, #28
+ 517              	.LCFI14:
+ 518              		.cfi_def_cfa_offset 32
+ 519 0004 8DF80F00 		strb	r0, [sp, #15]
+ 429:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   uint8_t data;
+ 520              		.loc 1 429 3 is_stmt 1 view .LVU129
+ 521              	.LVL26:
+ 430:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 522              		.loc 1 430 3 view .LVU130
+ 432:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     
+ 523              		.loc 1 432 3 view .LVU131
+ 432:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     
+ 524              		.loc 1 432 12 is_stmt 0 view .LVU132
+ 525 0008 084B     		ldr	r3, .L33
+ 526 000a 1B68     		ldr	r3, [r3]
+ 527 000c 0093     		str	r3, [sp]
+ 528 000e 0123     		movs	r3, #1
+ 529 0010 0DF11702 		add	r2, sp, #23
+ 530 0014 0DF10F01 		add	r1, sp, #15
+ 531 0018 0548     		ldr	r0, .L33+4
+ 532              	.LVL27:
+ 432:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     
+ 533              		.loc 1 432 12 view .LVU133
+ 534 001a FFF7FEFF 		bl	HAL_SPI_TransmitReceive
+ 535              	.LVL28:
+ 435:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 536              		.loc 1 435 3 is_stmt 1 view .LVU134
+ 435:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 537              		.loc 1 435 5 is_stmt 0 view .LVU135
+ 538 001e 10B9     		cbnz	r0, .L32
+ 539              	.LVL29:
+ 540              	.L29:
+ 440:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 541              		.loc 1 440 1 view .LVU136
+ 542 0020 07B0     		add	sp, sp, #28
+ 543              	.LCFI15:
+ 544              		.cfi_remember_state
+ 545              		.cfi_def_cfa_offset 4
+ 546              		@ sp needed
+ 547 0022 5DF804FB 		ldr	pc, [sp], #4
+ 548              	.LVL30:
+ 549              	.L32:
+ 550              	.LCFI16:
+ 551              		.cfi_restore_state
+ 438:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 552              		.loc 1 438 5 is_stmt 1 view .LVU137
+ARM GAS  /tmp/ccElJLLx.s 			page 24
+
+
+ 553 0026 FFF7FEFF 		bl	SPIx_Error
+ 554              	.LVL31:
+ 440:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 555              		.loc 1 440 1 is_stmt 0 view .LVU138
+ 556 002a F9E7     		b	.L29
+ 557              	.L34:
+ 558              		.align	2
+ 559              	.L33:
+ 560 002c 00000000 		.word	.LANCHOR1
+ 561 0030 00000000 		.word	.LANCHOR0
+ 562              		.cfi_endproc
+ 563              	.LFE147:
+ 565              		.section	.text.ADCx_Init,"ax",%progbits
+ 566              		.align	1
+ 567              		.syntax unified
+ 568              		.thumb
+ 569              		.thumb_func
+ 570              		.fpu fpv4-sp-d16
+ 572              	ADCx_Init:
+ 573              	.LFB160:
+ 713:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 714:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 715:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Initializes ADC HAL.
+ 716:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 717:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void ADCx_Init(void)
+ 718:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 574              		.loc 1 718 1 is_stmt 1 view -0
+ 575              		.cfi_startproc
+ 576              		@ args = 0, pretend = 0, frame = 0
+ 577              		@ frame_needed = 0, uses_anonymous_args = 0
+ 578 0000 10B5     		push	{r4, lr}
+ 579              	.LCFI17:
+ 580              		.cfi_def_cfa_offset 8
+ 581              		.cfi_offset 4, -8
+ 582              		.cfi_offset 14, -4
+ 719:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   if(HAL_ADC_GetState(&hnucleo_Adc) == HAL_ADC_STATE_RESET)
+ 583              		.loc 1 719 3 view .LVU140
+ 584              		.loc 1 719 6 is_stmt 0 view .LVU141
+ 585 0002 0E48     		ldr	r0, .L39
+ 586 0004 FFF7FEFF 		bl	HAL_ADC_GetState
+ 587              	.LVL32:
+ 588              		.loc 1 719 5 view .LVU142
+ 589 0008 00B1     		cbz	r0, .L38
+ 590              	.L35:
+ 720:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 721:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     /* ADC Config */
+ 722:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Instance                   = NUCLEO_ADCx;
+ 723:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.ClockPrescaler        = ADC_CLOCKPRESCALER_PCLK_DIV4; /* (must not exceed 36MH
+ 724:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.Resolution            = ADC_RESOLUTION12b;
+ 725:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.DataAlign             = ADC_DATAALIGN_RIGHT;
+ 726:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.ContinuousConvMode    = DISABLE;
+ 727:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.DiscontinuousConvMode = DISABLE;
+ 728:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.ExternalTrigConvEdge  = ADC_EXTERNALTRIGCONVEDGE_NONE;
+ 729:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.EOCSelection          = EOC_SINGLE_CONV;
+ 730:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.NbrOfConversion       = 1;
+ 731:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.DMAContinuousRequests = DISABLE;    
+ 732:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     
+ARM GAS  /tmp/ccElJLLx.s 			page 25
+
+
+ 733:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     ADCx_MspInit(&hnucleo_Adc);
+ 734:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_ADC_Init(&hnucleo_Adc);
+ 735:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 736:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 591              		.loc 1 736 1 view .LVU143
+ 592 000a 10BD     		pop	{r4, pc}
+ 593              	.L38:
+ 722:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.ClockPrescaler        = ADC_CLOCKPRESCALER_PCLK_DIV4; /* (must not exceed 36MH
+ 594              		.loc 1 722 5 is_stmt 1 view .LVU144
+ 722:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.ClockPrescaler        = ADC_CLOCKPRESCALER_PCLK_DIV4; /* (must not exceed 36MH
+ 595              		.loc 1 722 44 is_stmt 0 view .LVU145
+ 596 000c 0B4C     		ldr	r4, .L39
+ 597 000e 0C4B     		ldr	r3, .L39+4
+ 598 0010 2360     		str	r3, [r4]
+ 723:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.Resolution            = ADC_RESOLUTION12b;
+ 599              		.loc 1 723 5 is_stmt 1 view .LVU146
+ 723:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.Resolution            = ADC_RESOLUTION12b;
+ 600              		.loc 1 723 44 is_stmt 0 view .LVU147
+ 601 0012 4FF48033 		mov	r3, #65536
+ 602 0016 6360     		str	r3, [r4, #4]
+ 724:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.DataAlign             = ADC_DATAALIGN_RIGHT;
+ 603              		.loc 1 724 5 is_stmt 1 view .LVU148
+ 724:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.DataAlign             = ADC_DATAALIGN_RIGHT;
+ 604              		.loc 1 724 44 is_stmt 0 view .LVU149
+ 605 0018 0023     		movs	r3, #0
+ 606 001a A360     		str	r3, [r4, #8]
+ 725:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.ContinuousConvMode    = DISABLE;
+ 607              		.loc 1 725 5 is_stmt 1 view .LVU150
+ 725:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.ContinuousConvMode    = DISABLE;
+ 608              		.loc 1 725 44 is_stmt 0 view .LVU151
+ 609 001c E360     		str	r3, [r4, #12]
+ 726:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.DiscontinuousConvMode = DISABLE;
+ 610              		.loc 1 726 5 is_stmt 1 view .LVU152
+ 726:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.DiscontinuousConvMode = DISABLE;
+ 611              		.loc 1 726 44 is_stmt 0 view .LVU153
+ 612 001e A361     		str	r3, [r4, #24]
+ 727:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.ExternalTrigConvEdge  = ADC_EXTERNALTRIGCONVEDGE_NONE;
+ 613              		.loc 1 727 5 is_stmt 1 view .LVU154
+ 727:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.ExternalTrigConvEdge  = ADC_EXTERNALTRIGCONVEDGE_NONE;
+ 614              		.loc 1 727 44 is_stmt 0 view .LVU155
+ 615 0020 2362     		str	r3, [r4, #32]
+ 728:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.EOCSelection          = EOC_SINGLE_CONV;
+ 616              		.loc 1 728 5 is_stmt 1 view .LVU156
+ 728:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.EOCSelection          = EOC_SINGLE_CONV;
+ 617              		.loc 1 728 44 is_stmt 0 view .LVU157
+ 618 0022 E362     		str	r3, [r4, #44]
+ 729:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.NbrOfConversion       = 1;
+ 619              		.loc 1 729 5 is_stmt 1 view .LVU158
+ 729:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.NbrOfConversion       = 1;
+ 620              		.loc 1 729 44 is_stmt 0 view .LVU159
+ 621 0024 0122     		movs	r2, #1
+ 622 0026 6261     		str	r2, [r4, #20]
+ 730:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.DMAContinuousRequests = DISABLE;    
+ 623              		.loc 1 730 5 is_stmt 1 view .LVU160
+ 730:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Init.DMAContinuousRequests = DISABLE;    
+ 624              		.loc 1 730 44 is_stmt 0 view .LVU161
+ 625 0028 E261     		str	r2, [r4, #28]
+ARM GAS  /tmp/ccElJLLx.s 			page 26
+
+
+ 731:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     
+ 626              		.loc 1 731 5 is_stmt 1 view .LVU162
+ 731:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     
+ 627              		.loc 1 731 44 is_stmt 0 view .LVU163
+ 628 002a 2363     		str	r3, [r4, #48]
+ 733:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_ADC_Init(&hnucleo_Adc);
+ 629              		.loc 1 733 5 is_stmt 1 view .LVU164
+ 630 002c 2046     		mov	r0, r4
+ 631 002e FFF7FEFF 		bl	ADCx_MspInit
+ 632              	.LVL33:
+ 734:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 633              		.loc 1 734 5 view .LVU165
+ 634 0032 2046     		mov	r0, r4
+ 635 0034 FFF7FEFF 		bl	HAL_ADC_Init
+ 636              	.LVL34:
+ 637              		.loc 1 736 1 is_stmt 0 view .LVU166
+ 638 0038 E7E7     		b	.L35
+ 639              	.L40:
+ 640 003a 00BF     		.align	2
+ 641              	.L39:
+ 642 003c 00000000 		.word	.LANCHOR2
+ 643 0040 00200140 		.word	1073815552
+ 644              		.cfi_endproc
+ 645              	.LFE160:
+ 647              		.section	.text.ADCx_DeInit,"ax",%progbits
+ 648              		.align	1
+ 649              		.syntax unified
+ 650              		.thumb
+ 651              		.thumb_func
+ 652              		.fpu fpv4-sp-d16
+ 654              	ADCx_DeInit:
+ 655              	.LFB161:
+ 737:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 738:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 739:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Initializes ADC HAL.
+ 740:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 741:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** static void ADCx_DeInit(void)
+ 742:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 656              		.loc 1 742 1 is_stmt 1 view -0
+ 657              		.cfi_startproc
+ 658              		@ args = 0, pretend = 0, frame = 0
+ 659              		@ frame_needed = 0, uses_anonymous_args = 0
+ 660 0000 10B5     		push	{r4, lr}
+ 661              	.LCFI18:
+ 662              		.cfi_def_cfa_offset 8
+ 663              		.cfi_offset 4, -8
+ 664              		.cfi_offset 14, -4
+ 743:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     hnucleo_Adc.Instance   = NUCLEO_ADCx;
+ 665              		.loc 1 743 5 view .LVU168
+ 666              		.loc 1 743 28 is_stmt 0 view .LVU169
+ 667 0002 054C     		ldr	r4, .L43
+ 668 0004 054B     		ldr	r3, .L43+4
+ 669 0006 2360     		str	r3, [r4]
+ 744:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     
+ 745:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_ADC_DeInit(&hnucleo_Adc);
+ 670              		.loc 1 745 5 is_stmt 1 view .LVU170
+ 671 0008 2046     		mov	r0, r4
+ARM GAS  /tmp/ccElJLLx.s 			page 27
+
+
+ 672 000a FFF7FEFF 		bl	HAL_ADC_DeInit
+ 673              	.LVL35:
+ 746:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     ADCx_MspDeInit(&hnucleo_Adc);
+ 674              		.loc 1 746 5 view .LVU171
+ 675 000e 2046     		mov	r0, r4
+ 676 0010 FFF7FEFF 		bl	ADCx_MspDeInit
+ 677              	.LVL36:
+ 747:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 678              		.loc 1 747 1 is_stmt 0 view .LVU172
+ 679 0014 10BD     		pop	{r4, pc}
+ 680              	.L44:
+ 681 0016 00BF     		.align	2
+ 682              	.L43:
+ 683 0018 00000000 		.word	.LANCHOR2
+ 684 001c 00200140 		.word	1073815552
+ 685              		.cfi_endproc
+ 686              	.LFE161:
+ 688              		.section	.text.BSP_GetVersion,"ax",%progbits
+ 689              		.align	1
+ 690              		.global	BSP_GetVersion
+ 691              		.syntax unified
+ 692              		.thumb
+ 693              		.thumb_func
+ 694              		.fpu fpv4-sp-d16
+ 696              	BSP_GetVersion:
+ 697              	.LFB135:
+ 180:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   return __STM32F4xx_NUCLEO_BSP_VERSION;
+ 698              		.loc 1 180 1 is_stmt 1 view -0
+ 699              		.cfi_startproc
+ 700              		@ args = 0, pretend = 0, frame = 0
+ 701              		@ frame_needed = 0, uses_anonymous_args = 0
+ 702              		@ link register save eliminated.
+ 181:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 703              		.loc 1 181 3 view .LVU174
+ 182:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 704              		.loc 1 182 1 is_stmt 0 view .LVU175
+ 705 0000 0048     		ldr	r0, .L46
+ 706 0002 7047     		bx	lr
+ 707              	.L47:
+ 708              		.align	2
+ 709              	.L46:
+ 710 0004 00050201 		.word	16909568
+ 711              		.cfi_endproc
+ 712              	.LFE135:
+ 714              		.section	.text.BSP_LED_Init,"ax",%progbits
+ 715              		.align	1
+ 716              		.global	BSP_LED_Init
+ 717              		.syntax unified
+ 718              		.thumb
+ 719              		.thumb_func
+ 720              		.fpu fpv4-sp-d16
+ 722              	BSP_LED_Init:
+ 723              	.LVL37:
+ 724              	.LFB136:
+ 191:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef  GPIO_InitStruct;
+ 725              		.loc 1 191 1 is_stmt 1 view -0
+ 726              		.cfi_startproc
+ARM GAS  /tmp/ccElJLLx.s 			page 28
+
+
+ 727              		@ args = 0, pretend = 0, frame = 24
+ 728              		@ frame_needed = 0, uses_anonymous_args = 0
+ 191:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef  GPIO_InitStruct;
+ 729              		.loc 1 191 1 is_stmt 0 view .LVU177
+ 730 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 731              	.LCFI19:
+ 732              		.cfi_def_cfa_offset 20
+ 733              		.cfi_offset 4, -20
+ 734              		.cfi_offset 5, -16
+ 735              		.cfi_offset 6, -12
+ 736              		.cfi_offset 7, -8
+ 737              		.cfi_offset 14, -4
+ 738 0002 87B0     		sub	sp, sp, #28
+ 739              	.LCFI20:
+ 740              		.cfi_def_cfa_offset 48
+ 741 0004 0446     		mov	r4, r0
+ 192:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 742              		.loc 1 192 3 is_stmt 1 view .LVU178
+ 195:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 743              		.loc 1 195 3 view .LVU179
+ 744              	.LBB7:
+ 195:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 745              		.loc 1 195 3 view .LVU180
+ 746 0006 0025     		movs	r5, #0
+ 747 0008 0095     		str	r5, [sp]
+ 195:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 748              		.loc 1 195 3 view .LVU181
+ 749 000a 0F4B     		ldr	r3, .L50
+ 750 000c 1A6B     		ldr	r2, [r3, #48]
+ 751 000e 42F00102 		orr	r2, r2, #1
+ 752 0012 1A63     		str	r2, [r3, #48]
+ 195:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 753              		.loc 1 195 3 view .LVU182
+ 754 0014 1B6B     		ldr	r3, [r3, #48]
+ 755 0016 03F00103 		and	r3, r3, #1
+ 756 001a 0093     		str	r3, [sp]
+ 195:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 757              		.loc 1 195 3 view .LVU183
+ 758 001c 009B     		ldr	r3, [sp]
+ 759              	.LBE7:
+ 195:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 760              		.loc 1 195 3 view .LVU184
+ 198:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 761              		.loc 1 198 3 view .LVU185
+ 198:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 762              		.loc 1 198 23 is_stmt 0 view .LVU186
+ 763 001e 2027     		movs	r7, #32
+ 764 0020 0197     		str	r7, [sp, #4]
+ 199:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 765              		.loc 1 199 3 is_stmt 1 view .LVU187
+ 199:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 766              		.loc 1 199 24 is_stmt 0 view .LVU188
+ 767 0022 0123     		movs	r3, #1
+ 768 0024 0293     		str	r3, [sp, #8]
+ 200:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FAST;
+ 769              		.loc 1 200 3 is_stmt 1 view .LVU189
+ 200:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FAST;
+ARM GAS  /tmp/ccElJLLx.s 			page 29
+
+
+ 770              		.loc 1 200 24 is_stmt 0 view .LVU190
+ 771 0026 0395     		str	r5, [sp, #12]
+ 201:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 772              		.loc 1 201 3 is_stmt 1 view .LVU191
+ 201:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 773              		.loc 1 201 25 is_stmt 0 view .LVU192
+ 774 0028 0223     		movs	r3, #2
+ 775 002a 0493     		str	r3, [sp, #16]
+ 203:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 776              		.loc 1 203 3 is_stmt 1 view .LVU193
+ 777 002c 074E     		ldr	r6, .L50+4
+ 778 002e 01A9     		add	r1, sp, #4
+ 779 0030 56F82000 		ldr	r0, [r6, r0, lsl #2]
+ 780              	.LVL38:
+ 203:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 781              		.loc 1 203 3 is_stmt 0 view .LVU194
+ 782 0034 FFF7FEFF 		bl	HAL_GPIO_Init
+ 783              	.LVL39:
+ 205:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 784              		.loc 1 205 3 is_stmt 1 view .LVU195
+ 785 0038 2A46     		mov	r2, r5
+ 786 003a 3946     		mov	r1, r7
+ 787 003c 56F82400 		ldr	r0, [r6, r4, lsl #2]
+ 788 0040 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 789              	.LVL40:
+ 206:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 790              		.loc 1 206 1 is_stmt 0 view .LVU196
+ 791 0044 07B0     		add	sp, sp, #28
+ 792              	.LCFI21:
+ 793              		.cfi_def_cfa_offset 20
+ 794              		@ sp needed
+ 795 0046 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 796              	.L51:
+ 797              		.align	2
+ 798              	.L50:
+ 799 0048 00380240 		.word	1073887232
+ 800 004c 00000000 		.word	.LANCHOR3
+ 801              		.cfi_endproc
+ 802              	.LFE136:
+ 804              		.section	.text.BSP_LED_DeInit,"ax",%progbits
+ 805              		.align	1
+ 806              		.global	BSP_LED_DeInit
+ 807              		.syntax unified
+ 808              		.thumb
+ 809              		.thumb_func
+ 810              		.fpu fpv4-sp-d16
+ 812              	BSP_LED_DeInit:
+ 813              	.LVL41:
+ 814              	.LFB137:
+ 216:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef  gpio_init_structure;
+ 815              		.loc 1 216 1 is_stmt 1 view -0
+ 816              		.cfi_startproc
+ 817              		@ args = 0, pretend = 0, frame = 0
+ 818              		@ frame_needed = 0, uses_anonymous_args = 0
+ 216:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef  gpio_init_structure;
+ 819              		.loc 1 216 1 is_stmt 0 view .LVU198
+ 820 0000 38B5     		push	{r3, r4, r5, lr}
+ARM GAS  /tmp/ccElJLLx.s 			page 30
+
+
+ 821              	.LCFI22:
+ 822              		.cfi_def_cfa_offset 16
+ 823              		.cfi_offset 3, -16
+ 824              		.cfi_offset 4, -12
+ 825              		.cfi_offset 5, -8
+ 826              		.cfi_offset 14, -4
+ 827 0002 0446     		mov	r4, r0
+ 217:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 828              		.loc 1 217 3 is_stmt 1 view .LVU199
+ 220:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* DeInit the GPIO_LED pin */
+ 829              		.loc 1 220 3 view .LVU200
+ 830 0004 064D     		ldr	r5, .L54
+ 831 0006 0022     		movs	r2, #0
+ 832 0008 2021     		movs	r1, #32
+ 833 000a 55F82000 		ldr	r0, [r5, r0, lsl #2]
+ 834              	.LVL42:
+ 220:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* DeInit the GPIO_LED pin */
+ 835              		.loc 1 220 3 is_stmt 0 view .LVU201
+ 836 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 837              	.LVL43:
+ 222:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_DeInit(GPIO_PORT[Led], gpio_init_structure.Pin);
+ 838              		.loc 1 222 3 is_stmt 1 view .LVU202
+ 223:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 839              		.loc 1 223 3 view .LVU203
+ 840 0012 2021     		movs	r1, #32
+ 841 0014 55F82400 		ldr	r0, [r5, r4, lsl #2]
+ 842 0018 FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 843              	.LVL44:
+ 224:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 844              		.loc 1 224 1 is_stmt 0 view .LVU204
+ 845 001c 38BD     		pop	{r3, r4, r5, pc}
+ 846              	.L55:
+ 847 001e 00BF     		.align	2
+ 848              	.L54:
+ 849 0020 00000000 		.word	.LANCHOR3
+ 850              		.cfi_endproc
+ 851              	.LFE137:
+ 853              		.section	.text.BSP_LED_On,"ax",%progbits
+ 854              		.align	1
+ 855              		.global	BSP_LED_On
+ 856              		.syntax unified
+ 857              		.thumb
+ 858              		.thumb_func
+ 859              		.fpu fpv4-sp-d16
+ 861              	BSP_LED_On:
+ 862              	.LVL45:
+ 863              	.LFB138:
+ 233:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_WritePin(GPIO_PORT[Led], GPIO_PIN[Led], GPIO_PIN_SET); 
+ 864              		.loc 1 233 1 is_stmt 1 view -0
+ 865              		.cfi_startproc
+ 866              		@ args = 0, pretend = 0, frame = 0
+ 867              		@ frame_needed = 0, uses_anonymous_args = 0
+ 233:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_WritePin(GPIO_PORT[Led], GPIO_PIN[Led], GPIO_PIN_SET); 
+ 868              		.loc 1 233 1 is_stmt 0 view .LVU206
+ 869 0000 08B5     		push	{r3, lr}
+ 870              	.LCFI23:
+ 871              		.cfi_def_cfa_offset 8
+ARM GAS  /tmp/ccElJLLx.s 			page 31
+
+
+ 872              		.cfi_offset 3, -8
+ 873              		.cfi_offset 14, -4
+ 234:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 874              		.loc 1 234 3 is_stmt 1 view .LVU207
+ 875 0002 0122     		movs	r2, #1
+ 876 0004 2021     		movs	r1, #32
+ 877 0006 034B     		ldr	r3, .L58
+ 878 0008 53F82000 		ldr	r0, [r3, r0, lsl #2]
+ 879              	.LVL46:
+ 234:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 880              		.loc 1 234 3 is_stmt 0 view .LVU208
+ 881 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 882              	.LVL47:
+ 235:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 883              		.loc 1 235 1 view .LVU209
+ 884 0010 08BD     		pop	{r3, pc}
+ 885              	.L59:
+ 886 0012 00BF     		.align	2
+ 887              	.L58:
+ 888 0014 00000000 		.word	.LANCHOR3
+ 889              		.cfi_endproc
+ 890              	.LFE138:
+ 892              		.section	.text.BSP_LED_Off,"ax",%progbits
+ 893              		.align	1
+ 894              		.global	BSP_LED_Off
+ 895              		.syntax unified
+ 896              		.thumb
+ 897              		.thumb_func
+ 898              		.fpu fpv4-sp-d16
+ 900              	BSP_LED_Off:
+ 901              	.LVL48:
+ 902              	.LFB139:
+ 244:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_WritePin(GPIO_PORT[Led], GPIO_PIN[Led], GPIO_PIN_RESET); 
+ 903              		.loc 1 244 1 is_stmt 1 view -0
+ 904              		.cfi_startproc
+ 905              		@ args = 0, pretend = 0, frame = 0
+ 906              		@ frame_needed = 0, uses_anonymous_args = 0
+ 244:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_WritePin(GPIO_PORT[Led], GPIO_PIN[Led], GPIO_PIN_RESET); 
+ 907              		.loc 1 244 1 is_stmt 0 view .LVU211
+ 908 0000 08B5     		push	{r3, lr}
+ 909              	.LCFI24:
+ 910              		.cfi_def_cfa_offset 8
+ 911              		.cfi_offset 3, -8
+ 912              		.cfi_offset 14, -4
+ 245:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 913              		.loc 1 245 3 is_stmt 1 view .LVU212
+ 914 0002 0022     		movs	r2, #0
+ 915 0004 2021     		movs	r1, #32
+ 916 0006 034B     		ldr	r3, .L62
+ 917 0008 53F82000 		ldr	r0, [r3, r0, lsl #2]
+ 918              	.LVL49:
+ 245:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 919              		.loc 1 245 3 is_stmt 0 view .LVU213
+ 920 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 921              	.LVL50:
+ 246:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 922              		.loc 1 246 1 view .LVU214
+ARM GAS  /tmp/ccElJLLx.s 			page 32
+
+
+ 923 0010 08BD     		pop	{r3, pc}
+ 924              	.L63:
+ 925 0012 00BF     		.align	2
+ 926              	.L62:
+ 927 0014 00000000 		.word	.LANCHOR3
+ 928              		.cfi_endproc
+ 929              	.LFE139:
+ 931              		.section	.text.BSP_LED_Toggle,"ax",%progbits
+ 932              		.align	1
+ 933              		.global	BSP_LED_Toggle
+ 934              		.syntax unified
+ 935              		.thumb
+ 936              		.thumb_func
+ 937              		.fpu fpv4-sp-d16
+ 939              	BSP_LED_Toggle:
+ 940              	.LVL51:
+ 941              	.LFB140:
+ 255:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_TogglePin(GPIO_PORT[Led], GPIO_PIN[Led]);
+ 942              		.loc 1 255 1 is_stmt 1 view -0
+ 943              		.cfi_startproc
+ 944              		@ args = 0, pretend = 0, frame = 0
+ 945              		@ frame_needed = 0, uses_anonymous_args = 0
+ 255:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_TogglePin(GPIO_PORT[Led], GPIO_PIN[Led]);
+ 946              		.loc 1 255 1 is_stmt 0 view .LVU216
+ 947 0000 08B5     		push	{r3, lr}
+ 948              	.LCFI25:
+ 949              		.cfi_def_cfa_offset 8
+ 950              		.cfi_offset 3, -8
+ 951              		.cfi_offset 14, -4
+ 256:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 952              		.loc 1 256 3 is_stmt 1 view .LVU217
+ 953 0002 2021     		movs	r1, #32
+ 954 0004 024B     		ldr	r3, .L66
+ 955 0006 53F82000 		ldr	r0, [r3, r0, lsl #2]
+ 956              	.LVL52:
+ 256:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 957              		.loc 1 256 3 is_stmt 0 view .LVU218
+ 958 000a FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 959              	.LVL53:
+ 257:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 960              		.loc 1 257 1 view .LVU219
+ 961 000e 08BD     		pop	{r3, pc}
+ 962              	.L67:
+ 963              		.align	2
+ 964              	.L66:
+ 965 0010 00000000 		.word	.LANCHOR3
+ 966              		.cfi_endproc
+ 967              	.LFE140:
+ 969              		.section	.text.BSP_PB_Init,"ax",%progbits
+ 970              		.align	1
+ 971              		.global	BSP_PB_Init
+ 972              		.syntax unified
+ 973              		.thumb
+ 974              		.thumb_func
+ 975              		.fpu fpv4-sp-d16
+ 977              	BSP_PB_Init:
+ 978              	.LVL54:
+ARM GAS  /tmp/ccElJLLx.s 			page 33
+
+
+ 979              	.LFB141:
+ 270:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef GPIO_InitStruct;
+ 980              		.loc 1 270 1 is_stmt 1 view -0
+ 981              		.cfi_startproc
+ 982              		@ args = 0, pretend = 0, frame = 24
+ 983              		@ frame_needed = 0, uses_anonymous_args = 0
+ 270:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef GPIO_InitStruct;
+ 984              		.loc 1 270 1 is_stmt 0 view .LVU221
+ 985 0000 30B5     		push	{r4, r5, lr}
+ 986              	.LCFI26:
+ 987              		.cfi_def_cfa_offset 12
+ 988              		.cfi_offset 4, -12
+ 989              		.cfi_offset 5, -8
+ 990              		.cfi_offset 14, -4
+ 991 0002 87B0     		sub	sp, sp, #28
+ 992              	.LCFI27:
+ 993              		.cfi_def_cfa_offset 40
+ 994 0004 0446     		mov	r4, r0
+ 271:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 995              		.loc 1 271 3 is_stmt 1 view .LVU222
+ 274:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 996              		.loc 1 274 3 view .LVU223
+ 997              	.LBB8:
+ 274:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 998              		.loc 1 274 3 view .LVU224
+ 999 0006 0023     		movs	r3, #0
+ 1000 0008 0093     		str	r3, [sp]
+ 274:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1001              		.loc 1 274 3 view .LVU225
+ 1002 000a 1A4B     		ldr	r3, .L74
+ 1003 000c 1A6B     		ldr	r2, [r3, #48]
+ 1004 000e 42F00402 		orr	r2, r2, #4
+ 1005 0012 1A63     		str	r2, [r3, #48]
+ 274:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1006              		.loc 1 274 3 view .LVU226
+ 1007 0014 1B6B     		ldr	r3, [r3, #48]
+ 1008 0016 03F00403 		and	r3, r3, #4
+ 1009 001a 0093     		str	r3, [sp]
+ 274:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1010              		.loc 1 274 3 view .LVU227
+ 1011 001c 009B     		ldr	r3, [sp]
+ 1012              	.LBE8:
+ 274:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1013              		.loc 1 274 3 view .LVU228
+ 276:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 1014              		.loc 1 276 3 view .LVU229
+ 276:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 1015              		.loc 1 276 5 is_stmt 0 view .LVU230
+ 1016 001e 0D46     		mov	r5, r1
+ 1017 0020 19B1     		cbz	r1, .L72
+ 1018              	.LVL55:
+ 1019              	.L69:
+ 286:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 1020              		.loc 1 286 3 is_stmt 1 view .LVU231
+ 286:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 1021              		.loc 1 286 5 is_stmt 0 view .LVU232
+ 1022 0022 012D     		cmp	r5, #1
+ARM GAS  /tmp/ccElJLLx.s 			page 34
+
+
+ 1023 0024 10D0     		beq	.L73
+ 1024              	.L68:
+ 298:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1025              		.loc 1 298 1 view .LVU233
+ 1026 0026 07B0     		add	sp, sp, #28
+ 1027              	.LCFI28:
+ 1028              		.cfi_remember_state
+ 1029              		.cfi_def_cfa_offset 12
+ 1030              		@ sp needed
+ 1031 0028 30BD     		pop	{r4, r5, pc}
+ 1032              	.LVL56:
+ 1033              	.L72:
+ 1034              	.LCFI29:
+ 1035              		.cfi_restore_state
+ 279:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 1036              		.loc 1 279 5 is_stmt 1 view .LVU234
+ 279:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 1037              		.loc 1 279 25 is_stmt 0 view .LVU235
+ 1038 002a 4FF40053 		mov	r3, #8192
+ 1039 002e 0193     		str	r3, [sp, #4]
+ 280:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+ 1040              		.loc 1 280 5 is_stmt 1 view .LVU236
+ 280:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+ 1041              		.loc 1 280 26 is_stmt 0 view .LVU237
+ 1042 0030 0023     		movs	r3, #0
+ 1043 0032 0293     		str	r3, [sp, #8]
+ 281:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FAST;
+ 1044              		.loc 1 281 5 is_stmt 1 view .LVU238
+ 281:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FAST;
+ 1045              		.loc 1 281 26 is_stmt 0 view .LVU239
+ 1046 0034 0223     		movs	r3, #2
+ 1047 0036 0393     		str	r3, [sp, #12]
+ 282:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_GPIO_Init(BUTTON_PORT[Button], &GPIO_InitStruct);
+ 1048              		.loc 1 282 5 is_stmt 1 view .LVU240
+ 282:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_GPIO_Init(BUTTON_PORT[Button], &GPIO_InitStruct);
+ 1049              		.loc 1 282 27 is_stmt 0 view .LVU241
+ 1050 0038 0493     		str	r3, [sp, #16]
+ 283:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 1051              		.loc 1 283 5 is_stmt 1 view .LVU242
+ 1052 003a 01A9     		add	r1, sp, #4
+ 1053              	.LVL57:
+ 283:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 1054              		.loc 1 283 5 is_stmt 0 view .LVU243
+ 1055 003c 0E4B     		ldr	r3, .L74+4
+ 1056 003e 53F82000 		ldr	r0, [r3, r0, lsl #2]
+ 1057              	.LVL58:
+ 283:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 1058              		.loc 1 283 5 view .LVU244
+ 1059 0042 FFF7FEFF 		bl	HAL_GPIO_Init
+ 1060              	.LVL59:
+ 1061 0046 ECE7     		b	.L69
+ 1062              	.L73:
+ 289:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 1063              		.loc 1 289 5 is_stmt 1 view .LVU245
+ 289:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 1064              		.loc 1 289 25 is_stmt 0 view .LVU246
+ 1065 0048 4FF40053 		mov	r3, #8192
+ARM GAS  /tmp/ccElJLLx.s 			page 35
+
+
+ 1066 004c 0193     		str	r3, [sp, #4]
+ 290:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING; 
+ 1067              		.loc 1 290 5 is_stmt 1 view .LVU247
+ 290:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING; 
+ 1068              		.loc 1 290 26 is_stmt 0 view .LVU248
+ 1069 004e 0025     		movs	r5, #0
+ 1070 0050 0395     		str	r5, [sp, #12]
+ 291:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_GPIO_Init(BUTTON_PORT[Button], &GPIO_InitStruct);
+ 1071              		.loc 1 291 5 is_stmt 1 view .LVU249
+ 291:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_GPIO_Init(BUTTON_PORT[Button], &GPIO_InitStruct);
+ 1072              		.loc 1 291 26 is_stmt 0 view .LVU250
+ 1073 0052 0A4B     		ldr	r3, .L74+8
+ 1074 0054 0293     		str	r3, [sp, #8]
+ 292:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     
+ 1075              		.loc 1 292 5 is_stmt 1 view .LVU251
+ 1076 0056 01A9     		add	r1, sp, #4
+ 1077 0058 074B     		ldr	r3, .L74+4
+ 1078 005a 53F82400 		ldr	r0, [r3, r4, lsl #2]
+ 1079 005e FFF7FEFF 		bl	HAL_GPIO_Init
+ 1080              	.LVL60:
+ 295:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_NVIC_EnableIRQ((IRQn_Type)(BUTTON_IRQn[Button]));
+ 1081              		.loc 1 295 5 view .LVU252
+ 1082 0062 2A46     		mov	r2, r5
+ 1083 0064 0F21     		movs	r1, #15
+ 1084 0066 2820     		movs	r0, #40
+ 1085 0068 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 1086              	.LVL61:
+ 296:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 1087              		.loc 1 296 5 view .LVU253
+ 1088 006c 2820     		movs	r0, #40
+ 1089 006e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 1090              	.LVL62:
+ 298:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1091              		.loc 1 298 1 is_stmt 0 view .LVU254
+ 1092 0072 D8E7     		b	.L68
+ 1093              	.L75:
+ 1094              		.align	2
+ 1095              	.L74:
+ 1096 0074 00380240 		.word	1073887232
+ 1097 0078 00000000 		.word	.LANCHOR4
+ 1098 007c 00002110 		.word	270598144
+ 1099              		.cfi_endproc
+ 1100              	.LFE141:
+ 1102              		.section	.text.BSP_PB_DeInit,"ax",%progbits
+ 1103              		.align	1
+ 1104              		.global	BSP_PB_DeInit
+ 1105              		.syntax unified
+ 1106              		.thumb
+ 1107              		.thumb_func
+ 1108              		.fpu fpv4-sp-d16
+ 1110              	BSP_PB_DeInit:
+ 1111              	.LVL63:
+ 1112              	.LFB142:
+ 307:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitTypeDef gpio_init_structure;
+ 1113              		.loc 1 307 1 is_stmt 1 view -0
+ 1114              		.cfi_startproc
+ 1115              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccElJLLx.s 			page 36
+
+
+ 1116              		@ frame_needed = 0, uses_anonymous_args = 0
+ 307:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     GPIO_InitTypeDef gpio_init_structure;
+ 1117              		.loc 1 307 1 is_stmt 0 view .LVU256
+ 1118 0000 10B5     		push	{r4, lr}
+ 1119              	.LCFI30:
+ 1120              		.cfi_def_cfa_offset 8
+ 1121              		.cfi_offset 4, -8
+ 1122              		.cfi_offset 14, -4
+ 1123 0002 0446     		mov	r4, r0
+ 308:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1124              		.loc 1 308 5 is_stmt 1 view .LVU257
+ 310:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_NVIC_DisableIRQ((IRQn_Type)(BUTTON_IRQn[Button]));
+ 1125              		.loc 1 310 5 view .LVU258
+ 311:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_GPIO_DeInit(BUTTON_PORT[Button], gpio_init_structure.Pin);
+ 1126              		.loc 1 311 5 view .LVU259
+ 1127 0004 2820     		movs	r0, #40
+ 1128              	.LVL64:
+ 311:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     HAL_GPIO_DeInit(BUTTON_PORT[Button], gpio_init_structure.Pin);
+ 1129              		.loc 1 311 5 is_stmt 0 view .LVU260
+ 1130 0006 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
+ 1131              	.LVL65:
+ 312:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 1132              		.loc 1 312 5 is_stmt 1 view .LVU261
+ 1133 000a 4FF40051 		mov	r1, #8192
+ 1134 000e 034B     		ldr	r3, .L78
+ 1135 0010 53F82400 		ldr	r0, [r3, r4, lsl #2]
+ 1136 0014 FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 1137              	.LVL66:
+ 313:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1138              		.loc 1 313 1 is_stmt 0 view .LVU262
+ 1139 0018 10BD     		pop	{r4, pc}
+ 1140              	.L79:
+ 1141 001a 00BF     		.align	2
+ 1142              	.L78:
+ 1143 001c 00000000 		.word	.LANCHOR4
+ 1144              		.cfi_endproc
+ 1145              	.LFE142:
+ 1147              		.section	.text.BSP_PB_GetState,"ax",%progbits
+ 1148              		.align	1
+ 1149              		.global	BSP_PB_GetState
+ 1150              		.syntax unified
+ 1151              		.thumb
+ 1152              		.thumb_func
+ 1153              		.fpu fpv4-sp-d16
+ 1155              	BSP_PB_GetState:
+ 1156              	.LVL67:
+ 1157              	.LFB143:
+ 322:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   return HAL_GPIO_ReadPin(BUTTON_PORT[Button], BUTTON_PIN[Button]);
+ 1158              		.loc 1 322 1 is_stmt 1 view -0
+ 1159              		.cfi_startproc
+ 1160              		@ args = 0, pretend = 0, frame = 0
+ 1161              		@ frame_needed = 0, uses_anonymous_args = 0
+ 322:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   return HAL_GPIO_ReadPin(BUTTON_PORT[Button], BUTTON_PIN[Button]);
+ 1162              		.loc 1 322 1 is_stmt 0 view .LVU264
+ 1163 0000 08B5     		push	{r3, lr}
+ 1164              	.LCFI31:
+ 1165              		.cfi_def_cfa_offset 8
+ARM GAS  /tmp/ccElJLLx.s 			page 37
+
+
+ 1166              		.cfi_offset 3, -8
+ 1167              		.cfi_offset 14, -4
+ 323:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 1168              		.loc 1 323 3 is_stmt 1 view .LVU265
+ 323:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 1169              		.loc 1 323 10 is_stmt 0 view .LVU266
+ 1170 0002 4FF40051 		mov	r1, #8192
+ 1171 0006 034B     		ldr	r3, .L82
+ 1172 0008 53F82000 		ldr	r0, [r3, r0, lsl #2]
+ 1173              	.LVL68:
+ 323:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 1174              		.loc 1 323 10 view .LVU267
+ 1175 000c FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 1176              	.LVL69:
+ 324:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1177              		.loc 1 324 1 view .LVU268
+ 1178 0010 08BD     		pop	{r3, pc}
+ 1179              	.L83:
+ 1180 0012 00BF     		.align	2
+ 1181              	.L82:
+ 1182 0014 00000000 		.word	.LANCHOR4
+ 1183              		.cfi_endproc
+ 1184              	.LFE143:
+ 1186              		.section	.text.SD_IO_CSState,"ax",%progbits
+ 1187              		.align	1
+ 1188              		.global	SD_IO_CSState
+ 1189              		.syntax unified
+ 1190              		.thumb
+ 1191              		.thumb_func
+ 1192              		.fpu fpv4-sp-d16
+ 1194              	SD_IO_CSState:
+ 1195              	.LVL70:
+ 1196              	.LFB150:
+ 499:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   if(val == 1) 
+ 1197              		.loc 1 499 1 is_stmt 1 view -0
+ 1198              		.cfi_startproc
+ 1199              		@ args = 0, pretend = 0, frame = 0
+ 1200              		@ frame_needed = 0, uses_anonymous_args = 0
+ 499:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   if(val == 1) 
+ 1201              		.loc 1 499 1 is_stmt 0 view .LVU270
+ 1202 0000 08B5     		push	{r3, lr}
+ 1203              	.LCFI32:
+ 1204              		.cfi_def_cfa_offset 8
+ 1205              		.cfi_offset 3, -8
+ 1206              		.cfi_offset 14, -4
+ 500:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 1207              		.loc 1 500 3 is_stmt 1 view .LVU271
+ 500:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 1208              		.loc 1 500 5 is_stmt 0 view .LVU272
+ 1209 0002 0128     		cmp	r0, #1
+ 1210 0004 05D0     		beq	.L88
+ 506:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 1211              		.loc 1 506 5 is_stmt 1 view .LVU273
+ 1212 0006 0022     		movs	r2, #0
+ 1213 0008 2021     		movs	r1, #32
+ 1214 000a 0548     		ldr	r0, .L89
+ 1215              	.LVL71:
+ARM GAS  /tmp/ccElJLLx.s 			page 38
+
+
+ 506:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 1216              		.loc 1 506 5 is_stmt 0 view .LVU274
+ 1217 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1218              	.LVL72:
+ 1219              	.L84:
+ 508:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1220              		.loc 1 508 1 view .LVU275
+ 1221 0010 08BD     		pop	{r3, pc}
+ 1222              	.LVL73:
+ 1223              	.L88:
+ 502:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 1224              		.loc 1 502 5 is_stmt 1 view .LVU276
+ 1225 0012 0122     		movs	r2, #1
+ 1226 0014 2021     		movs	r1, #32
+ 1227 0016 0248     		ldr	r0, .L89
+ 1228              	.LVL74:
+ 502:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 1229              		.loc 1 502 5 is_stmt 0 view .LVU277
+ 1230 0018 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1231              	.LVL75:
+ 1232 001c F8E7     		b	.L84
+ 1233              	.L90:
+ 1234 001e 00BF     		.align	2
+ 1235              	.L89:
+ 1236 0020 00040240 		.word	1073873920
+ 1237              		.cfi_endproc
+ 1238              	.LFE150:
+ 1240              		.section	.text.SD_IO_WriteReadData,"ax",%progbits
+ 1241              		.align	1
+ 1242              		.global	SD_IO_WriteReadData
+ 1243              		.syntax unified
+ 1244              		.thumb
+ 1245              		.thumb_func
+ 1246              		.fpu fpv4-sp-d16
+ 1248              	SD_IO_WriteReadData:
+ 1249              	.LVL76:
+ 1250              	.LFB151:
+ 517:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Send the byte */
+ 1251              		.loc 1 517 1 is_stmt 1 view -0
+ 1252              		.cfi_startproc
+ 1253              		@ args = 0, pretend = 0, frame = 0
+ 1254              		@ frame_needed = 0, uses_anonymous_args = 0
+ 517:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Send the byte */
+ 1255              		.loc 1 517 1 is_stmt 0 view .LVU279
+ 1256 0000 08B5     		push	{r3, lr}
+ 1257              	.LCFI33:
+ 1258              		.cfi_def_cfa_offset 8
+ 1259              		.cfi_offset 3, -8
+ 1260              		.cfi_offset 14, -4
+ 519:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 1261              		.loc 1 519 3 is_stmt 1 view .LVU280
+ 1262 0002 FFF7FEFF 		bl	SPIx_WriteReadData
+ 1263              	.LVL77:
+ 520:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1264              		.loc 1 520 1 is_stmt 0 view .LVU281
+ 1265 0006 08BD     		pop	{r3, pc}
+ 1266              		.cfi_endproc
+ARM GAS  /tmp/ccElJLLx.s 			page 39
+
+
+ 1267              	.LFE151:
+ 1269              		.section	.text.SD_IO_WriteByte,"ax",%progbits
+ 1270              		.align	1
+ 1271              		.global	SD_IO_WriteByte
+ 1272              		.syntax unified
+ 1273              		.thumb
+ 1274              		.thumb_func
+ 1275              		.fpu fpv4-sp-d16
+ 1277              	SD_IO_WriteByte:
+ 1278              	.LVL78:
+ 1279              	.LFB152:
+ 527:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   uint8_t tmp;
+ 1280              		.loc 1 527 1 is_stmt 1 view -0
+ 1281              		.cfi_startproc
+ 1282              		@ args = 0, pretend = 0, frame = 16
+ 1283              		@ frame_needed = 0, uses_anonymous_args = 0
+ 527:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   uint8_t tmp;
+ 1284              		.loc 1 527 1 is_stmt 0 view .LVU283
+ 1285 0000 00B5     		push	{lr}
+ 1286              	.LCFI34:
+ 1287              		.cfi_def_cfa_offset 4
+ 1288              		.cfi_offset 14, -4
+ 1289 0002 85B0     		sub	sp, sp, #20
+ 1290              	.LCFI35:
+ 1291              		.cfi_def_cfa_offset 24
+ 1292 0004 8DF80700 		strb	r0, [sp, #7]
+ 528:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Send the byte */
+ 1293              		.loc 1 528 3 is_stmt 1 view .LVU284
+ 530:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   return tmp;
+ 1294              		.loc 1 530 3 view .LVU285
+ 1295 0008 0122     		movs	r2, #1
+ 1296 000a 0DF10F01 		add	r1, sp, #15
+ 1297 000e 0DF10700 		add	r0, sp, #7
+ 1298              	.LVL79:
+ 530:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   return tmp;
+ 1299              		.loc 1 530 3 is_stmt 0 view .LVU286
+ 1300 0012 FFF7FEFF 		bl	SPIx_WriteReadData
+ 1301              	.LVL80:
+ 531:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 1302              		.loc 1 531 3 is_stmt 1 view .LVU287
+ 532:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1303              		.loc 1 532 1 is_stmt 0 view .LVU288
+ 1304 0016 9DF80F00 		ldrb	r0, [sp, #15]	@ zero_extendqisi2
+ 1305 001a 05B0     		add	sp, sp, #20
+ 1306              	.LCFI36:
+ 1307              		.cfi_def_cfa_offset 4
+ 1308              		@ sp needed
+ 1309 001c 5DF804FB 		ldr	pc, [sp], #4
+ 1310              		.cfi_endproc
+ 1311              	.LFE152:
+ 1313              		.section	.text.SD_IO_Init,"ax",%progbits
+ 1314              		.align	1
+ 1315              		.global	SD_IO_Init
+ 1316              		.syntax unified
+ 1317              		.thumb
+ 1318              		.thumb_func
+ 1319              		.fpu fpv4-sp-d16
+ARM GAS  /tmp/ccElJLLx.s 			page 40
+
+
+ 1321              	SD_IO_Init:
+ 1322              	.LFB149:
+ 464:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef  GPIO_InitStruct;
+ 1323              		.loc 1 464 1 is_stmt 1 view -0
+ 1324              		.cfi_startproc
+ 1325              		@ args = 0, pretend = 0, frame = 24
+ 1326              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1327 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1328              	.LCFI37:
+ 1329              		.cfi_def_cfa_offset 20
+ 1330              		.cfi_offset 4, -20
+ 1331              		.cfi_offset 5, -16
+ 1332              		.cfi_offset 6, -12
+ 1333              		.cfi_offset 7, -8
+ 1334              		.cfi_offset 14, -4
+ 1335 0002 87B0     		sub	sp, sp, #28
+ 1336              	.LCFI38:
+ 1337              		.cfi_def_cfa_offset 48
+ 465:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   uint8_t counter;
+ 1338              		.loc 1 465 3 view .LVU290
+ 466:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1339              		.loc 1 466 3 view .LVU291
+ 469:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1340              		.loc 1 469 3 view .LVU292
+ 1341              	.LBB9:
+ 469:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1342              		.loc 1 469 3 view .LVU293
+ 1343 0004 0024     		movs	r4, #0
+ 1344 0006 0094     		str	r4, [sp]
+ 469:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1345              		.loc 1 469 3 view .LVU294
+ 1346 0008 134B     		ldr	r3, .L100
+ 1347 000a 1A6B     		ldr	r2, [r3, #48]
+ 1348 000c 42F00202 		orr	r2, r2, #2
+ 1349 0010 1A63     		str	r2, [r3, #48]
+ 469:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1350              		.loc 1 469 3 view .LVU295
+ 1351 0012 1B6B     		ldr	r3, [r3, #48]
+ 1352 0014 03F00203 		and	r3, r3, #2
+ 1353 0018 0093     		str	r3, [sp]
+ 469:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1354              		.loc 1 469 3 view .LVU296
+ 1355 001a 009B     		ldr	r3, [sp]
+ 1356              	.LBE9:
+ 469:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1357              		.loc 1 469 3 view .LVU297
+ 472:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 1358              		.loc 1 472 3 view .LVU298
+ 472:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 1359              		.loc 1 472 23 is_stmt 0 view .LVU299
+ 1360 001c 2027     		movs	r7, #32
+ 1361 001e 0197     		str	r7, [sp, #4]
+ 473:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
+ 1362              		.loc 1 473 3 is_stmt 1 view .LVU300
+ 473:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
+ 1363              		.loc 1 473 24 is_stmt 0 view .LVU301
+ 1364 0020 0125     		movs	r5, #1
+ARM GAS  /tmp/ccElJLLx.s 			page 41
+
+
+ 1365 0022 0295     		str	r5, [sp, #8]
+ 474:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+ 1366              		.loc 1 474 3 is_stmt 1 view .LVU302
+ 474:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+ 1367              		.loc 1 474 24 is_stmt 0 view .LVU303
+ 1368 0024 0395     		str	r5, [sp, #12]
+ 475:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_Init(SD_CS_GPIO_PORT, &GPIO_InitStruct);
+ 1369              		.loc 1 475 3 is_stmt 1 view .LVU304
+ 475:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_Init(SD_CS_GPIO_PORT, &GPIO_InitStruct);
+ 1370              		.loc 1 475 25 is_stmt 0 view .LVU305
+ 1371 0026 0323     		movs	r3, #3
+ 1372 0028 0493     		str	r3, [sp, #16]
+ 476:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1373              		.loc 1 476 3 is_stmt 1 view .LVU306
+ 1374 002a 0C4E     		ldr	r6, .L100+4
+ 1375 002c 01A9     		add	r1, sp, #4
+ 1376 002e 3046     		mov	r0, r6
+ 1377 0030 FFF7FEFF 		bl	HAL_GPIO_Init
+ 1378              	.LVL81:
+ 480:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1379              		.loc 1 480 3 view .LVU307
+ 1380 0034 FFF7FEFF 		bl	SPIx_Init
+ 1381              	.LVL82:
+ 483:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1382              		.loc 1 483 3 view .LVU308
+ 1383 0038 2A46     		mov	r2, r5
+ 1384 003a 3946     		mov	r1, r7
+ 1385 003c 3046     		mov	r0, r6
+ 1386 003e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1387              	.LVL83:
+ 487:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 1388              		.loc 1 487 3 view .LVU309
+ 1389              	.L96:
+ 487:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 1390              		.loc 1 487 21 discriminator 1 view .LVU310
+ 487:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 1391              		.loc 1 487 3 is_stmt 0 discriminator 1 view .LVU311
+ 1392 0042 092C     		cmp	r4, #9
+ 1393 0044 05D8     		bhi	.L99
+ 490:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 1394              		.loc 1 490 5 is_stmt 1 discriminator 3 view .LVU312
+ 1395 0046 FF20     		movs	r0, #255
+ 1396 0048 FFF7FEFF 		bl	SD_IO_WriteByte
+ 1397              	.LVL84:
+ 487:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 1398              		.loc 1 487 35 discriminator 3 view .LVU313
+ 487:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 1399              		.loc 1 487 42 is_stmt 0 discriminator 3 view .LVU314
+ 1400 004c 0134     		adds	r4, r4, #1
+ 1401              	.LVL85:
+ 487:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 1402              		.loc 1 487 42 discriminator 3 view .LVU315
+ 1403 004e E4B2     		uxtb	r4, r4
+ 1404              	.LVL86:
+ 487:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 1405              		.loc 1 487 42 discriminator 3 view .LVU316
+ 1406 0050 F7E7     		b	.L96
+ARM GAS  /tmp/ccElJLLx.s 			page 42
+
+
+ 1407              	.L99:
+ 492:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1408              		.loc 1 492 1 view .LVU317
+ 1409 0052 07B0     		add	sp, sp, #28
+ 1410              	.LCFI39:
+ 1411              		.cfi_def_cfa_offset 20
+ 1412              		@ sp needed
+ 1413 0054 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1414              	.LVL87:
+ 1415              	.L101:
+ 492:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1416              		.loc 1 492 1 view .LVU318
+ 1417 0056 00BF     		.align	2
+ 1418              	.L100:
+ 1419 0058 00380240 		.word	1073887232
+ 1420 005c 00040240 		.word	1073873920
+ 1421              		.cfi_endproc
+ 1422              	.LFE149:
+ 1424              		.section	.text.LCD_IO_Init,"ax",%progbits
+ 1425              		.align	1
+ 1426              		.global	LCD_IO_Init
+ 1427              		.syntax unified
+ 1428              		.thumb
+ 1429              		.thumb_func
+ 1430              		.fpu fpv4-sp-d16
+ 1432              	LCD_IO_Init:
+ 1433              	.LFB153:
+ 539:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitTypeDef  GPIO_InitStruct;
+ 1434              		.loc 1 539 1 is_stmt 1 view -0
+ 1435              		.cfi_startproc
+ 1436              		@ args = 0, pretend = 0, frame = 32
+ 1437              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1438 0000 70B5     		push	{r4, r5, r6, lr}
+ 1439              	.LCFI40:
+ 1440              		.cfi_def_cfa_offset 16
+ 1441              		.cfi_offset 4, -16
+ 1442              		.cfi_offset 5, -12
+ 1443              		.cfi_offset 6, -8
+ 1444              		.cfi_offset 14, -4
+ 1445 0002 88B0     		sub	sp, sp, #32
+ 1446              	.LCFI41:
+ 1447              		.cfi_def_cfa_offset 48
+ 540:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****    
+ 1448              		.loc 1 540 3 view .LVU320
+ 543:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_DC_GPIO_CLK_ENABLE();
+ 1449              		.loc 1 543 3 view .LVU321
+ 1450              	.LBB10:
+ 543:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_DC_GPIO_CLK_ENABLE();
+ 1451              		.loc 1 543 3 view .LVU322
+ 1452 0004 0022     		movs	r2, #0
+ 1453 0006 0192     		str	r2, [sp, #4]
+ 543:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_DC_GPIO_CLK_ENABLE();
+ 1454              		.loc 1 543 3 view .LVU323
+ 1455 0008 174B     		ldr	r3, .L104
+ 1456 000a 196B     		ldr	r1, [r3, #48]
+ 1457 000c 41F00201 		orr	r1, r1, #2
+ 1458 0010 1963     		str	r1, [r3, #48]
+ARM GAS  /tmp/ccElJLLx.s 			page 43
+
+
+ 543:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_DC_GPIO_CLK_ENABLE();
+ 1459              		.loc 1 543 3 view .LVU324
+ 1460 0012 196B     		ldr	r1, [r3, #48]
+ 1461 0014 01F00201 		and	r1, r1, #2
+ 1462 0018 0191     		str	r1, [sp, #4]
+ 543:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_DC_GPIO_CLK_ENABLE();
+ 1463              		.loc 1 543 3 view .LVU325
+ 1464 001a 0199     		ldr	r1, [sp, #4]
+ 1465              	.LBE10:
+ 543:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   LCD_DC_GPIO_CLK_ENABLE();
+ 1466              		.loc 1 543 3 view .LVU326
+ 544:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1467              		.loc 1 544 3 view .LVU327
+ 1468              	.LBB11:
+ 544:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1469              		.loc 1 544 3 view .LVU328
+ 1470 001c 0292     		str	r2, [sp, #8]
+ 544:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1471              		.loc 1 544 3 view .LVU329
+ 1472 001e 196B     		ldr	r1, [r3, #48]
+ 1473 0020 41F00101 		orr	r1, r1, #1
+ 1474 0024 1963     		str	r1, [r3, #48]
+ 544:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1475              		.loc 1 544 3 view .LVU330
+ 1476 0026 1B6B     		ldr	r3, [r3, #48]
+ 1477 0028 03F00103 		and	r3, r3, #1
+ 1478 002c 0293     		str	r3, [sp, #8]
+ 544:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1479              		.loc 1 544 3 view .LVU331
+ 1480 002e 029B     		ldr	r3, [sp, #8]
+ 1481              	.LBE11:
+ 544:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1482              		.loc 1 544 3 view .LVU332
+ 547:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 1483              		.loc 1 547 3 view .LVU333
+ 547:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 1484              		.loc 1 547 23 is_stmt 0 view .LVU334
+ 1485 0030 4025     		movs	r5, #64
+ 1486 0032 0395     		str	r5, [sp, #12]
+ 548:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 1487              		.loc 1 548 3 is_stmt 1 view .LVU335
+ 548:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 1488              		.loc 1 548 24 is_stmt 0 view .LVU336
+ 1489 0034 0126     		movs	r6, #1
+ 1490 0036 0496     		str	r6, [sp, #16]
+ 549:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+ 1491              		.loc 1 549 3 is_stmt 1 view .LVU337
+ 549:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+ 1492              		.loc 1 549 24 is_stmt 0 view .LVU338
+ 1493 0038 0592     		str	r2, [sp, #20]
+ 550:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_Init(LCD_CS_GPIO_PORT, &GPIO_InitStruct);
+ 1494              		.loc 1 550 3 is_stmt 1 view .LVU339
+ 550:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_Init(LCD_CS_GPIO_PORT, &GPIO_InitStruct);
+ 1495              		.loc 1 550 25 is_stmt 0 view .LVU340
+ 1496 003a 0323     		movs	r3, #3
+ 1497 003c 0693     		str	r3, [sp, #24]
+ 551:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ARM GAS  /tmp/ccElJLLx.s 			page 44
+
+
+ 1498              		.loc 1 551 3 is_stmt 1 view .LVU341
+ 1499 003e 0B4C     		ldr	r4, .L104+4
+ 1500 0040 03A9     		add	r1, sp, #12
+ 1501 0042 2046     		mov	r0, r4
+ 1502 0044 FFF7FEFF 		bl	HAL_GPIO_Init
+ 1503              	.LVL88:
+ 554:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_Init(LCD_DC_GPIO_PORT, &GPIO_InitStruct);
+ 1504              		.loc 1 554 3 view .LVU342
+ 554:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_GPIO_Init(LCD_DC_GPIO_PORT, &GPIO_InitStruct);
+ 1505              		.loc 1 554 23 is_stmt 0 view .LVU343
+ 1506 0048 4FF40073 		mov	r3, #512
+ 1507 004c 0393     		str	r3, [sp, #12]
+ 555:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1508              		.loc 1 555 3 is_stmt 1 view .LVU344
+ 1509 004e 03A9     		add	r1, sp, #12
+ 1510 0050 0748     		ldr	r0, .L104+8
+ 1511 0052 FFF7FEFF 		bl	HAL_GPIO_Init
+ 1512              	.LVL89:
+ 558:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1513              		.loc 1 558 3 view .LVU345
+ 1514 0056 3246     		mov	r2, r6
+ 1515 0058 2946     		mov	r1, r5
+ 1516 005a 2046     		mov	r0, r4
+ 1517 005c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1518              	.LVL90:
+ 561:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 1519              		.loc 1 561 3 view .LVU346
+ 1520 0060 FFF7FEFF 		bl	SPIx_Init
+ 1521              	.LVL91:
+ 562:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1522              		.loc 1 562 1 is_stmt 0 view .LVU347
+ 1523 0064 08B0     		add	sp, sp, #32
+ 1524              	.LCFI42:
+ 1525              		.cfi_def_cfa_offset 16
+ 1526              		@ sp needed
+ 1527 0066 70BD     		pop	{r4, r5, r6, pc}
+ 1528              	.L105:
+ 1529              		.align	2
+ 1530              	.L104:
+ 1531 0068 00380240 		.word	1073887232
+ 1532 006c 00040240 		.word	1073873920
+ 1533 0070 00000240 		.word	1073872896
+ 1534              		.cfi_endproc
+ 1535              	.LFE153:
+ 1537              		.section	.text.LCD_IO_WriteReg,"ax",%progbits
+ 1538              		.align	1
+ 1539              		.global	LCD_IO_WriteReg
+ 1540              		.syntax unified
+ 1541              		.thumb
+ 1542              		.thumb_func
+ 1543              		.fpu fpv4-sp-d16
+ 1545              	LCD_IO_WriteReg:
+ 1546              	.LVL92:
+ 1547              	.LFB154:
+ 569:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Reset LCD control line CS */
+ 1548              		.loc 1 569 1 is_stmt 1 view -0
+ 1549              		.cfi_startproc
+ARM GAS  /tmp/ccElJLLx.s 			page 45
+
+
+ 1550              		@ args = 0, pretend = 0, frame = 0
+ 1551              		@ frame_needed = 0, uses_anonymous_args = 0
+ 569:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Reset LCD control line CS */
+ 1552              		.loc 1 569 1 is_stmt 0 view .LVU349
+ 1553 0000 38B5     		push	{r3, r4, r5, lr}
+ 1554              	.LCFI43:
+ 1555              		.cfi_def_cfa_offset 16
+ 1556              		.cfi_offset 3, -16
+ 1557              		.cfi_offset 4, -12
+ 1558              		.cfi_offset 5, -8
+ 1559              		.cfi_offset 14, -4
+ 1560 0002 0446     		mov	r4, r0
+ 571:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1561              		.loc 1 571 3 is_stmt 1 view .LVU350
+ 1562 0004 0A4D     		ldr	r5, .L108
+ 1563 0006 0022     		movs	r2, #0
+ 1564 0008 4021     		movs	r1, #64
+ 1565 000a 2846     		mov	r0, r5
+ 1566              	.LVL93:
+ 571:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1567              		.loc 1 571 3 is_stmt 0 view .LVU351
+ 1568 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1569              	.LVL94:
+ 574:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     
+ 1570              		.loc 1 574 3 is_stmt 1 view .LVU352
+ 1571 0010 0022     		movs	r2, #0
+ 1572 0012 4FF40071 		mov	r1, #512
+ 1573 0016 0748     		ldr	r0, .L108+4
+ 1574 0018 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1575              	.LVL95:
+ 577:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1576              		.loc 1 577 3 view .LVU353
+ 1577 001c 2046     		mov	r0, r4
+ 1578 001e FFF7FEFF 		bl	SPIx_Write
+ 1579              	.LVL96:
+ 580:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 1580              		.loc 1 580 3 view .LVU354
+ 1581 0022 0122     		movs	r2, #1
+ 1582 0024 4021     		movs	r1, #64
+ 1583 0026 2846     		mov	r0, r5
+ 1584 0028 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1585              	.LVL97:
+ 581:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1586              		.loc 1 581 1 is_stmt 0 view .LVU355
+ 1587 002c 38BD     		pop	{r3, r4, r5, pc}
+ 1588              	.L109:
+ 1589 002e 00BF     		.align	2
+ 1590              	.L108:
+ 1591 0030 00040240 		.word	1073873920
+ 1592 0034 00000240 		.word	1073872896
+ 1593              		.cfi_endproc
+ 1594              	.LFE154:
+ 1596              		.section	.text.LCD_IO_WriteData,"ax",%progbits
+ 1597              		.align	1
+ 1598              		.global	LCD_IO_WriteData
+ 1599              		.syntax unified
+ 1600              		.thumb
+ARM GAS  /tmp/ccElJLLx.s 			page 46
+
+
+ 1601              		.thumb_func
+ 1602              		.fpu fpv4-sp-d16
+ 1604              	LCD_IO_WriteData:
+ 1605              	.LVL98:
+ 1606              	.LFB155:
+ 589:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Reset LCD control line CS */
+ 1607              		.loc 1 589 1 is_stmt 1 view -0
+ 1608              		.cfi_startproc
+ 1609              		@ args = 0, pretend = 0, frame = 0
+ 1610              		@ frame_needed = 0, uses_anonymous_args = 0
+ 589:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Reset LCD control line CS */
+ 1611              		.loc 1 589 1 is_stmt 0 view .LVU357
+ 1612 0000 38B5     		push	{r3, r4, r5, lr}
+ 1613              	.LCFI44:
+ 1614              		.cfi_def_cfa_offset 16
+ 1615              		.cfi_offset 3, -16
+ 1616              		.cfi_offset 4, -12
+ 1617              		.cfi_offset 5, -8
+ 1618              		.cfi_offset 14, -4
+ 1619 0002 0446     		mov	r4, r0
+ 591:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1620              		.loc 1 591 3 is_stmt 1 view .LVU358
+ 1621 0004 0A4D     		ldr	r5, .L112
+ 1622 0006 0022     		movs	r2, #0
+ 1623 0008 4021     		movs	r1, #64
+ 1624 000a 2846     		mov	r0, r5
+ 1625              	.LVL99:
+ 591:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1626              		.loc 1 591 3 is_stmt 0 view .LVU359
+ 1627 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1628              	.LVL100:
+ 594:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1629              		.loc 1 594 3 is_stmt 1 view .LVU360
+ 1630 0010 0122     		movs	r2, #1
+ 1631 0012 4FF40071 		mov	r1, #512
+ 1632 0016 0748     		ldr	r0, .L112+4
+ 1633 0018 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1634              	.LVL101:
+ 597:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1635              		.loc 1 597 3 view .LVU361
+ 1636 001c 2046     		mov	r0, r4
+ 1637 001e FFF7FEFF 		bl	SPIx_Write
+ 1638              	.LVL102:
+ 600:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 1639              		.loc 1 600 3 view .LVU362
+ 1640 0022 0122     		movs	r2, #1
+ 1641 0024 4021     		movs	r1, #64
+ 1642 0026 2846     		mov	r0, r5
+ 1643 0028 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1644              	.LVL103:
+ 601:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1645              		.loc 1 601 1 is_stmt 0 view .LVU363
+ 1646 002c 38BD     		pop	{r3, r4, r5, pc}
+ 1647              	.L113:
+ 1648 002e 00BF     		.align	2
+ 1649              	.L112:
+ 1650 0030 00040240 		.word	1073873920
+ARM GAS  /tmp/ccElJLLx.s 			page 47
+
+
+ 1651 0034 00000240 		.word	1073872896
+ 1652              		.cfi_endproc
+ 1653              	.LFE155:
+ 1655              		.section	.text.LCD_IO_WriteMultipleData,"ax",%progbits
+ 1656              		.align	1
+ 1657              		.global	LCD_IO_WriteMultipleData
+ 1658              		.syntax unified
+ 1659              		.thumb
+ 1660              		.thumb_func
+ 1661              		.fpu fpv4-sp-d16
+ 1663              	LCD_IO_WriteMultipleData:
+ 1664              	.LVL104:
+ 1665              	.LFB156:
+ 609:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   uint32_t counter = 0;
+ 1666              		.loc 1 609 1 is_stmt 1 view -0
+ 1667              		.cfi_startproc
+ 1668              		@ args = 0, pretend = 0, frame = 8
+ 1669              		@ frame_needed = 0, uses_anonymous_args = 0
+ 609:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   uint32_t counter = 0;
+ 1670              		.loc 1 609 1 is_stmt 0 view .LVU365
+ 1671 0000 30B5     		push	{r4, r5, lr}
+ 1672              	.LCFI45:
+ 1673              		.cfi_def_cfa_offset 12
+ 1674              		.cfi_offset 4, -12
+ 1675              		.cfi_offset 5, -8
+ 1676              		.cfi_offset 14, -4
+ 1677 0002 83B0     		sub	sp, sp, #12
+ 1678              	.LCFI46:
+ 1679              		.cfi_def_cfa_offset 24
+ 1680 0004 0546     		mov	r5, r0
+ 1681 0006 0C46     		mov	r4, r1
+ 610:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   __IO uint32_t data = 0;
+ 1682              		.loc 1 610 3 is_stmt 1 view .LVU366
+ 1683              	.LVL105:
+ 611:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1684              		.loc 1 611 3 view .LVU367
+ 611:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1685              		.loc 1 611 17 is_stmt 0 view .LVU368
+ 1686 0008 0022     		movs	r2, #0
+ 1687 000a 0192     		str	r2, [sp, #4]
+ 614:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1688              		.loc 1 614 3 is_stmt 1 view .LVU369
+ 1689 000c 4021     		movs	r1, #64
+ 1690              	.LVL106:
+ 614:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1691              		.loc 1 614 3 is_stmt 0 view .LVU370
+ 1692 000e 1948     		ldr	r0, .L121
+ 1693              	.LVL107:
+ 614:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1694              		.loc 1 614 3 view .LVU371
+ 1695 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1696              	.LVL108:
+ 617:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1697              		.loc 1 617 3 is_stmt 1 view .LVU372
+ 1698 0014 0122     		movs	r2, #1
+ 1699 0016 4FF40071 		mov	r1, #512
+ 1700 001a 1748     		ldr	r0, .L121+4
+ARM GAS  /tmp/ccElJLLx.s 			page 48
+
+
+ 1701 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1702              	.LVL109:
+ 619:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 1703              		.loc 1 619 3 view .LVU373
+ 619:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 1704              		.loc 1 619 6 is_stmt 0 view .LVU374
+ 1705 0020 012C     		cmp	r4, #1
+ 1706 0022 13D1     		bne	.L115
+ 623:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 1707              		.loc 1 623 5 is_stmt 1 view .LVU375
+ 1708 0024 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
+ 1709 0026 FFF7FEFF 		bl	SPIx_Write
+ 1710              	.LVL110:
+ 1711 002a 17E0     		b	.L116
+ 1712              	.LVL111:
+ 1713              	.L117:
+ 633:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       /* Need to invert bytes for LCD*/
+ 1714              		.loc 1 633 7 discriminator 1 view .LVU376
+ 631:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       {
+ 1715              		.loc 1 631 12 discriminator 1 view .LVU377
+ 631:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       {
+ 1716              		.loc 1 631 26 is_stmt 0 discriminator 1 view .LVU378
+ 1717 002c 134B     		ldr	r3, .L121+8
+ 1718 002e 1B68     		ldr	r3, [r3]
+ 631:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       {
+ 1719              		.loc 1 631 35 discriminator 1 view .LVU379
+ 1720 0030 9A68     		ldr	r2, [r3, #8]
+ 631:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       {
+ 1721              		.loc 1 631 12 discriminator 1 view .LVU380
+ 1722 0032 12F0020F 		tst	r2, #2
+ 1723 0036 F9D0     		beq	.L117
+ 635:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       
+ 1724              		.loc 1 635 7 is_stmt 1 view .LVU381
+ 635:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       
+ 1725              		.loc 1 635 51 is_stmt 0 view .LVU382
+ 1726 0038 6A78     		ldrb	r2, [r5, #1]	@ zero_extendqisi2
+ 1727 003a 1A73     		strb	r2, [r3, #12]
+ 637:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       {
+ 1728              		.loc 1 637 7 is_stmt 1 view .LVU383
+ 1729              	.L118:
+ 639:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       *((__IO uint8_t*)&hnucleo_Spi.Instance->DR) = *pData;
+ 1730              		.loc 1 639 7 discriminator 1 view .LVU384
+ 637:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       {
+ 1731              		.loc 1 637 12 discriminator 1 view .LVU385
+ 637:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       {
+ 1732              		.loc 1 637 35 is_stmt 0 discriminator 1 view .LVU386
+ 1733 003c 9A68     		ldr	r2, [r3, #8]
+ 637:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       {
+ 1734              		.loc 1 637 12 discriminator 1 view .LVU387
+ 1735 003e 12F0020F 		tst	r2, #2
+ 1736 0042 FBD0     		beq	.L118
+ 640:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       counter--;
+ 1737              		.loc 1 640 7 is_stmt 1 discriminator 2 view .LVU388
+ 640:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       counter--;
+ 1738              		.loc 1 640 53 is_stmt 0 discriminator 2 view .LVU389
+ 1739 0044 15F8022B 		ldrb	r2, [r5], #2	@ zero_extendqisi2
+ 1740              	.LVL112:
+ARM GAS  /tmp/ccElJLLx.s 			page 49
+
+
+ 640:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       counter--;
+ 1741              		.loc 1 640 51 discriminator 2 view .LVU390
+ 1742 0048 1A73     		strb	r2, [r3, #12]
+ 641:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       pData += 2;
+ 1743              		.loc 1 641 7 is_stmt 1 discriminator 2 view .LVU391
+ 1744              	.LVL113:
+ 642:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****       }
+ 1745              		.loc 1 642 7 discriminator 2 view .LVU392
+ 629:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     {
+ 1746              		.loc 1 629 40 discriminator 2 view .LVU393
+ 629:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     {
+ 1747              		.loc 1 629 47 is_stmt 0 discriminator 2 view .LVU394
+ 1748 004a 023C     		subs	r4, r4, #2
+ 1749              	.LVL114:
+ 1750              	.L115:
+ 629:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     {
+ 1751              		.loc 1 629 26 is_stmt 1 discriminator 1 view .LVU395
+ 629:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     {
+ 1752              		.loc 1 629 5 is_stmt 0 discriminator 1 view .LVU396
+ 1753 004c 002C     		cmp	r4, #0
+ 1754 004e EDD1     		bne	.L117
+ 1755              	.L119:
+ 648:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   } 
+ 1756              		.loc 1 648 5 is_stmt 1 discriminator 1 view .LVU397
+ 646:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     {
+ 1757              		.loc 1 646 10 discriminator 1 view .LVU398
+ 646:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     {
+ 1758              		.loc 1 646 24 is_stmt 0 discriminator 1 view .LVU399
+ 1759 0050 0A4B     		ldr	r3, .L121+8
+ 1760 0052 1B68     		ldr	r3, [r3]
+ 646:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     {
+ 1761              		.loc 1 646 33 discriminator 1 view .LVU400
+ 1762 0054 9B68     		ldr	r3, [r3, #8]
+ 646:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     {
+ 1763              		.loc 1 646 10 discriminator 1 view .LVU401
+ 1764 0056 13F0800F 		tst	r3, #128
+ 1765 005a F9D1     		bne	.L119
+ 1766              	.LVL115:
+ 1767              	.L116:
+ 652:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   UNUSED(data);
+ 1768              		.loc 1 652 3 is_stmt 1 view .LVU402
+ 652:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   UNUSED(data);
+ 1769              		.loc 1 652 24 is_stmt 0 view .LVU403
+ 1770 005c 074B     		ldr	r3, .L121+8
+ 1771 005e 1B68     		ldr	r3, [r3]
+ 652:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   UNUSED(data);
+ 1772              		.loc 1 652 10 view .LVU404
+ 1773 0060 DB68     		ldr	r3, [r3, #12]
+ 652:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   UNUSED(data);
+ 1774              		.loc 1 652 8 view .LVU405
+ 1775 0062 0193     		str	r3, [sp, #4]
+ 653:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1776              		.loc 1 653 3 is_stmt 1 view .LVU406
+ 1777 0064 019B     		ldr	r3, [sp, #4]
+ 656:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 1778              		.loc 1 656 3 view .LVU407
+ 1779 0066 0122     		movs	r2, #1
+ARM GAS  /tmp/ccElJLLx.s 			page 50
+
+
+ 1780 0068 4021     		movs	r1, #64
+ 1781 006a 0248     		ldr	r0, .L121
+ 1782 006c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1783              	.LVL116:
+ 657:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1784              		.loc 1 657 1 is_stmt 0 view .LVU408
+ 1785 0070 03B0     		add	sp, sp, #12
+ 1786              	.LCFI47:
+ 1787              		.cfi_def_cfa_offset 12
+ 1788              		@ sp needed
+ 1789 0072 30BD     		pop	{r4, r5, pc}
+ 1790              	.LVL117:
+ 1791              	.L122:
+ 657:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 1792              		.loc 1 657 1 view .LVU409
+ 1793              		.align	2
+ 1794              	.L121:
+ 1795 0074 00040240 		.word	1073873920
+ 1796 0078 00000240 		.word	1073872896
+ 1797 007c 00000000 		.word	.LANCHOR0
+ 1798              		.cfi_endproc
+ 1799              	.LFE156:
+ 1801              		.section	.text.LCD_Delay,"ax",%progbits
+ 1802              		.align	1
+ 1803              		.global	LCD_Delay
+ 1804              		.syntax unified
+ 1805              		.thumb
+ 1806              		.thumb_func
+ 1807              		.fpu fpv4-sp-d16
+ 1809              	LCD_Delay:
+ 1810              	.LVL118:
+ 1811              	.LFB157:
+ 664:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_Delay(Delay);
+ 1812              		.loc 1 664 1 is_stmt 1 view -0
+ 1813              		.cfi_startproc
+ 1814              		@ args = 0, pretend = 0, frame = 0
+ 1815              		@ frame_needed = 0, uses_anonymous_args = 0
+ 664:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_Delay(Delay);
+ 1816              		.loc 1 664 1 is_stmt 0 view .LVU411
+ 1817 0000 08B5     		push	{r3, lr}
+ 1818              	.LCFI48:
+ 1819              		.cfi_def_cfa_offset 8
+ 1820              		.cfi_offset 3, -8
+ 1821              		.cfi_offset 14, -4
+ 665:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 1822              		.loc 1 665 3 is_stmt 1 view .LVU412
+ 1823 0002 FFF7FEFF 		bl	HAL_Delay
+ 1824              	.LVL119:
+ 666:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** #endif /* HAL_SPI_MODULE_ENABLED */
+ 1825              		.loc 1 666 1 is_stmt 0 view .LVU413
+ 1826 0006 08BD     		pop	{r3, pc}
+ 1827              		.cfi_endproc
+ 1828              	.LFE157:
+ 1830              		.section	.text.BSP_JOY_Init,"ax",%progbits
+ 1831              		.align	1
+ 1832              		.global	BSP_JOY_Init
+ 1833              		.syntax unified
+ARM GAS  /tmp/ccElJLLx.s 			page 51
+
+
+ 1834              		.thumb
+ 1835              		.thumb_func
+ 1836              		.fpu fpv4-sp-d16
+ 1838              	BSP_JOY_Init:
+ 1839              	.LFB162:
+ 748:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 749:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /******************************* LINK JOYSTICK ********************************/
+ 750:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 751:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 752:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Configures joystick available on adafruit 1.8" TFT shield 
+ 753:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *         managed through ADC to detect motion.
+ 754:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @retval Joystickstatus (0=> success, 1=> fail) 
+ 755:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 756:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** uint8_t BSP_JOY_Init(void)
+ 757:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 1840              		.loc 1 757 1 is_stmt 1 view -0
+ 1841              		.cfi_startproc
+ 1842              		@ args = 0, pretend = 0, frame = 0
+ 1843              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1844 0000 08B5     		push	{r3, lr}
+ 1845              	.LCFI49:
+ 1846              		.cfi_def_cfa_offset 8
+ 1847              		.cfi_offset 3, -8
+ 1848              		.cfi_offset 14, -4
+ 758:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   uint8_t status = HAL_ERROR;
+ 1849              		.loc 1 758 3 view .LVU415
+ 1850              	.LVL120:
+ 759:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****    
+ 760:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   ADCx_Init();
+ 1851              		.loc 1 760 3 view .LVU416
+ 1852 0002 FFF7FEFF 		bl	ADCx_Init
+ 1853              	.LVL121:
+ 761:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****    
+ 762:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Select the ADC Channel to be converted */
+ 763:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   sConfig.Channel = NUCLEO_ADCx_CHANNEL;
+ 1854              		.loc 1 763 3 view .LVU417
+ 1855              		.loc 1 763 19 is_stmt 0 view .LVU418
+ 1856 0006 0549     		ldr	r1, .L127
+ 1857 0008 0823     		movs	r3, #8
+ 1858 000a 0B60     		str	r3, [r1]
+ 764:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+ 1859              		.loc 1 764 3 is_stmt 1 view .LVU419
+ 1860              		.loc 1 764 24 is_stmt 0 view .LVU420
+ 1861 000c 0023     		movs	r3, #0
+ 1862 000e 8B60     		str	r3, [r1, #8]
+ 765:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   sConfig.Rank = 1;
+ 1863              		.loc 1 765 3 is_stmt 1 view .LVU421
+ 1864              		.loc 1 765 16 is_stmt 0 view .LVU422
+ 1865 0010 0123     		movs	r3, #1
+ 1866 0012 4B60     		str	r3, [r1, #4]
+ 766:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   status = HAL_ADC_ConfigChannel(&hnucleo_Adc, &sConfig);
+ 1867              		.loc 1 766 3 is_stmt 1 view .LVU423
+ 1868              		.loc 1 766 12 is_stmt 0 view .LVU424
+ 1869 0014 0248     		ldr	r0, .L127+4
+ 1870 0016 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
+ 1871              	.LVL122:
+ 767:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ARM GAS  /tmp/ccElJLLx.s 			page 52
+
+
+ 768:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Return Joystick initialization status */
+ 769:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   return status;
+ 1872              		.loc 1 769 3 is_stmt 1 view .LVU425
+ 770:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 1873              		.loc 1 770 1 is_stmt 0 view .LVU426
+ 1874 001a 08BD     		pop	{r3, pc}
+ 1875              	.L128:
+ 1876              		.align	2
+ 1877              	.L127:
+ 1878 001c 00000000 		.word	.LANCHOR5
+ 1879 0020 00000000 		.word	.LANCHOR2
+ 1880              		.cfi_endproc
+ 1881              	.LFE162:
+ 1883              		.section	.text.BSP_JOY_DeInit,"ax",%progbits
+ 1884              		.align	1
+ 1885              		.global	BSP_JOY_DeInit
+ 1886              		.syntax unified
+ 1887              		.thumb
+ 1888              		.thumb_func
+ 1889              		.fpu fpv4-sp-d16
+ 1891              	BSP_JOY_DeInit:
+ 1892              	.LFB163:
+ 771:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ 772:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 773:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  DeInit joystick GPIOs.
+ 774:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @note   JOY DeInit does not disable the Mfx, just set the Mfx pins in Off modee.
+ 775:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 776:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** void BSP_JOY_DeInit(void)
+ 777:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 1893              		.loc 1 777 1 is_stmt 1 view -0
+ 1894              		.cfi_startproc
+ 1895              		@ args = 0, pretend = 0, frame = 0
+ 1896              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1897 0000 08B5     		push	{r3, lr}
+ 1898              	.LCFI50:
+ 1899              		.cfi_def_cfa_offset 8
+ 1900              		.cfi_offset 3, -8
+ 1901              		.cfi_offset 14, -4
+ 778:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   ADCx_DeInit();
+ 1902              		.loc 1 778 3 view .LVU428
+ 1903 0002 FFF7FEFF 		bl	ADCx_DeInit
+ 1904              	.LVL123:
+ 779:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 1905              		.loc 1 779 1 is_stmt 0 view .LVU429
+ 1906 0006 08BD     		pop	{r3, pc}
+ 1907              		.cfi_endproc
+ 1908              	.LFE163:
+ 1910              		.section	.text.BSP_JOY_GetState,"ax",%progbits
+ 1911              		.align	1
+ 1912              		.global	BSP_JOY_GetState
+ 1913              		.syntax unified
+ 1914              		.thumb
+ 1915              		.thumb_func
+ 1916              		.fpu fpv4-sp-d16
+ 1918              	BSP_JOY_GetState:
+ 1919              	.LFB164:
+ 780:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** 
+ARM GAS  /tmp/ccElJLLx.s 			page 53
+
+
+ 781:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** /**
+ 782:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @brief  Returns the Joystick key pressed.
+ 783:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @note   To know which Joystick key is pressed we need to detect the voltage
+ 784:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *         level on each key output
+ 785:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *           - None  : 3.3 V / 4095
+ 786:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *           - SEL   : 1.055 V / 1308
+ 787:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *           - DOWN  : 0.71 V / 88
+ 788:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *           - LEFT  : 3.0 V / 3720 
+ 789:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *           - RIGHT : 0.595 V / 737
+ 790:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   *           - UP    : 1.65 V / 2046
+ 791:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   * @retval JOYState_TypeDef: Code of the Joystick key pressed.
+ 792:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   */
+ 793:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** JOYState_TypeDef BSP_JOY_GetState(void)
+ 794:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** {
+ 1920              		.loc 1 794 1 is_stmt 1 view -0
+ 1921              		.cfi_startproc
+ 1922              		@ args = 0, pretend = 0, frame = 0
+ 1923              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1924 0000 10B5     		push	{r4, lr}
+ 1925              	.LCFI51:
+ 1926              		.cfi_def_cfa_offset 8
+ 1927              		.cfi_offset 4, -8
+ 1928              		.cfi_offset 14, -4
+ 795:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   JOYState_TypeDef state;
+ 1929              		.loc 1 795 3 view .LVU431
+ 796:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   uint16_t  keyconvertedvalue = 0;
+ 1930              		.loc 1 796 3 view .LVU432
+ 1931              	.LVL124:
+ 797:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 798:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Start the conversion process */
+ 799:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_ADC_Start(&hnucleo_Adc);
+ 1932              		.loc 1 799 3 view .LVU433
+ 1933 0002 1E4C     		ldr	r4, .L143
+ 1934 0004 2046     		mov	r0, r4
+ 1935 0006 FFF7FEFF 		bl	HAL_ADC_Start
+ 1936              	.LVL125:
+ 800:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 801:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Wait for the end of conversion */
+ 802:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   HAL_ADC_PollForConversion(&hnucleo_Adc, 10);
+ 1937              		.loc 1 802 3 view .LVU434
+ 1938 000a 0A21     		movs	r1, #10
+ 1939 000c 2046     		mov	r0, r4
+ 1940 000e FFF7FEFF 		bl	HAL_ADC_PollForConversion
+ 1941              	.LVL126:
+ 803:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 804:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Check if the continuous conversion of regular channel is finished */
+ 805:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   if(((HAL_ADC_GetState(&hnucleo_Adc) & HAL_ADC_STATE_EOC_REG) == HAL_ADC_STATE_EOC_REG))
+ 1942              		.loc 1 805 3 view .LVU435
+ 1943              		.loc 1 805 8 is_stmt 0 view .LVU436
+ 1944 0012 2046     		mov	r0, r4
+ 1945 0014 FFF7FEFF 		bl	HAL_ADC_GetState
+ 1946              	.LVL127:
+ 1947              		.loc 1 805 5 view .LVU437
+ 1948 0018 10F4007F 		tst	r0, #512
+ 1949 001c 1BD1     		bne	.L142
+ 796:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 1950              		.loc 1 796 13 view .LVU438
+ARM GAS  /tmp/ccElJLLx.s 			page 54
+
+
+ 1951 001e 0020     		movs	r0, #0
+ 1952              	.LVL128:
+ 1953              	.L132:
+ 806:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 807:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     /* Get the converted value of regular channel */
+ 808:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     keyconvertedvalue = HAL_ADC_GetValue(&hnucleo_Adc);
+ 809:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 810:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 811:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   if((keyconvertedvalue > 2010) && (keyconvertedvalue < 2090))
+ 1954              		.loc 1 811 3 is_stmt 1 view .LVU439
+ 1955              		.loc 1 811 33 is_stmt 0 view .LVU440
+ 1956 0020 A0F2DB73 		subw	r3, r0, #2011
+ 1957 0024 9BB2     		uxth	r3, r3
+ 1958              		.loc 1 811 5 view .LVU441
+ 1959 0026 4E2B     		cmp	r3, #78
+ 1960 0028 1AD9     		bls	.L136
+ 812:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 813:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     state = JOY_UP;
+ 814:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 815:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   else if((keyconvertedvalue > 680) && (keyconvertedvalue < 780))
+ 1961              		.loc 1 815 8 is_stmt 1 view .LVU442
+ 1962              		.loc 1 815 37 is_stmt 0 view .LVU443
+ 1963 002a A0F2A923 		subw	r3, r0, #681
+ 1964 002e 9BB2     		uxth	r3, r3
+ 1965              		.loc 1 815 10 view .LVU444
+ 1966 0030 622B     		cmp	r3, #98
+ 1967 0032 17D9     		bls	.L137
+ 816:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 817:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     state = JOY_RIGHT;
+ 818:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 819:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   else if((keyconvertedvalue > 1270) && (keyconvertedvalue < 1350))
+ 1968              		.loc 1 819 8 is_stmt 1 view .LVU445
+ 1969              		.loc 1 819 38 is_stmt 0 view .LVU446
+ 1970 0034 A0F2F743 		subw	r3, r0, #1271
+ 1971 0038 9BB2     		uxth	r3, r3
+ 1972              		.loc 1 819 10 view .LVU447
+ 1973 003a 4E2B     		cmp	r3, #78
+ 1974 003c 18D9     		bls	.L138
+ 820:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 821:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     state = JOY_SEL;
+ 822:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 823:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   else if((keyconvertedvalue > 50) && (keyconvertedvalue < 130))
+ 1975              		.loc 1 823 8 is_stmt 1 view .LVU448
+ 1976              		.loc 1 823 36 is_stmt 0 view .LVU449
+ 1977 003e A0F13303 		sub	r3, r0, #51
+ 1978 0042 9BB2     		uxth	r3, r3
+ 1979              		.loc 1 823 10 view .LVU450
+ 1980 0044 4E2B     		cmp	r3, #78
+ 1981 0046 15D9     		bls	.L139
+ 824:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 825:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     state = JOY_DOWN;
+ 826:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 827:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   else if((keyconvertedvalue > 3680) && (keyconvertedvalue < 3760))
+ 1982              		.loc 1 827 8 is_stmt 1 view .LVU451
+ 1983              		.loc 1 827 38 is_stmt 0 view .LVU452
+ 1984 0048 A0F66160 		subw	r0, r0, #3681
+ 1985              	.LVL129:
+ARM GAS  /tmp/ccElJLLx.s 			page 55
+
+
+ 1986              		.loc 1 827 38 view .LVU453
+ 1987 004c 80B2     		uxth	r0, r0
+ 1988              		.loc 1 827 10 view .LVU454
+ 1989 004e 4E28     		cmp	r0, #78
+ 1990 0050 12D8     		bhi	.L140
+ 828:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 829:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     state = JOY_LEFT;
+ 1991              		.loc 1 829 11 view .LVU455
+ 1992 0052 0324     		movs	r4, #3
+ 1993 0054 07E0     		b	.L133
+ 1994              	.LVL130:
+ 1995              	.L142:
+ 808:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 1996              		.loc 1 808 5 is_stmt 1 view .LVU456
+ 808:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 1997              		.loc 1 808 25 is_stmt 0 view .LVU457
+ 1998 0056 2046     		mov	r0, r4
+ 1999 0058 FFF7FEFF 		bl	HAL_ADC_GetValue
+ 2000              	.LVL131:
+ 808:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 2001              		.loc 1 808 23 view .LVU458
+ 2002 005c 80B2     		uxth	r0, r0
+ 2003              	.LVL132:
+ 808:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 2004              		.loc 1 808 23 view .LVU459
+ 2005 005e DFE7     		b	.L132
+ 2006              	.L136:
+ 813:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 2007              		.loc 1 813 11 view .LVU460
+ 2008 0060 0524     		movs	r4, #5
+ 2009 0062 00E0     		b	.L133
+ 2010              	.L137:
+ 817:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 2011              		.loc 1 817 11 view .LVU461
+ 2012 0064 0424     		movs	r4, #4
+ 2013              	.LVL133:
+ 2014              	.L133:
+ 830:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 831:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   else
+ 832:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   {
+ 833:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     state = JOY_NONE;
+ 834:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 835:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   
+ 836:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Loop while a key is pressed */
+ 837:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   if(state != JOY_NONE)
+ 838:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   { 
+ 839:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****     keyconvertedvalue = HAL_ADC_GetValue(&hnucleo_Adc);  
+ 2015              		.loc 1 839 5 is_stmt 1 view .LVU462
+ 2016              		.loc 1 839 25 is_stmt 0 view .LVU463
+ 2017 0066 0548     		ldr	r0, .L143
+ 2018 0068 FFF7FEFF 		bl	HAL_ADC_GetValue
+ 2019              	.LVL134:
+ 2020              	.L134:
+ 840:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 841:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   /* Return the code of the Joystick key pressed */
+ 842:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   return state;
+ 2021              		.loc 1 842 3 is_stmt 1 view .LVU464
+ARM GAS  /tmp/ccElJLLx.s 			page 56
+
+
+ 843:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c **** }
+ 2022              		.loc 1 843 1 is_stmt 0 view .LVU465
+ 2023 006c 2046     		mov	r0, r4
+ 2024 006e 10BD     		pop	{r4, pc}
+ 2025              	.LVL135:
+ 2026              	.L138:
+ 821:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 2027              		.loc 1 821 11 view .LVU466
+ 2028 0070 0124     		movs	r4, #1
+ 2029 0072 F8E7     		b	.L133
+ 2030              	.L139:
+ 825:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 2031              		.loc 1 825 11 view .LVU467
+ 2032 0074 0224     		movs	r4, #2
+ 2033 0076 F6E7     		b	.L133
+ 2034              	.LVL136:
+ 2035              	.L140:
+ 833:Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c ****   }
+ 2036              		.loc 1 833 11 view .LVU468
+ 2037 0078 0024     		movs	r4, #0
+ 2038 007a F7E7     		b	.L134
+ 2039              	.L144:
+ 2040              		.align	2
+ 2041              	.L143:
+ 2042 007c 00000000 		.word	.LANCHOR2
+ 2043              		.cfi_endproc
+ 2044              	.LFE164:
+ 2046              		.global	SpixTimeout
+ 2047              		.global	BUTTON_IRQn
+ 2048              		.global	BUTTON_PIN
+ 2049              		.global	BUTTON_PORT
+ 2050              		.global	GPIO_PIN
+ 2051              		.global	GPIO_PORT
+ 2052              		.section	.bss.hnucleo_Adc,"aw",%nobits
+ 2053              		.align	2
+ 2054              		.set	.LANCHOR2,. + 0
+ 2057              	hnucleo_Adc:
+ 2058 0000 00000000 		.space	72
+ 2058      00000000 
+ 2058      00000000 
+ 2058      00000000 
+ 2058      00000000 
+ 2059              		.section	.bss.hnucleo_Spi,"aw",%nobits
+ 2060              		.align	2
+ 2061              		.set	.LANCHOR0,. + 0
+ 2064              	hnucleo_Spi:
+ 2065 0000 00000000 		.space	88
+ 2065      00000000 
+ 2065      00000000 
+ 2065      00000000 
+ 2065      00000000 
+ 2066              		.section	.bss.sConfig,"aw",%nobits
+ 2067              		.align	2
+ 2068              		.set	.LANCHOR5,. + 0
+ 2071              	sConfig:
+ 2072 0000 00000000 		.space	16
+ 2072      00000000 
+ARM GAS  /tmp/ccElJLLx.s 			page 57
+
+
+ 2072      00000000 
+ 2072      00000000 
+ 2073              		.section	.data.BUTTON_PORT,"aw"
+ 2074              		.align	2
+ 2075              		.set	.LANCHOR4,. + 0
+ 2078              	BUTTON_PORT:
+ 2079 0000 00080240 		.word	1073874944
+ 2080              		.section	.data.GPIO_PORT,"aw"
+ 2081              		.align	2
+ 2082              		.set	.LANCHOR3,. + 0
+ 2085              	GPIO_PORT:
+ 2086 0000 00000240 		.word	1073872896
+ 2087              		.section	.data.SpixTimeout,"aw"
+ 2088              		.align	2
+ 2089              		.set	.LANCHOR1,. + 0
+ 2092              	SpixTimeout:
+ 2093 0000 E8030000 		.word	1000
+ 2094              		.section	.rodata.BUTTON_IRQn,"a"
+ 2095              		.align	2
+ 2098              	BUTTON_IRQn:
+ 2099 0000 28       		.ascii	"("
+ 2100              		.section	.rodata.BUTTON_PIN,"a"
+ 2101              		.align	2
+ 2104              	BUTTON_PIN:
+ 2105 0000 0020     		.short	8192
+ 2106              		.section	.rodata.GPIO_PIN,"a"
+ 2107              		.align	2
+ 2110              	GPIO_PIN:
+ 2111 0000 2000     		.short	32
+ 2112              		.text
+ 2113              	.Letext0:
+ 2114              		.file 2 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 2115              		.file 3 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
+ 2116              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 2117              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 2118              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 2119              		.file 7 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h"
+ 2120              		.file 8 "/usr/include/newlib/sys/_types.h"
+ 2121              		.file 9 "/usr/include/newlib/sys/reent.h"
+ 2122              		.file 10 "/usr/include/newlib/sys/lock.h"
+ 2123              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 2124              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 2125              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 2126              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
+ 2127              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 2128              		.file 16 "Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.h"
+ 2129              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 2130              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ARM GAS  /tmp/ccElJLLx.s 			page 58
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f4xx_nucleo.c
+     /tmp/ccElJLLx.s:18     .text.SPIx_MspInit:0000000000000000 $t
+     /tmp/ccElJLLx.s:25     .text.SPIx_MspInit:0000000000000000 SPIx_MspInit
+     /tmp/ccElJLLx.s:161    .text.SPIx_MspInit:0000000000000090 $d
+     /tmp/ccElJLLx.s:167    .text.ADCx_MspInit:0000000000000000 $t
+     /tmp/ccElJLLx.s:173    .text.ADCx_MspInit:0000000000000000 ADCx_MspInit
+     /tmp/ccElJLLx.s:252    .text.ADCx_MspInit:0000000000000048 $d
+     /tmp/ccElJLLx.s:258    .text.ADCx_MspDeInit:0000000000000000 $t
+     /tmp/ccElJLLx.s:264    .text.ADCx_MspDeInit:0000000000000000 ADCx_MspDeInit
+     /tmp/ccElJLLx.s:296    .text.ADCx_MspDeInit:0000000000000018 $d
+     /tmp/ccElJLLx.s:302    .text.SPIx_Init:0000000000000000 $t
+     /tmp/ccElJLLx.s:308    .text.SPIx_Init:0000000000000000 SPIx_Init
+     /tmp/ccElJLLx.s:388    .text.SPIx_Init:0000000000000048 $d
+     /tmp/ccElJLLx.s:394    .text.SPIx_Error:0000000000000000 $t
+     /tmp/ccElJLLx.s:400    .text.SPIx_Error:0000000000000000 SPIx_Error
+     /tmp/ccElJLLx.s:423    .text.SPIx_Error:0000000000000010 $d
+     /tmp/ccElJLLx.s:428    .text.SPIx_WriteReadData:0000000000000000 $t
+     /tmp/ccElJLLx.s:434    .text.SPIx_WriteReadData:0000000000000000 SPIx_WriteReadData
+     /tmp/ccElJLLx.s:492    .text.SPIx_WriteReadData:0000000000000024 $d
+     /tmp/ccElJLLx.s:498    .text.SPIx_Write:0000000000000000 $t
+     /tmp/ccElJLLx.s:504    .text.SPIx_Write:0000000000000000 SPIx_Write
+     /tmp/ccElJLLx.s:560    .text.SPIx_Write:000000000000002c $d
+     /tmp/ccElJLLx.s:566    .text.ADCx_Init:0000000000000000 $t
+     /tmp/ccElJLLx.s:572    .text.ADCx_Init:0000000000000000 ADCx_Init
+     /tmp/ccElJLLx.s:642    .text.ADCx_Init:000000000000003c $d
+     /tmp/ccElJLLx.s:648    .text.ADCx_DeInit:0000000000000000 $t
+     /tmp/ccElJLLx.s:654    .text.ADCx_DeInit:0000000000000000 ADCx_DeInit
+     /tmp/ccElJLLx.s:683    .text.ADCx_DeInit:0000000000000018 $d
+     /tmp/ccElJLLx.s:689    .text.BSP_GetVersion:0000000000000000 $t
+     /tmp/ccElJLLx.s:696    .text.BSP_GetVersion:0000000000000000 BSP_GetVersion
+     /tmp/ccElJLLx.s:710    .text.BSP_GetVersion:0000000000000004 $d
+     /tmp/ccElJLLx.s:715    .text.BSP_LED_Init:0000000000000000 $t
+     /tmp/ccElJLLx.s:722    .text.BSP_LED_Init:0000000000000000 BSP_LED_Init
+     /tmp/ccElJLLx.s:799    .text.BSP_LED_Init:0000000000000048 $d
+     /tmp/ccElJLLx.s:805    .text.BSP_LED_DeInit:0000000000000000 $t
+     /tmp/ccElJLLx.s:812    .text.BSP_LED_DeInit:0000000000000000 BSP_LED_DeInit
+     /tmp/ccElJLLx.s:849    .text.BSP_LED_DeInit:0000000000000020 $d
+     /tmp/ccElJLLx.s:854    .text.BSP_LED_On:0000000000000000 $t
+     /tmp/ccElJLLx.s:861    .text.BSP_LED_On:0000000000000000 BSP_LED_On
+     /tmp/ccElJLLx.s:888    .text.BSP_LED_On:0000000000000014 $d
+     /tmp/ccElJLLx.s:893    .text.BSP_LED_Off:0000000000000000 $t
+     /tmp/ccElJLLx.s:900    .text.BSP_LED_Off:0000000000000000 BSP_LED_Off
+     /tmp/ccElJLLx.s:927    .text.BSP_LED_Off:0000000000000014 $d
+     /tmp/ccElJLLx.s:932    .text.BSP_LED_Toggle:0000000000000000 $t
+     /tmp/ccElJLLx.s:939    .text.BSP_LED_Toggle:0000000000000000 BSP_LED_Toggle
+     /tmp/ccElJLLx.s:965    .text.BSP_LED_Toggle:0000000000000010 $d
+     /tmp/ccElJLLx.s:970    .text.BSP_PB_Init:0000000000000000 $t
+     /tmp/ccElJLLx.s:977    .text.BSP_PB_Init:0000000000000000 BSP_PB_Init
+     /tmp/ccElJLLx.s:1096   .text.BSP_PB_Init:0000000000000074 $d
+     /tmp/ccElJLLx.s:1103   .text.BSP_PB_DeInit:0000000000000000 $t
+     /tmp/ccElJLLx.s:1110   .text.BSP_PB_DeInit:0000000000000000 BSP_PB_DeInit
+     /tmp/ccElJLLx.s:1143   .text.BSP_PB_DeInit:000000000000001c $d
+     /tmp/ccElJLLx.s:1148   .text.BSP_PB_GetState:0000000000000000 $t
+     /tmp/ccElJLLx.s:1155   .text.BSP_PB_GetState:0000000000000000 BSP_PB_GetState
+     /tmp/ccElJLLx.s:1182   .text.BSP_PB_GetState:0000000000000014 $d
+     /tmp/ccElJLLx.s:1187   .text.SD_IO_CSState:0000000000000000 $t
+ARM GAS  /tmp/ccElJLLx.s 			page 59
+
+
+     /tmp/ccElJLLx.s:1194   .text.SD_IO_CSState:0000000000000000 SD_IO_CSState
+     /tmp/ccElJLLx.s:1236   .text.SD_IO_CSState:0000000000000020 $d
+     /tmp/ccElJLLx.s:1241   .text.SD_IO_WriteReadData:0000000000000000 $t
+     /tmp/ccElJLLx.s:1248   .text.SD_IO_WriteReadData:0000000000000000 SD_IO_WriteReadData
+     /tmp/ccElJLLx.s:1270   .text.SD_IO_WriteByte:0000000000000000 $t
+     /tmp/ccElJLLx.s:1277   .text.SD_IO_WriteByte:0000000000000000 SD_IO_WriteByte
+     /tmp/ccElJLLx.s:1314   .text.SD_IO_Init:0000000000000000 $t
+     /tmp/ccElJLLx.s:1321   .text.SD_IO_Init:0000000000000000 SD_IO_Init
+     /tmp/ccElJLLx.s:1419   .text.SD_IO_Init:0000000000000058 $d
+     /tmp/ccElJLLx.s:1425   .text.LCD_IO_Init:0000000000000000 $t
+     /tmp/ccElJLLx.s:1432   .text.LCD_IO_Init:0000000000000000 LCD_IO_Init
+     /tmp/ccElJLLx.s:1531   .text.LCD_IO_Init:0000000000000068 $d
+     /tmp/ccElJLLx.s:1538   .text.LCD_IO_WriteReg:0000000000000000 $t
+     /tmp/ccElJLLx.s:1545   .text.LCD_IO_WriteReg:0000000000000000 LCD_IO_WriteReg
+     /tmp/ccElJLLx.s:1591   .text.LCD_IO_WriteReg:0000000000000030 $d
+     /tmp/ccElJLLx.s:1597   .text.LCD_IO_WriteData:0000000000000000 $t
+     /tmp/ccElJLLx.s:1604   .text.LCD_IO_WriteData:0000000000000000 LCD_IO_WriteData
+     /tmp/ccElJLLx.s:1650   .text.LCD_IO_WriteData:0000000000000030 $d
+     /tmp/ccElJLLx.s:1656   .text.LCD_IO_WriteMultipleData:0000000000000000 $t
+     /tmp/ccElJLLx.s:1663   .text.LCD_IO_WriteMultipleData:0000000000000000 LCD_IO_WriteMultipleData
+     /tmp/ccElJLLx.s:1795   .text.LCD_IO_WriteMultipleData:0000000000000074 $d
+     /tmp/ccElJLLx.s:1802   .text.LCD_Delay:0000000000000000 $t
+     /tmp/ccElJLLx.s:1809   .text.LCD_Delay:0000000000000000 LCD_Delay
+     /tmp/ccElJLLx.s:1831   .text.BSP_JOY_Init:0000000000000000 $t
+     /tmp/ccElJLLx.s:1838   .text.BSP_JOY_Init:0000000000000000 BSP_JOY_Init
+     /tmp/ccElJLLx.s:1878   .text.BSP_JOY_Init:000000000000001c $d
+     /tmp/ccElJLLx.s:1884   .text.BSP_JOY_DeInit:0000000000000000 $t
+     /tmp/ccElJLLx.s:1891   .text.BSP_JOY_DeInit:0000000000000000 BSP_JOY_DeInit
+     /tmp/ccElJLLx.s:1911   .text.BSP_JOY_GetState:0000000000000000 $t
+     /tmp/ccElJLLx.s:1918   .text.BSP_JOY_GetState:0000000000000000 BSP_JOY_GetState
+     /tmp/ccElJLLx.s:2042   .text.BSP_JOY_GetState:000000000000007c $d
+     /tmp/ccElJLLx.s:2092   .data.SpixTimeout:0000000000000000 SpixTimeout
+     /tmp/ccElJLLx.s:2098   .rodata.BUTTON_IRQn:0000000000000000 BUTTON_IRQn
+     /tmp/ccElJLLx.s:2104   .rodata.BUTTON_PIN:0000000000000000 BUTTON_PIN
+     /tmp/ccElJLLx.s:2078   .data.BUTTON_PORT:0000000000000000 BUTTON_PORT
+     /tmp/ccElJLLx.s:2110   .rodata.GPIO_PIN:0000000000000000 GPIO_PIN
+     /tmp/ccElJLLx.s:2085   .data.GPIO_PORT:0000000000000000 GPIO_PORT
+     /tmp/ccElJLLx.s:2053   .bss.hnucleo_Adc:0000000000000000 $d
+     /tmp/ccElJLLx.s:2057   .bss.hnucleo_Adc:0000000000000000 hnucleo_Adc
+     /tmp/ccElJLLx.s:2060   .bss.hnucleo_Spi:0000000000000000 $d
+     /tmp/ccElJLLx.s:2064   .bss.hnucleo_Spi:0000000000000000 hnucleo_Spi
+     /tmp/ccElJLLx.s:2067   .bss.sConfig:0000000000000000 $d
+     /tmp/ccElJLLx.s:2071   .bss.sConfig:0000000000000000 sConfig
+     /tmp/ccElJLLx.s:2074   .data.BUTTON_PORT:0000000000000000 $d
+     /tmp/ccElJLLx.s:2081   .data.GPIO_PORT:0000000000000000 $d
+     /tmp/ccElJLLx.s:2088   .data.SpixTimeout:0000000000000000 $d
+     /tmp/ccElJLLx.s:2095   .rodata.BUTTON_IRQn:0000000000000000 $d
+     /tmp/ccElJLLx.s:2101   .rodata.BUTTON_PIN:0000000000000000 $d
+     /tmp/ccElJLLx.s:2107   .rodata.GPIO_PIN:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_Init
+HAL_GPIO_DeInit
+HAL_SPI_GetState
+HAL_SPI_Init
+HAL_SPI_DeInit
+HAL_SPI_TransmitReceive
+ARM GAS  /tmp/ccElJLLx.s 			page 60
+
+
+HAL_ADC_GetState
+HAL_ADC_Init
+HAL_ADC_DeInit
+HAL_GPIO_WritePin
+HAL_GPIO_TogglePin
+HAL_NVIC_SetPriority
+HAL_NVIC_EnableIRQ
+HAL_NVIC_DisableIRQ
+HAL_GPIO_ReadPin
+HAL_Delay
+HAL_ADC_ConfigChannel
+HAL_ADC_Start
+HAL_ADC_PollForConversion
+HAL_ADC_GetValue
