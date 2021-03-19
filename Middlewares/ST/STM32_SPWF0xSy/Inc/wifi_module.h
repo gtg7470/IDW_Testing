@@ -49,6 +49,8 @@
 #include "event_buffer.h"
 #include "ring_buffer.h"
 #include "spwf04WiFi.h"
+#include "stm32f4xx_hal_spi.h"
+#include "stm32f4xx_hal_tim.h"
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>

@@ -203,13 +203,10 @@ void TIMp_IRQHandler(void)
 void SysTick_Handler(void)
 {
   HAL_IncTick();
-  #if defined(SPWF04) && !defined(CONSOLE_UART_ENABLED)
-    WiFi_AT_CMD_Timeout();
-  #endif
-
-  #if defined(SPWF01) && defined(CONSOLE_UART_ENABLED)
-    Wifi_SysTick_Isr();
-  #endif
+  
+#if defined(SPWF01) && defined(CONSOLE_UART_ENABLED)
+  Wifi_SysTick_Isr();
+#endif
 }
 
 #if defined(SPWF01) && defined(CONSOLE_UART_ENABLED)
@@ -359,7 +356,10 @@ void DMA1_Channel3_IRQHandler(void)
 /*UART DMA Tx Callback*/
 void DMA1_Channel4_IRQHandler(void)
 {
-    HAL_DMA_IRQHandler(UartWiFiHandle.hdmatx);
+  if(__HAL_DMA_GET_IT_SOURCE(UartWiFiHandle.hdmatx, DMA_IT_TC)  && __HAL_DMA_GET_FLAG(UartWiFiHandle.hdmatx, DMA_FLAG_TC4))
+  {
+    
+  }
 }
 
 /*UART DMA Rx Callback*/
@@ -384,7 +384,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 
 
 void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *UartHandle)
-{  
+{
     /* Disable the Idle Interrupt */
     __HAL_UART_DISABLE_IT(UartHandle, UART_IT_IDLE);
     
@@ -422,7 +422,7 @@ void DMA2_Stream3_IRQHandler(void)
 #if defined(SPWF04) && defined(CONSOLE_UART_ENABLED)
 void DMA2_Stream7_IRQHandler(void)
 {//Tx USART1 DMA
-  HAL_DMA_IRQHandler(UartWiFiHandle.hdmatx);
+  
 }
 
 void DMA2_Stream2_IRQHandler(void)
@@ -438,7 +438,7 @@ void DMA2_Stream2_IRQHandler(void)
 //}
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
-{    
+{
     /* Disable the Idle Interrupt */
      __HAL_UART_DISABLE_IT(UartHandle, UART_IT_IDLE);
     
@@ -451,7 +451,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 
 void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *UartHandle)
 {
-
     /* Disable the Idle Interrupt */
     __HAL_UART_DISABLE_IT(UartHandle, UART_IT_IDLE);
     

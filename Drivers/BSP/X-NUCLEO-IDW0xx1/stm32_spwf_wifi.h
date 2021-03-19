@@ -48,6 +48,8 @@
 #include "stm32f4xx_hal_rcc.h"
 #include "stm32f4xx_hal_rcc_ex.h"
 #include "stm32f4xx_ll_dma.h"
+#include "stm32f4xx_hal_spi.h"
+#include "stm32f4xx_hal_tim.h"
 #endif
 
 #ifdef USE_STM32L4XX_NUCLEO

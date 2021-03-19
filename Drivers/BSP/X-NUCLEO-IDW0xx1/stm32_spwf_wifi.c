@@ -38,6 +38,8 @@
 #include "wifi_module.h"
 #include "stm32_spwf_wifi.h"
 #include "wifi_globals.h"
+#include "stm32f4xx_hal_spi.h"
+#include "stm32f4xx_hal_tim.h"
 
 /** @addtogroup BSP
 * @{

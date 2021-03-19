@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccoHTdbY.s 			page 1
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -20,15 +20,13 @@ ARM GAS  /tmp/ccoHTdbY.s 			page 1
   17              		.section	.text.init,"ax",%progbits
   18              		.align	1
   19              		.global	init
-  20              		.arch armv7e-m
-  21              		.syntax unified
-  22              		.thumb
-  23              		.thumb_func
-  24              		.fpu fpv4-sp-d16
-  26              	init:
-  27              	.LVL0:
-  28              	.LFB279:
-  29              		.file 1 "Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c"
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	init:
+  26              	.LFB275:
+  27              		.file 1 "Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c"
    1:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** /**
    2:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****  ******************************************************************************
    3:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****  * @file    ring_buffer.c
@@ -58,11 +56,11 @@ ARM GAS  /tmp/ccoHTdbY.s 			page 1
   27:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
   28:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
   29:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-ARM GAS  /tmp/ccoHTdbY.s 			page 2
-
-
   30:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
   31:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 2
+
+
   32:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
   33:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   34:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****  *
@@ -117,55 +115,49 @@ ARM GAS  /tmp/ccoHTdbY.s 			page 1
   83:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   */
   84:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** void init(buffer_t *buffer, int size) 
   85:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** {
-  30              		.loc 1 85 1 view -0
-ARM GAS  /tmp/ccoHTdbY.s 			page 3
+  28              		.loc 1 85 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 3
 
 
-  31              		.cfi_startproc
-  32              		@ args = 0, pretend = 0, frame = 0
-  33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		@ link register save eliminated.
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
   86:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     buffer->size = size;
-  35              		.loc 1 86 5 view .LVU1
-  36              		.loc 1 86 18 is_stmt 0 view .LVU2
-  37 0000 8160     		str	r1, [r0, #8]
+  34              		.loc 1 86 0
+  35 0000 8160     		str	r1, [r0, #8]
   87:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     buffer->start = 0;
-  38              		.loc 1 87 5 is_stmt 1 view .LVU3
-  39              		.loc 1 87 19 is_stmt 0 view .LVU4
-  40 0002 0023     		movs	r3, #0
-  41 0004 0360     		str	r3, [r0]
+  36              		.loc 1 87 0
+  37 0002 0023     		movs	r3, #0
+  38 0004 0360     		str	r3, [r0]
   88:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     buffer->count = 0;
-  42              		.loc 1 88 5 is_stmt 1 view .LVU5
-  43              		.loc 1 88 19 is_stmt 0 view .LVU6
-  44 0006 C360     		str	r3, [r0, #12]
+  39              		.loc 1 88 0
+  40 0006 C360     		str	r3, [r0, #12]
   89:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     buffer->end = 0;
-  45              		.loc 1 89 5 is_stmt 1 view .LVU7
-  46              		.loc 1 89 17 is_stmt 0 view .LVU8
-  47 0008 4360     		str	r3, [r0, #4]
+  41              		.loc 1 89 0
+  42 0008 4360     		str	r3, [r0, #4]
   90:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     buffer->element = ring_buffer;
-  48              		.loc 1 90 5 is_stmt 1 view .LVU9
-  49              		.loc 1 90 21 is_stmt 0 view .LVU10
-  50 000a 014B     		ldr	r3, .L2
-  51 000c 0361     		str	r3, [r0, #16]
+  43              		.loc 1 90 0
+  44 000a 014B     		ldr	r3, .L2
+  45 000c 0361     		str	r3, [r0, #16]
+  46 000e 7047     		bx	lr
+  47              	.L3:
+  48              		.align	2
+  49              	.L2:
+  50 0010 00000000 		.word	.LANCHOR0
+  51              		.cfi_endproc
+  52              	.LFE275:
+  54              		.section	.text.flush_buffer_queue,"ax",%progbits
+  55              		.align	1
+  56              		.global	flush_buffer_queue
+  57              		.syntax unified
+  58              		.thumb
+  59              		.thumb_func
+  60              		.fpu fpv4-sp-d16
+  62              	flush_buffer_queue:
+  63              	.LFB276:
   91:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** }
-  52              		.loc 1 91 1 view .LVU11
-  53 000e 7047     		bx	lr
-  54              	.L3:
-  55              		.align	2
-  56              	.L2:
-  57 0010 00000000 		.word	.LANCHOR0
-  58              		.cfi_endproc
-  59              	.LFE279:
-  61              		.section	.text.flush_buffer_queue,"ax",%progbits
-  62              		.align	1
-  63              		.global	flush_buffer_queue
-  64              		.syntax unified
-  65              		.thumb
-  66              		.thumb_func
-  67              		.fpu fpv4-sp-d16
-  69              	flush_buffer_queue:
-  70              	.LVL1:
-  71              	.LFB280:
   92:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** 
   93:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** /**
   94:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   * @brief  flush_buffer_queue
@@ -175,40 +167,36 @@ ARM GAS  /tmp/ccoHTdbY.s 			page 1
   98:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   */ 
   99:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** void flush_buffer_queue(buffer_t *buffer) 
  100:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** {
-  72              		.loc 1 100 1 is_stmt 1 view -0
-  73              		.cfi_startproc
-  74              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccoHTdbY.s 			page 4
-
-
-  75              		@ frame_needed = 0, uses_anonymous_args = 0
-  76              		@ link register save eliminated.
+  64              		.loc 1 100 0
+  65              		.cfi_startproc
+  66              		@ args = 0, pretend = 0, frame = 0
+  67              		@ frame_needed = 0, uses_anonymous_args = 0
+  68              		@ link register save eliminated.
+  69              	.LVL1:
  101:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   buffer->start = buffer->end;  //the tail goes up to the head and buffer becomes empty
-  77              		.loc 1 101 3 view .LVU13
-  78              		.loc 1 101 25 is_stmt 0 view .LVU14
-  79 0000 4368     		ldr	r3, [r0, #4]
-  80              		.loc 1 101 17 view .LVU15
-  81 0002 0360     		str	r3, [r0]
+  70              		.loc 1 101 0
+  71 0000 4368     		ldr	r3, [r0, #4]
+  72 0002 0360     		str	r3, [r0]
  102:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   buffer->count = 0;
-  82              		.loc 1 102 3 is_stmt 1 view .LVU16
-  83              		.loc 1 102 17 is_stmt 0 view .LVU17
-  84 0004 0023     		movs	r3, #0
-  85 0006 C360     		str	r3, [r0, #12]
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 4
+
+
+  73              		.loc 1 102 0
+  74 0004 0023     		movs	r3, #0
+  75 0006 C360     		str	r3, [r0, #12]
+  76 0008 7047     		bx	lr
+  77              		.cfi_endproc
+  78              	.LFE276:
+  80              		.section	.text.is_half_full,"ax",%progbits
+  81              		.align	1
+  82              		.global	is_half_full
+  83              		.syntax unified
+  84              		.thumb
+  85              		.thumb_func
+  86              		.fpu fpv4-sp-d16
+  88              	is_half_full:
+  89              	.LFB277:
  103:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** }
-  86              		.loc 1 103 1 view .LVU18
-  87 0008 7047     		bx	lr
-  88              		.cfi_endproc
-  89              	.LFE280:
-  91              		.section	.text.is_half_full,"ax",%progbits
-  92              		.align	1
-  93              		.global	is_half_full
-  94              		.syntax unified
-  95              		.thumb
-  96              		.thumb_func
-  97              		.fpu fpv4-sp-d16
-  99              	is_half_full:
- 100              	.LVL2:
- 101              	.LFB281:
  104:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** 
  105:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** /**
  106:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   * @brief  is_half_full
@@ -218,76 +206,74 @@ ARM GAS  /tmp/ccoHTdbY.s 			page 1
  110:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   */ 
  111:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** int is_half_full(buffer_t *buffer)
  112:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** {
- 102              		.loc 1 112 1 is_stmt 1 view -0
- 103              		.cfi_startproc
- 104              		@ args = 0, pretend = 0, frame = 0
- 105              		@ frame_needed = 0, uses_anonymous_args = 0
- 106              		@ link register save eliminated.
+  90              		.loc 1 112 0
+  91              		.cfi_startproc
+  92              		@ args = 0, pretend = 0, frame = 0
+  93              		@ frame_needed = 0, uses_anonymous_args = 0
+  94              		@ link register save eliminated.
+  95              	.LVL2:
  113:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   return buffer->count >= RINGBUF_SIZE - MAX_POP_SIZE ? 1 : 0;
- 107              		.loc 1 113 3 view .LVU20
- 108              		.loc 1 113 16 is_stmt 0 view .LVU21
- 109 0000 C068     		ldr	r0, [r0, #12]
- 110              	.LVL3:
+  96              		.loc 1 113 0
+  97 0000 C068     		ldr	r0, [r0, #12]
+  98              	.LVL3:
  114:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** }
- 111              		.loc 1 114 1 view .LVU22
- 112 0002 B0F54E7F 		cmp	r0, #824
- 113 0006 B4BF     		ite	lt
- 114 0008 0020     		movlt	r0, #0
- 115 000a 0120     		movge	r0, #1
- 116 000c 7047     		bx	lr
- 117              		.cfi_endproc
- 118              	.LFE281:
- 120              		.section	.text.is_half_empty,"ax",%progbits
-ARM GAS  /tmp/ccoHTdbY.s 			page 5
-
-
- 121              		.align	1
- 122              		.global	is_half_empty
- 123              		.syntax unified
- 124              		.thumb
- 125              		.thumb_func
- 126              		.fpu fpv4-sp-d16
- 128              	is_half_empty:
- 129              	.LVL4:
- 130              	.LFB282:
+  99              		.loc 1 114 0
+ 100 0002 B0F54E7F 		cmp	r0, #824
+ 101 0006 B4BF     		ite	lt
+ 102 0008 0020     		movlt	r0, #0
+ 103 000a 0120     		movge	r0, #1
+ 104 000c 7047     		bx	lr
+ 105              		.cfi_endproc
+ 106              	.LFE277:
+ 108              		.section	.text.is_half_empty,"ax",%progbits
+ 109              		.align	1
+ 110              		.global	is_half_empty
+ 111              		.syntax unified
+ 112              		.thumb
+ 113              		.thumb_func
+ 114              		.fpu fpv4-sp-d16
+ 116              	is_half_empty:
+ 117              	.LFB278:
  115:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** 
  116:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** /**
  117:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   * @brief  is_half_empty
  118:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   *         checks if the buffer is less than half
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 5
+
+
  119:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   * @param  *buffer : pointer to ring buffer
  120:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   * @retval status of ring buffer (=1 if half empty =0 otherwise)
  121:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   */
  122:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** int is_half_empty(buffer_t *buffer)
  123:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** {
- 131              		.loc 1 123 1 is_stmt 1 view -0
- 132              		.cfi_startproc
- 133              		@ args = 0, pretend = 0, frame = 0
- 134              		@ frame_needed = 0, uses_anonymous_args = 0
- 135              		@ link register save eliminated.
+ 118              		.loc 1 123 0
+ 119              		.cfi_startproc
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122              		@ link register save eliminated.
+ 123              	.LVL4:
  124:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   return (buffer->count <= MAX_POP_SIZE) ? 1 : 0;
- 136              		.loc 1 124 3 view .LVU24
- 137              		.loc 1 124 17 is_stmt 0 view .LVU25
- 138 0000 C068     		ldr	r0, [r0, #12]
- 139              	.LVL5:
+ 124              		.loc 1 124 0
+ 125 0000 C068     		ldr	r0, [r0, #12]
+ 126              	.LVL5:
  125:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** }
- 140              		.loc 1 125 1 view .LVU26
- 141 0002 C828     		cmp	r0, #200
- 142 0004 CCBF     		ite	gt
- 143 0006 0020     		movgt	r0, #0
- 144 0008 0120     		movle	r0, #1
- 145 000a 7047     		bx	lr
- 146              		.cfi_endproc
- 147              	.LFE282:
- 149              		.section	.text.full,"ax",%progbits
- 150              		.align	1
- 151              		.global	full
- 152              		.syntax unified
- 153              		.thumb
- 154              		.thumb_func
- 155              		.fpu fpv4-sp-d16
- 157              	full:
- 158              	.LVL6:
- 159              	.LFB283:
+ 127              		.loc 1 125 0
+ 128 0002 C828     		cmp	r0, #200
+ 129 0004 CCBF     		ite	gt
+ 130 0006 0020     		movgt	r0, #0
+ 131 0008 0120     		movle	r0, #1
+ 132 000a 7047     		bx	lr
+ 133              		.cfi_endproc
+ 134              	.LFE278:
+ 136              		.section	.text.full,"ax",%progbits
+ 137              		.align	1
+ 138              		.global	full
+ 139              		.syntax unified
+ 140              		.thumb
+ 141              		.thumb_func
+ 142              		.fpu fpv4-sp-d16
+ 144              	full:
+ 145              	.LFB279:
  126:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** 
  127:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** /**
  128:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   * @brief  full
@@ -297,38 +283,37 @@ ARM GAS  /tmp/ccoHTdbY.s 			page 1
  132:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   */
  133:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** int full(buffer_t *buffer) 
  134:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** {
- 160              		.loc 1 134 1 is_stmt 1 view -0
-ARM GAS  /tmp/ccoHTdbY.s 			page 6
-
-
- 161              		.cfi_startproc
- 162              		@ args = 0, pretend = 0, frame = 0
- 163              		@ frame_needed = 0, uses_anonymous_args = 0
- 164              		@ link register save eliminated.
+ 146              		.loc 1 134 0
+ 147              		.cfi_startproc
+ 148              		@ args = 0, pretend = 0, frame = 0
+ 149              		@ frame_needed = 0, uses_anonymous_args = 0
+ 150              		@ link register save eliminated.
+ 151              	.LVL6:
  135:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   return buffer->count == RINGBUF_SIZE ? 1 :0;
- 165              		.loc 1 135 3 view .LVU28
- 166              		.loc 1 135 16 is_stmt 0 view .LVU29
- 167 0000 C068     		ldr	r0, [r0, #12]
- 168              	.LVL7:
+ 152              		.loc 1 135 0
+ 153 0000 C068     		ldr	r0, [r0, #12]
+ 154              	.LVL7:
  136:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** }
- 169              		.loc 1 136 1 view .LVU30
- 170 0002 B0F5806F 		cmp	r0, #1024
- 171 0006 14BF     		ite	ne
- 172 0008 0020     		movne	r0, #0
- 173 000a 0120     		moveq	r0, #1
- 174 000c 7047     		bx	lr
- 175              		.cfi_endproc
- 176              	.LFE283:
- 178              		.section	.text.empty,"ax",%progbits
- 179              		.align	1
- 180              		.global	empty
- 181              		.syntax unified
- 182              		.thumb
- 183              		.thumb_func
- 184              		.fpu fpv4-sp-d16
- 186              	empty:
- 187              	.LVL8:
- 188              	.LFB284:
+ 155              		.loc 1 136 0
+ 156 0002 B0F5806F 		cmp	r0, #1024
+ 157 0006 14BF     		ite	ne
+ 158 0008 0020     		movne	r0, #0
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 6
+
+
+ 159 000a 0120     		moveq	r0, #1
+ 160 000c 7047     		bx	lr
+ 161              		.cfi_endproc
+ 162              	.LFE279:
+ 164              		.section	.text.empty,"ax",%progbits
+ 165              		.align	1
+ 166              		.global	empty
+ 167              		.syntax unified
+ 168              		.thumb
+ 169              		.thumb_func
+ 170              		.fpu fpv4-sp-d16
+ 172              	empty:
+ 173              	.LFB280:
  137:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** 
  138:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** /**
  139:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   * @brief  empty
@@ -338,36 +323,32 @@ ARM GAS  /tmp/ccoHTdbY.s 			page 1
  143:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   */
  144:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** int empty(buffer_t *buffer) 
  145:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** {
- 189              		.loc 1 145 1 is_stmt 1 view -0
- 190              		.cfi_startproc
- 191              		@ args = 0, pretend = 0, frame = 0
- 192              		@ frame_needed = 0, uses_anonymous_args = 0
- 193              		@ link register save eliminated.
+ 174              		.loc 1 145 0
+ 175              		.cfi_startproc
+ 176              		@ args = 0, pretend = 0, frame = 0
+ 177              		@ frame_needed = 0, uses_anonymous_args = 0
+ 178              		@ link register save eliminated.
+ 179              	.LVL8:
  146:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   return buffer->count == 0 ? 1 : 0;
- 194              		.loc 1 146 3 view .LVU32
- 195              		.loc 1 146 16 is_stmt 0 view .LVU33
- 196 0000 C068     		ldr	r0, [r0, #12]
- 197              	.LVL9:
+ 180              		.loc 1 146 0
+ 181 0000 C068     		ldr	r0, [r0, #12]
+ 182              	.LVL9:
  147:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** }
- 198              		.loc 1 147 1 view .LVU34
- 199 0002 B0FA80F0 		clz	r0, r0
- 200 0006 4009     		lsrs	r0, r0, #5
- 201 0008 7047     		bx	lr
- 202              		.cfi_endproc
- 203              	.LFE284:
- 205              		.section	.text.push_buffer_queue,"ax",%progbits
- 206              		.align	1
- 207              		.global	push_buffer_queue
-ARM GAS  /tmp/ccoHTdbY.s 			page 7
-
-
- 208              		.syntax unified
- 209              		.thumb
- 210              		.thumb_func
- 211              		.fpu fpv4-sp-d16
- 213              	push_buffer_queue:
- 214              	.LVL10:
- 215              	.LFB285:
+ 183              		.loc 1 147 0
+ 184 0002 B0FA80F0 		clz	r0, r0
+ 185 0006 4009     		lsrs	r0, r0, #5
+ 186 0008 7047     		bx	lr
+ 187              		.cfi_endproc
+ 188              	.LFE280:
+ 190              		.section	.text.push_buffer_queue,"ax",%progbits
+ 191              		.align	1
+ 192              		.global	push_buffer_queue
+ 193              		.syntax unified
+ 194              		.thumb
+ 195              		.thumb_func
+ 196              		.fpu fpv4-sp-d16
+ 198              	push_buffer_queue:
+ 199              	.LFB281:
  148:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** 
  149:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** /**
  150:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   * @brief  push_buffer_queue
@@ -377,83 +358,74 @@ ARM GAS  /tmp/ccoHTdbY.s 			page 1
  154:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   * @retval None
  155:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   */
  156:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** void push_buffer_queue(buffer_t *buffer, uint8_t *data) 
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 7
+
+
  157:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** {
- 216              		.loc 1 157 1 is_stmt 1 view -0
- 217              		.cfi_startproc
- 218              		@ args = 0, pretend = 0, frame = 0
- 219              		@ frame_needed = 0, uses_anonymous_args = 0
- 220              		.loc 1 157 1 is_stmt 0 view .LVU36
- 221 0000 38B5     		push	{r3, r4, r5, lr}
- 222              	.LCFI0:
- 223              		.cfi_def_cfa_offset 16
- 224              		.cfi_offset 3, -16
- 225              		.cfi_offset 4, -12
- 226              		.cfi_offset 5, -8
- 227              		.cfi_offset 14, -4
- 228 0002 0446     		mov	r4, r0
- 229 0004 0D46     		mov	r5, r1
+ 200              		.loc 1 157 0
+ 201              		.cfi_startproc
+ 202              		@ args = 0, pretend = 0, frame = 0
+ 203              		@ frame_needed = 0, uses_anonymous_args = 0
+ 204              	.LVL10:
+ 205 0000 38B5     		push	{r3, r4, r5, lr}
+ 206              	.LCFI0:
+ 207              		.cfi_def_cfa_offset 16
+ 208              		.cfi_offset 3, -16
+ 209              		.cfi_offset 4, -12
+ 210              		.cfi_offset 5, -8
+ 211              		.cfi_offset 14, -4
+ 212 0002 0446     		mov	r4, r0
+ 213 0004 0D46     		mov	r5, r1
  158:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   if (full(buffer)) 
- 230              		.loc 1 158 3 is_stmt 1 view .LVU37
- 231              		.loc 1 158 7 is_stmt 0 view .LVU38
- 232 0006 FFF7FEFF 		bl	full
- 233              	.LVL11:
- 234              		.loc 1 158 6 view .LVU39
- 235 000a 88B9     		cbnz	r0, .L9
+ 214              		.loc 1 158 0
+ 215 0006 FFF7FEFF 		bl	full
+ 216              	.LVL11:
+ 217 000a 88B9     		cbnz	r0, .L9
  159:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     {
  160:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****       return;
  161:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     } 
  162:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   else 
  163:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     {
  164:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****       buffer->count++;    
- 236              		.loc 1 164 7 is_stmt 1 view .LVU40
- 237              		.loc 1 164 13 is_stmt 0 view .LVU41
- 238 000c E368     		ldr	r3, [r4, #12]
- 239              		.loc 1 164 20 view .LVU42
- 240 000e 0133     		adds	r3, r3, #1
- 241 0010 E360     		str	r3, [r4, #12]
+ 218              		.loc 1 164 0
+ 219 000c E368     		ldr	r3, [r4, #12]
+ 220 000e 0133     		adds	r3, r3, #1
+ 221 0010 E360     		str	r3, [r4, #12]
  165:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****       memcpy(&buffer->element[buffer->end++], data, ELEMENT_SIZE);
- 242              		.loc 1 165 7 is_stmt 1 view .LVU43
- 243              		.loc 1 165 21 is_stmt 0 view .LVU44
- 244 0012 2269     		ldr	r2, [r4, #16]
- 245              		.loc 1 165 37 view .LVU45
- 246 0014 6368     		ldr	r3, [r4, #4]
- 247              		.loc 1 165 42 view .LVU46
-ARM GAS  /tmp/ccoHTdbY.s 			page 8
-
-
- 248 0016 591C     		adds	r1, r3, #1
- 249 0018 6160     		str	r1, [r4, #4]
- 250 001a 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
- 251              		.loc 1 165 7 view .LVU47
- 252 001c D154     		strb	r1, [r2, r3]
+ 222              		.loc 1 165 0
+ 223 0012 2269     		ldr	r2, [r4, #16]
+ 224 0014 6368     		ldr	r3, [r4, #4]
+ 225 0016 591C     		adds	r1, r3, #1
+ 226 0018 6160     		str	r1, [r4, #4]
+ 227 001a 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+ 228 001c D154     		strb	r1, [r2, r3]
  166:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****       buffer->end %= RINGBUF_SIZE;
- 253              		.loc 1 166 7 is_stmt 1 view .LVU48
- 254              		.loc 1 166 19 is_stmt 0 view .LVU49
- 255 001e 6368     		ldr	r3, [r4, #4]
- 256 0020 5A42     		rsbs	r2, r3, #0
- 257 0022 C3F30903 		ubfx	r3, r3, #0, #10
- 258 0026 C2F30902 		ubfx	r2, r2, #0, #10
- 259 002a 58BF     		it	pl
- 260 002c 5342     		rsbpl	r3, r2, #0
- 261 002e 6360     		str	r3, [r4, #4]
- 262              	.L9:
+ 229              		.loc 1 166 0
+ 230 001e 6368     		ldr	r3, [r4, #4]
+ 231 0020 5A42     		rsbs	r2, r3, #0
+ 232 0022 C3F30903 		ubfx	r3, r3, #0, #10
+ 233 0026 C2F30902 		ubfx	r2, r2, #0, #10
+ 234 002a 58BF     		it	pl
+ 235 002c 5342     		rsbpl	r3, r2, #0
+ 236 002e 6360     		str	r3, [r4, #4]
+ 237              	.L9:
+ 238 0030 38BD     		pop	{r3, r4, r5, pc}
+ 239              		.cfi_endproc
+ 240              	.LFE281:
+ 242              		.section	.text.pop_buffer_queue,"ax",%progbits
+ 243              		.align	1
+ 244              		.global	pop_buffer_queue
+ 245              		.syntax unified
+ 246              		.thumb
+ 247              		.thumb_func
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 8
+
+
+ 248              		.fpu fpv4-sp-d16
+ 250              	pop_buffer_queue:
+ 251              	.LFB282:
  167:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     }
  168:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** }
- 263              		.loc 1 168 1 view .LVU50
- 264 0030 38BD     		pop	{r3, r4, r5, pc}
- 265              		.loc 1 168 1 view .LVU51
- 266              		.cfi_endproc
- 267              	.LFE285:
- 269              		.section	.text.pop_buffer_queue,"ax",%progbits
- 270              		.align	1
- 271              		.global	pop_buffer_queue
- 272              		.syntax unified
- 273              		.thumb
- 274              		.thumb_func
- 275              		.fpu fpv4-sp-d16
- 277              	pop_buffer_queue:
- 278              	.LVL12:
- 279              	.LFB286:
  169:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****  
  170:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** /**
  171:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   * @brief  pop_buffer_queue
@@ -463,38 +435,31 @@ ARM GAS  /tmp/ccoHTdbY.s 			page 1
  175:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   */ 
  176:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** uint8_t * pop_buffer_queue(buffer_t *buffer) 
  177:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** {
- 280              		.loc 1 177 1 is_stmt 1 view -0
- 281              		.cfi_startproc
- 282              		@ args = 0, pretend = 0, frame = 0
- 283              		@ frame_needed = 0, uses_anonymous_args = 0
- 284              		.loc 1 177 1 is_stmt 0 view .LVU53
- 285 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 286              	.LCFI1:
- 287              		.cfi_def_cfa_offset 24
- 288              		.cfi_offset 3, -24
- 289              		.cfi_offset 4, -20
- 290              		.cfi_offset 5, -16
- 291              		.cfi_offset 6, -12
- 292              		.cfi_offset 7, -8
- 293              		.cfi_offset 14, -4
- 294 0002 0446     		mov	r4, r0
-ARM GAS  /tmp/ccoHTdbY.s 			page 9
-
-
+ 252              		.loc 1 177 0
+ 253              		.cfi_startproc
+ 254              		@ args = 0, pretend = 0, frame = 0
+ 255              		@ frame_needed = 0, uses_anonymous_args = 0
+ 256              	.LVL12:
+ 257 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 258              	.LCFI1:
+ 259              		.cfi_def_cfa_offset 24
+ 260              		.cfi_offset 3, -24
+ 261              		.cfi_offset 4, -20
+ 262              		.cfi_offset 5, -16
+ 263              		.cfi_offset 6, -12
+ 264              		.cfi_offset 7, -8
+ 265              		.cfi_offset 14, -4
+ 266 0002 0446     		mov	r4, r0
+ 267              	.LVL13:
  178:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   uint8_t * element;
- 295              		.loc 1 178 3 is_stmt 1 view .LVU54
  179:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** 
  180:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   element = &pop_buffer[0];
- 296              		.loc 1 180 3 view .LVU55
- 297              	.LVL13:
  181:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   if (empty(buffer)) 
- 298              		.loc 1 181 3 view .LVU56
- 299              		.loc 1 181 7 is_stmt 0 view .LVU57
- 300 0004 FFF7FEFF 		bl	empty
- 301              	.LVL14:
- 302              		.loc 1 181 6 view .LVU58
- 303 0008 0028     		cmp	r0, #0
- 304 000a 40F09180 		bne	.L22
+ 268              		.loc 1 181 0
+ 269 0004 FFF7FEFF 		bl	empty
+ 270              	.LVL14:
+ 271 0008 0028     		cmp	r0, #0
+ 272 000a 40F09380 		bne	.L21
  182:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     {
  183:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****       //printf("\r\nRing Buffer Empty!!\r\n");
  184:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****       return NULL;
@@ -502,67 +467,55 @@ ARM GAS  /tmp/ccoHTdbY.s 			page 1
  186:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   else
  187:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     {
  188:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****       memset(pop_buffer, 0x00 , MAX_BUFFER_GLOBAL);
- 305              		.loc 1 188 7 is_stmt 1 view .LVU59
- 306 000e 4FF40072 		mov	r2, #512
- 307 0012 0021     		movs	r1, #0
- 308 0014 4748     		ldr	r0, .L25
- 309 0016 FFF7FEFF 		bl	memset
- 310              	.LVL15:
+ 273              		.loc 1 188 0
+ 274 000e 4FF40072 		mov	r2, #512
+ 275 0012 0021     		movs	r1, #0
+ 276 0014 4848     		ldr	r0, .L24
+ 277 0016 FFF7FEFF 		bl	memset
+ 278              	.LVL15:
  189:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****       if(WiFi_Control_Variables.enable_receive_data_chunk)
- 311              		.loc 1 189 7 view .LVU60
- 312              		.loc 1 189 10 is_stmt 0 view .LVU61
- 313 001a 474B     		ldr	r3, .L25+4
- 314 001c 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
- 315              		.loc 1 189 9 view .LVU62
- 316 001e 13F0040F 		tst	r3, #4
- 317 0022 6BD0     		beq	.L14
- 318              	.LBB2:
+ 279              		.loc 1 189 0
+ 280 001a 484B     		ldr	r3, .L24+4
+ 281 001c 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 282 001e 13F0040F 		tst	r3, #4
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 9
+
+
+ 283 0022 6ED0     		beq	.L14
+ 284              	.LBB2:
  190:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****         {
  191:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                     /* popping only 200 bytes at a time  */
  192:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****           int buf_end = buffer->end;
- 319              		.loc 1 192 11 is_stmt 1 view .LVU63
- 320              		.loc 1 192 15 is_stmt 0 view .LVU64
- 321 0024 6568     		ldr	r5, [r4, #4]
- 322              	.LVL16:
+ 285              		.loc 1 192 0
+ 286 0024 6568     		ldr	r5, [r4, #4]
+ 287              	.LVL16:
  193:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****           if(buffer->count < MAX_POP_SIZE)
- 323              		.loc 1 193 11 is_stmt 1 view .LVU65
- 324              		.loc 1 193 20 is_stmt 0 view .LVU66
- 325 0026 E368     		ldr	r3, [r4, #12]
- 326              		.loc 1 193 13 view .LVU67
- 327 0028 C72B     		cmp	r3, #199
- 328 002a 25DC     		bgt	.L15
+ 288              		.loc 1 193 0
+ 289 0026 E368     		ldr	r3, [r4, #12]
+ 290 0028 C72B     		cmp	r3, #199
+ 291 002a 26DC     		bgt	.L15
  194:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****             {
  195:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****               WiFi_Counter_Variables.pop_buffer_size = buffer->count;
- 329              		.loc 1 195 15 is_stmt 1 view .LVU68
- 330              		.loc 1 195 62 is_stmt 0 view .LVU69
- 331 002c E268     		ldr	r2, [r4, #12]
- 332              		.loc 1 195 54 view .LVU70
- 333 002e 92B2     		uxth	r2, r2
-ARM GAS  /tmp/ccoHTdbY.s 			page 10
-
-
- 334 0030 424B     		ldr	r3, .L25+8
- 335 0032 A3F89820 		strh	r2, [r3, #152]	@ movhi
+ 292              		.loc 1 195 0
+ 293 002c E268     		ldr	r2, [r4, #12]
+ 294 002e 92B2     		uxth	r2, r2
+ 295 0030 434B     		ldr	r3, .L24+8
+ 296 0032 A3F89820 		strh	r2, [r3, #152]	@ movhi
  196:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****               if(buf_end >= buffer->start)
- 336              		.loc 1 196 15 is_stmt 1 view .LVU71
- 337              		.loc 1 196 35 is_stmt 0 view .LVU72
- 338 0036 2368     		ldr	r3, [r4]
- 339              		.loc 1 196 17 view .LVU73
- 340 0038 AB42     		cmp	r3, r5
- 341 003a 0ADC     		bgt	.L16
+ 297              		.loc 1 196 0
+ 298 0036 2368     		ldr	r3, [r4]
+ 299 0038 9D42     		cmp	r5, r3
+ 300 003a 0BDB     		blt	.L16
  197:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 {
  198:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   memcpy(element, &buffer->element[buffer->start], WiFi_Counter_Variables.pop_buffe
- 342              		.loc 1 198 19 is_stmt 1 view .LVU74
- 343              		.loc 1 198 42 is_stmt 0 view .LVU75
- 344 003c 2169     		ldr	r1, [r4, #16]
- 345              		.loc 1 198 58 view .LVU76
- 346 003e 2368     		ldr	r3, [r4]
- 347              		.loc 1 198 19 view .LVU77
- 348 0040 1944     		add	r1, r1, r3
- 349 0042 3C48     		ldr	r0, .L25
- 350 0044 FFF7FEFF 		bl	memcpy
- 351              	.LVL17:
- 352              	.L17:
+ 301              		.loc 1 198 0
+ 302 003c 2169     		ldr	r1, [r4, #16]
+ 303 003e 2368     		ldr	r3, [r4]
+ 304 0040 1944     		add	r1, r1, r3
+ 305 0042 3D48     		ldr	r0, .L24
+ 306 0044 FFF7FEFF 		bl	memcpy
+ 307              	.LVL17:
+ 308              	.L17:
  199:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 }
  200:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****               else
  201:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 {
@@ -571,127 +524,33 @@ ARM GAS  /tmp/ccoHTdbY.s 			page 1
  204:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   memcpy(element+(RINGBUF_SIZE-buffer->start), &buffer->element[0], buf_end);
  205:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 }
  206:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****               buffer->start = buffer->end;
- 353              		.loc 1 206 15 is_stmt 1 view .LVU78
- 354              		.loc 1 206 37 is_stmt 0 view .LVU79
- 355 0048 6368     		ldr	r3, [r4, #4]
- 356              		.loc 1 206 29 view .LVU80
- 357 004a 2360     		str	r3, [r4]
+ 309              		.loc 1 206 0
+ 310 0048 6368     		ldr	r3, [r4, #4]
+ 311 004a 2360     		str	r3, [r4]
  207:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****               buffer->count = 0;
- 358              		.loc 1 207 15 is_stmt 1 view .LVU81
- 359              		.loc 1 207 29 is_stmt 0 view .LVU82
- 360 004c 0023     		movs	r3, #0
- 361 004e E360     		str	r3, [r4, #12]
- 362 0050 6CE0     		b	.L18
- 363              	.L16:
- 364              	.LBB3:
- 202:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   memcpy(element, &buffer->element[buffer->start], RINGBUF_SIZE - buf_start);
- 365              		.loc 1 202 19 is_stmt 1 view .LVU83
- 202:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   memcpy(element, &buffer->element[buffer->start], RINGBUF_SIZE - buf_start);
- 366              		.loc 1 202 23 is_stmt 0 view .LVU84
- 367 0052 2268     		ldr	r2, [r4]
- 368              	.LVL18:
- 203:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   memcpy(element+(RINGBUF_SIZE-buffer->start), &buffer->element[0], buf_end);
- 369              		.loc 1 203 19 is_stmt 1 view .LVU85
- 203:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   memcpy(element+(RINGBUF_SIZE-buffer->start), &buffer->element[0], buf_end);
- 370              		.loc 1 203 42 is_stmt 0 view .LVU86
- 371 0054 2169     		ldr	r1, [r4, #16]
- 203:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   memcpy(element+(RINGBUF_SIZE-buffer->start), &buffer->element[0], buf_end);
- 372              		.loc 1 203 58 view .LVU87
- 373 0056 2368     		ldr	r3, [r4]
-ARM GAS  /tmp/ccoHTdbY.s 			page 11
-
-
- 203:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   memcpy(element+(RINGBUF_SIZE-buffer->start), &buffer->element[0], buf_end);
- 374              		.loc 1 203 19 view .LVU88
- 375 0058 364E     		ldr	r6, .L25
- 376 005a C2F58062 		rsb	r2, r2, #1024
- 377              	.LVL19:
- 203:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   memcpy(element+(RINGBUF_SIZE-buffer->start), &buffer->element[0], buf_end);
- 378              		.loc 1 203 19 view .LVU89
- 379 005e 1944     		add	r1, r1, r3
- 380 0060 3046     		mov	r0, r6
- 381 0062 FFF7FEFF 		bl	memcpy
- 382              	.LVL20:
- 204:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 }
- 383              		.loc 1 204 19 is_stmt 1 view .LVU90
- 204:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 }
- 384              		.loc 1 204 54 is_stmt 0 view .LVU91
- 385 0066 2068     		ldr	r0, [r4]
- 204:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 }
- 386              		.loc 1 204 47 view .LVU92
- 387 0068 C0F58060 		rsb	r0, r0, #1024
- 204:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 }
- 388              		.loc 1 204 19 view .LVU93
- 389 006c 2A46     		mov	r2, r5
- 390 006e 2169     		ldr	r1, [r4, #16]
- 391 0070 3044     		add	r0, r0, r6
- 392 0072 FFF7FEFF 		bl	memcpy
- 393              	.LVL21:
- 394 0076 E7E7     		b	.L17
- 395              	.L15:
- 204:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 }
- 396              		.loc 1 204 19 view .LVU94
- 397              	.LBE3:
+ 312              		.loc 1 207 0
+ 313 004c 0023     		movs	r3, #0
+ 314 004e E360     		str	r3, [r4, #12]
+ 315              	.LBE2:
  208:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****             }
  209:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****           else
  210:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****             {
  211:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****               if(buf_end >= buffer->start)
- 398              		.loc 1 211 15 is_stmt 1 view .LVU95
- 399              		.loc 1 211 35 is_stmt 0 view .LVU96
- 400 0078 2368     		ldr	r3, [r4]
- 401              		.loc 1 211 17 view .LVU97
- 402 007a AB42     		cmp	r3, r5
- 403 007c 17DD     		ble	.L24
  212:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 {
  213:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   memcpy(element, &buffer->element[buffer->start], MAX_POP_SIZE);
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 10
+
+
  214:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   buffer->start = buffer->start + MAX_POP_SIZE;
  215:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   buffer->count = buf_end - buffer->start;
  216:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 }
  217:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****               else
  218:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 {
  219:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   if(buffer->start + MAX_POP_SIZE < RINGBUF_SIZE)
- 404              		.loc 1 219 19 is_stmt 1 view .LVU98
- 405              		.loc 1 219 28 is_stmt 0 view .LVU99
- 406 007e 2368     		ldr	r3, [r4]
- 407              		.loc 1 219 21 view .LVU100
- 408 0080 B3F54E7F 		cmp	r3, #824
- 409 0084 21DA     		bge	.L21
  220:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                     {
  221:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       memcpy(element, &buffer->element[buffer->start], MAX_POP_SIZE);
-ARM GAS  /tmp/ccoHTdbY.s 			page 12
-
-
- 410              		.loc 1 221 23 is_stmt 1 view .LVU101
- 411              		.loc 1 221 46 is_stmt 0 view .LVU102
- 412 0086 2169     		ldr	r1, [r4, #16]
- 413              		.loc 1 221 62 view .LVU103
- 414 0088 2368     		ldr	r3, [r4]
- 415              		.loc 1 221 23 view .LVU104
- 416 008a C822     		movs	r2, #200
- 417 008c 1944     		add	r1, r1, r3
- 418 008e 2948     		ldr	r0, .L25
- 419 0090 FFF7FEFF 		bl	memcpy
- 420              	.LVL22:
  222:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       buffer->start = buffer->start + MAX_POP_SIZE;
- 421              		.loc 1 222 23 is_stmt 1 view .LVU105
- 422              		.loc 1 222 45 is_stmt 0 view .LVU106
- 423 0094 2368     		ldr	r3, [r4]
- 424              		.loc 1 222 53 view .LVU107
- 425 0096 C833     		adds	r3, r3, #200
- 426              		.loc 1 222 37 view .LVU108
- 427 0098 2360     		str	r3, [r4]
  223:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       buffer->count = (RINGBUF_SIZE - buffer->start)+ buf_end;
- 428              		.loc 1 223 23 is_stmt 1 view .LVU109
- 429              		.loc 1 223 61 is_stmt 0 view .LVU110
- 430 009a 2368     		ldr	r3, [r4]
- 431              		.loc 1 223 53 view .LVU111
- 432 009c C3F58063 		rsb	r3, r3, #1024
- 433              		.loc 1 223 69 view .LVU112
- 434 00a0 1D44     		add	r5, r5, r3
- 435              	.LVL23:
- 436              		.loc 1 223 37 view .LVU113
- 437 00a2 E560     		str	r5, [r4, #12]
- 438              	.L20:
  224:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                     }
  225:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   else
  226:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                     {
@@ -703,214 +562,231 @@ ARM GAS  /tmp/ccoHTdbY.s 			page 1
  232:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                     }
  233:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 }
  234:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****               WiFi_Counter_Variables.pop_buffer_size = MAX_POP_SIZE;
- 439              		.loc 1 234 15 is_stmt 1 view .LVU114
- 440              		.loc 1 234 54 is_stmt 0 view .LVU115
- 441 00a4 254B     		ldr	r3, .L25+8
- 442 00a6 C822     		movs	r2, #200
- 443 00a8 A3F89820 		strh	r2, [r3, #152]	@ movhi
- 444 00ac 3EE0     		b	.L18
- 445              	.LVL24:
- 446              	.L24:
- 213:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   buffer->start = buffer->start + MAX_POP_SIZE;
- 447              		.loc 1 213 19 is_stmt 1 view .LVU116
- 213:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   buffer->start = buffer->start + MAX_POP_SIZE;
- 448              		.loc 1 213 42 is_stmt 0 view .LVU117
- 449 00ae 2169     		ldr	r1, [r4, #16]
- 213:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   buffer->start = buffer->start + MAX_POP_SIZE;
- 450              		.loc 1 213 58 view .LVU118
-ARM GAS  /tmp/ccoHTdbY.s 			page 13
-
-
- 451 00b0 2368     		ldr	r3, [r4]
- 213:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   buffer->start = buffer->start + MAX_POP_SIZE;
- 452              		.loc 1 213 19 view .LVU119
- 453 00b2 C822     		movs	r2, #200
- 454 00b4 1944     		add	r1, r1, r3
- 455 00b6 1F48     		ldr	r0, .L25
- 456 00b8 FFF7FEFF 		bl	memcpy
- 457              	.LVL25:
- 214:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   buffer->count = buf_end - buffer->start;
- 458              		.loc 1 214 19 is_stmt 1 view .LVU120
- 214:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   buffer->count = buf_end - buffer->start;
- 459              		.loc 1 214 41 is_stmt 0 view .LVU121
- 460 00bc 2368     		ldr	r3, [r4]
- 214:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   buffer->count = buf_end - buffer->start;
- 461              		.loc 1 214 49 view .LVU122
- 462 00be C833     		adds	r3, r3, #200
- 214:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   buffer->count = buf_end - buffer->start;
- 463              		.loc 1 214 33 view .LVU123
- 464 00c0 2360     		str	r3, [r4]
- 215:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 }
- 465              		.loc 1 215 19 is_stmt 1 view .LVU124
- 215:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 }
- 466              		.loc 1 215 51 is_stmt 0 view .LVU125
- 467 00c2 2368     		ldr	r3, [r4]
- 215:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 }
- 468              		.loc 1 215 43 view .LVU126
- 469 00c4 ED1A     		subs	r5, r5, r3
- 470              	.LVL26:
- 215:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 }
- 471              		.loc 1 215 33 view .LVU127
- 472 00c6 E560     		str	r5, [r4, #12]
- 473 00c8 ECE7     		b	.L20
- 474              	.LVL27:
- 475              	.L21:
- 476              	.LBB4:
- 227:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       memcpy(element, &buffer->element[buffer->start], RINGBUF_SIZE-buf_start);
- 477              		.loc 1 227 23 is_stmt 1 view .LVU128
- 227:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       memcpy(element, &buffer->element[buffer->start], RINGBUF_SIZE-buf_start);
- 478              		.loc 1 227 27 is_stmt 0 view .LVU129
- 479 00ca 2668     		ldr	r6, [r4]
- 480              	.LVL28:
- 228:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       memcpy(element+(RINGBUF_SIZE-buffer->start), &buffer->element[0], MAX_POP_SIZ
- 481              		.loc 1 228 23 is_stmt 1 view .LVU130
- 228:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       memcpy(element+(RINGBUF_SIZE-buffer->start), &buffer->element[0], MAX_POP_SIZ
- 482              		.loc 1 228 46 is_stmt 0 view .LVU131
- 483 00cc 2169     		ldr	r1, [r4, #16]
- 228:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       memcpy(element+(RINGBUF_SIZE-buffer->start), &buffer->element[0], MAX_POP_SIZ
- 484              		.loc 1 228 62 view .LVU132
- 485 00ce 2368     		ldr	r3, [r4]
- 228:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       memcpy(element+(RINGBUF_SIZE-buffer->start), &buffer->element[0], MAX_POP_SIZ
- 486              		.loc 1 228 23 view .LVU133
- 487 00d0 184F     		ldr	r7, .L25
- 488 00d2 C6F58062 		rsb	r2, r6, #1024
- 489 00d6 1944     		add	r1, r1, r3
- 490 00d8 3846     		mov	r0, r7
- 491 00da FFF7FEFF 		bl	memcpy
- 492              	.LVL29:
-ARM GAS  /tmp/ccoHTdbY.s 			page 14
-
-
- 229:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       buffer->start = MAX_POP_SIZE - (1024-buf_start);
- 493              		.loc 1 229 23 is_stmt 1 view .LVU134
- 229:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       buffer->start = MAX_POP_SIZE - (1024-buf_start);
- 494              		.loc 1 229 58 is_stmt 0 view .LVU135
- 495 00de 2068     		ldr	r0, [r4]
- 229:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       buffer->start = MAX_POP_SIZE - (1024-buf_start);
- 496              		.loc 1 229 51 view .LVU136
- 497 00e0 C0F58060 		rsb	r0, r0, #1024
- 229:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       buffer->start = MAX_POP_SIZE - (1024-buf_start);
- 498              		.loc 1 229 101 view .LVU137
- 499 00e4 A6F54E76 		sub	r6, r6, #824
- 500              	.LVL30:
- 229:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       buffer->start = MAX_POP_SIZE - (1024-buf_start);
- 501              		.loc 1 229 23 view .LVU138
- 502 00e8 3246     		mov	r2, r6
- 503 00ea 2169     		ldr	r1, [r4, #16]
- 504 00ec 3844     		add	r0, r0, r7
- 505 00ee FFF7FEFF 		bl	memcpy
- 506              	.LVL31:
- 230:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       buffer->count = buf_end - buffer->start;
- 507              		.loc 1 230 23 is_stmt 1 view .LVU139
- 230:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       buffer->count = buf_end - buffer->start;
- 508              		.loc 1 230 37 is_stmt 0 view .LVU140
- 509 00f2 2660     		str	r6, [r4]
- 231:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                     }
- 510              		.loc 1 231 23 is_stmt 1 view .LVU141
- 231:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                     }
- 511              		.loc 1 231 55 is_stmt 0 view .LVU142
- 512 00f4 2368     		ldr	r3, [r4]
- 231:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                     }
- 513              		.loc 1 231 47 view .LVU143
- 514 00f6 ED1A     		subs	r5, r5, r3
- 515              	.LVL32:
- 231:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                     }
- 516              		.loc 1 231 37 view .LVU144
- 517 00f8 E560     		str	r5, [r4, #12]
- 518 00fa D3E7     		b	.L20
- 519              	.LVL33:
- 520              	.L14:
- 231:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                     }
- 521              		.loc 1 231 37 view .LVU145
- 522              	.LBE4:
- 523              	.LBE2:
  235:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****             }
  236:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****          }
  237:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****       else
  238:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****         {
  239:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****             /* First in First Out*/
  240:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****             memcpy(element, &buffer->element[buffer->start], ELEMENT_SIZE);
- 524              		.loc 1 240 13 is_stmt 1 view .LVU146
- 525              		.loc 1 240 36 is_stmt 0 view .LVU147
- 526 00fc 2269     		ldr	r2, [r4, #16]
- 527              		.loc 1 240 52 view .LVU148
- 528 00fe 2368     		ldr	r3, [r4]
- 529 0100 D25C     		ldrb	r2, [r2, r3]	@ zero_extendqisi2
- 530              		.loc 1 240 13 view .LVU149
- 531 0102 0C4B     		ldr	r3, .L25
-ARM GAS  /tmp/ccoHTdbY.s 			page 15
-
-
- 532 0104 1A70     		strb	r2, [r3]
  241:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****             buffer->start = buffer->start + ELEMENT_SIZE;
- 533              		.loc 1 241 13 is_stmt 1 view .LVU150
- 534              		.loc 1 241 35 is_stmt 0 view .LVU151
- 535 0106 2368     		ldr	r3, [r4]
- 536              		.loc 1 241 43 view .LVU152
- 537 0108 0133     		adds	r3, r3, #1
- 538              		.loc 1 241 27 view .LVU153
- 539 010a 2360     		str	r3, [r4]
  242:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****             buffer->count--;
- 540              		.loc 1 242 13 is_stmt 1 view .LVU154
- 541              		.loc 1 242 19 is_stmt 0 view .LVU155
- 542 010c E368     		ldr	r3, [r4, #12]
- 543              		.loc 1 242 26 view .LVU156
- 544 010e 013B     		subs	r3, r3, #1
- 545 0110 E360     		str	r3, [r4, #12]
  243:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****             WiFi_Counter_Variables.pop_buffer_size = 1;
- 546              		.loc 1 243 13 is_stmt 1 view .LVU157
- 547              		.loc 1 243 52 is_stmt 0 view .LVU158
- 548 0112 0A4B     		ldr	r3, .L25+8
- 549 0114 0122     		movs	r2, #1
- 550 0116 A3F89820 		strh	r2, [r3, #152]	@ movhi
  244:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****             buffer->start %= RINGBUF_SIZE;
- 551              		.loc 1 244 13 is_stmt 1 view .LVU159
- 552              		.loc 1 244 27 is_stmt 0 view .LVU160
- 553 011a 2368     		ldr	r3, [r4]
- 554 011c 5A42     		rsbs	r2, r3, #0
- 555 011e C3F30903 		ubfx	r3, r3, #0, #10
- 556 0122 C2F30902 		ubfx	r2, r2, #0, #10
- 557 0126 58BF     		it	pl
- 558 0128 5342     		rsbpl	r3, r2, #0
- 559 012a 2360     		str	r3, [r4]
- 560              	.L18:
  245:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****         }
  246:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****       return element;
- 561              		.loc 1 246 7 is_stmt 1 view .LVU161
- 562              		.loc 1 246 14 is_stmt 0 view .LVU162
- 563 012c 0148     		ldr	r0, .L25
- 564              	.L12:
+ 316              		.loc 1 246 0
+ 317 0050 3948     		ldr	r0, .L24
+ 318              	.LBB5:
+ 319 0052 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 320              	.LVL18:
+ 321              	.L16:
+ 322              	.LBB3:
+ 202:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   memcpy(element, &buffer->element[buffer->start], RINGBUF_SIZE - buf_start);
+ 323              		.loc 1 202 0
+ 324 0054 2268     		ldr	r2, [r4]
+ 325              	.LVL19:
+ 203:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   memcpy(element+(RINGBUF_SIZE-buffer->start), &buffer->element[0], buf_end);
+ 326              		.loc 1 203 0
+ 327 0056 2169     		ldr	r1, [r4, #16]
+ 328 0058 2368     		ldr	r3, [r4]
+ 329 005a 374E     		ldr	r6, .L24
+ 330 005c C2F58062 		rsb	r2, r2, #1024
+ 331              	.LVL20:
+ 332 0060 1944     		add	r1, r1, r3
+ 333 0062 3046     		mov	r0, r6
+ 334 0064 FFF7FEFF 		bl	memcpy
+ 335              	.LVL21:
+ 204:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 }
+ 336              		.loc 1 204 0
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 11
+
+
+ 337 0068 2068     		ldr	r0, [r4]
+ 338 006a C0F58060 		rsb	r0, r0, #1024
+ 339 006e 2A46     		mov	r2, r5
+ 340 0070 2169     		ldr	r1, [r4, #16]
+ 341 0072 3044     		add	r0, r0, r6
+ 342 0074 FFF7FEFF 		bl	memcpy
+ 343              	.LVL22:
+ 344 0078 E6E7     		b	.L17
+ 345              	.L15:
+ 346              	.LBE3:
+ 211:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 {
+ 347              		.loc 1 211 0
+ 348 007a 2368     		ldr	r3, [r4]
+ 349 007c 9D42     		cmp	r5, r3
+ 350 007e 19DA     		bge	.L23
+ 219:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                     {
+ 351              		.loc 1 219 0
+ 352 0080 2368     		ldr	r3, [r4]
+ 353 0082 C833     		adds	r3, r3, #200
+ 354 0084 B3F5806F 		cmp	r3, #1024
+ 355 0088 22DA     		bge	.L20
+ 221:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       buffer->start = buffer->start + MAX_POP_SIZE;
+ 356              		.loc 1 221 0
+ 357 008a 2169     		ldr	r1, [r4, #16]
+ 358 008c 2368     		ldr	r3, [r4]
+ 359 008e C822     		movs	r2, #200
+ 360 0090 1944     		add	r1, r1, r3
+ 361 0092 2948     		ldr	r0, .L24
+ 362 0094 FFF7FEFF 		bl	memcpy
+ 363              	.LVL23:
+ 222:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       buffer->count = (RINGBUF_SIZE - buffer->start)+ buf_end;
+ 364              		.loc 1 222 0
+ 365 0098 2368     		ldr	r3, [r4]
+ 366 009a C833     		adds	r3, r3, #200
+ 367 009c 2360     		str	r3, [r4]
+ 223:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                     }
+ 368              		.loc 1 223 0
+ 369 009e 2368     		ldr	r3, [r4]
+ 370 00a0 C3F58063 		rsb	r3, r3, #1024
+ 371 00a4 1D44     		add	r5, r5, r3
+ 372              	.LVL24:
+ 373 00a6 E560     		str	r5, [r4, #12]
+ 374              	.L19:
+ 234:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****             }
+ 375              		.loc 1 234 0
+ 376 00a8 C822     		movs	r2, #200
+ 377 00aa 254B     		ldr	r3, .L24+8
+ 378 00ac A3F89820 		strh	r2, [r3, #152]	@ movhi
+ 379              	.LBE5:
+ 380              		.loc 1 246 0
+ 381 00b0 2148     		ldr	r0, .L24
+ 382 00b2 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 383              	.LVL25:
+ 384              	.L23:
+ 385              	.LBB6:
+ 213:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   buffer->start = buffer->start + MAX_POP_SIZE;
+ 386              		.loc 1 213 0
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 12
+
+
+ 387 00b4 2169     		ldr	r1, [r4, #16]
+ 388 00b6 2368     		ldr	r3, [r4]
+ 389 00b8 C822     		movs	r2, #200
+ 390 00ba 1944     		add	r1, r1, r3
+ 391 00bc 1E48     		ldr	r0, .L24
+ 392 00be FFF7FEFF 		bl	memcpy
+ 393              	.LVL26:
+ 214:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                   buffer->count = buf_end - buffer->start;
+ 394              		.loc 1 214 0
+ 395 00c2 2368     		ldr	r3, [r4]
+ 396 00c4 C833     		adds	r3, r3, #200
+ 397 00c6 2360     		str	r3, [r4]
+ 215:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                 }
+ 398              		.loc 1 215 0
+ 399 00c8 2368     		ldr	r3, [r4]
+ 400 00ca ED1A     		subs	r5, r5, r3
+ 401              	.LVL27:
+ 402 00cc E560     		str	r5, [r4, #12]
+ 403 00ce EBE7     		b	.L19
+ 404              	.LVL28:
+ 405              	.L20:
+ 406              	.LBB4:
+ 227:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       memcpy(element, &buffer->element[buffer->start], RINGBUF_SIZE-buf_start);
+ 407              		.loc 1 227 0
+ 408 00d0 2668     		ldr	r6, [r4]
+ 409              	.LVL29:
+ 228:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       memcpy(element+(RINGBUF_SIZE-buffer->start), &buffer->element[0], MAX_POP_SIZ
+ 410              		.loc 1 228 0
+ 411 00d2 2169     		ldr	r1, [r4, #16]
+ 412 00d4 2368     		ldr	r3, [r4]
+ 413 00d6 184F     		ldr	r7, .L24
+ 414 00d8 C6F58062 		rsb	r2, r6, #1024
+ 415 00dc 1944     		add	r1, r1, r3
+ 416 00de 3846     		mov	r0, r7
+ 417 00e0 FFF7FEFF 		bl	memcpy
+ 418              	.LVL30:
+ 229:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       buffer->start = MAX_POP_SIZE - (1024-buf_start);
+ 419              		.loc 1 229 0
+ 420 00e4 2068     		ldr	r0, [r4]
+ 421 00e6 C0F58060 		rsb	r0, r0, #1024
+ 422 00ea A6F54E76 		sub	r6, r6, #824
+ 423              	.LVL31:
+ 424 00ee 3246     		mov	r2, r6
+ 425 00f0 2169     		ldr	r1, [r4, #16]
+ 426 00f2 3844     		add	r0, r0, r7
+ 427 00f4 FFF7FEFF 		bl	memcpy
+ 428              	.LVL32:
+ 230:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                       buffer->count = buf_end - buffer->start;
+ 429              		.loc 1 230 0
+ 430 00f8 2660     		str	r6, [r4]
+ 231:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****                     }
+ 431              		.loc 1 231 0
+ 432 00fa 2368     		ldr	r3, [r4]
+ 433 00fc ED1A     		subs	r5, r5, r3
+ 434              	.LVL33:
+ 435 00fe E560     		str	r5, [r4, #12]
+ 436 0100 D2E7     		b	.L19
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 13
+
+
+ 437              	.LVL34:
+ 438              	.L14:
+ 439              	.LBE4:
+ 440              	.LBE6:
+ 240:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****             buffer->start = buffer->start + ELEMENT_SIZE;
+ 441              		.loc 1 240 0
+ 442 0102 2269     		ldr	r2, [r4, #16]
+ 443 0104 2368     		ldr	r3, [r4]
+ 444 0106 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
+ 445 0108 0B48     		ldr	r0, .L24
+ 446 010a 0370     		strb	r3, [r0]
+ 241:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****             buffer->count--;
+ 447              		.loc 1 241 0
+ 448 010c 2368     		ldr	r3, [r4]
+ 449 010e 0133     		adds	r3, r3, #1
+ 450 0110 2360     		str	r3, [r4]
+ 242:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****             WiFi_Counter_Variables.pop_buffer_size = 1;
+ 451              		.loc 1 242 0
+ 452 0112 E368     		ldr	r3, [r4, #12]
+ 453 0114 013B     		subs	r3, r3, #1
+ 454 0116 E360     		str	r3, [r4, #12]
+ 243:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****             buffer->start %= RINGBUF_SIZE;
+ 455              		.loc 1 243 0
+ 456 0118 0122     		movs	r2, #1
+ 457 011a 094B     		ldr	r3, .L24+8
+ 458 011c A3F89820 		strh	r2, [r3, #152]	@ movhi
+ 244:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****         }
+ 459              		.loc 1 244 0
+ 460 0120 2368     		ldr	r3, [r4]
+ 461 0122 5A42     		rsbs	r2, r3, #0
+ 462 0124 C3F30903 		ubfx	r3, r3, #0, #10
+ 463 0128 C2F30902 		ubfx	r2, r2, #0, #10
+ 464 012c 58BF     		it	pl
+ 465 012e 5342     		rsbpl	r3, r2, #0
+ 466 0130 2360     		str	r3, [r4]
+ 467 0132 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 468              	.LVL35:
+ 469              	.L21:
+ 184:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     } 
+ 470              		.loc 1 184 0
+ 471 0134 0020     		movs	r0, #0
  247:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     }
  248:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** }
- 565              		.loc 1 248 1 view .LVU163
- 566 012e F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 567              	.LVL34:
- 568              	.L22:
- 184:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     } 
- 569              		.loc 1 184 14 view .LVU164
- 570 0130 0020     		movs	r0, #0
- 571 0132 FCE7     		b	.L12
- 572              	.L26:
- 573              		.align	2
- 574              	.L25:
- 575 0134 00000000 		.word	pop_buffer
- 576 0138 00000000 		.word	WiFi_Control_Variables
- 577 013c 00000000 		.word	WiFi_Counter_Variables
- 578              		.cfi_endproc
- 579              	.LFE286:
-ARM GAS  /tmp/ccoHTdbY.s 			page 16
+ 472              		.loc 1 248 0
+ 473 0136 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 474              	.LVL36:
+ 475              	.L25:
+ 476              		.align	2
+ 477              	.L24:
+ 478 0138 00000000 		.word	pop_buffer
+ 479 013c 00000000 		.word	WiFi_Control_Variables
+ 480 0140 00000000 		.word	WiFi_Counter_Variables
+ 481              		.cfi_endproc
+ 482              	.LFE282:
+ 484              		.section	.text.rewind_buffer_queue,"ax",%progbits
+ 485              		.align	1
+ 486              		.global	rewind_buffer_queue
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 14
 
 
- 581              		.section	.text.rewind_buffer_queue,"ax",%progbits
- 582              		.align	1
- 583              		.global	rewind_buffer_queue
- 584              		.syntax unified
- 585              		.thumb
- 586              		.thumb_func
- 587              		.fpu fpv4-sp-d16
- 589              	rewind_buffer_queue:
- 590              	.LVL35:
- 591              	.LFB287:
+ 487              		.syntax unified
+ 488              		.thumb
+ 489              		.thumb_func
+ 490              		.fpu fpv4-sp-d16
+ 492              	rewind_buffer_queue:
+ 493              	.LFB283:
  249:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** 
  250:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** /**
  251:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   * @brief  rewinds_buffer_queue
@@ -921,168 +797,143 @@ ARM GAS  /tmp/ccoHTdbY.s 			page 1
  256:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****   */ 
  257:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** void rewind_buffer_queue(buffer_t *buffer , int count)
  258:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** {
- 592              		.loc 1 258 1 is_stmt 1 view -0
- 593              		.cfi_startproc
- 594              		@ args = 0, pretend = 0, frame = 0
- 595              		@ frame_needed = 0, uses_anonymous_args = 0
- 596              		@ link register save eliminated.
+ 494              		.loc 1 258 0
+ 495              		.cfi_startproc
+ 496              		@ args = 0, pretend = 0, frame = 0
+ 497              		@ frame_needed = 0, uses_anonymous_args = 0
+ 498              		@ link register save eliminated.
+ 499              	.LVL37:
  259:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     int buf_end = buffer->end;
- 597              		.loc 1 259 5 view .LVU166
- 598              		.loc 1 259 9 is_stmt 0 view .LVU167
- 599 0000 4268     		ldr	r2, [r0, #4]
- 600              	.LVL36:
+ 500              		.loc 1 259 0
+ 501 0000 4268     		ldr	r2, [r0, #4]
+ 502              	.LVL38:
  260:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     if(buffer->start - count >= 0)
- 601              		.loc 1 260 5 is_stmt 1 view .LVU168
- 602              		.loc 1 260 14 is_stmt 0 view .LVU169
- 603 0002 0368     		ldr	r3, [r0]
- 604              		.loc 1 260 22 view .LVU170
- 605 0004 5B1A     		subs	r3, r3, r1
- 606              		.loc 1 260 7 view .LVU171
- 607 0006 002B     		cmp	r3, #0
- 608 0008 0FDB     		blt	.L28
+ 503              		.loc 1 260 0
+ 504 0002 0368     		ldr	r3, [r0]
+ 505 0004 5B1A     		subs	r3, r3, r1
+ 506 0006 002B     		cmp	r3, #0
+ 507 0008 0FDB     		blt	.L27
  261:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****       {
  262:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****           buffer->start = buffer->start - count;
- 609              		.loc 1 262 11 is_stmt 1 view .LVU172
- 610              		.loc 1 262 33 is_stmt 0 view .LVU173
- 611 000a 0368     		ldr	r3, [r0]
- 612              		.loc 1 262 41 view .LVU174
- 613 000c 591A     		subs	r1, r3, r1
- 614              	.LVL37:
- 615              		.loc 1 262 25 view .LVU175
- 616 000e 0160     		str	r1, [r0]
+ 508              		.loc 1 262 0
+ 509 000a 0368     		ldr	r3, [r0]
+ 510 000c 591A     		subs	r1, r3, r1
+ 511              	.LVL39:
+ 512 000e 0160     		str	r1, [r0]
  263:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****           if(buf_end > buffer->start) 
- 617              		.loc 1 263 11 is_stmt 1 view .LVU176
- 618              		.loc 1 263 30 is_stmt 0 view .LVU177
- 619 0010 0368     		ldr	r3, [r0]
- 620              		.loc 1 263 13 view .LVU178
- 621 0012 9342     		cmp	r3, r2
- 622 0014 03DA     		bge	.L29
+ 513              		.loc 1 263 0
+ 514 0010 0368     		ldr	r3, [r0]
+ 515 0012 9A42     		cmp	r2, r3
+ 516 0014 03DD     		ble	.L28
  264:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****               buffer->count = buf_end - buffer->start;
-ARM GAS  /tmp/ccoHTdbY.s 			page 17
-
-
- 623              		.loc 1 264 15 is_stmt 1 view .LVU179
- 624              		.loc 1 264 47 is_stmt 0 view .LVU180
- 625 0016 0368     		ldr	r3, [r0]
- 626              		.loc 1 264 39 view .LVU181
- 627 0018 D21A     		subs	r2, r2, r3
- 628              	.LVL38:
- 629              		.loc 1 264 29 view .LVU182
- 630 001a C260     		str	r2, [r0, #12]
- 631 001c 7047     		bx	lr
- 632              	.LVL39:
- 633              	.L29:
+ 517              		.loc 1 264 0
+ 518 0016 0368     		ldr	r3, [r0]
+ 519 0018 D21A     		subs	r2, r2, r3
+ 520              	.LVL40:
+ 521 001a C260     		str	r2, [r0, #12]
+ 522 001c 7047     		bx	lr
+ 523              	.LVL41:
+ 524              	.L28:
  265:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****           else 
  266:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****               buffer->count = (RINGBUF_SIZE-buffer->start)+buf_end;
- 634              		.loc 1 266 15 is_stmt 1 view .LVU183
- 635              		.loc 1 266 51 is_stmt 0 view .LVU184
- 636 001e 0368     		ldr	r3, [r0]
- 637              		.loc 1 266 44 view .LVU185
- 638 0020 C3F58063 		rsb	r3, r3, #1024
- 639              		.loc 1 266 59 view .LVU186
- 640 0024 1A44     		add	r2, r2, r3
- 641              	.LVL40:
- 642              		.loc 1 266 29 view .LVU187
- 643 0026 C260     		str	r2, [r0, #12]
- 644 0028 7047     		bx	lr
- 645              	.LVL41:
- 646              	.L28:
+ 525              		.loc 1 266 0
+ 526 001e 0368     		ldr	r3, [r0]
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 15
+
+
+ 527 0020 C3F58063 		rsb	r3, r3, #1024
+ 528 0024 1A44     		add	r2, r2, r3
+ 529              	.LVL42:
+ 530 0026 C260     		str	r2, [r0, #12]
+ 531 0028 7047     		bx	lr
+ 532              	.LVL43:
+ 533              	.L27:
  267:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****       }
  268:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****     else
  269:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****       {
  270:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****           buffer->start = RINGBUF_SIZE - (count - buffer->start);
- 647              		.loc 1 270 11 is_stmt 1 view .LVU188
- 648              		.loc 1 270 57 is_stmt 0 view .LVU189
- 649 002a 0368     		ldr	r3, [r0]
- 650              		.loc 1 270 49 view .LVU190
- 651 002c C91A     		subs	r1, r1, r3
- 652              	.LVL42:
- 653              		.loc 1 270 40 view .LVU191
- 654 002e C1F58061 		rsb	r1, r1, #1024
- 655              		.loc 1 270 25 view .LVU192
- 656 0032 0160     		str	r1, [r0]
+ 534              		.loc 1 270 0
+ 535 002a 0368     		ldr	r3, [r0]
+ 536 002c C91A     		subs	r1, r1, r3
+ 537              	.LVL44:
+ 538 002e C1F58061 		rsb	r1, r1, #1024
+ 539 0032 0160     		str	r1, [r0]
  271:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****           buffer->count = (RINGBUF_SIZE - buffer->start)+ buf_end;
- 657              		.loc 1 271 11 is_stmt 1 view .LVU193
- 658              		.loc 1 271 49 is_stmt 0 view .LVU194
- 659 0034 0368     		ldr	r3, [r0]
- 660              		.loc 1 271 41 view .LVU195
- 661 0036 C3F58063 		rsb	r3, r3, #1024
- 662              		.loc 1 271 57 view .LVU196
- 663 003a 1A44     		add	r2, r2, r3
- 664              	.LVL43:
- 665              		.loc 1 271 25 view .LVU197
- 666 003c C260     		str	r2, [r0, #12]
- 272:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c ****       }
- 273:Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.c **** }
- 667              		.loc 1 273 1 view .LVU198
- 668 003e 7047     		bx	lr
- 669              		.cfi_endproc
- 670              	.LFE287:
-ARM GAS  /tmp/ccoHTdbY.s 			page 18
+ 540              		.loc 1 271 0
+ 541 0034 0368     		ldr	r3, [r0]
+ 542 0036 C3F58063 		rsb	r3, r3, #1024
+ 543 003a 1A44     		add	r2, r2, r3
+ 544              	.LVL45:
+ 545 003c C260     		str	r2, [r0, #12]
+ 546 003e 7047     		bx	lr
+ 547              		.cfi_endproc
+ 548              	.LFE283:
+ 550              		.section	.bss.ring_buffer,"aw",%nobits
+ 551              		.align	2
+ 552              		.set	.LANCHOR0,. + 0
+ 555              	ring_buffer:
+ 556 0000 00000000 		.space	1024
+ 556      00000000 
+ 556      00000000 
+ 556      00000000 
+ 556      00000000 
+ 557              		.text
+ 558              	.Letext0:
+ 559              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
+ 560              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
+ 561              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
+ 562              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\lib\\gcc\\arm-none-eab
+ 563              		.file 6 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
+ 564              		.file 7 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
+ 565              		.file 8 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
+ 566              		.file 9 "Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.h"
+ 567              		.file 10 "Drivers/CMSIS/Include/core_cm4.h"
+ 568              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 569              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 570              		.file 13 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 571              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 572              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 573              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 574              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 575              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 576              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 577              		.file 20 "Middlewares/ST/STM32_SPWF0xSy/Inc/wifi_interface.h"
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 16
 
 
- 672              		.section	.bss.ring_buffer,"aw",%nobits
- 673              		.align	2
- 674              		.set	.LANCHOR0,. + 0
- 677              	ring_buffer:
- 678 0000 00000000 		.space	1024
- 678      00000000 
- 678      00000000 
- 678      00000000 
- 678      00000000 
- 679              		.text
- 680              	.Letext0:
- 681              		.file 2 "/usr/include/newlib/machine/_default_types.h"
- 682              		.file 3 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h"
- 683              		.file 4 "/usr/include/newlib/sys/_types.h"
- 684              		.file 5 "/usr/include/newlib/sys/reent.h"
- 685              		.file 6 "/usr/include/newlib/sys/lock.h"
- 686              		.file 7 "/usr/include/newlib/sys/_stdint.h"
- 687              		.file 8 "/usr/include/newlib/stdlib.h"
- 688              		.file 9 "Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.h"
- 689              		.file 10 "Drivers/CMSIS/Include/core_cm4.h"
- 690              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 691              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
- 692              		.file 13 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 693              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 694              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 695              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 696              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 697              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 698              		.file 19 "Middlewares/ST/STM32_SPWF0xSy/Inc/wifi_interface.h"
- 699              		.file 20 "Middlewares/ST/STM32_SPWF0xSy/Utils/event_buffer.h"
- 700              		.file 21 "/usr/include/newlib/time.h"
- 701              		.file 22 "Middlewares/ST/STM32_SPWF0xSy/Inc/wifi_module.h"
- 702              		.file 23 "Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.h"
- 703              		.file 24 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h"
- 704              		.file 25 "<built-in>"
-ARM GAS  /tmp/ccoHTdbY.s 			page 19
+ 578              		.file 21 "Middlewares/ST/STM32_SPWF0xSy/Utils/event_buffer.h"
+ 579              		.file 22 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
+ 580              		.file 23 "Middlewares/ST/STM32_SPWF0xSy/Inc/wifi_module.h"
+ 581              		.file 24 "Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.h"
+ 582              		.file 25 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h"
+ARM GAS  D:\cygwin64\tmp\cckQlkAs.s 			page 17
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 ring_buffer.c
-     /tmp/ccoHTdbY.s:18     .text.init:0000000000000000 $t
-     /tmp/ccoHTdbY.s:26     .text.init:0000000000000000 init
-     /tmp/ccoHTdbY.s:57     .text.init:0000000000000010 $d
-     /tmp/ccoHTdbY.s:62     .text.flush_buffer_queue:0000000000000000 $t
-     /tmp/ccoHTdbY.s:69     .text.flush_buffer_queue:0000000000000000 flush_buffer_queue
-     /tmp/ccoHTdbY.s:92     .text.is_half_full:0000000000000000 $t
-     /tmp/ccoHTdbY.s:99     .text.is_half_full:0000000000000000 is_half_full
-     /tmp/ccoHTdbY.s:121    .text.is_half_empty:0000000000000000 $t
-     /tmp/ccoHTdbY.s:128    .text.is_half_empty:0000000000000000 is_half_empty
-     /tmp/ccoHTdbY.s:150    .text.full:0000000000000000 $t
-     /tmp/ccoHTdbY.s:157    .text.full:0000000000000000 full
-     /tmp/ccoHTdbY.s:179    .text.empty:0000000000000000 $t
-     /tmp/ccoHTdbY.s:186    .text.empty:0000000000000000 empty
-     /tmp/ccoHTdbY.s:206    .text.push_buffer_queue:0000000000000000 $t
-     /tmp/ccoHTdbY.s:213    .text.push_buffer_queue:0000000000000000 push_buffer_queue
-     /tmp/ccoHTdbY.s:270    .text.pop_buffer_queue:0000000000000000 $t
-     /tmp/ccoHTdbY.s:277    .text.pop_buffer_queue:0000000000000000 pop_buffer_queue
-     /tmp/ccoHTdbY.s:575    .text.pop_buffer_queue:0000000000000134 $d
-     /tmp/ccoHTdbY.s:582    .text.rewind_buffer_queue:0000000000000000 $t
-     /tmp/ccoHTdbY.s:589    .text.rewind_buffer_queue:0000000000000000 rewind_buffer_queue
-     /tmp/ccoHTdbY.s:673    .bss.ring_buffer:0000000000000000 $d
-     /tmp/ccoHTdbY.s:677    .bss.ring_buffer:0000000000000000 ring_buffer
+                            *ABS*:00000000 ring_buffer.c
+D:\cygwin64\tmp\cckQlkAs.s:18     .text.init:00000000 $t
+D:\cygwin64\tmp\cckQlkAs.s:25     .text.init:00000000 init
+D:\cygwin64\tmp\cckQlkAs.s:50     .text.init:00000010 $d
+D:\cygwin64\tmp\cckQlkAs.s:55     .text.flush_buffer_queue:00000000 $t
+D:\cygwin64\tmp\cckQlkAs.s:62     .text.flush_buffer_queue:00000000 flush_buffer_queue
+D:\cygwin64\tmp\cckQlkAs.s:81     .text.is_half_full:00000000 $t
+D:\cygwin64\tmp\cckQlkAs.s:88     .text.is_half_full:00000000 is_half_full
+D:\cygwin64\tmp\cckQlkAs.s:109    .text.is_half_empty:00000000 $t
+D:\cygwin64\tmp\cckQlkAs.s:116    .text.is_half_empty:00000000 is_half_empty
+D:\cygwin64\tmp\cckQlkAs.s:137    .text.full:00000000 $t
+D:\cygwin64\tmp\cckQlkAs.s:144    .text.full:00000000 full
+D:\cygwin64\tmp\cckQlkAs.s:165    .text.empty:00000000 $t
+D:\cygwin64\tmp\cckQlkAs.s:172    .text.empty:00000000 empty
+D:\cygwin64\tmp\cckQlkAs.s:191    .text.push_buffer_queue:00000000 $t
+D:\cygwin64\tmp\cckQlkAs.s:198    .text.push_buffer_queue:00000000 push_buffer_queue
+D:\cygwin64\tmp\cckQlkAs.s:243    .text.pop_buffer_queue:00000000 $t
+D:\cygwin64\tmp\cckQlkAs.s:250    .text.pop_buffer_queue:00000000 pop_buffer_queue
+D:\cygwin64\tmp\cckQlkAs.s:478    .text.pop_buffer_queue:00000138 $d
+D:\cygwin64\tmp\cckQlkAs.s:485    .text.rewind_buffer_queue:00000000 $t
+D:\cygwin64\tmp\cckQlkAs.s:492    .text.rewind_buffer_queue:00000000 rewind_buffer_queue
+D:\cygwin64\tmp\cckQlkAs.s:551    .bss.ring_buffer:00000000 $d
+D:\cygwin64\tmp\cckQlkAs.s:555    .bss.ring_buffer:00000000 ring_buffer
+                     .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
 memset

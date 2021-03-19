@@ -1,93 +1,105 @@
-  /**
+/* USER CODE BEGIN Header */
+/**
   ******************************************************************************
-  * @file    main.c
-  * @author  Central LAB
-  * @version V2.1.0
-  * @date    17-May-2015
-  * @brief   Main program body
+  * @file           : main.c
+  * @brief          : Main program body
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2015 STMicroelectronics</center></h2>
+  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+  * All rights reserved.</center></h2>
   *
-  * Redistribution and use in source and binary forms, with or without modification,
-  * are permitted provided that the following conditions are met:
-  *   1. Redistributions of source code must retain the above copyright notice,
-  *      this list of conditions and the following disclaimer.
-  *   2. Redistributions in binary form must reproduce the above copyright notice,
-  *      this list of conditions and the following disclaimer in the documentation
-  *      and/or other materials provided with the distribution.
-  *   3. Neither the name of STMicroelectronics nor the names of its contributors
-  *      may be used to endorse or promote products derived from this software
-  *      without specific prior written permission.
-  *
-  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
   *
   ******************************************************************************
   */
+/* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include "main.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
 #include "main.h"
 #include "stdio.h"
 #include "string.h"
 #include "wifi_module.h"
 #include "wifi_globals.h"
 #include "wifi_interface.h"
+/* USER CODE END Includes */
 
-/** @defgroup WIFI_Examples
-  * @{
-  */
-
-/** @defgroup WIFI_Example_Server_Socket
-  * @{
-  */
 /* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
 /* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+#define MAX_MSG_SIZE 100
+/* USER CODE END PD */
+
 /* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
 /* Private variables ---------------------------------------------------------*/
-  
+UART_HandleTypeDef huart2;
+
+/* USER CODE BEGIN PV */
+
+/* USER CODE END PV */
+
 /* Private function prototypes -----------------------------------------------*/
-char print_msg_buff[512];
-
-/* Private functions ---------------------------------------------------------*/                   
-void 	SystemClock_Config(void);
-void    UART_Msg_Gpio_Init(void);
-void    USART_PRINT_MSG_Configuration(UART_HandleTypeDef *UART_MsgHandle, uint32_t baud_rate);
-WiFi_Status_t 	wifi_get_AP_settings(void);
-
-/* Private Declarartion ------------------------------------------------------*/
-wifi_state_t wifi_state;
-wifi_config config;
-UART_HandleTypeDef UART_MsgHandle;
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_USART2_UART_Init(void);
+/* USER CODE BEGIN PFP */
+WiFi_Status_t wifi_get_AP_settings(void);
+uint8_t user_buffer[1024];
+__IO char http_char;
+wifi_bool http_post_request = WIFI_FALSE;
 
 uint8_t console_input[1], console_count=0;
 char console_ssid[40];
 char console_psk[20];
+char console_host[20];
+wifi_bool set_AP_config = WIFI_FALSE;
 
-char * ssid = "SPWF04SA";
-char * seckey = "123456789";
-uint8_t channel_num = 6;
-WiFi_Priv_Mode mode = WPA_Personal;     
-char echo[64];
-char ip_addr[16];
-char mac_addr[17];
-uint16_t len;
-uint8_t sock_id, server_id;
+/* Private functions ---------------------------------------------------------*/
+void  SystemClock_Config(void);
+void  UART_Msg_Gpio_Init(void);
+void  USART_PRINT_MSG_Configuration(UART_HandleTypeDef *UART_MsgHandle, uint32_t baud_rate);
+WiFi_Status_t wifi_get_AP_settings(void);
+void print(char msg[]);
+/* Private Declarartion ------------------------------------------------------*/
+__IO wifi_state_t wifi_state;
+wifi_config config;
+UART_HandleTypeDef UART_MsgHandle;
 
+char * ssid = "STM";
+char * seckey = "STMdemoPWD";
+WiFi_Priv_Mode mode = WPA_Personal;
+char * hostname = "httpbin.org";
+char * post_hostname = "posttestserver.com";
 char * gcfg_key1 = "ip_ipaddr";
 char * gcfg_key2 = "nv_model";
-uint8_t socket_id;
+
 char wifi_ip_addr[20];
-uint16_t len;
 uint32_t baud_rate = 115200;
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
 
  /**
   * @brief  Main program
@@ -97,320 +109,343 @@ uint32_t baud_rate = 115200;
 int main(void)
 {
   WiFi_Status_t status = WiFi_MODULE_SUCCESS;
-  char *protocol = "t";
-  uint32_t portnumber = 32000;
-  
-  __GPIOA_CLK_ENABLE();
-  HAL_Init();
 
-  /* Configure the system clock to 64 MHz */
+  char * path = "/get";
+  uint32_t  port_num = 80;
+  char * post_path = "/post.php/name=demo&email=mymail&subject=subj&body=message";
+
+  HAL_Init();
   SystemClock_Config();
 
-  /* configure the timers  */
-  Timer_Config( );
-  
-#ifdef USART_PRINT_MSG
-  UART_Msg_Gpio_Init();
-  USART_PRINT_MSG_Configuration(&UART_MsgHandle,115200);
-  Set_UartMsgHandle(&UART_MsgHandle);
-#endif  
-  
+
+  MX_GPIO_Init();
+  MX_USART2_UART_Init();
+
+  /*while (1)
+  {
+    print("Hello world\r\n..");
+  }*/
+  /* USER CODE END 3 */
+
   status = wifi_get_AP_settings();
   if(status!=WiFi_MODULE_SUCCESS)
   {
-    printf("\r\nError in AP Settings");
+    print("\r\nError in AP Settings");
     return 0;
   }
   
+  UART_Configuration(baud_rate); 
+  
   config.power=wifi_active;
   config.power_level=high;
-  config.dhcp=on;//use DHCP IP address  
+  config.dhcp=on;//use DHCP IP address   
   config.mcu_baud_rate = baud_rate;
   wifi_state = wifi_state_idle;
-
-  UART_Configuration(baud_rate); 
-
-  printf("\r\nInitializing the wifi module...\r\n");
-
+  
+  print("\r\n\nInitializing the wifi module...");
+  
   /* Init the wi-fi module */  
   status = wifi_init(&config);
   if(status!=WiFi_MODULE_SUCCESS)
   {
-    printf("Error in Config");
+    print("Error in Config");
     return 0;
   }
-  
-  printf("\r\nInitializing complete.\r\n");
-  
+
   while (1)
   {
     switch (wifi_state) 
-        {
-      case wifi_state_reset:
-      break;
+    {
+    case wifi_state_reset:
+        break;
 
-      case wifi_state_ready:
-
-        printf("\r\n >>setting up miniAP mode...\r\n");
-        
-        wifi_ap_start((uint8_t *)console_ssid, console_psk, channel_num, mode);
-
-        //wifi_connect(ssid,seckey, mode);
-
+    case wifi_state_ready:
+        print("\r\n >>connecting to AP...\r\n");
+        wifi_connect(console_ssid, console_psk, mode);
         wifi_state = wifi_state_idle;
-      break;
+        break;
 
-      case wifi_state_connected:
-        printf("\r\n >>connected...\r\n");      
-        
-        WiFi_Status_t status;
-        
+    case wifi_state_connected:
+        print("\r\n >>connected...\r\n");
+        wifi_state = wifi_state_activity;
+        break;
+
+    case wifi_state_disconnected:
+        wifi_state = wifi_state_reset;
+        break;
+
+    case wifi_state_activity:
+
         status = wifi_get_IP_address((uint8_t*)wifi_ip_addr);
-        printf("\r\n>>IP address is %s\r\n", wifi_ip_addr);
+        //print("\r\n>>IP address is %s\r\n", wifi_ip_addr);
         
         memset(wifi_ip_addr, 0x00, 20);
         
-        status = wifi_get_MAC_address((uint8_t*)wifi_ip_addr);
-        printf("\r\n>>mac addr is %s\r\n", wifi_ip_addr);
-        
-        wifi_state = wifi_state_socket;
-      break;
+        status = GET_Configuration_Value(gcfg_key2,(uint32_t *)wifi_ip_addr);
+        //print("\r\n>>model no is %s\r\n", wifi_ip_addr);
 
-      case wifi_state_disconnected:
-        printf("\r\n >>disconnected..\r\n");
-        wifi_state = wifi_state_idle;
-      break;
-
-      case wifi_state_socket:
-      printf("\r\n >>WiFi server socket opening..\r\n");
-
-      /* Read Write Socket data */        
-      #ifdef SPWF04
-        status = wifi_socket_server_open(portnumber, (uint8_t *)protocol, &server_id);
-      #else
-        status = wifi_socket_server_open(portnumber, (uint8_t *)protocol);
-      #endif
-      if(status == WiFi_MODULE_SUCCESS)
-      {
-        printf("\r\n >>Server Socket Open OK \r\n");          
-      }
-        wifi_state = wifi_state_idle;
-
-      break;
-
-    case wifi_state_socket_write:
-        printf("\r\n >>Writing data to client\r\n");
-
-        len = strlen(echo);
-
-        /* Read Write Socket data */        
-        #ifdef SPWF04
-          status = wifi_socket_server_write(server_id, sock_id, len, echo);
-        #else
-          status = wifi_socket_server_write(len, echo);
-        #endif
-        if(status == WiFi_MODULE_SUCCESS)
+        if(http_post_request)
+            wifi_state = wifi_state_inter;//do a HTTP-POST
+        else
         {
-          printf("\r\n >>Server Socket Write OK \r\n");  
+          print("\r\n>>WiFi_HTTPGET\r\n");
+        
+          status = wifi_http_get((uint8_t *)console_host, (uint8_t *)path, port_num);
+      
+          if(status == WiFi_MODULE_SUCCESS)
+          {
+             print("\r\nHTTP GET OK\r\n");
+          }
+          else
+          {
+              print("\r\nHTTP GET Error\r\n");
+          }
+          wifi_state = wifi_state_idle;
         }
+        
+        break;
+
+    case wifi_state_inter:        
+
+        print("\r\n>>Posting data to posttestserver.com..\r\n");  
+
+        status = wifi_http_post((uint8_t *)post_hostname, (uint8_t *)post_path, port_num); 
+
+        if(status == WiFi_MODULE_SUCCESS)    
+        {
+          print("\r\nHTTP POST OK\r\n");
+        }
+        else
+        {
+          print("\r\nHTTP POST Error\r\n");
+        }        
+
+        wifi_state = wifi_state_idle;
+        break;
+
+    case wifi_state_print_data:
+        print((char*)user_buffer);
+
         wifi_state = wifi_state_idle;
 
         break;
+    case wifi_state_idle:        
+        print("."); 
+        fflush(stdout);
+        HAL_Delay(500);
 
-    case wifi_state_idle:
-      printf(".");
-      fflush(stdout);
-      HAL_Delay(500);
-      break;
+        break;
 
     default:
-      break;
-    }    
+        break;
+    }
   }
 }
 
 /**
-  * @brief  System Clock Configuration
-  *         The system Clock is configured as follow : 
-  *            System Clock source            = PLL (HSI)
-  *            SYSCLK(Hz)                     = 64000000
-  *            HCLK(Hz)                       = 64000000
-  *            AHB Prescaler                  = 1
-  *            APB1 Prescaler                 = 2
-  *            APB2 Prescaler                 = 1
-  *            PLLMUL                         = 16
-  *            Flash Latency(WS)              = 2
-  * @param  None
-  * @retval None
-  */
-
-#ifdef USE_STM32F1xx_NUCLEO
-
-void SystemClock_Config(void)
-{
-  RCC_ClkInitTypeDef clkinitstruct = {0};
-  RCC_OscInitTypeDef oscinitstruct = {0};
-  
-  /* Configure PLL ------------------------------------------------------*/
-  /* PLL configuration: PLLCLK = (HSI / 2) * PLLMUL = (8 / 2) * 16 = 64 MHz */
-  /* PREDIV1 configuration: PREDIV1CLK = PLLCLK / HSEPredivValue = 64 / 1 = 64 MHz */
-  /* Enable HSI and activate PLL with HSi_DIV2 as source */
-  oscinitstruct.OscillatorType  = RCC_OSCILLATORTYPE_HSE;
-  oscinitstruct.HSEState        = RCC_HSE_ON;
-  oscinitstruct.LSEState        = RCC_LSE_OFF;
-  oscinitstruct.HSIState        = RCC_HSI_OFF;
-  oscinitstruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  oscinitstruct.HSEPredivValue    = RCC_HSE_PREDIV_DIV1;
-  oscinitstruct.PLL.PLLState    = RCC_PLL_ON;
-  oscinitstruct.PLL.PLLSource   = RCC_PLLSOURCE_HSE;
-  oscinitstruct.PLL.PLLMUL      = RCC_PLL_MUL9;
-  if (HAL_RCC_OscConfig(&oscinitstruct)!= HAL_OK)
-  {
-    /* Initialization Error */
-    while(1); 
-  }
-
-  /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2 
-     clocks dividers */
-  clkinitstruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
-  clkinitstruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  clkinitstruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  clkinitstruct.APB2CLKDivider = RCC_HCLK_DIV1;
-  clkinitstruct.APB1CLKDivider = RCC_HCLK_DIV2;  
-  if (HAL_RCC_ClockConfig(&clkinitstruct, FLASH_LATENCY_2)!= HAL_OK)
-  {
-    /* Initialization Error */
-    while(1); 
-  }
-}
-#endif
-
-#ifdef USE_STM32F4XX_NUCLEO
-
-void SystemClock_Config(void)
-{
-  RCC_ClkInitTypeDef RCC_ClkInitStruct;
-  RCC_OscInitTypeDef RCC_OscInitStruct;
-
-  /* Enable Power Control clock */
-  __PWR_CLK_ENABLE();
-  
-  /* The voltage scaling allows optimizing the power consumption when the device is 
-     clocked below the maximum system frequency, to update the voltage scaling value 
-     regarding system frequency refer to product datasheet.  */
-  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
-  
-  /* Enable HSI Oscillator and activate PLL with HSI as source */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = 0x10;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct.PLL.PLLM = 16;
-  RCC_OscInitStruct.PLL.PLLN = 336;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV4;
-  RCC_OscInitStruct.PLL.PLLQ = 7;
-  HAL_RCC_OscConfig(&RCC_OscInitStruct);
-   
-  /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2 
-     clocks dividers */
-  RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;  
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;  
-  HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2);
-}
-#endif
-
-#ifdef USE_STM32L0XX_NUCLEO
-
-/**
- * @brief  System Clock Configuration
- * @param  None
- * @retval None
- */
-void SystemClock_Config(void)
-{
-  RCC_ClkInitTypeDef RCC_ClkInitStruct;
-  RCC_OscInitTypeDef RCC_OscInitStruct;
-
-  __PWR_CLK_ENABLE();
-
-  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
-
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = 0x10;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLLMUL_4;
-  RCC_OscInitStruct.PLL.PLLDIV = RCC_PLLDIV_2;
-  HAL_RCC_OscConfig(&RCC_OscInitStruct);
-
-  RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);//RCC_CLOCKTYPE_SYSCLK;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;//RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
-  HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1);
-
-  __SYSCFG_CLK_ENABLE(); 
-}
-#endif
-
-#ifdef USE_STM32L4XX_NUCLEO
-/**
-  * @brief  System Clock Configuration
-  *         The system Clock is configured as follow :
-  *            System Clock source            = PLL (MSI)
-  *            SYSCLK(Hz)                     = 80000000
-  *            HCLK(Hz)                       = 80000000
-  *            AHB Prescaler                  = 1
-  *            APB1 Prescaler                 = 1
-  *            APB2 Prescaler                 = 1
-  *            MSI Frequency(Hz)              = 4000000
-  *            PLL_M                          = 1
-  *            PLL_N                          = 40
-  *            PLL_R                          = 2
-  *            PLL_P                          = 7
-  *            PLL_Q                          = 4
-  *            Flash Latency(WS)              = 4
-  * @param  None
+  * @brief System Clock Configuration
   * @retval None
   */
 void SystemClock_Config(void)
 {
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-  /* MSI is enabled after System reset, activate PLL with MSI as source */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_MSI;
-  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
-  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
-  RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_MSI;
-  RCC_OscInitStruct.PLL.PLLM = 1;
-  RCC_OscInitStruct.PLL.PLLN = 40;
-  RCC_OscInitStruct.PLL.PLLR = 2;
-  RCC_OscInitStruct.PLL.PLLP = 7;
-  RCC_OscInitStruct.PLL.PLLQ = 4;
-  HAL_RCC_OscConfig(&RCC_OscInitStruct);
-
-  /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2 
-     clocks dividers */
-  RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  /** Configure the main internal regulator output voltage
+  */
+  __HAL_RCC_PWR_CLK_ENABLE();
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;  
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;  
-  HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4);
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  {
+    Error_Handler();
+  }
 }
-#endif
+
+/**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
+}
+
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+}
+
+/* USER CODE BEGIN 4 */
+
+WiFi_Status_t wifi_get_AP_settings(void)
+{
+  WiFi_Status_t status = WiFi_MODULE_SUCCESS;
+  print("\r\n\n/********************************************************\n");
+  print("\r *                                                      *\n");
+  print("\r * X-CUBE-WIFI1 Expansion Software v3.1.1               *\n");
+  print("\r * X-NUCLEO-IDW0xx1 Wi-Fi Mini-AP Configuration.        *\n");
+  print("\r * HTTP-Request Example                                 *\n");
+  print("\r *                                                      *\n");
+  print("\r *******************************************************/\n");
+  print("\r\nDo you want to setup SSID?(y/n):");
+  fflush(stdout);
+  scanf("%s",console_input);
+  //console_input[0] = 'n';
+  print("\r\n");
+
+  //HAL_UART_Receive(UartMsgHandle, (uint8_t *)console_input, 1, 100000);
+  if(console_input[0]=='y') 
+        {
+              set_AP_config = WIFI_TRUE;  
+              print("Enter the SSID:");
+              fflush(stdout);
+
+              console_count=0;
+              console_count=scanf("%s",console_ssid);
+              print("\r\n");
+
+                if(console_count==39) 
+                    {
+                        print("Exceeded number of ssid characters permitted");
+                        return WiFi_NOT_SUPPORTED;
+                    }    
+              
+              //print("entered =%s\r\n",console_ssid);
+              print("Enter the password:");
+              fflush(stdout);
+              console_count=0;
+              
+              console_count=scanf("%s",console_psk);
+              print("\r\n");
+              //print("entered =%s\r\n",console_psk);
+                if(console_count==19) 
+                    {
+                        print("Exceeded number of psk characters permitted");
+                        return WiFi_NOT_SUPPORTED;
+                    }    
+              print("Enter the encryption mode(0:Open, 1:WEP, 2:WPA2/WPA2-Personal):"); 
+              fflush(stdout);
+             scanf("%s",console_input);
+             print("\r\n");
+              //print("entered =%s\r\n",console_input);
+              switch(console_input[0])
+              {
+                case '0':
+                  mode = None;
+                  break;
+                case '1':
+                  mode = WEP;
+                  break;
+                case '2':
+                  mode = WPA_Personal;
+                  break;
+                default:
+                  print("\r\nWrong Entry. Priv Mode is not compatible\n");
+                  return WiFi_NOT_SUPPORTED;              
+              }
+              
+              memcpy(console_host, (const char*)hostname, strlen((char*)hostname));
+              
+        } else 
+            {
+                print("\r\n\nModule will connect with default settings.");
+                memcpy(console_ssid, (const char*)ssid, strlen((char*)ssid));
+                memcpy(console_psk, (const char*)seckey, strlen((char*)seckey));
+                memcpy(console_host, (const char*)hostname, strlen((char*)hostname));
+            }
+  
+  print("\r\n/*************************************************************\r\n");
+  print("\r\n * Configuration Complete                                     \r\n");
+  print("\r\n * Please make sure a Server is running at given hostname     \r\n");
+  print("\r\n *************************************************************\r\n");
+  
+  return status;
+}
+
+
+/******** Wi-Fi Indication User Callback *********/
+void print(char msg[]) {
+	unsigned char message[MAX_MSG_SIZE];
+	strncpy(message, msg, MAX_MSG_SIZE);
+    HAL_UART_Transmit(&huart2, message, MAX_MSG_SIZE, 1000);
+}
+
+void ind_wifi_on()
+{
+  print("\r\n\nwifi started and ready...\r\n");
+  wifi_state = wifi_state_ready;
+}
+  
+void ind_wifi_connected()
+{
+  print("\r\nwifi connected...\r\n");
+  wifi_state = wifi_state_connected;
+}
+
+void ind_wifi_http_data_available(uint8_t * data_ptr, uint32_t message_size)
+{
+  //User is adviced to copy the data immediately to a user buffer memory as the data will be flushed after this callback
+  print("\r\nData Callback\r\n");
+  memcpy(user_buffer, data_ptr, message_size);
+  print((char*)user_buffer);
+  print("\r\n");
+}
+
+/* USER CODE END 4 */
 
 #ifdef  USE_FULL_ASSERT
-
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.
@@ -418,215 +453,13 @@ void SystemClock_Config(void)
   * @param  line: assert_param error line source number
   * @retval None
   */
-void assert_failed(uint8_t* file, uint32_t line)
-{ 
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-
-  /* Infinite loop */
-  while (1)
-  {
-  }
+     ex: print("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
 }
-#endif
+#endif /* USE_FULL_ASSERT */
 
-#ifdef USART_PRINT_MSG
-void USART_PRINT_MSG_Configuration(UART_HandleTypeDef *UART_MsgHandle, uint32_t baud_rate)
-{
-  UART_MsgHandle->Instance             = WIFI_UART_MSG;
-  UART_MsgHandle->Init.BaudRate        = baud_rate;
-  UART_MsgHandle->Init.WordLength      = UART_WORDLENGTH_8B;
-  UART_MsgHandle->Init.StopBits        = UART_STOPBITS_1;
-  UART_MsgHandle->Init.Parity          = UART_PARITY_NONE ;
-  UART_MsgHandle->Init.HwFlowCtl       = UART_HWCONTROL_NONE;// USART_HardwareFlowControl_RTS_CTS;
-  UART_MsgHandle->Init.Mode            = UART_MODE_TX_RX;
-
-  if(HAL_UART_DeInit(UART_MsgHandle) != HAL_OK)
-  {
-    Error_Handler();
-  }  
-  if(HAL_UART_Init(UART_MsgHandle) != HAL_OK)
-  {
-    Error_Handler();
-  }
-      
-}
-
-void UART_Msg_Gpio_Init()
-{ 
-  GPIO_InitTypeDef  GPIO_InitStruct;
-
-  /*##-1- Enable peripherals and GPIO Clocks #################################*/
-  /* Enable GPIO TX/RX clock */
-  USARTx_PRINT_TX_GPIO_CLK_ENABLE();
-  USARTx_PRINT_RX_GPIO_CLK_ENABLE();
-
-
-  /* Enable USARTx clock */
-  USARTx_PRINT_CLK_ENABLE(); 
-    __SYSCFG_CLK_ENABLE();
-  /*##-2- Configure peripheral GPIO ##########################################*/  
-  /* UART TX GPIO pin configuration  */
-  GPIO_InitStruct.Pin       = WiFi_USART_PRINT_TX_PIN;
-  GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull      = GPIO_PULLUP;
-  GPIO_InitStruct.Speed     = GPIO_SPEED_HIGH;
-#if defined (USE_STM32L0XX_NUCLEO) || defined(USE_STM32F4XX_NUCLEO) || defined(USE_STM32L4XX_NUCLEO)
-  GPIO_InitStruct.Alternate = PRINTMSG_USARTx_TX_AF;
-#endif  
-  HAL_GPIO_Init(WiFi_USART_PRINT_TX_GPIO_PORT, &GPIO_InitStruct);
-
-  /* UART RX GPIO pin configuration  */
-  GPIO_InitStruct.Pin = WiFi_USART_PRINT_RX_PIN;
-  GPIO_InitStruct.Mode      = GPIO_MODE_INPUT;
-#if defined (USE_STM32L0XX_NUCLEO) || defined(USE_STM32F4XX_NUCLEO) || defined(USE_STM32L4XX_NUCLEO)
-  GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Alternate = PRINTMSG_USARTx_RX_AF;
-#endif 
-  
-  HAL_GPIO_Init(WiFi_USART_PRINT_RX_GPIO_PORT, &GPIO_InitStruct);
-  
-#ifdef WIFI_USE_VCOM
-  /*##-3- Configure the NVIC for UART ########################################*/
-  /* NVIC for USART */
-  HAL_NVIC_SetPriority(USARTx_PRINT_IRQn, 0, 1);
-  HAL_NVIC_EnableIRQ(USARTx_PRINT_IRQn);
-#endif
-}
-#endif  // end of USART_PRINT_MSG
-
-
-/**
-  * @brief  Query the User for SSID, password and encryption mode
-  * @param  None
-  * @retval WiFi_Status_t
-  */
-WiFi_Status_t wifi_get_AP_settings(void)
-{
-  WiFi_Status_t status = WiFi_MODULE_SUCCESS;
-  printf("\r\n\n/********************************************************\n");
-  printf("\r *                                                      *\n");
-  printf("\r * X-CUBE-WIFI1 Expansion Software V3.1.1               *\n");
-  printf("\r * X-NUCLEO-IDW0xx1 Wi-Fi Mini-AP Configuration.        *\n");
-  printf("\r * Server-Socket Example                                *\n");
-  printf("\r *                                                      *\n");
-  printf("\r *******************************************************/\n");
-  printf("\r\nDo you want to setup SSID?(y/n):");
-  fflush(stdout);
-  scanf("%s",console_input);
-  //console_input[0]='n';
-  
-  //HAL_UART_Receive(UartMsgHandle, (uint8_t *)console_input, 1, 100000);
-  if(console_input[0]=='y') 
-        {
-              printf("\r\nEnter the SSID for mini-AP:");
-              fflush(stdout);
-
-              console_count=0;
-              console_count=scanf("%s",console_ssid);
-              printf("\r\n");
-
-                if(console_count==39) 
-                    {
-                        printf("Exceeded number of ssid characters permitted");
-                        return WiFi_NOT_SUPPORTED;
-                    }
-                
-              printf("Enter the password:");
-              fflush(stdout);
-              console_count=0;
-              
-              console_count=scanf("%s",console_psk);
-              printf("\r\n");
-
-                if(console_count==19) 
-                    {
-                        printf("Exceeded number of psk characters permitted");
-                        return WiFi_NOT_SUPPORTED;
-                    }
-        } else 
-            {
-                printf("\r\n\nModule will connect with default settings.");
-                memcpy(console_ssid, (const char*)ssid, strlen((char*)ssid));
-                memcpy(console_psk, (const char*)seckey, strlen((char*)seckey));
-            }
-
-  printf("\r\n/*************************************************************\r\n");
-  printf("\r\n * Configuration Complete                                     \r\n");
-  printf("\r\n * Please make sure a server is listening at given hostname   \r\n");
-  printf("\r\n *************************************************************\r\n");
-
-  return status;
-}
-
-/******** Wi-Fi Indication User Callback *********/
-
-void ind_wifi_socket_data_received(int8_t callback_server_id, int8_t socket_id, uint8_t * data_ptr, uint32_t message_size, uint32_t chunk_size, WiFi_Socket_t socket_type)
-{
-  printf("\r\nData Receive Callback...\r\n");
-  memcpy(echo, data_ptr, 50);
-  printf((const char*)echo);
-  printf("\r\nsocket ID: %d\r\n",socket_id);
-  printf("msg size: %lu\r\n",(unsigned long)message_size);
-  printf("chunk size: %lu\r\n",(unsigned long)chunk_size);
-  fflush(stdout);
-  sock_id = socket_id;//client_ID from where message has arrived
-  server_id = callback_server_id;//server_ID from where message has arrived
-  //wifi_state = wifi_state_socket_write;
-}
-
-void ind_wifi_on()
-{
-    wifi_state = wifi_state_ready;
-}
-
-void ind_wifi_connected()
-{
-  wifi_state = wifi_state_connected;
-}
-
-void ind_socket_server_client_joined(void)
-{
-  printf("\r\nUser callback: Client joined...\r\n");
-  fflush(stdout);
-}
-
-void ind_socket_server_client_left(void)
-{
-  printf("\r\nUser callback: Client left...\r\n");
-  fflush(stdout);
-}
-
-void ind_wifi_ap_client_joined(uint8_t * client_mac_address)
-{
-  printf("\r\n>>client joined callback...\r\n");
-  printf(">>client MAC address: ");
-  printf((const char*)client_mac_address);
-  fflush(stdout);  
-}
-
-void ind_wifi_ap_client_left(uint8_t * client_mac_address)
-{
-  printf("\r\n>>client left callback...\r\n");
-  printf("\r\n >>client MAC address: ");
-  printf((const char*)client_mac_address);
-  fflush(stdout);  
-}
-
-void ind_wifi_error(WiFi_Status_t error_code)
-{
-  if(error_code == WiFi_AT_CMD_RESP_ERROR)
-  {
-    wifi_state = wifi_state_idle;
-    printf("\r\n WiFi Command Failed. \r\n User should now press the RESET Button(B2). \r\n");
-  }
-}
-
-/**
-  * @}
-  */
-  
-/**
-* @}
-*/
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

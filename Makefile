@@ -118,7 +118,7 @@ C_INCLUDES =  \
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
-CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections -DUSE_STM32F4XX_NUCLEO -DSPWF01 -DCONSOLE_UART_ENABLED -Wno-misleading-indentation
+CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections -DUSE_STM32F4XX_NUCLEO -DSPWF01 -DCONSOLE_UART_ENABLED -DUSART_PRINT_MSG -DHAL_TIM_MODULE_ENABLED -Wno-misleading-indentation $(ADD_CFLAGS)
 
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -gdwarf-2

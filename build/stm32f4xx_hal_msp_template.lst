@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccmZWIXs.s 			page 1
+ARM GAS  D:\cygwin64\tmp\ccNim2oM.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -20,212 +20,186 @@ ARM GAS  /tmp/ccmZWIXs.s 			page 1
   17              		.section	.text.HAL_MspInit,"ax",%progbits
   18              		.align	1
   19              		.weak	HAL_MspInit
-  20              		.arch armv7e-m
-  21              		.syntax unified
-  22              		.thumb
-  23              		.thumb_func
-  24              		.fpu fpv4-sp-d16
-  26              	HAL_MspInit:
-  27              	.LFB135:
-  28              		.file 1 "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c"
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	HAL_MspInit:
+  26              	.LFB130:
+  27              		.file 1 "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c"
    1:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /**
    2:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   ******************************************************************************
    3:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @file    stm32f4xx_hal_msp_template.c
    4:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @author  MCD Application Team
-   5:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @version V1.5.1
-   6:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @date    01-July-2016
-   7:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @brief   This file contains the HAL System and Peripheral (PPP) MSP initialization
-   8:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *          and de-initialization functions.
-   9:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *          It should be copied to the application folder and renamed into 'stm32f4xx_hal_msp.c'. 
-  10:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   ******************************************************************************
-  11:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @attention
-  12:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *
-  13:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
-  14:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *
-  15:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * Redistribution and use in source and binary forms, with or without modification,
-  16:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * are permitted provided that the following conditions are met:
-  17:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *   1. Redistributions of source code must retain the above copyright notice,
-  18:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *      this list of conditions and the following disclaimer.
-  19:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *   2. Redistributions in binary form must reproduce the above copyright notice,
-  20:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *      this list of conditions and the following disclaimer in the documentation
-  21:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *      and/or other materials provided with the distribution.
-  22:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *   3. Neither the name of STMicroelectronics nor the names of its contributors
-  23:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *      may be used to endorse or promote products derived from this software
-  24:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *      without specific prior written permission.
-  25:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *
-  26:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  27:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  28:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-  29:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-  30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-ARM GAS  /tmp/ccmZWIXs.s 			page 2
+   5:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @brief   This file contains the HAL System and Peripheral (PPP) MSP initialization
+   6:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *          and de-initialization functions.
+   7:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *          It should be copied to the application folder and renamed into 'stm32f4xx_hal_msp.c'. 
+   8:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   ******************************************************************************
+   9:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @attention
+  10:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *
+  11:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+  12:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * All rights reserved.</center></h2>
+  13:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *
+  14:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * This software component is licensed by ST under BSD 3-Clause license,
+  15:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * the "License"; You may not use this file except in compliance with the
+  16:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * License. You may obtain a copy of the License at:
+  17:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *                        opensource.org/licenses/BSD-3-Clause
+  18:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *
+  19:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   ******************************************************************************
+  20:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */ 
+  21:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
+  22:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /* Includes ------------------------------------------------------------------*/
+  23:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** #include "stm32f4xx_hal.h"
+  24:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
+  25:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /** @addtogroup STM32F4xx_HAL_Driver
+  26:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @{
+  27:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
+  28:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
+  29:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /** @defgroup HAL_MSP HAL MSP
+  30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @brief HAL MSP module.
+  31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @{
+ARM GAS  D:\cygwin64\tmp\ccNim2oM.s 			page 2
 
 
-  31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-  32:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  33:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-  34:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  35:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-  36:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *
-  37:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   ******************************************************************************
-  38:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */ 
-  39:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
-  40:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /* Includes ------------------------------------------------------------------*/
-  41:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** #include "stm32f4xx_hal.h"
-  42:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
-  43:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /** @addtogroup STM32F4xx_HAL_Driver
-  44:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @{
-  45:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
-  46:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
-  47:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /** @defgroup HAL_MSP HAL MSP
-  48:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @brief HAL MSP module.
-  49:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @{
+  32:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
+  33:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
+  34:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /* Private typedef -----------------------------------------------------------*/
+  35:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /* Private define ------------------------------------------------------------*/
+  36:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /* Private macro -------------------------------------------------------------*/
+  37:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /* Private variables ---------------------------------------------------------*/
+  38:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /* Private function prototypes -----------------------------------------------*/
+  39:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /* Private functions ---------------------------------------------------------*/
+  40:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
+  41:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /** @defgroup HAL_MSP_Private_Functions HAL MSP Private Functions
+  42:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @{
+  43:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
+  44:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
+  45:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /**
+  46:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @brief  Initializes the Global MSP.
+  47:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @note   This function is called from HAL_Init() function to perform system
+  48:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *         level initialization (GPIOs, clock, DMA, interrupt).
+  49:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @retval None
   50:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
-  51:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
-  52:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /* Private typedef -----------------------------------------------------------*/
-  53:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /* Private define ------------------------------------------------------------*/
-  54:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /* Private macro -------------------------------------------------------------*/
-  55:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /* Private variables ---------------------------------------------------------*/
-  56:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /* Private function prototypes -----------------------------------------------*/
-  57:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /* Private functions ---------------------------------------------------------*/
-  58:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
-  59:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /** @defgroup HAL_MSP_Private_Functions HAL MSP Private Functions
-  60:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @{
+  51:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** __weak void HAL_MspInit(void)
+  52:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** {
+  28              		.loc 1 52 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33 0000 7047     		bx	lr
+  34              		.cfi_endproc
+  35              	.LFE130:
+  37              		.section	.text.HAL_MspDeInit,"ax",%progbits
+  38              		.align	1
+  39              		.global	HAL_MspDeInit
+  40              		.syntax unified
+  41              		.thumb
+  42              		.thumb_func
+  43              		.fpu fpv4-sp-d16
+  45              	HAL_MspDeInit:
+  46              	.LFB131:
+  53:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
+  54:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** }
+  55:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
+  56:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /**
+  57:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @brief  DeInitializes the Global MSP.
+  58:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @note   This functiona is called from HAL_DeInit() function to perform system
+  59:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *         level de-initialization (GPIOs, clock, DMA, interrupt).
+  60:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @retval None
   61:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
-  62:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
-  63:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /**
-  64:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @brief  Initializes the Global MSP.
-  65:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @note   This function is called from HAL_Init() function to perform system
-  66:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *         level initialization (GPIOs, clock, DMA, interrupt).
-  67:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @retval None
-  68:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
-  69:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** __weak void HAL_MspInit(void)
-  70:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** {
-  29              		.loc 1 70 1 view -0
-  30              		.cfi_startproc
-  31              		@ args = 0, pretend = 0, frame = 0
-  32              		@ frame_needed = 0, uses_anonymous_args = 0
-  33              		@ link register save eliminated.
-  71:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
-  72:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** }
-  34              		.loc 1 72 1 view .LVU1
-  35 0000 7047     		bx	lr
-  36              		.cfi_endproc
-  37              	.LFE135:
-  39              		.section	.text.HAL_MspDeInit,"ax",%progbits
-  40              		.align	1
-  41              		.global	HAL_MspDeInit
-  42              		.syntax unified
-  43              		.thumb
-  44              		.thumb_func
-ARM GAS  /tmp/ccmZWIXs.s 			page 3
+  62:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** void HAL_MspDeInit(void)
+  63:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** {
+  47              		.loc 1 63 0
+  48              		.cfi_startproc
+  49              		@ args = 0, pretend = 0, frame = 0
+  50              		@ frame_needed = 0, uses_anonymous_args = 0
+  51              		@ link register save eliminated.
+  52 0000 7047     		bx	lr
+  53              		.cfi_endproc
+  54              	.LFE131:
+ARM GAS  D:\cygwin64\tmp\ccNim2oM.s 			page 3
 
 
-  45              		.fpu fpv4-sp-d16
-  47              	HAL_MspDeInit:
-  48              	.LFB136:
-  73:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
-  74:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /**
-  75:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @brief  DeInitializes the Global MSP.
-  76:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @note   This functiona is called from HAL_DeInit() function to perform system
-  77:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *         level de-initialization (GPIOs, clock, DMA, interrupt).
-  78:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @retval None
-  79:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
-  80:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** void HAL_MspDeInit(void)
-  81:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** {
-  49              		.loc 1 81 1 view -0
-  50              		.cfi_startproc
-  51              		@ args = 0, pretend = 0, frame = 0
-  52              		@ frame_needed = 0, uses_anonymous_args = 0
-  53              		@ link register save eliminated.
-  82:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
-  83:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** }
-  54              		.loc 1 83 1 view .LVU3
-  55 0000 7047     		bx	lr
-  56              		.cfi_endproc
-  57              	.LFE136:
-  59              		.section	.text.HAL_PPP_MspInit,"ax",%progbits
-  60              		.align	1
-  61              		.global	HAL_PPP_MspInit
-  62              		.syntax unified
-  63              		.thumb
-  64              		.thumb_func
-  65              		.fpu fpv4-sp-d16
-  67              	HAL_PPP_MspInit:
-  68              	.LFB137:
-  84:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
-  85:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /**
-  86:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @brief  Initializes the PPP MSP.
-  87:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @note   This functiona is called from HAL_PPP_Init() function to perform 
-  88:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *         peripheral(PPP) system level initialization (GPIOs, clock, DMA, interrupt)
-  89:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @retval None
-  90:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
-  91:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** void HAL_PPP_MspInit(void)
-  92:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** {
-  69              		.loc 1 92 1 view -0
-  70              		.cfi_startproc
-  71              		@ args = 0, pretend = 0, frame = 0
-  72              		@ frame_needed = 0, uses_anonymous_args = 0
-  73              		@ link register save eliminated.
-  93:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
-  94:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** }
-  74              		.loc 1 94 1 view .LVU5
-  75 0000 7047     		bx	lr
-  76              		.cfi_endproc
-  77              	.LFE137:
-  79              		.section	.text.HAL_PPP_MspDeInit,"ax",%progbits
-  80              		.align	1
-  81              		.global	HAL_PPP_MspDeInit
-  82              		.syntax unified
-  83              		.thumb
-ARM GAS  /tmp/ccmZWIXs.s 			page 4
+  56              		.section	.text.HAL_PPP_MspInit,"ax",%progbits
+  57              		.align	1
+  58              		.global	HAL_PPP_MspInit
+  59              		.syntax unified
+  60              		.thumb
+  61              		.thumb_func
+  62              		.fpu fpv4-sp-d16
+  64              	HAL_PPP_MspInit:
+  65              	.LFB132:
+  64:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
+  65:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** }
+  66:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
+  67:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /**
+  68:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @brief  Initializes the PPP MSP.
+  69:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @note   This functiona is called from HAL_PPP_Init() function to perform 
+  70:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *         peripheral(PPP) system level initialization (GPIOs, clock, DMA, interrupt)
+  71:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @retval None
+  72:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
+  73:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** void HAL_PPP_MspInit(void)
+  74:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** {
+  66              		.loc 1 74 0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 0
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70              		@ link register save eliminated.
+  71 0000 7047     		bx	lr
+  72              		.cfi_endproc
+  73              	.LFE132:
+  75              		.section	.text.HAL_PPP_MspDeInit,"ax",%progbits
+  76              		.align	1
+  77              		.global	HAL_PPP_MspDeInit
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  81              		.fpu fpv4-sp-d16
+  83              	HAL_PPP_MspDeInit:
+  84              	.LFB133:
+  75:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
+  76:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** }
+  77:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
+  78:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /**
+  79:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @brief  DeInitializes the PPP MSP.
+  80:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @note   This functiona is called from HAL_PPP_DeInit() function to perform 
+  81:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *         peripheral(PPP) system level de-initialization (GPIOs, clock, DMA, interrupt)
+  82:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @retval None
+  83:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
+  84:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** void HAL_PPP_MspDeInit(void)
+  85:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** {
+  85              		.loc 1 85 0
+  86              		.cfi_startproc
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89              		@ link register save eliminated.
+  90 0000 7047     		bx	lr
+  91              		.cfi_endproc
+  92              	.LFE133:
+  94              		.text
+ARM GAS  D:\cygwin64\tmp\ccNim2oM.s 			page 4
 
 
-  84              		.thumb_func
-  85              		.fpu fpv4-sp-d16
-  87              	HAL_PPP_MspDeInit:
-  88              	.LFB138:
-  95:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
-  96:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** /**
-  97:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @brief  DeInitializes the PPP MSP.
-  98:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @note   This functiona is called from HAL_PPP_DeInit() function to perform 
-  99:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   *         peripheral(PPP) system level de-initialization (GPIOs, clock, DMA, interrupt)
- 100:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   * @retval None
- 101:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c ****   */
- 102:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** void HAL_PPP_MspDeInit(void)
- 103:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** {
-  89              		.loc 1 103 1 view -0
-  90              		.cfi_startproc
-  91              		@ args = 0, pretend = 0, frame = 0
-  92              		@ frame_needed = 0, uses_anonymous_args = 0
-  93              		@ link register save eliminated.
- 104:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** 
- 105:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c **** }
-  94              		.loc 1 105 1 view .LVU7
-  95 0000 7047     		bx	lr
-  96              		.cfi_endproc
-  97              	.LFE138:
-  99              		.text
- 100              	.Letext0:
- 101              		.file 2 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
- 102              		.file 3 "Drivers/CMSIS/Include/core_cm4.h"
- 103              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 104              		.file 5 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h"
- 105              		.file 6 "/usr/include/newlib/sys/_types.h"
- 106              		.file 7 "/usr/include/newlib/sys/reent.h"
- 107              		.file 8 "/usr/include/newlib/sys/lock.h"
-ARM GAS  /tmp/ccmZWIXs.s 			page 5
+  95              	.Letext0:
+  96              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
+  97              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
+  98              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+  99              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 100              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  D:\cygwin64\tmp\ccNim2oM.s 			page 5
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 stm32f4xx_hal_msp_template.c
-     /tmp/ccmZWIXs.s:18     .text.HAL_MspInit:0000000000000000 $t
-     /tmp/ccmZWIXs.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
-     /tmp/ccmZWIXs.s:40     .text.HAL_MspDeInit:0000000000000000 $t
-     /tmp/ccmZWIXs.s:47     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
-     /tmp/ccmZWIXs.s:60     .text.HAL_PPP_MspInit:0000000000000000 $t
-     /tmp/ccmZWIXs.s:67     .text.HAL_PPP_MspInit:0000000000000000 HAL_PPP_MspInit
-     /tmp/ccmZWIXs.s:80     .text.HAL_PPP_MspDeInit:0000000000000000 $t
-     /tmp/ccmZWIXs.s:87     .text.HAL_PPP_MspDeInit:0000000000000000 HAL_PPP_MspDeInit
+                            *ABS*:00000000 stm32f4xx_hal_msp_template.c
+D:\cygwin64\tmp\ccNim2oM.s:18     .text.HAL_MspInit:00000000 $t
+D:\cygwin64\tmp\ccNim2oM.s:25     .text.HAL_MspInit:00000000 HAL_MspInit
+D:\cygwin64\tmp\ccNim2oM.s:38     .text.HAL_MspDeInit:00000000 $t
+D:\cygwin64\tmp\ccNim2oM.s:45     .text.HAL_MspDeInit:00000000 HAL_MspDeInit
+D:\cygwin64\tmp\ccNim2oM.s:57     .text.HAL_PPP_MspInit:00000000 $t
+D:\cygwin64\tmp\ccNim2oM.s:64     .text.HAL_PPP_MspInit:00000000 HAL_PPP_MspInit
+D:\cygwin64\tmp\ccNim2oM.s:76     .text.HAL_PPP_MspDeInit:00000000 $t
+D:\cygwin64\tmp\ccNim2oM.s:83     .text.HAL_PPP_MspDeInit:00000000 HAL_PPP_MspDeInit
+                     .debug_frame:00000010 $d
 
 NO UNDEFINED SYMBOLS

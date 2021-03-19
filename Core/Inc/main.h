@@ -64,8 +64,6 @@ typedef enum {
   wifi_state_idle,
   wifi_state_connected,
   wifi_state_connecting,
-  wifi_state_socket,
-  wifi_state_socket_write,
   wifi_state_disconnected,
   wifi_state_activity,
   wifi_state_inter,
@@ -95,7 +93,7 @@ typedef enum {
 
 #endif //USE_STM32L0XX_NUCLEO
 
-#if defined (USE_STM32F1xx_NUCLEO) || (USE_STM32F4XX_NUCLEO) || (USE_STM32L4XX_NUCLEO) 
+#if defined(USE_STM32F1xx_NUCLEO) || defined(USE_STM32F4XX_NUCLEO) || defined(USE_STM32L4XX_NUCLEO)
 
 #define WIFI_UART_MSG                           USART2
 #define USARTx_PRINT_CLK_ENABLE()              __HAL_RCC_USART2_CLK_ENABLE()

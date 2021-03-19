@@ -14,27 +14,18 @@ build/stm32f4xx_nucleo.o: Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h \
+ Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dsi.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_qspi.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cec.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_fmpi2c.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spdifrx.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dfsdm.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_lptim.h
+ Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 
 Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.h:
 
@@ -70,15 +61,13 @@ Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h:
 
+Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h:
+
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h:
-
-Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h:
-
-Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 
@@ -90,24 +79,8 @@ Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 
-Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
-
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-
-Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dsi.h:
-
-Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_qspi.h:
-
-Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cec.h:
-
-Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_fmpi2c.h:
-
-Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spdifrx.h:
-
-Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dfsdm.h:
-
-Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_lptim.h:

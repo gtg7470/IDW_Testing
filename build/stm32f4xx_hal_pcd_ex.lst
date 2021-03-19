@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccjDsLPU.s 			page 1
+ARM GAS  D:\cygwin64\tmp\ccx5vm7n.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -18,17 +18,15 @@ ARM GAS  /tmp/ccjDsLPU.s 			page 1
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
   17              	.Letext0:
-  18              		.file 1 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
-  19              		.file 2 "Drivers/CMSIS/Include/core_cm4.h"
-  20              		.file 3 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
-  21              		.file 4 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h"
-  22              		.file 5 "/usr/include/newlib/sys/_types.h"
-  23              		.file 6 "/usr/include/newlib/sys/reent.h"
-  24              		.file 7 "/usr/include/newlib/sys/lock.h"
-ARM GAS  /tmp/ccjDsLPU.s 			page 2
+  18              		.file 1 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
+  19              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
+  20              		.file 3 "Drivers/CMSIS/Include/core_cm4.h"
+  21              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+  22              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  D:\cygwin64\tmp\ccx5vm7n.s 			page 2
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 stm32f4xx_hal_pcd_ex.c
+                            *ABS*:00000000 stm32f4xx_hal_pcd_ex.c
 
 NO UNDEFINED SYMBOLS

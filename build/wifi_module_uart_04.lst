@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccbWdCm6.s 			page 1
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -20,15 +20,13 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
   17              		.section	.text.Queue_Server_Write_Event,"ax",%progbits
   18              		.align	1
   19              		.global	Queue_Server_Write_Event
-  20              		.arch armv7e-m
-  21              		.syntax unified
-  22              		.thumb
-  23              		.thumb_func
-  24              		.fpu fpv4-sp-d16
-  26              	Queue_Server_Write_Event:
-  27              	.LVL0:
-  28              	.LFB279:
-  29              		.file 1 "Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c"
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	Queue_Server_Write_Event:
+  26              	.LFB275:
+  27              		.file 1 "Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c"
    1:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** /**
    2:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****  ******************************************************************************
    3:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****  * @file    wifi_module_uart_04.c
@@ -58,11 +56,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
   27:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
   28:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
   29:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-ARM GAS  /tmp/ccbWdCm6.s 			page 2
-
-
   30:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
   31:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 2
+
+
   32:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
   33:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   34:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****  *
@@ -118,11 +116,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
   84:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** #undef memmem
   85:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** void *memmem(const void *haystack, size_t haystack_len, const void *needle, size_t needle_len);
   86:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** /*
-ARM GAS  /tmp/ccbWdCm6.s 			page 3
-
-
   87:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****  * Find the first occurrence of the byte string s in byte string l.
   88:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** */
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 3
+
+
   89:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** /**
   90:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** * @brief  memmem
   91:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** *         Find the first occurrence of the byte string s in byte string l.
@@ -178,11 +176,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  141:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****   status = USART_Transmit_AT_Cmd(strlen((char*)WiFi_AT_Cmd_Buff));
  142:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****   if(status != WiFi_MODULE_SUCCESS) 
  143:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     return status;
-ARM GAS  /tmp/ccbWdCm6.s 			page 4
-
-
  144:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****   /* AT+CFUN=1 //Soft reset */
  145:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****   while(IO_status_flag.WiFi_WIND_State != WiFiHWStarted)
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 4
+
+
  146:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****   {
  147:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     __NOP(); //nothing to do
  148:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****   }
@@ -238,11 +236,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  198:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** }
  199:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
  200:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
-ARM GAS  /tmp/ccbWdCm6.s 			page 5
-
-
  201:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** /**
  202:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** * @brief  Read_DMA_Buffer
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 5
+
+
  203:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** *         Processes the DMA buffer if dma_buffer is non empty 
  204:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** * @param  None
  205:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** * @retval None
@@ -298,11 +296,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  255:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           memset(str+(strlen(str) - length),0x00,length);
  256:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           break;
  257:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         case CMD:
-ARM GAS  /tmp/ccbWdCm6.s 			page 6
-
-
  258:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         case INTERIM_DATA:
  259:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           memset(str+(bytes_read-5),0x00,length);
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 6
+
+
  260:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           break;
  261:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         case UNDEFINE:
  262:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           memset(str+bytes_read,0x00,length);
@@ -358,11 +356,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  312:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
  313:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****   while(WiFi_Control_Variables.complete_message_recv && (*(dma_buffer_ptr + WiFi_Counter_Variables.
  314:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****   {
-ARM GAS  /tmp/ccbWdCm6.s 			page 7
-
-
  315:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     memset(str,0x00,sizeof(str));
  316:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     bytes_read = 0;
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 7
+
+
  317:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     pStr = (const char*) dma_buffer_ptr + WiFi_Counter_Variables.dma_buffer_count;
  318:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
  319:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     /* WIND Message */
@@ -418,11 +416,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  369:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       /* if while reading bytes we have automatically switched to another buffer apart from the one
  370:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       Check_for_Extra_Bytes(CMD);
  371:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
-ARM GAS  /tmp/ccbWdCm6.s 			page 8
-
-
  372:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       /* is complete message recv? */
  373:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       if(*(dma_buffer_ptr + (WiFi_Counter_Variables.dma_buffer_count + bytes_read)) == 0x0A)
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 8
+
+
  374:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       {
  375:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         #if DEBUG_PRINT
  376:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           printf("\r\n");
@@ -478,11 +476,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  426:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         }
  427:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         else
  428:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         {
-ARM GAS  /tmp/ccbWdCm6.s 			page 9
-
-
  429:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           #if DEBUG_PRINT
  430:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             printf("\r\n");
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 9
+
+
  431:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             printf("AT-S.");
  432:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             printf((const char*)str);
  433:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             printf("\r\n");
@@ -538,11 +536,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  483:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****        && !WiFi_Control_Variables.enable_sock_read
  484:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****        && !WiFi_Control_Variables.pending_unused_data)
  485:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       {
-ARM GAS  /tmp/ccbWdCm6.s 			page 10
-
-
  486:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         sscanf(pStr,"%[^\n]%n",str,&bytes_read);
  487:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 10
+
+
  488:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         /* if the value at WiFi_Counter_Variables.dma_buffer_count is \n, then bytes_read will have
  489:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         if(*(dma_buffer_ptr+WiFi_Counter_Variables.dma_buffer_count) == 0x0A)
  490:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           bytes_read=0;
@@ -598,11 +596,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  540:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****          if(WiFi_Counter_Variables.dma_buffer_count == DMA_BUFFER_SIZE)
  541:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           is_End_of_Buffer_Reached();
  542:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         }
-ARM GAS  /tmp/ccbWdCm6.s 			page 11
-
-
  543:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         else
  544:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         {
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 11
+
+
  545:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           if(is_End_of_Buffer_Reached()) 
  546:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           {
  547:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****   //          printf("\r\n other\r\n");
@@ -658,11 +656,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  597:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****        && !WiFi_Control_Variables.enable_receive_wifi_scan_response 
  598:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****        && !WiFi_Control_Variables.enable_sock_read
  599:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****        && !WiFi_Control_Variables.enable_fw_update_read)
-ARM GAS  /tmp/ccbWdCm6.s 			page 12
-
-
  600:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****   {
  601:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     switch(message_type)
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 12
+
+
  602:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     {
  603:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       case WIND:
  604:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           //end of msg received. Will not receive any other msg till we process this.
@@ -718,11 +716,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  654:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             WiFi_Counter_Variables.timeout_tick         = 0;
  655:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             Fillptr = 0;
  656:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             memset(process_buffer, 0x00, strlen((char const *)process_buffer));
-ARM GAS  /tmp/ccbWdCm6.s 			page 13
-
-
  657:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           }
  658:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         break;
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 13
+
+
  659:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
  660:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       case INTERIM_DATA:
  661:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         {
@@ -778,11 +776,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  711:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 reset_event(&wifi_instances.wifi_event);
  712:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 memset(process_buffer,0x00,MAX_BUFFER_GLOBAL);
  713:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 Fillptr=0;
-ARM GAS  /tmp/ccbWdCm6.s 			page 14
-
-
  714:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****              }
  715:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 14
+
+
  716:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           //Reply to WSOCKON (websocket) for SPWF04 -> +AT_S.WSOCKON=<IPAddress>,<port>,,0,,,,,\r\n
  717:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****            else if(((pStr=(strstr((const char *)process_buffer,"AT+S.WSOCKON"))) != NULL))
  718:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****              {
@@ -838,11 +836,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  768:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                   {
  769:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                     WiFi_Control_Variables.start_websock_read = WIFI_TRUE;
  770:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                     WiFi_Control_Variables.data_pending_websocket = WIFI_TRUE;
-ARM GAS  /tmp/ccbWdCm6.s 			page 15
-
-
  771:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                   }
  772:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 else if(WiFi_Counter_Variables.Socket_Data_Length == 0)  //no data remaining to be 
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 15
+
+
  773:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                   {
  774:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                     if(WiFi_Counter_Variables.socket_close_pending[WiFi_Counter_Variables.sockon_qu
  775:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                       {
@@ -898,11 +896,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  825:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                     WiFi_Control_Variables.stop_event_dequeue = WIFI_FALSE;  //continue popping eve
  826:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                   }
  827:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 memset(process_buffer, 0x00, MAX_BUFFER_GLOBAL);
-ARM GAS  /tmp/ccbWdCm6.s 			page 16
-
-
  828:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 return;
  829:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****               }
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 16
+
+
  830:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
  831:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           // DATALEN from SOCKDQ
  832:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****            else if((pStr=(strstr((const char *)process_buffer,"DQ"))) != NULL)
@@ -958,11 +956,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  882:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****              }
  883:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
  884:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****            //Reply to SOCKDON (server socket) for SPWF04 -> AT-S.On:0
-ARM GAS  /tmp/ccbWdCm6.s 			page 17
-
-
  885:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           else if((pStr=(strstr((const char *)process_buffer,"AT+S.SOCKDON"))) != NULL)
  886:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             {
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 17
+
+
  887:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 /* Stop the timer, response of client_socket_open received. */
  888:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 WiFi_Control_Variables.enable_timeout_timer = WIFI_FALSE;
  889:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 WiFi_Counter_Variables.timeout_tick = 0;
@@ -1018,11 +1016,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  939:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 WiFi_Counter_Variables.gpio_dir= *token - '0';    //out
  940:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                     
  941:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                   //Push GPIO Read Event on Event_Queue
-ARM GAS  /tmp/ccbWdCm6.s 			page 18
-
-
  942:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                   wifi_instances.wifi_event.event = WIFI_GPIO_EVENT;
  943:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                   __disable_irq();
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 18
+
+
  944:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                   push_eventbuffer_queue(&wifi_instances.event_buff, wifi_instances.wifi_event);
  945:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                    __enable_irq();
  946:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                   reset_event(&wifi_instances.wifi_event);
@@ -1078,11 +1076,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  996:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                         {
  997:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                             IO_status_flag.prevent_push_OK_event    = WIFI_FALSE;
  998:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                             open_web_socket[WiFi_Counter_Variables.remote_socket_closed_id] = WIFI_
-ARM GAS  /tmp/ccbWdCm6.s 			page 19
-
-
  999:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                             //socket ID for which OK is received.
 1000:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                             WiFi_Counter_Variables.closed_socket_id = WiFi_Counter_Variables.remote
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 19
+
+
 1001:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                             IO_status_flag.web_socket_close_ongoing = WIFI_FALSE;
 1002:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                             IO_status_flag.client_socket_close_type = WEB_SOCKET;
 1003:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                             WiFi_Control_Variables.SockON_Server_Closed_Callback = WIFI_TRUE;
@@ -1138,11 +1136,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
 1053:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
 1054:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           if(WiFi_Control_Variables.enable_sock_read)
 1055:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             WiFi_Control_Variables.Q_Contains_Message = WIFI_FALSE;
-ARM GAS  /tmp/ccbWdCm6.s 			page 20
-
-
 1056:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           else
 1057:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             return;
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 20
+
+
 1058:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         
 1059:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         break;
 1060:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         
@@ -1198,11 +1196,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
 1110:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                     remaining_unused_datalength = WiFi_Counter_Variables.curr_DataLength;
 1111:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                     unused_data_handling(remaining_unused_datalength);
 1112:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                   }
-ARM GAS  /tmp/ccbWdCm6.s 			page 21
-
-
 1113:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 else if(WiFi_Control_Variables.fill_buffer_command_ongoing)
 1114:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                   {
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 21
+
+
 1115:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                     WiFi_Control_Variables.fill_buffer_command_ongoing = WIFI_FALSE;
 1116:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                     IO_status_flag.AT_Response_Received = WIFI_TRUE;
 1117:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                     WiFi_Counter_Variables.AT_RESPONSE = WiFi_AT_CMD_RESP_ERROR;
@@ -1258,11 +1256,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
 1167:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****    *                                                                                           *
 1168:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****    *                             Socket Read Is Enabled.                                       *
 1169:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****    *                                                                                           *
-ARM GAS  /tmp/ccbWdCm6.s 			page 22
-
-
 1170:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****    ********************************************************************************************/
 1171:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 22
+
+
 1172:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****  if(WiFi_Control_Variables.enable_sock_read)     /*read is enabled*/
 1173:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****   {
 1174:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       uint32_t length_of_data_to_read = 0;
@@ -1318,11 +1316,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
 1224:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 WiFi_Control_Variables.enable_server_query = WIFI_TRUE;
 1225:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 WiFi_Control_Variables.enable_query = WIFI_FALSE;
 1226:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 WiFi_Control_Variables.enable_websocket_query = WIFI_FALSE;
-ARM GAS  /tmp/ccbWdCm6.s 			page 23
-
-
 1227:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 WiFi_Counter_Variables.sockon_id_user = WiFi_Counter_Variables.sockon_query_id;
 1228:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 WiFi_Counter_Variables.sockdon_id_user = WiFi_Counter_Variables.sockdon_query_id;
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 23
+
+
 1229:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****               }
 1230:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             else if(WiFi_Control_Variables.data_pending_sockW)
 1231:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****               {
@@ -1378,11 +1376,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
 1281:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 {
 1282:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                   WiFi_Counter_Variables.sockdon_id_user = -1;
 1283:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                   WiFi_Counter_Variables.sockon_id_user = 0;
-ARM GAS  /tmp/ccbWdCm6.s 			page 24
-
-
 1284:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                   ind_wifi_socket_data_received(WiFi_Counter_Variables.sockdon_id_user, WiFi_Counte
 1285:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****                 }
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 24
+
+
 1286:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             WiFi_Counter_Variables.UserDataBuff_index = 0;
 1287:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             memset(UserDataBuff,0x00,MAX_BUFFER_GLOBAL);
 1288:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           }
@@ -1438,11 +1436,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
 1338:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****              Make user wait variable TRUE from here only */
 1339:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           Adjust_DMA_Buffer_Index((WiFi_Counter_Variables.UserDataBuff_index+9)- WiFi_Counter_Varia
 1340:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           WiFi_Control_Variables.broken_message = WIFI_TRUE;
-ARM GAS  /tmp/ccbWdCm6.s 			page 25
-
-
 1341:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         }
 1342:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         else
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 25
+
+
 1343:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           Adjust_DMA_Buffer_Index(complete_message_length - WiFi_Counter_Variables.UserDataBuff_pre
 1344:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         memset(dma_buffer_ptr+WiFi_Counter_Variables.dma_buffer_previous_index,0x00,WiFi_Counter_Va
 1345:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         WiFi_Counter_Variables.dma_buffer_previous_index = WiFi_Counter_Variables.dma_buffer_count;
@@ -1498,11 +1496,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
 1395:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             len = ((uint8_t *)pStr - (uint8_t *)UserDataBuff)+2;
 1396:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             Adjust_DMA_Buffer_Index(len - WiFi_Counter_Variables.UserDataBuff_previous_index);
 1397:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             IO_status_flag.AT_Response_Received = WIFI_TRUE;
-ARM GAS  /tmp/ccbWdCm6.s 			page 26
-
-
 1398:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             WiFi_Counter_Variables.AT_RESPONSE = WiFi_AT_CMD_RESP_ERROR;
 1399:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             WiFi_Control_Variables.enable_receive_http_response = WIFI_FALSE;
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 26
+
+
 1400:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             WiFi_Control_Variables.request_complete = WIFI_TRUE;
 1401:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
 1402:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****             memset(dma_buffer_ptr+WiFi_Counter_Variables.dma_buffer_previous_index,0x00,WiFi_Counte
@@ -1558,11 +1556,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
 1452:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         WiFi_Counter_Variables.UserDataBuff_index = MAX_BUFFER_GLOBAL-8;
 1453:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
 1454:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         /* While reading data EOB reached */
-ARM GAS  /tmp/ccbWdCm6.s 			page 27
-
-
 1455:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         if(WiFi_Counter_Variables.dma_buffer_count == DMA_BUFFER_SIZE)
 1456:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         {
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 27
+
+
 1457:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           WiFi_Counter_Variables.dma_buffer_count = 0;
 1458:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           WiFi_Counter_Variables.dma_buffer_previous_index  = 0;
 1459:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         }
@@ -1618,11 +1616,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
 1509:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     {
 1510:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       char bss[100];
 1511:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
-ARM GAS  /tmp/ccbWdCm6.s 			page 28
-
-
 1512:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       if((char*)strstr((const char *)ptr,"OK\r") != NULL)
 1513:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       {
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 28
+
+
 1514:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           WiFi_Control_Variables.enable_receive_wifi_scan_response = WIFI_FALSE;
 1515:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           WiFi_Control_Variables.Scan_Ongoing = WIFI_FALSE; //Enable next scan
 1516:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****           WiFi_Counter_Variables.scanned_ssids=0;
@@ -1678,11 +1676,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
 1566:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****   else if(WiFi_Control_Variables.mqtt_data_available)
 1567:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     {
 1568:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       char *mqtt_string = "MQTT Published:%u:%[^:]:%*u:%*u:%*u:%u:%u:%n";
-ARM GAS  /tmp/ccbWdCm6.s 			page 29
-
-
 1569:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       int length_of_data_to_read =0;
 1570:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       int data_read = 0;
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 29
+
+
 1571:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       int length = 0;
 1572:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       sscanf(str,mqtt_string,&client_id,topic,&message_size,&total_message_size,&length);
 1573:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
@@ -1738,11 +1736,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
 1623:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****   wifi_instances.wifi_event.event = WIFI_WIND_EVENT;
 1624:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****   switch (Wind_No)
 1625:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****   {
-ARM GAS  /tmp/ccbWdCm6.s 			page 30
-
-
 1626:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     case SockON_Data_Pending: /*WIND:55*/
 1627:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       /*+WIND:55:Pending Data:<ServerID>:<ClientID>:<received_bytes>:<cumulated_bytes>*/   
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 30
+
+
 1628:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       ptr_offset = (char *) strstr((const char *)ptr,"Data:");//ServerID is empty
 1629:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       if(*(ptr_offset + 5) == ':')//means it is a client socket WIND:55
 1630:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****       {
@@ -1798,11 +1796,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
 1680:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         token = strrchr((char *)ptr, ':');
 1681:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         *token='\0';
 1682:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         token=strrchr((char *)ptr, ':');
-ARM GAS  /tmp/ccbWdCm6.s 			page 31
-
-
 1683:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         wifi_instances.wifi_event.socket_id = *(token+1)-'0' ;
 1684:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         *token='\0';
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 31
+
+
 1685:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         token=strrchr((char *)ptr, ':');
 1686:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         wifi_instances.wifi_event.server_id = *(token+1)-'0' ;                    
 1687:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         break;
@@ -1858,11 +1856,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
 1737:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     case Output_From_Remote: ;
 1738:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         /* length of text to be received is 40 or lesss*/
 1739:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         int bytes_read;
-ARM GAS  /tmp/ccbWdCm6.s 			page 32
-
-
 1740:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         sscanf((const char*)ptr,"Output from remote:%*d:%n",&bytes_read);
 1741:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         ind_wifi_output_from_remote_callback((uint8_t *)ptr+bytes_read);
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 32
+
+
 1742:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****         break;
 1743:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
 1744:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     // Queueing of these events not required.
@@ -1918,11 +1916,11 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
 1794:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     case SCANBLEWUP:
 1795:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     case SCANFAILED:
 1796:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     case WiFi_Started_MiniAP_Mode:
-ARM GAS  /tmp/ccbWdCm6.s 			page 33
-
-
 1797:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     case Start_Failed :
 1798:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     case WiFi_EXCEPTION :
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 33
+
+
 1799:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     case WiFi_Hardware_Started :
 1800:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     case Scan_Complete:
 1801:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     case WiFi_UNHANDLED_IND:
@@ -1950,62 +1948,55 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
 1823:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** */
 1824:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** void Queue_Server_Write_Event(uint8_t server_id, uint8_t client_id, uint32_t DataLength, char * pDa
 1825:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** {
-  30              		.loc 1 1825 1 view -0
-  31              		.cfi_startproc
-  32              		@ args = 0, pretend = 0, frame = 0
-  33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		.loc 1 1825 1 is_stmt 0 view .LVU1
-  35 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
-  36              	.LCFI0:
-  37              		.cfi_def_cfa_offset 24
-  38              		.cfi_offset 4, -24
-  39              		.cfi_offset 5, -20
-  40              		.cfi_offset 6, -16
-  41              		.cfi_offset 7, -12
-  42              		.cfi_offset 8, -8
-  43              		.cfi_offset 14, -4
-  44 0004 0546     		mov	r5, r0
-  45 0006 0E46     		mov	r6, r1
-  46 0008 9046     		mov	r8, r2
-  47 000a 1F46     		mov	r7, r3
+  28              		.loc 1 1825 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 24
+  36              		.cfi_offset 3, -24
+  37              		.cfi_offset 4, -20
+  38              		.cfi_offset 5, -16
+  39              		.cfi_offset 6, -12
+  40              		.cfi_offset 7, -8
+  41              		.cfi_offset 14, -4
+  42 0002 0446     		mov	r4, r0
+  43 0004 0D46     		mov	r5, r1
+  44 0006 1746     		mov	r7, r2
+  45 0008 1E46     		mov	r6, r3
 1826:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     Wait_For_Sock_Read_To_Complete();
-  48              		.loc 1 1826 5 is_stmt 1 view .LVU2
-  49 000c FFF7FEFF 		bl	Wait_For_Sock_Read_To_Complete
-  50              	.LVL1:
+  46              		.loc 1 1826 0
+  47 000a FFF7FEFF 		bl	Wait_For_Sock_Read_To_Complete
+  48              	.LVL1:
 1827:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     WiFi_Counter_Variables.curr_DataLength = DataLength;
-  51              		.loc 1 1827 5 view .LVU3
-  52              		.loc 1 1827 44 is_stmt 0 view .LVU4
-  53 0010 0E4C     		ldr	r4, .L3
-  54 0012 A4F88C80 		strh	r8, [r4, #140]	@ movhi
+  49              		.loc 1 1827 0
+  50 000e 0E4A     		ldr	r2, .L3
+  51 0010 A2F88C70 		strh	r7, [r2, #140]	@ movhi
 1828:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     WiFi_Counter_Variables.curr_data = pData;
-ARM GAS  /tmp/ccbWdCm6.s 			page 34
-
-
-  55              		.loc 1 1828 5 is_stmt 1 view .LVU5
-  56              		.loc 1 1828 38 is_stmt 0 view .LVU6
-  57 0016 C4F88870 		str	r7, [r4, #136]
+  52              		.loc 1 1828 0
+  53 0014 C2F88860 		str	r6, [r2, #136]
 1829:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     WiFi_Counter_Variables.curr_sockID = client_id;
-  58              		.loc 1 1829 5 is_stmt 1 view .LVU7
-  59              		.loc 1 1829 40 is_stmt 0 view .LVU8
-  60 001a A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
-  61 001c 66F30203 		bfi	r3, r6, #0, #3
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 34
+
+
+  54              		.loc 1 1829 0
+  55 0018 9378     		ldrb	r3, [r2, #2]	@ zero_extendqisi2
+  56 001a 65F30203 		bfi	r3, r5, #0, #3
 1830:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     WiFi_Counter_Variables.curr_serverID = server_id;
-  62              		.loc 1 1830 5 is_stmt 1 view .LVU9
-  63              		.loc 1 1830 42 is_stmt 0 view .LVU10
-  64 0020 65F3C503 		bfi	r3, r5, #3, #3
-  65 0024 A370     		strb	r3, [r4, #2]
+  57              		.loc 1 1830 0
+  58 001e 64F3C503 		bfi	r3, r4, #3, #3
+  59 0022 9370     		strb	r3, [r2, #2]
 1831:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
 1832:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     wifi_instances.wifi_event.event = WIFI_SERVER_SOCKET_WRITE_EVENT;
-  66              		.loc 1 1832 5 is_stmt 1 view .LVU11
-  67              		.loc 1 1832 37 is_stmt 0 view .LVU12
-  68 0026 0A48     		ldr	r0, .L3+4
-  69 0028 1B23     		movs	r3, #27
-  70 002a 80F82630 		strb	r3, [r0, #38]
-1833:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     __disable_irq();
-  71              		.loc 1 1833 5 is_stmt 1 view .LVU13
-  72              	.LBB6:
-  73              	.LBI6:
-  74              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+  60              		.loc 1 1832 0
+  61 0024 0948     		ldr	r0, .L3+4
+  62 0026 1B23     		movs	r3, #27
+  63 0028 80F82630 		strb	r3, [r0, #38]
+  64              	.LBB6:
+  65              	.LBB7:
+  66              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -2038,9 +2029,6 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
   30:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
   31:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
   32:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
-ARM GAS  /tmp/ccbWdCm6.s 			page 35
-
-
   33:Drivers/CMSIS/Include/cmsis_gcc.h **** 
   34:Drivers/CMSIS/Include/cmsis_gcc.h **** /* Fallback for __has_builtin */
   35:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __has_builtin
@@ -2050,6 +2038,9 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
   39:Drivers/CMSIS/Include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
   40:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ASM
   41:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ASM                                  __asm
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 35
+
+
   42:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   43:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __INLINE
   44:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __INLINE                               inline
@@ -2098,9 +2089,6 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
   87:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   88:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
   89:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
-ARM GAS  /tmp/ccbWdCm6.s 			page 36
-
-
   90:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
   91:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
   92:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
@@ -2110,6 +2098,9 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
   96:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
   97:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   98:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 36
+
+
   99:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
  100:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))-
  101:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -2152,166 +2143,158 @@ ARM GAS  /tmp/ccbWdCm6.s 			page 1
  138:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  139:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  140:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
-  75              		.loc 2 140 27 view .LVU14
-  76              	.LBB7:
  141:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  142:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
-  77              		.loc 2 142 3 view .LVU15
-  78              		.syntax unified
-ARM GAS  /tmp/ccbWdCm6.s 			page 37
-
-
-  79              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
-  80 002e 72B6     		cpsid i
-  81              	@ 0 "" 2
-  82              		.thumb
-  83              		.syntax unified
-  84              	.LBE7:
-  85              	.LBE6:
+  67              		.loc 2 142 0
+  68              		.syntax unified
+  69              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+  70 002c 72B6     		cpsid i
+  71              	@ 0 "" 2
+  72              		.thumb
+  73              		.syntax unified
+  74              	.LBE7:
+  75              	.LBE6:
+1833:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     __disable_irq();
 1834:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     push_eventbuffer_queue(&wifi_instances.event_buff, wifi_instances.wifi_event);
-  86              		.loc 1 1834 5 view .LVU16
-  87 0030 00F12004 		add	r4, r0, #32
-  88 0034 94E80600 		ldm	r4, {r1, r2}
-  89 0038 1430     		adds	r0, r0, #20
-  90 003a FFF7FEFF 		bl	push_eventbuffer_queue
-  91              	.LVL2:
-1835:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     __enable_irq();
-  92              		.loc 1 1835 5 view .LVU17
-  93              	.LBB8:
-  94              	.LBI8:
- 129:Drivers/CMSIS/Include/cmsis_gcc.h **** {
-  95              		.loc 2 129 27 view .LVU18
-  96              	.LBB9:
+  76              		.loc 1 1834 0
+  77 002e 00F12004 		add	r4, r0, #32
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 37
+
+
+  78 0032 94E80600 		ldm	r4, {r1, r2}
+  79 0036 1430     		adds	r0, r0, #20
+  80 0038 FFF7FEFF 		bl	push_eventbuffer_queue
+  81              	.LVL2:
+  82              	.LBB8:
+  83              	.LBB9:
  131:Drivers/CMSIS/Include/cmsis_gcc.h **** }
-  97              		.loc 2 131 3 view .LVU19
-  98              		.syntax unified
-  99              	@ 131 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 100 003e 62B6     		cpsie i
- 101              	@ 0 "" 2
- 102              		.thumb
- 103              		.syntax unified
- 104              	.LBE9:
- 105              	.LBE8:
+  84              		.loc 2 131 0
+  85              		.syntax unified
+  86              	@ 131 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+  87 003c 62B6     		cpsie i
+  88              	@ 0 "" 2
+  89              		.thumb
+  90              		.syntax unified
+  91              	.LBE9:
+  92              	.LBE8:
+1835:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     __enable_irq();
 1836:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** 
 1837:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c ****     reset_event(&wifi_instances.wifi_event);
- 106              		.loc 1 1837 5 view .LVU20
- 107 0040 2046     		mov	r0, r4
- 108 0042 FFF7FEFF 		bl	reset_event
- 109              	.LVL3:
-1838:Middlewares/ST/STM32_SPWF0xSy/wifi_module_uart_04.c **** }
- 110              		.loc 1 1838 1 is_stmt 0 view .LVU21
- 111 0046 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 112              	.LVL4:
- 113              	.L4:
- 114              		.loc 1 1838 1 view .LVU22
- 115 004a 00BF     		.align	2
- 116              	.L3:
- 117 004c 00000000 		.word	WiFi_Counter_Variables
- 118 0050 00000000 		.word	wifi_instances
- 119              		.cfi_endproc
- 120              	.LFE279:
- 122              		.global	total_message_size
- 123              		.global	message_size
- 124              		.global	remaining_unused_datalength
- 125              		.comm	message_pending_buffer_index,4,4
- 126              		.global	message_pending
- 127              		.global	last_dma_buffer_count
- 128              		.global	last_message_size
- 129              		.global	client_id
-ARM GAS  /tmp/ccbWdCm6.s 			page 38
+  93              		.loc 1 1837 0
+  94 003e 2046     		mov	r0, r4
+  95 0040 FFF7FEFF 		bl	reset_event
+  96              	.LVL3:
+  97 0044 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  98              	.LVL4:
+  99              	.L4:
+ 100 0046 00BF     		.align	2
+ 101              	.L3:
+ 102 0048 00000000 		.word	WiFi_Counter_Variables
+ 103 004c 00000000 		.word	wifi_instances
+ 104              		.cfi_endproc
+ 105              	.LFE275:
+ 107              		.global	total_message_size
+ 108              		.global	message_size
+ 109              		.global	remaining_unused_datalength
+ 110              		.comm	message_pending_buffer_index,4,4
+ 111              		.global	message_pending
+ 112              		.global	last_dma_buffer_count
+ 113              		.global	last_message_size
+ 114              		.global	client_id
+ 115              		.global	bytes_read
+ 116              		.comm	message_pending_buffer,900,4
+ 117              		.comm	topic,100,4
+ 118              		.comm	str,900,4
+ 119              		.comm	parsing_networks,4,4
+ 120              		.section	.bss.bytes_read,"aw",%nobits
+ 121              		.align	2
+ 124              	bytes_read:
+ 125 0000 00000000 		.space	4
+ 126              		.section	.bss.last_dma_buffer_count,"aw",%nobits
+ 127              		.align	2
+ 130              	last_dma_buffer_count:
+ 131 0000 00000000 		.space	4
+ 132              		.section	.bss.last_message_size,"aw",%nobits
+ 133              		.align	2
+ 136              	last_message_size:
+ 137 0000 00000000 		.space	4
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 38
 
 
- 130              		.global	bytes_read
- 131              		.comm	message_pending_buffer,900,4
- 132              		.comm	topic,100,4
- 133              		.comm	str,900,4
- 134              		.comm	parsing_networks,4,4
- 135              		.section	.bss.bytes_read,"aw",%nobits
- 136              		.align	2
- 139              	bytes_read:
- 140 0000 00000000 		.space	4
- 141              		.section	.bss.last_dma_buffer_count,"aw",%nobits
- 142              		.align	2
- 145              	last_dma_buffer_count:
- 146 0000 00000000 		.space	4
- 147              		.section	.bss.last_message_size,"aw",%nobits
- 148              		.align	2
- 151              	last_message_size:
- 152 0000 00000000 		.space	4
- 153              		.section	.bss.message_pending,"aw",%nobits
- 156              	message_pending:
- 157 0000 00       		.space	1
- 158              		.section	.bss.remaining_unused_datalength,"aw",%nobits
- 159              		.align	2
- 162              	remaining_unused_datalength:
- 163 0000 00000000 		.space	4
- 164              		.section	.data.client_id,"aw"
- 167              	client_id:
- 168 0000 FF       		.byte	-1
- 169              		.section	.data.message_size,"aw"
- 170              		.align	2
- 173              	message_size:
- 174 0000 FFFFFFFF 		.word	-1
- 175              		.section	.data.total_message_size,"aw"
- 176              		.align	2
- 179              	total_message_size:
- 180 0000 FFFFFFFF 		.word	-1
- 181              		.text
- 182              	.Letext0:
- 183              		.file 3 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
- 184              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 185              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 186              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
- 187              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 188              		.file 8 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h"
- 189              		.file 9 "/usr/include/newlib/sys/_types.h"
- 190              		.file 10 "/usr/include/newlib/sys/reent.h"
- 191              		.file 11 "/usr/include/newlib/sys/lock.h"
- 192              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 193              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 194              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 195              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 196              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 197              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 198              		.file 18 "Middlewares/ST/STM32_SPWF0xSy/Inc/wifi_interface.h"
- 199              		.file 19 "/usr/include/newlib/stdlib.h"
- 200              		.file 20 "Middlewares/ST/STM32_SPWF0xSy/Utils/event_buffer.h"
- 201              		.file 21 "Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.h"
- 202              		.file 22 "/usr/include/newlib/time.h"
-ARM GAS  /tmp/ccbWdCm6.s 			page 39
-
-
- 203              		.file 23 "Middlewares/ST/STM32_SPWF0xSy/Inc/wifi_module.h"
- 204              		.file 24 "Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.h"
- 205              		.file 25 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h"
-ARM GAS  /tmp/ccbWdCm6.s 			page 40
+ 138              		.section	.bss.message_pending,"aw",%nobits
+ 141              	message_pending:
+ 142 0000 00       		.space	1
+ 143              		.section	.bss.remaining_unused_datalength,"aw",%nobits
+ 144              		.align	2
+ 147              	remaining_unused_datalength:
+ 148 0000 00000000 		.space	4
+ 149              		.section	.data.client_id,"aw",%progbits
+ 152              	client_id:
+ 153 0000 FF       		.byte	-1
+ 154              		.section	.data.message_size,"aw",%progbits
+ 155              		.align	2
+ 158              	message_size:
+ 159 0000 FFFFFFFF 		.word	-1
+ 160              		.section	.data.total_message_size,"aw",%progbits
+ 161              		.align	2
+ 164              	total_message_size:
+ 165 0000 FFFFFFFF 		.word	-1
+ 166              		.text
+ 167              	.Letext0:
+ 168              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
+ 169              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
+ 170              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 171              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 172              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 173              		.file 8 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 174              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 175              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 176              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 177              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 178              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 179              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 180              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 181              		.file 16 "Middlewares/ST/STM32_SPWF0xSy/Inc/wifi_interface.h"
+ 182              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
+ 183              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
+ 184              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\lib\\gcc\\arm-none-ea
+ 185              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
+ 186              		.file 21 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
+ 187              		.file 22 "Middlewares/ST/STM32_SPWF0xSy/Utils/event_buffer.h"
+ 188              		.file 23 "Middlewares/ST/STM32_SPWF0xSy/Utils/ring_buffer.h"
+ 189              		.file 24 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
+ 190              		.file 25 "Middlewares/ST/STM32_SPWF0xSy/Inc/wifi_module.h"
+ 191              		.file 26 "Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.h"
+ 192              		.file 27 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h"
+ARM GAS  D:\cygwin64\tmp\cclV6JzD.s 			page 39
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 wifi_module_uart_04.c
-     /tmp/ccbWdCm6.s:18     .text.Queue_Server_Write_Event:0000000000000000 $t
-     /tmp/ccbWdCm6.s:26     .text.Queue_Server_Write_Event:0000000000000000 Queue_Server_Write_Event
-     /tmp/ccbWdCm6.s:117    .text.Queue_Server_Write_Event:000000000000004c $d
-     /tmp/ccbWdCm6.s:179    .data.total_message_size:0000000000000000 total_message_size
-     /tmp/ccbWdCm6.s:173    .data.message_size:0000000000000000 message_size
-     /tmp/ccbWdCm6.s:162    .bss.remaining_unused_datalength:0000000000000000 remaining_unused_datalength
-                            *COM*:0000000000000004 message_pending_buffer_index
-     /tmp/ccbWdCm6.s:156    .bss.message_pending:0000000000000000 message_pending
-     /tmp/ccbWdCm6.s:145    .bss.last_dma_buffer_count:0000000000000000 last_dma_buffer_count
-     /tmp/ccbWdCm6.s:151    .bss.last_message_size:0000000000000000 last_message_size
-     /tmp/ccbWdCm6.s:167    .data.client_id:0000000000000000 client_id
-     /tmp/ccbWdCm6.s:139    .bss.bytes_read:0000000000000000 bytes_read
-                            *COM*:0000000000000384 message_pending_buffer
-                            *COM*:0000000000000064 topic
-                            *COM*:0000000000000384 str
-                            *COM*:0000000000000004 parsing_networks
-     /tmp/ccbWdCm6.s:136    .bss.bytes_read:0000000000000000 $d
-     /tmp/ccbWdCm6.s:142    .bss.last_dma_buffer_count:0000000000000000 $d
-     /tmp/ccbWdCm6.s:148    .bss.last_message_size:0000000000000000 $d
-     /tmp/ccbWdCm6.s:157    .bss.message_pending:0000000000000000 $d
-     /tmp/ccbWdCm6.s:159    .bss.remaining_unused_datalength:0000000000000000 $d
-     /tmp/ccbWdCm6.s:170    .data.message_size:0000000000000000 $d
-     /tmp/ccbWdCm6.s:176    .data.total_message_size:0000000000000000 $d
+                            *ABS*:00000000 wifi_module_uart_04.c
+D:\cygwin64\tmp\cclV6JzD.s:18     .text.Queue_Server_Write_Event:00000000 $t
+D:\cygwin64\tmp\cclV6JzD.s:25     .text.Queue_Server_Write_Event:00000000 Queue_Server_Write_Event
+D:\cygwin64\tmp\cclV6JzD.s:102    .text.Queue_Server_Write_Event:00000048 $d
+D:\cygwin64\tmp\cclV6JzD.s:164    .data.total_message_size:00000000 total_message_size
+D:\cygwin64\tmp\cclV6JzD.s:158    .data.message_size:00000000 message_size
+D:\cygwin64\tmp\cclV6JzD.s:147    .bss.remaining_unused_datalength:00000000 remaining_unused_datalength
+                            *COM*:00000004 message_pending_buffer_index
+D:\cygwin64\tmp\cclV6JzD.s:141    .bss.message_pending:00000000 message_pending
+D:\cygwin64\tmp\cclV6JzD.s:130    .bss.last_dma_buffer_count:00000000 last_dma_buffer_count
+D:\cygwin64\tmp\cclV6JzD.s:136    .bss.last_message_size:00000000 last_message_size
+D:\cygwin64\tmp\cclV6JzD.s:152    .data.client_id:00000000 client_id
+D:\cygwin64\tmp\cclV6JzD.s:124    .bss.bytes_read:00000000 bytes_read
+                            *COM*:00000384 message_pending_buffer
+                            *COM*:00000064 topic
+                            *COM*:00000384 str
+                            *COM*:00000004 parsing_networks
+D:\cygwin64\tmp\cclV6JzD.s:121    .bss.bytes_read:00000000 $d
+D:\cygwin64\tmp\cclV6JzD.s:127    .bss.last_dma_buffer_count:00000000 $d
+D:\cygwin64\tmp\cclV6JzD.s:133    .bss.last_message_size:00000000 $d
+D:\cygwin64\tmp\cclV6JzD.s:142    .bss.message_pending:00000000 $d
+D:\cygwin64\tmp\cclV6JzD.s:144    .bss.remaining_unused_datalength:00000000 $d
+D:\cygwin64\tmp\cclV6JzD.s:155    .data.message_size:00000000 $d
+D:\cygwin64\tmp\cclV6JzD.s:161    .data.total_message_size:00000000 $d
+                     .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
 Wait_For_Sock_Read_To_Complete
