@@ -39,6 +39,7 @@
 #define __MAIN_H
 
 /* Includes ------------------------------------------------------------------*/
+#include "retarget.h"
 #ifdef USE_STM32L0XX_NUCLEO
 #include "stm32l0xx_hal.h"
 #include "stm32l0xx_nucleo.h"

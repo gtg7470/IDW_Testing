@@ -1,5 +1,5 @@
 build/stm32f4xx_hal_msp.o: Core/Src/stm32f4xx_hal_msp.c Core/Inc/main.h \
- Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+ Core/Inc/retarget.h Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  Core/Inc/stm32f4xx_hal_conf.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
@@ -28,6 +28,8 @@ build/stm32f4xx_hal_msp.o: Core/Src/stm32f4xx_hal_msp.c Core/Inc/main.h \
  Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.h
 
 Core/Inc/main.h:
+
+Core/Inc/retarget.h:
 
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 

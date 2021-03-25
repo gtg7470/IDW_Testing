@@ -1,4 +1,4 @@
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
   29:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * License. You may obtain a copy of the License at:
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *                        opensource.org/licenses/BSD-3-Clause
   31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 2
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 2
 
 
   32:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   ******************************************************************************
@@ -118,7 +118,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
   86:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @}
   87:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   */
   88:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 3
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 3
 
 
   89:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /* Private macro -------------------------------------------------------------*/
@@ -178,7 +178,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  143:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *         HAL function), it performs the following:
  144:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *           Configure the Flash prefetch, instruction and Data caches.
  145:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *           Configures the SysTick to generate an interrupt each 1 millisecond,
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 4
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 4
 
 
  146:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *           which is clocked by the HSI (at this stage, the clock is not yet
@@ -238,7 +238,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  200:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   __HAL_RCC_AHB1_RELEASE_RESET();
  201:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  202:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   __HAL_RCC_AHB2_FORCE_RESET();
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 5
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 5
 
 
  203:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   __HAL_RCC_AHB2_RELEASE_RESET();
@@ -298,7 +298,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
   56              		.section	.text.HAL_DeInit,"ax",%progbits
   57              		.align	1
   58              		.global	HAL_DeInit
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 6
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 6
 
 
   59              		.syntax unified
@@ -358,7 +358,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  101              	.LVL0:
  213:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  102              		.loc 1 213 0
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 7
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 7
 
 
  103 0022 2046     		mov	r0, r4
@@ -418,7 +418,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  134 0004 0E4B     		ldr	r3, .L13
  135 0006 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
  136              	.LVL2:
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 8
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 8
 
 
  137 0008 4FF47A73 		mov	r3, #1000
@@ -478,7 +478,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  169 003a 0120     		movs	r0, #1
  170 003c 10BD     		pop	{r4, pc}
  171              	.LVL7:
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 9
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 9
 
 
  172              	.L14:
@@ -538,7 +538,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  221              		.loc 1 179 0
  222 0028 FFF7FEFF 		bl	HAL_MspInit
  223              	.LVL10:
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 10
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 10
 
 
  183:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
@@ -598,7 +598,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  310:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @retval None
  311:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   */
  312:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** __weak void HAL_IncTick(void)
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 11
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 11
 
 
  313:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** {
@@ -658,7 +658,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  286 0006 00BF     		.align	2
  287              	.L23:
  288 0008 00000000 		.word	uwTick
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 12
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 12
 
 
  289              		.cfi_endproc
@@ -718,7 +718,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  331              		@ frame_needed = 0, uses_anonymous_args = 0
  332              	.LVL11:
  333 0000 10B5     		push	{r4, lr}
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 13
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 13
 
 
  334              	.LCFI3:
@@ -778,7 +778,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  363 001e 10BD     		pop	{r4, pc}
  364              	.LVL17:
  365              	.L30:
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 14
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 14
 
 
  343:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   HAL_TickFreqTypeDef prevTickFreq;
@@ -838,7 +838,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  378:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  379:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief This function provides minimum delay (in milliseconds) based 
  380:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *        on variable incremented.
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 15
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 15
 
 
  381:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @note In the default implementation , SysTick timer is the source of time base.
@@ -898,7 +898,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  402:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   }
  403:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** }
  446              		.loc 1 403 0
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 16
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 16
 
 
  447 0020 38BD     		pop	{r3, r4, r5, pc}
@@ -958,7 +958,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  489              		.thumb_func
  490              		.fpu fpv4-sp-d16
  492              	HAL_ResumeTick:
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 17
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 17
 
 
  493              	.LFB142:
@@ -1018,7 +1018,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  525              		@ frame_needed = 0, uses_anonymous_args = 0
  526              		@ link register save eliminated.
  443:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   return __STM32F4xx_HAL_VERSION;
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 18
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 18
 
 
  444:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** }
@@ -1078,7 +1078,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  454:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** 
  455:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** /**
  456:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @brief  Returns the device identifier.
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 19
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 19
 
 
  457:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @retval Device identifier
@@ -1138,7 +1138,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  617 000c 002004E0 		.word	-536600576
  618              		.cfi_endproc
  619              	.LFE146:
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 20
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 20
 
 
  621              		.section	.text.HAL_DBGMCU_DisableDBGSleepMode,"ax",%progbits
@@ -1198,7 +1198,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  661              		@ args = 0, pretend = 0, frame = 0
  662              		@ frame_needed = 0, uses_anonymous_args = 0
  663              		@ link register save eliminated.
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 21
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 21
 
 
  488:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   SET_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STOP);
@@ -1258,7 +1258,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  711              		.fpu fpv4-sp-d16
  713              	HAL_DBGMCU_EnableDBGStandbyMode:
  714              	.LFB150:
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 22
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 22
 
 
  498:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** }
@@ -1318,7 +1318,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  753 000a 7047     		bx	lr
  754              	.L75:
  755              		.align	2
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 23
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 23
 
 
  756              	.L74:
@@ -1378,7 +1378,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  532:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   *         voltage ranges from 2.4 to 3.6 V.  
  533:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   * @retval None
  534:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c ****   */
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 24
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 24
 
 
  535:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c **** void HAL_DisableCompensationCell(void)
@@ -1438,7 +1438,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  842              		.align	1
  843              		.global	HAL_GetUIDw1
  844              		.syntax unified
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 25
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 25
 
 
  845              		.thumb
@@ -1498,7 +1498,7 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  884 0002 1868     		ldr	r0, [r3]
  885 0004 7047     		bx	lr
  886              	.L90:
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 26
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 26
 
 
  887 0006 00BF     		.align	2
@@ -1529,97 +1529,97 @@ ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 1
  917              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
  918              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
  919              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 27
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 27
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_hal.c
-D:\cygwin64\tmp\ccxjmmzT.s:18     .text.HAL_MspInit:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:25     .text.HAL_MspInit:00000000 HAL_MspInit
-D:\cygwin64\tmp\ccxjmmzT.s:38     .text.HAL_MspDeInit:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:45     .text.HAL_MspDeInit:00000000 HAL_MspDeInit
-D:\cygwin64\tmp\ccxjmmzT.s:57     .text.HAL_DeInit:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:64     .text.HAL_DeInit:00000000 HAL_DeInit
-D:\cygwin64\tmp\ccxjmmzT.s:108    .text.HAL_DeInit:00000028 $d
-D:\cygwin64\tmp\ccxjmmzT.s:113    .text.HAL_InitTick:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:120    .text.HAL_InitTick:00000000 HAL_InitTick
-D:\cygwin64\tmp\ccxjmmzT.s:175    .text.HAL_InitTick:00000040 $d
-D:\cygwin64\tmp\ccxjmmzT.s:182    .text.HAL_Init:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:189    .text.HAL_Init:00000000 HAL_Init
-D:\cygwin64\tmp\ccxjmmzT.s:230    .text.HAL_Init:00000030 $d
-D:\cygwin64\tmp\ccxjmmzT.s:235    .text.HAL_IncTick:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:242    .text.HAL_IncTick:00000000 HAL_IncTick
-D:\cygwin64\tmp\ccxjmmzT.s:260    .text.HAL_IncTick:00000010 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:18     .text.HAL_MspInit:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:25     .text.HAL_MspInit:00000000 HAL_MspInit
+D:\cygwin64\tmp\ccUyi8Qr.s:38     .text.HAL_MspDeInit:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:45     .text.HAL_MspDeInit:00000000 HAL_MspDeInit
+D:\cygwin64\tmp\ccUyi8Qr.s:57     .text.HAL_DeInit:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:64     .text.HAL_DeInit:00000000 HAL_DeInit
+D:\cygwin64\tmp\ccUyi8Qr.s:108    .text.HAL_DeInit:00000028 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:113    .text.HAL_InitTick:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:120    .text.HAL_InitTick:00000000 HAL_InitTick
+D:\cygwin64\tmp\ccUyi8Qr.s:175    .text.HAL_InitTick:00000040 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:182    .text.HAL_Init:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:189    .text.HAL_Init:00000000 HAL_Init
+D:\cygwin64\tmp\ccUyi8Qr.s:230    .text.HAL_Init:00000030 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:235    .text.HAL_IncTick:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:242    .text.HAL_IncTick:00000000 HAL_IncTick
+D:\cygwin64\tmp\ccUyi8Qr.s:260    .text.HAL_IncTick:00000010 $d
                             *COM*:00000004 uwTick
-D:\cygwin64\tmp\ccxjmmzT.s:266    .text.HAL_GetTick:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:273    .text.HAL_GetTick:00000000 HAL_GetTick
-D:\cygwin64\tmp\ccxjmmzT.s:288    .text.HAL_GetTick:00000008 $d
-D:\cygwin64\tmp\ccxjmmzT.s:293    .text.HAL_GetTickPrio:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:300    .text.HAL_GetTickPrio:00000000 HAL_GetTickPrio
-D:\cygwin64\tmp\ccxjmmzT.s:314    .text.HAL_GetTickPrio:00000008 $d
-D:\cygwin64\tmp\ccxjmmzT.s:319    .text.HAL_SetTickFreq:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:326    .text.HAL_SetTickFreq:00000000 HAL_SetTickFreq
-D:\cygwin64\tmp\ccxjmmzT.s:372    .text.HAL_SetTickFreq:00000024 $d
-D:\cygwin64\tmp\ccxjmmzT.s:378    .text.HAL_GetTickFreq:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:385    .text.HAL_GetTickFreq:00000000 HAL_GetTickFreq
-D:\cygwin64\tmp\ccxjmmzT.s:399    .text.HAL_GetTickFreq:00000008 $d
-D:\cygwin64\tmp\ccxjmmzT.s:404    .text.HAL_Delay:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:411    .text.HAL_Delay:00000000 HAL_Delay
-D:\cygwin64\tmp\ccxjmmzT.s:452    .text.HAL_Delay:00000024 $d
-D:\cygwin64\tmp\ccxjmmzT.s:457    .text.HAL_SuspendTick:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:464    .text.HAL_SuspendTick:00000000 HAL_SuspendTick
-D:\cygwin64\tmp\ccxjmmzT.s:480    .text.HAL_SuspendTick:0000000c $d
-D:\cygwin64\tmp\ccxjmmzT.s:485    .text.HAL_ResumeTick:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:492    .text.HAL_ResumeTick:00000000 HAL_ResumeTick
-D:\cygwin64\tmp\ccxjmmzT.s:508    .text.HAL_ResumeTick:0000000c $d
-D:\cygwin64\tmp\ccxjmmzT.s:513    .text.HAL_GetHalVersion:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:520    .text.HAL_GetHalVersion:00000000 HAL_GetHalVersion
-D:\cygwin64\tmp\ccxjmmzT.s:533    .text.HAL_GetHalVersion:00000004 $d
-D:\cygwin64\tmp\ccxjmmzT.s:538    .text.HAL_GetREVID:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:545    .text.HAL_GetREVID:00000000 HAL_GetREVID
-D:\cygwin64\tmp\ccxjmmzT.s:561    .text.HAL_GetREVID:00000008 $d
-D:\cygwin64\tmp\ccxjmmzT.s:566    .text.HAL_GetDEVID:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:573    .text.HAL_GetDEVID:00000000 HAL_GetDEVID
-D:\cygwin64\tmp\ccxjmmzT.s:589    .text.HAL_GetDEVID:0000000c $d
-D:\cygwin64\tmp\ccxjmmzT.s:594    .text.HAL_DBGMCU_EnableDBGSleepMode:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:601    .text.HAL_DBGMCU_EnableDBGSleepMode:00000000 HAL_DBGMCU_EnableDBGSleepMode
-D:\cygwin64\tmp\ccxjmmzT.s:617    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000c $d
-D:\cygwin64\tmp\ccxjmmzT.s:622    .text.HAL_DBGMCU_DisableDBGSleepMode:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:629    .text.HAL_DBGMCU_DisableDBGSleepMode:00000000 HAL_DBGMCU_DisableDBGSleepMode
-D:\cygwin64\tmp\ccxjmmzT.s:645    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000c $d
-D:\cygwin64\tmp\ccxjmmzT.s:650    .text.HAL_DBGMCU_EnableDBGStopMode:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:657    .text.HAL_DBGMCU_EnableDBGStopMode:00000000 HAL_DBGMCU_EnableDBGStopMode
-ARM GAS  D:\cygwin64\tmp\ccxjmmzT.s 			page 28
+D:\cygwin64\tmp\ccUyi8Qr.s:266    .text.HAL_GetTick:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:273    .text.HAL_GetTick:00000000 HAL_GetTick
+D:\cygwin64\tmp\ccUyi8Qr.s:288    .text.HAL_GetTick:00000008 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:293    .text.HAL_GetTickPrio:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:300    .text.HAL_GetTickPrio:00000000 HAL_GetTickPrio
+D:\cygwin64\tmp\ccUyi8Qr.s:314    .text.HAL_GetTickPrio:00000008 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:319    .text.HAL_SetTickFreq:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:326    .text.HAL_SetTickFreq:00000000 HAL_SetTickFreq
+D:\cygwin64\tmp\ccUyi8Qr.s:372    .text.HAL_SetTickFreq:00000024 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:378    .text.HAL_GetTickFreq:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:385    .text.HAL_GetTickFreq:00000000 HAL_GetTickFreq
+D:\cygwin64\tmp\ccUyi8Qr.s:399    .text.HAL_GetTickFreq:00000008 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:404    .text.HAL_Delay:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:411    .text.HAL_Delay:00000000 HAL_Delay
+D:\cygwin64\tmp\ccUyi8Qr.s:452    .text.HAL_Delay:00000024 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:457    .text.HAL_SuspendTick:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:464    .text.HAL_SuspendTick:00000000 HAL_SuspendTick
+D:\cygwin64\tmp\ccUyi8Qr.s:480    .text.HAL_SuspendTick:0000000c $d
+D:\cygwin64\tmp\ccUyi8Qr.s:485    .text.HAL_ResumeTick:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:492    .text.HAL_ResumeTick:00000000 HAL_ResumeTick
+D:\cygwin64\tmp\ccUyi8Qr.s:508    .text.HAL_ResumeTick:0000000c $d
+D:\cygwin64\tmp\ccUyi8Qr.s:513    .text.HAL_GetHalVersion:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:520    .text.HAL_GetHalVersion:00000000 HAL_GetHalVersion
+D:\cygwin64\tmp\ccUyi8Qr.s:533    .text.HAL_GetHalVersion:00000004 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:538    .text.HAL_GetREVID:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:545    .text.HAL_GetREVID:00000000 HAL_GetREVID
+D:\cygwin64\tmp\ccUyi8Qr.s:561    .text.HAL_GetREVID:00000008 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:566    .text.HAL_GetDEVID:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:573    .text.HAL_GetDEVID:00000000 HAL_GetDEVID
+D:\cygwin64\tmp\ccUyi8Qr.s:589    .text.HAL_GetDEVID:0000000c $d
+D:\cygwin64\tmp\ccUyi8Qr.s:594    .text.HAL_DBGMCU_EnableDBGSleepMode:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:601    .text.HAL_DBGMCU_EnableDBGSleepMode:00000000 HAL_DBGMCU_EnableDBGSleepMode
+D:\cygwin64\tmp\ccUyi8Qr.s:617    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000c $d
+D:\cygwin64\tmp\ccUyi8Qr.s:622    .text.HAL_DBGMCU_DisableDBGSleepMode:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:629    .text.HAL_DBGMCU_DisableDBGSleepMode:00000000 HAL_DBGMCU_DisableDBGSleepMode
+D:\cygwin64\tmp\ccUyi8Qr.s:645    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000c $d
+D:\cygwin64\tmp\ccUyi8Qr.s:650    .text.HAL_DBGMCU_EnableDBGStopMode:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:657    .text.HAL_DBGMCU_EnableDBGStopMode:00000000 HAL_DBGMCU_EnableDBGStopMode
+ARM GAS  D:\cygwin64\tmp\ccUyi8Qr.s 			page 28
 
 
-D:\cygwin64\tmp\ccxjmmzT.s:673    .text.HAL_DBGMCU_EnableDBGStopMode:0000000c $d
-D:\cygwin64\tmp\ccxjmmzT.s:678    .text.HAL_DBGMCU_DisableDBGStopMode:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:685    .text.HAL_DBGMCU_DisableDBGStopMode:00000000 HAL_DBGMCU_DisableDBGStopMode
-D:\cygwin64\tmp\ccxjmmzT.s:701    .text.HAL_DBGMCU_DisableDBGStopMode:0000000c $d
-D:\cygwin64\tmp\ccxjmmzT.s:706    .text.HAL_DBGMCU_EnableDBGStandbyMode:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:713    .text.HAL_DBGMCU_EnableDBGStandbyMode:00000000 HAL_DBGMCU_EnableDBGStandbyMode
-D:\cygwin64\tmp\ccxjmmzT.s:729    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000c $d
-D:\cygwin64\tmp\ccxjmmzT.s:734    .text.HAL_DBGMCU_DisableDBGStandbyMode:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:741    .text.HAL_DBGMCU_DisableDBGStandbyMode:00000000 HAL_DBGMCU_DisableDBGStandbyMode
-D:\cygwin64\tmp\ccxjmmzT.s:757    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000c $d
-D:\cygwin64\tmp\ccxjmmzT.s:762    .text.HAL_EnableCompensationCell:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:769    .text.HAL_EnableCompensationCell:00000000 HAL_EnableCompensationCell
-D:\cygwin64\tmp\ccxjmmzT.s:784    .text.HAL_EnableCompensationCell:00000008 $d
-D:\cygwin64\tmp\ccxjmmzT.s:789    .text.HAL_DisableCompensationCell:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:796    .text.HAL_DisableCompensationCell:00000000 HAL_DisableCompensationCell
-D:\cygwin64\tmp\ccxjmmzT.s:811    .text.HAL_DisableCompensationCell:00000008 $d
-D:\cygwin64\tmp\ccxjmmzT.s:816    .text.HAL_GetUIDw0:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:823    .text.HAL_GetUIDw0:00000000 HAL_GetUIDw0
-D:\cygwin64\tmp\ccxjmmzT.s:837    .text.HAL_GetUIDw0:00000008 $d
-D:\cygwin64\tmp\ccxjmmzT.s:842    .text.HAL_GetUIDw1:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:849    .text.HAL_GetUIDw1:00000000 HAL_GetUIDw1
-D:\cygwin64\tmp\ccxjmmzT.s:863    .text.HAL_GetUIDw1:00000008 $d
-D:\cygwin64\tmp\ccxjmmzT.s:868    .text.HAL_GetUIDw2:00000000 $t
-D:\cygwin64\tmp\ccxjmmzT.s:875    .text.HAL_GetUIDw2:00000000 HAL_GetUIDw2
-D:\cygwin64\tmp\ccxjmmzT.s:889    .text.HAL_GetUIDw2:00000008 $d
-D:\cygwin64\tmp\ccxjmmzT.s:900    .data.uwTickFreq:00000000 uwTickFreq
-D:\cygwin64\tmp\ccxjmmzT.s:907    .data.uwTickPrio:00000000 uwTickPrio
-D:\cygwin64\tmp\ccxjmmzT.s:903    .data.uwTickPrio:00000000 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:673    .text.HAL_DBGMCU_EnableDBGStopMode:0000000c $d
+D:\cygwin64\tmp\ccUyi8Qr.s:678    .text.HAL_DBGMCU_DisableDBGStopMode:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:685    .text.HAL_DBGMCU_DisableDBGStopMode:00000000 HAL_DBGMCU_DisableDBGStopMode
+D:\cygwin64\tmp\ccUyi8Qr.s:701    .text.HAL_DBGMCU_DisableDBGStopMode:0000000c $d
+D:\cygwin64\tmp\ccUyi8Qr.s:706    .text.HAL_DBGMCU_EnableDBGStandbyMode:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:713    .text.HAL_DBGMCU_EnableDBGStandbyMode:00000000 HAL_DBGMCU_EnableDBGStandbyMode
+D:\cygwin64\tmp\ccUyi8Qr.s:729    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000c $d
+D:\cygwin64\tmp\ccUyi8Qr.s:734    .text.HAL_DBGMCU_DisableDBGStandbyMode:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:741    .text.HAL_DBGMCU_DisableDBGStandbyMode:00000000 HAL_DBGMCU_DisableDBGStandbyMode
+D:\cygwin64\tmp\ccUyi8Qr.s:757    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000c $d
+D:\cygwin64\tmp\ccUyi8Qr.s:762    .text.HAL_EnableCompensationCell:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:769    .text.HAL_EnableCompensationCell:00000000 HAL_EnableCompensationCell
+D:\cygwin64\tmp\ccUyi8Qr.s:784    .text.HAL_EnableCompensationCell:00000008 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:789    .text.HAL_DisableCompensationCell:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:796    .text.HAL_DisableCompensationCell:00000000 HAL_DisableCompensationCell
+D:\cygwin64\tmp\ccUyi8Qr.s:811    .text.HAL_DisableCompensationCell:00000008 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:816    .text.HAL_GetUIDw0:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:823    .text.HAL_GetUIDw0:00000000 HAL_GetUIDw0
+D:\cygwin64\tmp\ccUyi8Qr.s:837    .text.HAL_GetUIDw0:00000008 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:842    .text.HAL_GetUIDw1:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:849    .text.HAL_GetUIDw1:00000000 HAL_GetUIDw1
+D:\cygwin64\tmp\ccUyi8Qr.s:863    .text.HAL_GetUIDw1:00000008 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:868    .text.HAL_GetUIDw2:00000000 $t
+D:\cygwin64\tmp\ccUyi8Qr.s:875    .text.HAL_GetUIDw2:00000000 HAL_GetUIDw2
+D:\cygwin64\tmp\ccUyi8Qr.s:889    .text.HAL_GetUIDw2:00000008 $d
+D:\cygwin64\tmp\ccUyi8Qr.s:900    .data.uwTickFreq:00000000 uwTickFreq
+D:\cygwin64\tmp\ccUyi8Qr.s:907    .data.uwTickPrio:00000000 uwTickPrio
+D:\cygwin64\tmp\ccUyi8Qr.s:903    .data.uwTickPrio:00000000 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

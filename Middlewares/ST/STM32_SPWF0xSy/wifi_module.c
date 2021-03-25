@@ -611,12 +611,14 @@ void wifi_reset(void)
   HAL_Delay(50);
   HAL_GPIO_DeInit(WiFi_RESET_GPIO_PORT, WiFi_RESET_GPIO_PIN);
 
+  printf("WAITING FOR HARDWARE...\r\n");
 #ifndef WIFI_USE_VCOM
   while(IO_status_flag.WiFi_WIND_State != WiFiHWStarted)
     {
       __NOP(); //nothing to do
     }
 #endif
+   printf("YAY!\r\n");
 }
 
 /**

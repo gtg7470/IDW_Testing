@@ -109,13 +109,22 @@ WiFi_Status_t wifi_init(wifi_config* config)
   #endif  
 
   WiFi_Module_Init();
+  
+  #if defined (DEBUG_PRINT) && !defined (WIFI_USE_VCOM)
+    printf("IDW Module Initialized..\r\n");
+    fflush(stdout);
+  #endif
 
   #ifndef WIFI_USE_VCOM  
+	printf("WIFI WAKEUP\r\n");
+  
     wifi_wakeup(WIFI_TRUE);//Prevent from going to sleep during configuration    
-
+	
+	printf("WIFI RESET\r\n");
     /* Soft reset the module */
     wifi_reset();
 
+	printf("if defined(CONSOLE_UART_ENABLED)\r\n");
     #if defined(CONSOLE_UART_ENABLED)
       /* Restore default setting*/    
       status = Restore_Default_Setting();
@@ -457,6 +466,7 @@ WiFi_Status_t wifi_init(wifi_config* config)
   
     //No need to reset again in case of new module SPI
     #endif  //#if defined(CONSOLE_UART_ENABLED)
+	printf("endif defined(CONSOLE_UART_ENABLED)\r\n");
   
   wifi_wakeup(WIFI_FALSE);//De-assert wakeup signal (PC13) to allow sleep if enabled
   #endif  //WIFI_USE_VCOM

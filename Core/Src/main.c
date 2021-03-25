@@ -62,7 +62,7 @@ uint8_t user_buffer[1024];
 __IO char http_char;
 wifi_bool http_post_request = WIFI_FALSE;
 
-uint8_t console_input[1], console_count=0;
+uint8_t cin[1], console_count=0;
 char console_ssid[40];
 char console_psk[20];
 char console_host[20];
@@ -79,8 +79,8 @@ __IO wifi_state_t wifi_state;
 wifi_config config;
 UART_HandleTypeDef UART_MsgHandle;
 
-char * ssid = "STM";
-char * seckey = "STMdemoPWD";
+char * ssid = "Grimm";
+char * seckey = "aad089f19eb3e374cd436f9adc99a4d8210b14eec9621d8d50110797039cf906";
 WiFi_Priv_Mode mode = WPA_Personal;
 char * hostname = "httpbin.org";
 char * post_hostname = "posttestserver.com";
@@ -108,6 +108,7 @@ uint32_t baud_rate = 115200;
   */
 int main(void)
 {
+	
   WiFi_Status_t status = WiFi_MODULE_SUCCESS;
 
   char * path = "/get";
@@ -120,7 +121,10 @@ int main(void)
 
   MX_GPIO_Init();
   MX_USART2_UART_Init();
-
+  
+  RetargetInit(&huart2);
+  
+  printf("UART Init complete!\r\n");
   /*while (1)
   {
     print("Hello world\r\n..");
@@ -130,11 +134,13 @@ int main(void)
   status = wifi_get_AP_settings();
   if(status!=WiFi_MODULE_SUCCESS)
   {
-    print("\r\nError in AP Settings");
+    printf("Error in AP Settings\r\n");
     return 0;
   }
-  
-  UART_Configuration(baud_rate); 
+ 
+  printf("Wifi settings init complete!\r\n");
+  printf("SSID: %s PASSCODE %s\r\n", console_ssid, console_psk);
+  //UART_Configuration(baud_rate); 
   
   config.power=wifi_active;
   config.power_level=high;
@@ -142,40 +148,45 @@ int main(void)
   config.mcu_baud_rate = baud_rate;
   wifi_state = wifi_state_idle;
   
-  print("\r\n\nInitializing the wifi module...");
+  printf("Initializing the wifi module...\r\n");
   
   /* Init the wi-fi module */  
   status = wifi_init(&config);
   if(status!=WiFi_MODULE_SUCCESS)
   {
-    print("Error in Config");
+    printf("Error in Config\r\n");
     return 0;
   }
+  
+  printf("Init success, state code: %d\r\n", wifi_state);
+  wifi_state = wifi_state_ready;
 
   while (1)
   {
     switch (wifi_state) 
     {
     case wifi_state_reset:
+		printf("\r\n >>RESET\r\n");
         break;
 
     case wifi_state_ready:
-        print("\r\n >>connecting to AP...\r\n");
+        printf("\r\n >>connecting to AP...\r\n");
         wifi_connect(console_ssid, console_psk, mode);
         wifi_state = wifi_state_idle;
         break;
 
     case wifi_state_connected:
-        print("\r\n >>connected...\r\n");
+        printf("\r\n >>connected...\r\n");
         wifi_state = wifi_state_activity;
         break;
 
     case wifi_state_disconnected:
+		printf("\r\n >>Disconnected\r\n");
         wifi_state = wifi_state_reset;
         break;
 
     case wifi_state_activity:
-
+		printf("\r\n >>Activity\r\n");
         status = wifi_get_IP_address((uint8_t*)wifi_ip_addr);
         //print("\r\n>>IP address is %s\r\n", wifi_ip_addr);
         
@@ -188,13 +199,13 @@ int main(void)
             wifi_state = wifi_state_inter;//do a HTTP-POST
         else
         {
-          print("\r\n>>WiFi_HTTPGET\r\n");
+          printf("\r\n>>WiFi_HTTPGET\r\n");
         
           status = wifi_http_get((uint8_t *)console_host, (uint8_t *)path, port_num);
       
           if(status == WiFi_MODULE_SUCCESS)
           {
-             print("\r\nHTTP GET OK\r\n");
+             printf("\r\nHTTP GET OK\r\n");
           }
           else
           {
@@ -207,30 +218,30 @@ int main(void)
 
     case wifi_state_inter:        
 
-        print("\r\n>>Posting data to posttestserver.com..\r\n");  
+        printf("\r\n>>Posting data to posttestserver.com..\r\n");  
 
         status = wifi_http_post((uint8_t *)post_hostname, (uint8_t *)post_path, port_num); 
 
         if(status == WiFi_MODULE_SUCCESS)    
         {
-          print("\r\nHTTP POST OK\r\n");
+          printf("\r\nHTTP POST OK\r\n");
         }
         else
         {
-          print("\r\nHTTP POST Error\r\n");
+          printf("\r\nHTTP POST Error\r\n");
         }        
 
         wifi_state = wifi_state_idle;
         break;
 
     case wifi_state_print_data:
-        print((char*)user_buffer);
+        printf((char*)user_buffer);
 
         wifi_state = wifi_state_idle;
 
         break;
     case wifi_state_idle:        
-        print("."); 
+        printf("."); 
         fflush(stdout);
         HAL_Delay(500);
 
@@ -332,84 +343,24 @@ static void MX_GPIO_Init(void)
 WiFi_Status_t wifi_get_AP_settings(void)
 {
   WiFi_Status_t status = WiFi_MODULE_SUCCESS;
-  print("\r\n\n/********************************************************\n");
-  print("\r *                                                      *\n");
-  print("\r * X-CUBE-WIFI1 Expansion Software v3.1.1               *\n");
-  print("\r * X-NUCLEO-IDW0xx1 Wi-Fi Mini-AP Configuration.        *\n");
-  print("\r * HTTP-Request Example                                 *\n");
-  print("\r *                                                      *\n");
-  print("\r *******************************************************/\n");
-  print("\r\nDo you want to setup SSID?(y/n):");
+  printf("\r\n\n/********************************************************\n");
+  printf("\r *                                                      *\n");
+  printf("\r * X-CUBE-WIFI1 Expansion Software v3.1.1               *\n");
+  printf("\r * X-NUCLEO-IDW0xx1 Wi-Fi Mini-AP Configuration.        *\n");
+  printf("\r * HTTP-Request Example                                 *\n");
+  printf("\r *                                                      *\n");
+  printf("\r *******************************************************/\n");
   fflush(stdout);
-  scanf("%s",console_input);
-  //console_input[0] = 'n';
-  print("\r\n");
-
-  //HAL_UART_Receive(UartMsgHandle, (uint8_t *)console_input, 1, 100000);
-  if(console_input[0]=='y') 
-        {
-              set_AP_config = WIFI_TRUE;  
-              print("Enter the SSID:");
-              fflush(stdout);
-
-              console_count=0;
-              console_count=scanf("%s",console_ssid);
-              print("\r\n");
-
-                if(console_count==39) 
-                    {
-                        print("Exceeded number of ssid characters permitted");
-                        return WiFi_NOT_SUPPORTED;
-                    }    
-              
-              //print("entered =%s\r\n",console_ssid);
-              print("Enter the password:");
-              fflush(stdout);
-              console_count=0;
-              
-              console_count=scanf("%s",console_psk);
-              print("\r\n");
-              //print("entered =%s\r\n",console_psk);
-                if(console_count==19) 
-                    {
-                        print("Exceeded number of psk characters permitted");
-                        return WiFi_NOT_SUPPORTED;
-                    }    
-              print("Enter the encryption mode(0:Open, 1:WEP, 2:WPA2/WPA2-Personal):"); 
-              fflush(stdout);
-             scanf("%s",console_input);
-             print("\r\n");
-              //print("entered =%s\r\n",console_input);
-              switch(console_input[0])
-              {
-                case '0':
-                  mode = None;
-                  break;
-                case '1':
-                  mode = WEP;
-                  break;
-                case '2':
-                  mode = WPA_Personal;
-                  break;
-                default:
-                  print("\r\nWrong Entry. Priv Mode is not compatible\n");
-                  return WiFi_NOT_SUPPORTED;              
-              }
-              
-              memcpy(console_host, (const char*)hostname, strlen((char*)hostname));
-              
-        } else 
-            {
-                print("\r\n\nModule will connect with default settings.");
-                memcpy(console_ssid, (const char*)ssid, strlen((char*)ssid));
-                memcpy(console_psk, (const char*)seckey, strlen((char*)seckey));
-                memcpy(console_host, (const char*)hostname, strlen((char*)hostname));
-            }
+  printf("\r\n\nModule will connect with default settings.");
   
-  print("\r\n/*************************************************************\r\n");
-  print("\r\n * Configuration Complete                                     \r\n");
-  print("\r\n * Please make sure a Server is running at given hostname     \r\n");
-  print("\r\n *************************************************************\r\n");
+  memcpy(console_ssid, (const char*)ssid, strlen((char*)ssid));
+  memcpy(console_psk, (const char*)seckey, strlen((char*)seckey));
+  memcpy(console_host, (const char*)hostname, strlen((char*)hostname));
+  
+  printf("\r\n/*************************************************************\r\n");
+  printf("\r\n * Configuration Complete                                     \r\n");
+  printf("\r\n * Please make sure a Server is running at given hostname     \r\n");
+  printf("\r\n *************************************************************\r\n");
   
   return status;
 }
@@ -417,9 +368,9 @@ WiFi_Status_t wifi_get_AP_settings(void)
 
 /******** Wi-Fi Indication User Callback *********/
 void print(char msg[]) {
-	unsigned char message[MAX_MSG_SIZE];
-	strncpy(message, msg, MAX_MSG_SIZE);
-    HAL_UART_Transmit(&huart2, message, MAX_MSG_SIZE, 1000);
+	//signed char message[MAX_MSG_SIZE];
+	//strncpy(message, msg, MAX_MSG_SIZE);
+    //HAL_UART_Transmit(&huart2, message, MAX_MSG_SIZE, 1000);
 }
 
 void ind_wifi_on()

@@ -1,4 +1,4 @@
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 1
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 1
   30:Core/Src/main.c **** #include "wifi_interface.h"
   31:Core/Src/main.c **** /* USER CODE END Includes */
   32:Core/Src/main.c **** 
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 2
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 2
 
 
   33:Core/Src/main.c **** /* Private typedef -----------------------------------------------------------*/
@@ -93,7 +93,7 @@ ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 1
   62:Core/Src/main.c **** __IO char http_char;
   63:Core/Src/main.c **** wifi_bool http_post_request = WIFI_FALSE;
   64:Core/Src/main.c **** 
-  65:Core/Src/main.c **** uint8_t console_input[1], console_count=0;
+  65:Core/Src/main.c **** uint8_t cin[1], console_count=0;
   66:Core/Src/main.c **** char console_ssid[40];
   67:Core/Src/main.c **** char console_psk[20];
   68:Core/Src/main.c **** char console_host[20];
@@ -110,15 +110,15 @@ ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 1
   79:Core/Src/main.c **** wifi_config config;
   80:Core/Src/main.c **** UART_HandleTypeDef UART_MsgHandle;
   81:Core/Src/main.c **** 
-  82:Core/Src/main.c **** char * ssid = "STM";
-  83:Core/Src/main.c **** char * seckey = "STMdemoPWD";
+  82:Core/Src/main.c **** char * ssid = "Grimm";
+  83:Core/Src/main.c **** char * seckey = "aad089f19eb3e374cd436f9adc99a4d8210b14eec9621d8d50110797039cf906";
   84:Core/Src/main.c **** WiFi_Priv_Mode mode = WPA_Personal;
   85:Core/Src/main.c **** char * hostname = "httpbin.org";
   86:Core/Src/main.c **** char * post_hostname = "posttestserver.com";
   87:Core/Src/main.c **** char * gcfg_key1 = "ip_ipaddr";
   88:Core/Src/main.c **** char * gcfg_key2 = "nv_model";
   89:Core/Src/main.c **** 
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 3
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 3
 
 
   90:Core/Src/main.c **** char wifi_ip_addr[20];
@@ -142,232 +142,243 @@ ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 1
  108:Core/Src/main.c ****   */
  109:Core/Src/main.c **** int main(void)
  110:Core/Src/main.c **** {
- 111:Core/Src/main.c ****   WiFi_Status_t status = WiFi_MODULE_SUCCESS;
- 112:Core/Src/main.c **** 
- 113:Core/Src/main.c ****   char * path = "/get";
- 114:Core/Src/main.c ****   uint32_t  port_num = 80;
- 115:Core/Src/main.c ****   char * post_path = "/post.php/name=demo&email=mymail&subject=subj&body=message";
- 116:Core/Src/main.c **** 
- 117:Core/Src/main.c ****   HAL_Init();
- 118:Core/Src/main.c ****   SystemClock_Config();
- 119:Core/Src/main.c **** 
+ 111:Core/Src/main.c **** 	
+ 112:Core/Src/main.c ****   WiFi_Status_t status = WiFi_MODULE_SUCCESS;
+ 113:Core/Src/main.c **** 
+ 114:Core/Src/main.c ****   char * path = "/get";
+ 115:Core/Src/main.c ****   uint32_t  port_num = 80;
+ 116:Core/Src/main.c ****   char * post_path = "/post.php/name=demo&email=mymail&subject=subj&body=message";
+ 117:Core/Src/main.c **** 
+ 118:Core/Src/main.c ****   HAL_Init();
+ 119:Core/Src/main.c ****   SystemClock_Config();
  120:Core/Src/main.c **** 
- 121:Core/Src/main.c ****   MX_GPIO_Init();
- 122:Core/Src/main.c ****   MX_USART2_UART_Init();
- 123:Core/Src/main.c **** 
- 124:Core/Src/main.c ****   /*while (1)
- 125:Core/Src/main.c ****   {
- 126:Core/Src/main.c ****     print("Hello world\r\n..");
- 127:Core/Src/main.c ****   }*/
- 128:Core/Src/main.c ****   /* USER CODE END 3 */
- 129:Core/Src/main.c **** 
- 130:Core/Src/main.c ****   status = wifi_get_AP_settings();
- 131:Core/Src/main.c ****   if(status!=WiFi_MODULE_SUCCESS)
- 132:Core/Src/main.c ****   {
- 133:Core/Src/main.c ****     print("\r\nError in AP Settings");
- 134:Core/Src/main.c ****     return 0;
- 135:Core/Src/main.c ****   }
- 136:Core/Src/main.c ****   
- 137:Core/Src/main.c ****   UART_Configuration(baud_rate); 
- 138:Core/Src/main.c ****   
- 139:Core/Src/main.c ****   config.power=wifi_active;
- 140:Core/Src/main.c ****   config.power_level=high;
- 141:Core/Src/main.c ****   config.dhcp=on;//use DHCP IP address   
- 142:Core/Src/main.c ****   config.mcu_baud_rate = baud_rate;
- 143:Core/Src/main.c ****   wifi_state = wifi_state_idle;
+ 121:Core/Src/main.c **** 
+ 122:Core/Src/main.c ****   MX_GPIO_Init();
+ 123:Core/Src/main.c ****   MX_USART2_UART_Init();
+ 124:Core/Src/main.c ****   
+ 125:Core/Src/main.c ****   RetargetInit(&huart2);
+ 126:Core/Src/main.c ****   
+ 127:Core/Src/main.c ****   printf("UART Init complete!\r\n");
+ 128:Core/Src/main.c ****   /*while (1)
+ 129:Core/Src/main.c ****   {
+ 130:Core/Src/main.c ****     print("Hello world\r\n..");
+ 131:Core/Src/main.c ****   }*/
+ 132:Core/Src/main.c ****   /* USER CODE END 3 */
+ 133:Core/Src/main.c **** 
+ 134:Core/Src/main.c ****   status = wifi_get_AP_settings();
+ 135:Core/Src/main.c ****   if(status!=WiFi_MODULE_SUCCESS)
+ 136:Core/Src/main.c ****   {
+ 137:Core/Src/main.c ****     printf("Error in AP Settings\r\n");
+ 138:Core/Src/main.c ****     return 0;
+ 139:Core/Src/main.c ****   }
+ 140:Core/Src/main.c ****  
+ 141:Core/Src/main.c ****   printf("Wifi settings init complete!\r\n");
+ 142:Core/Src/main.c ****   printf("SSID: %s PASSCODE %s\r\n", console_ssid, console_psk);
+ 143:Core/Src/main.c ****   //UART_Configuration(baud_rate); 
  144:Core/Src/main.c ****   
- 145:Core/Src/main.c ****   print("\r\n\nInitializing the wifi module...");
- 146:Core/Src/main.c ****   
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 4
+ 145:Core/Src/main.c ****   config.power=wifi_active;
+ 146:Core/Src/main.c ****   config.power_level=high;
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 4
 
 
- 147:Core/Src/main.c ****   /* Init the wi-fi module */  
- 148:Core/Src/main.c ****   status = wifi_init(&config);
- 149:Core/Src/main.c ****   if(status!=WiFi_MODULE_SUCCESS)
- 150:Core/Src/main.c ****   {
- 151:Core/Src/main.c ****     print("Error in Config");
- 152:Core/Src/main.c ****     return 0;
- 153:Core/Src/main.c ****   }
- 154:Core/Src/main.c **** 
- 155:Core/Src/main.c ****   while (1)
+ 147:Core/Src/main.c ****   config.dhcp=on;//use DHCP IP address   
+ 148:Core/Src/main.c ****   config.mcu_baud_rate = baud_rate;
+ 149:Core/Src/main.c ****   wifi_state = wifi_state_idle;
+ 150:Core/Src/main.c ****   
+ 151:Core/Src/main.c ****   printf("Initializing the wifi module...\r\n");
+ 152:Core/Src/main.c ****   
+ 153:Core/Src/main.c ****   /* Init the wi-fi module */  
+ 154:Core/Src/main.c ****   status = wifi_init(&config);
+ 155:Core/Src/main.c ****   if(status!=WiFi_MODULE_SUCCESS)
  156:Core/Src/main.c ****   {
- 157:Core/Src/main.c ****     switch (wifi_state) 
- 158:Core/Src/main.c ****     {
- 159:Core/Src/main.c ****     case wifi_state_reset:
- 160:Core/Src/main.c ****         break;
- 161:Core/Src/main.c **** 
- 162:Core/Src/main.c ****     case wifi_state_ready:
- 163:Core/Src/main.c ****         print("\r\n >>connecting to AP...\r\n");
- 164:Core/Src/main.c ****         wifi_connect(console_ssid, console_psk, mode);
- 165:Core/Src/main.c ****         wifi_state = wifi_state_idle;
- 166:Core/Src/main.c ****         break;
- 167:Core/Src/main.c **** 
- 168:Core/Src/main.c ****     case wifi_state_connected:
- 169:Core/Src/main.c ****         print("\r\n >>connected...\r\n");
- 170:Core/Src/main.c ****         wifi_state = wifi_state_activity;
- 171:Core/Src/main.c ****         break;
- 172:Core/Src/main.c **** 
- 173:Core/Src/main.c ****     case wifi_state_disconnected:
- 174:Core/Src/main.c ****         wifi_state = wifi_state_reset;
- 175:Core/Src/main.c ****         break;
- 176:Core/Src/main.c **** 
- 177:Core/Src/main.c ****     case wifi_state_activity:
- 178:Core/Src/main.c **** 
- 179:Core/Src/main.c ****         status = wifi_get_IP_address((uint8_t*)wifi_ip_addr);
- 180:Core/Src/main.c ****         //print("\r\n>>IP address is %s\r\n", wifi_ip_addr);
- 181:Core/Src/main.c ****         
- 182:Core/Src/main.c ****         memset(wifi_ip_addr, 0x00, 20);
- 183:Core/Src/main.c ****         
- 184:Core/Src/main.c ****         status = GET_Configuration_Value(gcfg_key2,(uint32_t *)wifi_ip_addr);
- 185:Core/Src/main.c ****         //print("\r\n>>model no is %s\r\n", wifi_ip_addr);
- 186:Core/Src/main.c **** 
- 187:Core/Src/main.c ****         if(http_post_request)
- 188:Core/Src/main.c ****             wifi_state = wifi_state_inter;//do a HTTP-POST
- 189:Core/Src/main.c ****         else
- 190:Core/Src/main.c ****         {
- 191:Core/Src/main.c ****           print("\r\n>>WiFi_HTTPGET\r\n");
+ 157:Core/Src/main.c ****     printf("Error in Config\r\n");
+ 158:Core/Src/main.c ****     return 0;
+ 159:Core/Src/main.c ****   }
+ 160:Core/Src/main.c ****   
+ 161:Core/Src/main.c ****   printf("Init success, state code: %d\r\n", wifi_state);
+ 162:Core/Src/main.c ****   wifi_state = wifi_state_ready;
+ 163:Core/Src/main.c **** 
+ 164:Core/Src/main.c ****   while (1)
+ 165:Core/Src/main.c ****   {
+ 166:Core/Src/main.c ****     switch (wifi_state) 
+ 167:Core/Src/main.c ****     {
+ 168:Core/Src/main.c ****     case wifi_state_reset:
+ 169:Core/Src/main.c **** 		printf("\r\n >>RESET\r\n");
+ 170:Core/Src/main.c ****         break;
+ 171:Core/Src/main.c **** 
+ 172:Core/Src/main.c ****     case wifi_state_ready:
+ 173:Core/Src/main.c ****         printf("\r\n >>connecting to AP...\r\n");
+ 174:Core/Src/main.c ****         wifi_connect(console_ssid, console_psk, mode);
+ 175:Core/Src/main.c ****         wifi_state = wifi_state_idle;
+ 176:Core/Src/main.c ****         break;
+ 177:Core/Src/main.c **** 
+ 178:Core/Src/main.c ****     case wifi_state_connected:
+ 179:Core/Src/main.c ****         printf("\r\n >>connected...\r\n");
+ 180:Core/Src/main.c ****         wifi_state = wifi_state_activity;
+ 181:Core/Src/main.c ****         break;
+ 182:Core/Src/main.c **** 
+ 183:Core/Src/main.c ****     case wifi_state_disconnected:
+ 184:Core/Src/main.c **** 		printf("\r\n >>Disconnected\r\n");
+ 185:Core/Src/main.c ****         wifi_state = wifi_state_reset;
+ 186:Core/Src/main.c ****         break;
+ 187:Core/Src/main.c **** 
+ 188:Core/Src/main.c ****     case wifi_state_activity:
+ 189:Core/Src/main.c **** 		printf("\r\n >>Activity\r\n");
+ 190:Core/Src/main.c ****         status = wifi_get_IP_address((uint8_t*)wifi_ip_addr);
+ 191:Core/Src/main.c ****         //print("\r\n>>IP address is %s\r\n", wifi_ip_addr);
  192:Core/Src/main.c ****         
- 193:Core/Src/main.c ****           status = wifi_http_get((uint8_t *)console_host, (uint8_t *)path, port_num);
- 194:Core/Src/main.c ****       
- 195:Core/Src/main.c ****           if(status == WiFi_MODULE_SUCCESS)
- 196:Core/Src/main.c ****           {
- 197:Core/Src/main.c ****              print("\r\nHTTP GET OK\r\n");
- 198:Core/Src/main.c ****           }
- 199:Core/Src/main.c ****           else
- 200:Core/Src/main.c ****           {
- 201:Core/Src/main.c ****               print("\r\nHTTP GET Error\r\n");
- 202:Core/Src/main.c ****           }
- 203:Core/Src/main.c ****           wifi_state = wifi_state_idle;
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 5
+ 193:Core/Src/main.c ****         memset(wifi_ip_addr, 0x00, 20);
+ 194:Core/Src/main.c ****         
+ 195:Core/Src/main.c ****         status = GET_Configuration_Value(gcfg_key2,(uint32_t *)wifi_ip_addr);
+ 196:Core/Src/main.c ****         //print("\r\n>>model no is %s\r\n", wifi_ip_addr);
+ 197:Core/Src/main.c **** 
+ 198:Core/Src/main.c ****         if(http_post_request)
+ 199:Core/Src/main.c ****             wifi_state = wifi_state_inter;//do a HTTP-POST
+ 200:Core/Src/main.c ****         else
+ 201:Core/Src/main.c ****         {
+ 202:Core/Src/main.c ****           printf("\r\n>>WiFi_HTTPGET\r\n");
+ 203:Core/Src/main.c ****         
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 5
 
 
- 204:Core/Src/main.c ****         }
- 205:Core/Src/main.c ****         
- 206:Core/Src/main.c ****         break;
- 207:Core/Src/main.c **** 
- 208:Core/Src/main.c ****     case wifi_state_inter:        
- 209:Core/Src/main.c **** 
- 210:Core/Src/main.c ****         print("\r\n>>Posting data to posttestserver.com..\r\n");  
- 211:Core/Src/main.c **** 
- 212:Core/Src/main.c ****         status = wifi_http_post((uint8_t *)post_hostname, (uint8_t *)post_path, port_num); 
- 213:Core/Src/main.c **** 
- 214:Core/Src/main.c ****         if(status == WiFi_MODULE_SUCCESS)    
- 215:Core/Src/main.c ****         {
- 216:Core/Src/main.c ****           print("\r\nHTTP POST OK\r\n");
- 217:Core/Src/main.c ****         }
- 218:Core/Src/main.c ****         else
- 219:Core/Src/main.c ****         {
- 220:Core/Src/main.c ****           print("\r\nHTTP POST Error\r\n");
- 221:Core/Src/main.c ****         }        
+ 204:Core/Src/main.c ****           status = wifi_http_get((uint8_t *)console_host, (uint8_t *)path, port_num);
+ 205:Core/Src/main.c ****       
+ 206:Core/Src/main.c ****           if(status == WiFi_MODULE_SUCCESS)
+ 207:Core/Src/main.c ****           {
+ 208:Core/Src/main.c ****              printf("\r\nHTTP GET OK\r\n");
+ 209:Core/Src/main.c ****           }
+ 210:Core/Src/main.c ****           else
+ 211:Core/Src/main.c ****           {
+ 212:Core/Src/main.c ****               print("\r\nHTTP GET Error\r\n");
+ 213:Core/Src/main.c ****           }
+ 214:Core/Src/main.c ****           wifi_state = wifi_state_idle;
+ 215:Core/Src/main.c ****         }
+ 216:Core/Src/main.c ****         
+ 217:Core/Src/main.c ****         break;
+ 218:Core/Src/main.c **** 
+ 219:Core/Src/main.c ****     case wifi_state_inter:        
+ 220:Core/Src/main.c **** 
+ 221:Core/Src/main.c ****         printf("\r\n>>Posting data to posttestserver.com..\r\n");  
  222:Core/Src/main.c **** 
- 223:Core/Src/main.c ****         wifi_state = wifi_state_idle;
- 224:Core/Src/main.c ****         break;
- 225:Core/Src/main.c **** 
- 226:Core/Src/main.c ****     case wifi_state_print_data:
- 227:Core/Src/main.c ****         print((char*)user_buffer);
- 228:Core/Src/main.c **** 
- 229:Core/Src/main.c ****         wifi_state = wifi_state_idle;
- 230:Core/Src/main.c **** 
- 231:Core/Src/main.c ****         break;
- 232:Core/Src/main.c ****     case wifi_state_idle:        
- 233:Core/Src/main.c ****         print("."); 
- 234:Core/Src/main.c ****         fflush(stdout);
- 235:Core/Src/main.c ****         HAL_Delay(500);
+ 223:Core/Src/main.c ****         status = wifi_http_post((uint8_t *)post_hostname, (uint8_t *)post_path, port_num); 
+ 224:Core/Src/main.c **** 
+ 225:Core/Src/main.c ****         if(status == WiFi_MODULE_SUCCESS)    
+ 226:Core/Src/main.c ****         {
+ 227:Core/Src/main.c ****           printf("\r\nHTTP POST OK\r\n");
+ 228:Core/Src/main.c ****         }
+ 229:Core/Src/main.c ****         else
+ 230:Core/Src/main.c ****         {
+ 231:Core/Src/main.c ****           printf("\r\nHTTP POST Error\r\n");
+ 232:Core/Src/main.c ****         }        
+ 233:Core/Src/main.c **** 
+ 234:Core/Src/main.c ****         wifi_state = wifi_state_idle;
+ 235:Core/Src/main.c ****         break;
  236:Core/Src/main.c **** 
- 237:Core/Src/main.c ****         break;
- 238:Core/Src/main.c **** 
- 239:Core/Src/main.c ****     default:
- 240:Core/Src/main.c ****         break;
- 241:Core/Src/main.c ****     }
- 242:Core/Src/main.c ****   }
- 243:Core/Src/main.c **** }
- 244:Core/Src/main.c **** 
- 245:Core/Src/main.c **** /**
- 246:Core/Src/main.c ****   * @brief System Clock Configuration
- 247:Core/Src/main.c ****   * @retval None
- 248:Core/Src/main.c ****   */
- 249:Core/Src/main.c **** void SystemClock_Config(void)
- 250:Core/Src/main.c **** {
- 251:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
- 252:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 253:Core/Src/main.c **** 
- 254:Core/Src/main.c ****   /** Configure the main internal regulator output voltage
- 255:Core/Src/main.c ****   */
- 256:Core/Src/main.c ****   __HAL_RCC_PWR_CLK_ENABLE();
- 257:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
- 258:Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
- 259:Core/Src/main.c ****   * in the RCC_OscInitTypeDef structure.
- 260:Core/Src/main.c ****   */
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 6
+ 237:Core/Src/main.c ****     case wifi_state_print_data:
+ 238:Core/Src/main.c ****         printf((char*)user_buffer);
+ 239:Core/Src/main.c **** 
+ 240:Core/Src/main.c ****         wifi_state = wifi_state_idle;
+ 241:Core/Src/main.c **** 
+ 242:Core/Src/main.c ****         break;
+ 243:Core/Src/main.c ****     case wifi_state_idle:        
+ 244:Core/Src/main.c ****         printf("."); 
+ 245:Core/Src/main.c ****         fflush(stdout);
+ 246:Core/Src/main.c ****         HAL_Delay(500);
+ 247:Core/Src/main.c **** 
+ 248:Core/Src/main.c ****         break;
+ 249:Core/Src/main.c **** 
+ 250:Core/Src/main.c ****     default:
+ 251:Core/Src/main.c ****         break;
+ 252:Core/Src/main.c ****     }
+ 253:Core/Src/main.c ****   }
+ 254:Core/Src/main.c **** }
+ 255:Core/Src/main.c **** 
+ 256:Core/Src/main.c **** /**
+ 257:Core/Src/main.c ****   * @brief System Clock Configuration
+ 258:Core/Src/main.c ****   * @retval None
+ 259:Core/Src/main.c ****   */
+ 260:Core/Src/main.c **** void SystemClock_Config(void)
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 6
 
 
- 261:Core/Src/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
- 262:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
- 263:Core/Src/main.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
- 264:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
- 265:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 266:Core/Src/main.c ****   {
- 267:Core/Src/main.c ****     Error_Handler();
- 268:Core/Src/main.c ****   }
- 269:Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
- 270:Core/Src/main.c ****   */
- 271:Core/Src/main.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
- 272:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 273:Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
- 274:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 275:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
- 276:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
- 277:Core/Src/main.c **** 
- 278:Core/Src/main.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
- 279:Core/Src/main.c ****   {
- 280:Core/Src/main.c ****     Error_Handler();
- 281:Core/Src/main.c ****   }
- 282:Core/Src/main.c **** }
- 283:Core/Src/main.c **** 
- 284:Core/Src/main.c **** /**
- 285:Core/Src/main.c ****   * @brief USART2 Initialization Function
- 286:Core/Src/main.c ****   * @param None
- 287:Core/Src/main.c ****   * @retval None
- 288:Core/Src/main.c ****   */
- 289:Core/Src/main.c **** static void MX_USART2_UART_Init(void)
- 290:Core/Src/main.c **** {
- 291:Core/Src/main.c **** 
- 292:Core/Src/main.c ****   /* USER CODE BEGIN USART2_Init 0 */
- 293:Core/Src/main.c **** 
- 294:Core/Src/main.c ****   /* USER CODE END USART2_Init 0 */
- 295:Core/Src/main.c **** 
- 296:Core/Src/main.c ****   /* USER CODE BEGIN USART2_Init 1 */
- 297:Core/Src/main.c **** 
- 298:Core/Src/main.c ****   /* USER CODE END USART2_Init 1 */
- 299:Core/Src/main.c ****   huart2.Instance = USART2;
- 300:Core/Src/main.c ****   huart2.Init.BaudRate = 115200;
- 301:Core/Src/main.c ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
- 302:Core/Src/main.c ****   huart2.Init.StopBits = UART_STOPBITS_1;
- 303:Core/Src/main.c ****   huart2.Init.Parity = UART_PARITY_NONE;
- 304:Core/Src/main.c ****   huart2.Init.Mode = UART_MODE_TX_RX;
- 305:Core/Src/main.c ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
- 306:Core/Src/main.c ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
- 307:Core/Src/main.c ****   if (HAL_UART_Init(&huart2) != HAL_OK)
- 308:Core/Src/main.c ****   {
- 309:Core/Src/main.c ****     Error_Handler();
- 310:Core/Src/main.c ****   }
- 311:Core/Src/main.c ****   /* USER CODE BEGIN USART2_Init 2 */
- 312:Core/Src/main.c **** 
- 313:Core/Src/main.c ****   /* USER CODE END USART2_Init 2 */
- 314:Core/Src/main.c **** 
- 315:Core/Src/main.c **** }
- 316:Core/Src/main.c **** 
- 317:Core/Src/main.c **** /**
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 7
+ 261:Core/Src/main.c **** {
+ 262:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 263:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 264:Core/Src/main.c **** 
+ 265:Core/Src/main.c ****   /** Configure the main internal regulator output voltage
+ 266:Core/Src/main.c ****   */
+ 267:Core/Src/main.c ****   __HAL_RCC_PWR_CLK_ENABLE();
+ 268:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
+ 269:Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
+ 270:Core/Src/main.c ****   * in the RCC_OscInitTypeDef structure.
+ 271:Core/Src/main.c ****   */
+ 272:Core/Src/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+ 273:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 274:Core/Src/main.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ 275:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+ 276:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 277:Core/Src/main.c ****   {
+ 278:Core/Src/main.c ****     Error_Handler();
+ 279:Core/Src/main.c ****   }
+ 280:Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
+ 281:Core/Src/main.c ****   */
+ 282:Core/Src/main.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+ 283:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 284:Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+ 285:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 286:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+ 287:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 288:Core/Src/main.c **** 
+ 289:Core/Src/main.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+ 290:Core/Src/main.c ****   {
+ 291:Core/Src/main.c ****     Error_Handler();
+ 292:Core/Src/main.c ****   }
+ 293:Core/Src/main.c **** }
+ 294:Core/Src/main.c **** 
+ 295:Core/Src/main.c **** /**
+ 296:Core/Src/main.c ****   * @brief USART2 Initialization Function
+ 297:Core/Src/main.c ****   * @param None
+ 298:Core/Src/main.c ****   * @retval None
+ 299:Core/Src/main.c ****   */
+ 300:Core/Src/main.c **** static void MX_USART2_UART_Init(void)
+ 301:Core/Src/main.c **** {
+ 302:Core/Src/main.c **** 
+ 303:Core/Src/main.c ****   /* USER CODE BEGIN USART2_Init 0 */
+ 304:Core/Src/main.c **** 
+ 305:Core/Src/main.c ****   /* USER CODE END USART2_Init 0 */
+ 306:Core/Src/main.c **** 
+ 307:Core/Src/main.c ****   /* USER CODE BEGIN USART2_Init 1 */
+ 308:Core/Src/main.c **** 
+ 309:Core/Src/main.c ****   /* USER CODE END USART2_Init 1 */
+ 310:Core/Src/main.c ****   huart2.Instance = USART2;
+ 311:Core/Src/main.c ****   huart2.Init.BaudRate = 115200;
+ 312:Core/Src/main.c ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
+ 313:Core/Src/main.c ****   huart2.Init.StopBits = UART_STOPBITS_1;
+ 314:Core/Src/main.c ****   huart2.Init.Parity = UART_PARITY_NONE;
+ 315:Core/Src/main.c ****   huart2.Init.Mode = UART_MODE_TX_RX;
+ 316:Core/Src/main.c ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 317:Core/Src/main.c ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 7
 
 
- 318:Core/Src/main.c ****   * @brief GPIO Initialization Function
- 319:Core/Src/main.c ****   * @param None
- 320:Core/Src/main.c ****   * @retval None
- 321:Core/Src/main.c ****   */
- 322:Core/Src/main.c **** static void MX_GPIO_Init(void)
- 323:Core/Src/main.c **** {
-  27              		.loc 1 323 0
+ 318:Core/Src/main.c ****   if (HAL_UART_Init(&huart2) != HAL_OK)
+ 319:Core/Src/main.c ****   {
+ 320:Core/Src/main.c ****     Error_Handler();
+ 321:Core/Src/main.c ****   }
+ 322:Core/Src/main.c ****   /* USER CODE BEGIN USART2_Init 2 */
+ 323:Core/Src/main.c **** 
+ 324:Core/Src/main.c ****   /* USER CODE END USART2_Init 2 */
+ 325:Core/Src/main.c **** 
+ 326:Core/Src/main.c **** }
+ 327:Core/Src/main.c **** 
+ 328:Core/Src/main.c **** /**
+ 329:Core/Src/main.c ****   * @brief GPIO Initialization Function
+ 330:Core/Src/main.c ****   * @param None
+ 331:Core/Src/main.c ****   * @retval None
+ 332:Core/Src/main.c ****   */
+ 333:Core/Src/main.c **** static void MX_GPIO_Init(void)
+ 334:Core/Src/main.c **** {
+  27              		.loc 1 334 0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 8
   30              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -376,10 +387,10 @@ ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 1
   33              	.LCFI0:
   34              		.cfi_def_cfa_offset 8
   35              	.LBB2:
- 324:Core/Src/main.c **** 
- 325:Core/Src/main.c ****   /* GPIO Ports Clock Enable */
- 326:Core/Src/main.c ****   __HAL_RCC_GPIOA_CLK_ENABLE();
-  36              		.loc 1 326 0
+ 335:Core/Src/main.c **** 
+ 336:Core/Src/main.c ****   /* GPIO Ports Clock Enable */
+ 337:Core/Src/main.c ****   __HAL_RCC_GPIOA_CLK_ENABLE();
+  36              		.loc 1 337 0
   37 0002 0023     		movs	r3, #0
   38 0004 0193     		str	r3, [sp, #4]
   39 0006 064B     		ldr	r3, .L3
@@ -391,9 +402,9 @@ ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 1
   45 0016 0193     		str	r3, [sp, #4]
   46 0018 019B     		ldr	r3, [sp, #4]
   47              	.LBE2:
- 327:Core/Src/main.c **** 
- 328:Core/Src/main.c **** }
-  48              		.loc 1 328 0
+ 338:Core/Src/main.c **** 
+ 339:Core/Src/main.c **** }
+  48              		.loc 1 339 0
   49 001a 02B0     		add	sp, sp, #8
   50              	.LCFI1:
   51              		.cfi_def_cfa_offset 0
@@ -407,68 +418,71 @@ ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 1
   59              	.LFE278:
   61              		.section	.text.MX_USART2_UART_Init,"ax",%progbits
   62              		.align	1
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 8
+
+
   63              		.syntax unified
   64              		.thumb
   65              		.thumb_func
   66              		.fpu fpv4-sp-d16
   68              	MX_USART2_UART_Init:
   69              	.LFB277:
- 290:Core/Src/main.c **** 
-  70              		.loc 1 290 0
+ 301:Core/Src/main.c **** 
+  70              		.loc 1 301 0
   71              		.cfi_startproc
   72              		@ args = 0, pretend = 0, frame = 0
   73              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 8
-
-
   74 0000 08B5     		push	{r3, lr}
   75              	.LCFI2:
   76              		.cfi_def_cfa_offset 8
   77              		.cfi_offset 3, -8
   78              		.cfi_offset 14, -4
- 299:Core/Src/main.c ****   huart2.Init.BaudRate = 115200;
-  79              		.loc 1 299 0
+ 310:Core/Src/main.c ****   huart2.Init.BaudRate = 115200;
+  79              		.loc 1 310 0
   80 0002 0A48     		ldr	r0, .L9
   81 0004 0A4B     		ldr	r3, .L9+4
   82 0006 0360     		str	r3, [r0]
- 300:Core/Src/main.c ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
-  83              		.loc 1 300 0
+ 311:Core/Src/main.c ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  83              		.loc 1 311 0
   84 0008 4FF4E133 		mov	r3, #115200
   85 000c 4360     		str	r3, [r0, #4]
- 301:Core/Src/main.c ****   huart2.Init.StopBits = UART_STOPBITS_1;
-  86              		.loc 1 301 0
+ 312:Core/Src/main.c ****   huart2.Init.StopBits = UART_STOPBITS_1;
+  86              		.loc 1 312 0
   87 000e 0023     		movs	r3, #0
   88 0010 8360     		str	r3, [r0, #8]
- 302:Core/Src/main.c ****   huart2.Init.Parity = UART_PARITY_NONE;
-  89              		.loc 1 302 0
+ 313:Core/Src/main.c ****   huart2.Init.Parity = UART_PARITY_NONE;
+  89              		.loc 1 313 0
   90 0012 C360     		str	r3, [r0, #12]
- 303:Core/Src/main.c ****   huart2.Init.Mode = UART_MODE_TX_RX;
-  91              		.loc 1 303 0
+ 314:Core/Src/main.c ****   huart2.Init.Mode = UART_MODE_TX_RX;
+  91              		.loc 1 314 0
   92 0014 0361     		str	r3, [r0, #16]
- 304:Core/Src/main.c ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  93              		.loc 1 304 0
+ 315:Core/Src/main.c ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  93              		.loc 1 315 0
   94 0016 0C22     		movs	r2, #12
   95 0018 4261     		str	r2, [r0, #20]
- 305:Core/Src/main.c ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
-  96              		.loc 1 305 0
+ 316:Core/Src/main.c ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  96              		.loc 1 316 0
   97 001a 8361     		str	r3, [r0, #24]
- 306:Core/Src/main.c ****   if (HAL_UART_Init(&huart2) != HAL_OK)
-  98              		.loc 1 306 0
+ 317:Core/Src/main.c ****   if (HAL_UART_Init(&huart2) != HAL_OK)
+  98              		.loc 1 317 0
   99 001c C361     		str	r3, [r0, #28]
- 307:Core/Src/main.c ****   {
- 100              		.loc 1 307 0
+ 318:Core/Src/main.c ****   {
+ 100              		.loc 1 318 0
  101 001e FFF7FEFF 		bl	HAL_UART_Init
  102              	.LVL0:
  103 0022 00B9     		cbnz	r0, .L8
  104              	.L5:
  105 0024 08BD     		pop	{r3, pc}
  106              	.L8:
- 309:Core/Src/main.c ****   }
- 107              		.loc 1 309 0
+ 320:Core/Src/main.c ****   }
+ 107              		.loc 1 320 0
  108 0026 FFF7FEFF 		bl	Error_Handler
  109              	.LVL1:
- 315:Core/Src/main.c **** 
- 110              		.loc 1 315 0
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 9
+
+
+ 326:Core/Src/main.c **** 
+ 110              		.loc 1 326 0
  111 002a FBE7     		b	.L5
  112              	.L10:
  113              		.align	2
@@ -478,9 +492,6 @@ ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 1
  117              		.cfi_endproc
  118              	.LFE277:
  120              		.section	.text.SystemClock_Config,"ax",%progbits
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 9
-
-
  121              		.align	1
  122              		.global	SystemClock_Config
  123              		.syntax unified
@@ -489,8 +500,8 @@ ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 1
  126              		.fpu fpv4-sp-d16
  128              	SystemClock_Config:
  129              	.LFB276:
- 250:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
- 130              		.loc 1 250 0
+ 261:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 130              		.loc 1 261 0
  131              		.cfi_startproc
  132              		@ args = 0, pretend = 0, frame = 80
  133              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -501,15 +512,15 @@ ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 1
  138 0002 95B0     		sub	sp, sp, #84
  139              	.LCFI4:
  140              		.cfi_def_cfa_offset 88
- 251:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 141              		.loc 1 251 0
+ 262:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 141              		.loc 1 262 0
  142 0004 3022     		movs	r2, #48
  143 0006 0021     		movs	r1, #0
  144 0008 08A8     		add	r0, sp, #32
  145 000a FFF7FEFF 		bl	memset
  146              	.LVL2:
- 252:Core/Src/main.c **** 
- 147              		.loc 1 252 0
+ 263:Core/Src/main.c **** 
+ 147              		.loc 1 263 0
  148 000e 0023     		movs	r3, #0
  149 0010 0393     		str	r3, [sp, #12]
  150 0012 0493     		str	r3, [sp, #16]
@@ -517,8 +528,8 @@ ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 1
  152 0016 0693     		str	r3, [sp, #24]
  153 0018 0793     		str	r3, [sp, #28]
  154              	.LBB3:
- 256:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
- 155              		.loc 1 256 0
+ 267:Core/Src/main.c ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
+ 155              		.loc 1 267 0
  156 001a 0193     		str	r3, [sp, #4]
  157 001c 1A4A     		ldr	r2, .L17
  158 001e 116C     		ldr	r1, [r2, #64]
@@ -527,97 +538,97 @@ ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 1
  161 0026 126C     		ldr	r2, [r2, #64]
  162 0028 02F08052 		and	r2, r2, #268435456
  163 002c 0192     		str	r2, [sp, #4]
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 10
+
+
  164 002e 019A     		ldr	r2, [sp, #4]
  165              	.LBE3:
  166              	.LBB4:
- 257:Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
- 167              		.loc 1 257 0
+ 268:Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
+ 167              		.loc 1 268 0
  168 0030 0293     		str	r3, [sp, #8]
  169 0032 1649     		ldr	r1, .L17+4
  170 0034 0A68     		ldr	r2, [r1]
  171 0036 22F44042 		bic	r2, r2, #49152
  172 003a 42F40042 		orr	r2, r2, #32768
  173 003e 0A60     		str	r2, [r1]
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 10
-
-
  174 0040 0A68     		ldr	r2, [r1]
  175 0042 02F44042 		and	r2, r2, #49152
  176 0046 0292     		str	r2, [sp, #8]
  177 0048 029A     		ldr	r2, [sp, #8]
  178              	.LBE4:
- 261:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
- 179              		.loc 1 261 0
+ 272:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 179              		.loc 1 272 0
  180 004a 0222     		movs	r2, #2
  181 004c 0892     		str	r2, [sp, #32]
- 262:Core/Src/main.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
- 182              		.loc 1 262 0
+ 273:Core/Src/main.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ 182              		.loc 1 273 0
  183 004e 0122     		movs	r2, #1
  184 0050 0B92     		str	r2, [sp, #44]
- 263:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
- 185              		.loc 1 263 0
+ 274:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+ 185              		.loc 1 274 0
  186 0052 1022     		movs	r2, #16
  187 0054 0C92     		str	r2, [sp, #48]
- 264:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 188              		.loc 1 264 0
+ 275:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 188              		.loc 1 275 0
  189 0056 0E93     		str	r3, [sp, #56]
- 265:Core/Src/main.c ****   {
- 190              		.loc 1 265 0
+ 276:Core/Src/main.c ****   {
+ 190              		.loc 1 276 0
  191 0058 08A8     		add	r0, sp, #32
  192 005a FFF7FEFF 		bl	HAL_RCC_OscConfig
  193              	.LVL3:
  194 005e 68B9     		cbnz	r0, .L15
  195              	.L12:
- 271:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 196              		.loc 1 271 0
+ 282:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 196              		.loc 1 282 0
  197 0060 0F23     		movs	r3, #15
  198 0062 0393     		str	r3, [sp, #12]
- 273:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 199              		.loc 1 273 0
+ 284:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 199              		.loc 1 284 0
  200 0064 0021     		movs	r1, #0
  201 0066 0491     		str	r1, [sp, #16]
- 274:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
- 202              		.loc 1 274 0
+ 285:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+ 202              		.loc 1 285 0
  203 0068 0591     		str	r1, [sp, #20]
- 275:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
- 204              		.loc 1 275 0
+ 286:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 204              		.loc 1 286 0
  205 006a 0691     		str	r1, [sp, #24]
- 276:Core/Src/main.c **** 
- 206              		.loc 1 276 0
+ 287:Core/Src/main.c **** 
+ 206              		.loc 1 287 0
  207 006c 0791     		str	r1, [sp, #28]
- 278:Core/Src/main.c ****   {
- 208              		.loc 1 278 0
+ 289:Core/Src/main.c ****   {
+ 208              		.loc 1 289 0
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 11
+
+
  209 006e 03A8     		add	r0, sp, #12
  210 0070 FFF7FEFF 		bl	HAL_RCC_ClockConfig
  211              	.LVL4:
  212 0074 28B9     		cbnz	r0, .L16
  213              	.L11:
- 282:Core/Src/main.c **** 
- 214              		.loc 1 282 0
+ 293:Core/Src/main.c **** 
+ 214              		.loc 1 293 0
  215 0076 15B0     		add	sp, sp, #84
  216              	.LCFI5:
  217              		.cfi_remember_state
  218              		.cfi_def_cfa_offset 4
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 11
-
-
  219              		@ sp needed
  220 0078 5DF804FB 		ldr	pc, [sp], #4
  221              	.L15:
  222              	.LCFI6:
  223              		.cfi_restore_state
- 267:Core/Src/main.c ****   }
- 224              		.loc 1 267 0
+ 278:Core/Src/main.c ****   }
+ 224              		.loc 1 278 0
  225 007c FFF7FEFF 		bl	Error_Handler
  226              	.LVL5:
  227 0080 EEE7     		b	.L12
  228              	.L16:
- 280:Core/Src/main.c ****   }
- 229              		.loc 1 280 0
+ 291:Core/Src/main.c ****   }
+ 229              		.loc 1 291 0
  230 0082 FFF7FEFF 		bl	Error_Handler
  231              	.LVL6:
- 282:Core/Src/main.c **** 
- 232              		.loc 1 282 0
+ 293:Core/Src/main.c **** 
+ 232              		.loc 1 293 0
  233 0086 F6E7     		b	.L11
  234              	.L18:
  235              		.align	2
@@ -626,1565 +637,1207 @@ ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 1
  238 008c 00700040 		.word	1073770496
  239              		.cfi_endproc
  240              	.LFE276:
- 242              		.section	.text.print,"ax",%progbits
+ 242              		.section	.text.wifi_get_AP_settings,"ax",%progbits
  243              		.align	1
- 244              		.global	print
+ 244              		.global	wifi_get_AP_settings
  245              		.syntax unified
  246              		.thumb
  247              		.thumb_func
  248              		.fpu fpv4-sp-d16
- 250              	print:
- 251              	.LFB280:
- 329:Core/Src/main.c **** 
- 330:Core/Src/main.c **** /* USER CODE BEGIN 4 */
- 331:Core/Src/main.c **** 
- 332:Core/Src/main.c **** WiFi_Status_t wifi_get_AP_settings(void)
- 333:Core/Src/main.c **** {
- 334:Core/Src/main.c ****   WiFi_Status_t status = WiFi_MODULE_SUCCESS;
- 335:Core/Src/main.c ****   print("\r\n\n/********************************************************\n");
- 336:Core/Src/main.c ****   print("\r *                                                      *\n");
- 337:Core/Src/main.c ****   print("\r * X-CUBE-WIFI1 Expansion Software v3.1.1               *\n");
- 338:Core/Src/main.c ****   print("\r * X-NUCLEO-IDW0xx1 Wi-Fi Mini-AP Configuration.        *\n");
- 339:Core/Src/main.c ****   print("\r * HTTP-Request Example                                 *\n");
- 340:Core/Src/main.c ****   print("\r *                                                      *\n");
- 341:Core/Src/main.c ****   print("\r *******************************************************/\n");
- 342:Core/Src/main.c ****   print("\r\nDo you want to setup SSID?(y/n):");
- 343:Core/Src/main.c ****   fflush(stdout);
- 344:Core/Src/main.c ****   scanf("%s",console_input);
- 345:Core/Src/main.c ****   //console_input[0] = 'n';
- 346:Core/Src/main.c ****   print("\r\n");
- 347:Core/Src/main.c **** 
- 348:Core/Src/main.c ****   //HAL_UART_Receive(UartMsgHandle, (uint8_t *)console_input, 1, 100000);
- 349:Core/Src/main.c ****   if(console_input[0]=='y') 
- 350:Core/Src/main.c ****         {
- 351:Core/Src/main.c ****               set_AP_config = WIFI_TRUE;  
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 12
-
-
- 352:Core/Src/main.c ****               print("Enter the SSID:");
- 353:Core/Src/main.c ****               fflush(stdout);
- 354:Core/Src/main.c **** 
- 355:Core/Src/main.c ****               console_count=0;
- 356:Core/Src/main.c ****               console_count=scanf("%s",console_ssid);
- 357:Core/Src/main.c ****               print("\r\n");
- 358:Core/Src/main.c **** 
- 359:Core/Src/main.c ****                 if(console_count==39) 
- 360:Core/Src/main.c ****                     {
- 361:Core/Src/main.c ****                         print("Exceeded number of ssid characters permitted");
- 362:Core/Src/main.c ****                         return WiFi_NOT_SUPPORTED;
- 363:Core/Src/main.c ****                     }    
- 364:Core/Src/main.c ****               
- 365:Core/Src/main.c ****               //print("entered =%s\r\n",console_ssid);
- 366:Core/Src/main.c ****               print("Enter the password:");
- 367:Core/Src/main.c ****               fflush(stdout);
- 368:Core/Src/main.c ****               console_count=0;
- 369:Core/Src/main.c ****               
- 370:Core/Src/main.c ****               console_count=scanf("%s",console_psk);
- 371:Core/Src/main.c ****               print("\r\n");
- 372:Core/Src/main.c ****               //print("entered =%s\r\n",console_psk);
- 373:Core/Src/main.c ****                 if(console_count==19) 
- 374:Core/Src/main.c ****                     {
- 375:Core/Src/main.c ****                         print("Exceeded number of psk characters permitted");
- 376:Core/Src/main.c ****                         return WiFi_NOT_SUPPORTED;
- 377:Core/Src/main.c ****                     }    
- 378:Core/Src/main.c ****               print("Enter the encryption mode(0:Open, 1:WEP, 2:WPA2/WPA2-Personal):"); 
- 379:Core/Src/main.c ****               fflush(stdout);
- 380:Core/Src/main.c ****              scanf("%s",console_input);
- 381:Core/Src/main.c ****              print("\r\n");
- 382:Core/Src/main.c ****               //print("entered =%s\r\n",console_input);
- 383:Core/Src/main.c ****               switch(console_input[0])
- 384:Core/Src/main.c ****               {
- 385:Core/Src/main.c ****                 case '0':
- 386:Core/Src/main.c ****                   mode = None;
- 387:Core/Src/main.c ****                   break;
- 388:Core/Src/main.c ****                 case '1':
- 389:Core/Src/main.c ****                   mode = WEP;
- 390:Core/Src/main.c ****                   break;
- 391:Core/Src/main.c ****                 case '2':
- 392:Core/Src/main.c ****                   mode = WPA_Personal;
- 393:Core/Src/main.c ****                   break;
- 394:Core/Src/main.c ****                 default:
- 395:Core/Src/main.c ****                   print("\r\nWrong Entry. Priv Mode is not compatible\n");
- 396:Core/Src/main.c ****                   return WiFi_NOT_SUPPORTED;              
- 397:Core/Src/main.c ****               }
- 398:Core/Src/main.c ****               
- 399:Core/Src/main.c ****               memcpy(console_host, (const char*)hostname, strlen((char*)hostname));
- 400:Core/Src/main.c ****               
- 401:Core/Src/main.c ****         } else 
- 402:Core/Src/main.c ****             {
- 403:Core/Src/main.c ****                 print("\r\n\nModule will connect with default settings.");
- 404:Core/Src/main.c ****                 memcpy(console_ssid, (const char*)ssid, strlen((char*)ssid));
- 405:Core/Src/main.c ****                 memcpy(console_psk, (const char*)seckey, strlen((char*)seckey));
- 406:Core/Src/main.c ****                 memcpy(console_host, (const char*)hostname, strlen((char*)hostname));
- 407:Core/Src/main.c ****             }
- 408:Core/Src/main.c ****   
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 13
-
-
- 409:Core/Src/main.c ****   print("\r\n/*************************************************************\r\n");
- 410:Core/Src/main.c ****   print("\r\n * Configuration Complete                                     \r\n");
- 411:Core/Src/main.c ****   print("\r\n * Please make sure a Server is running at given hostname     \r\n");
- 412:Core/Src/main.c ****   print("\r\n *************************************************************\r\n");
- 413:Core/Src/main.c ****   
- 414:Core/Src/main.c ****   return status;
- 415:Core/Src/main.c **** }
- 416:Core/Src/main.c **** 
- 417:Core/Src/main.c **** 
- 418:Core/Src/main.c **** /******** Wi-Fi Indication User Callback *********/
- 419:Core/Src/main.c **** void print(char msg[]) {
- 252              		.loc 1 419 0
+ 250              	wifi_get_AP_settings:
+ 251              	.LFB279:
+ 340:Core/Src/main.c **** 
+ 341:Core/Src/main.c **** /* USER CODE BEGIN 4 */
+ 342:Core/Src/main.c **** 
+ 343:Core/Src/main.c **** WiFi_Status_t wifi_get_AP_settings(void)
+ 344:Core/Src/main.c **** {
+ 252              		.loc 1 344 0
  253              		.cfi_startproc
- 254              		@ args = 0, pretend = 0, frame = 104
+ 254              		@ args = 0, pretend = 0, frame = 0
  255              		@ frame_needed = 0, uses_anonymous_args = 0
- 256              	.LVL7:
- 257 0000 00B5     		push	{lr}
- 258              	.LCFI7:
- 259              		.cfi_def_cfa_offset 4
+ 256 0000 10B5     		push	{r4, lr}
+ 257              	.LCFI7:
+ 258              		.cfi_def_cfa_offset 8
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 12
+
+
+ 259              		.cfi_offset 4, -8
  260              		.cfi_offset 14, -4
- 261 0002 9BB0     		sub	sp, sp, #108
- 262              	.LCFI8:
- 263              		.cfi_def_cfa_offset 112
- 420:Core/Src/main.c **** 	unsigned char message[MAX_MSG_SIZE];
- 421:Core/Src/main.c **** 	strncpy(message, msg, MAX_MSG_SIZE);
- 264              		.loc 1 421 0
- 265 0004 6422     		movs	r2, #100
- 266 0006 0146     		mov	r1, r0
- 267 0008 01A8     		add	r0, sp, #4
- 268              	.LVL8:
- 269 000a FFF7FEFF 		bl	strncpy
+ 261              	.LVL7:
+ 345:Core/Src/main.c ****   WiFi_Status_t status = WiFi_MODULE_SUCCESS;
+ 346:Core/Src/main.c ****   printf("\r\n\n/********************************************************\n");
+ 262              		.loc 1 346 0
+ 263 0002 2548     		ldr	r0, .L21
+ 264 0004 FFF7FEFF 		bl	puts
+ 265              	.LVL8:
+ 347:Core/Src/main.c ****   printf("\r *                                                      *\n");
+ 266              		.loc 1 347 0
+ 267 0008 244C     		ldr	r4, .L21+4
+ 268 000a 2046     		mov	r0, r4
+ 269 000c FFF7FEFF 		bl	puts
  270              	.LVL9:
- 422:Core/Src/main.c ****     HAL_UART_Transmit(&huart2, message, MAX_MSG_SIZE, 1000);
- 271              		.loc 1 422 0
- 272 000e 4FF47A73 		mov	r3, #1000
- 273 0012 6422     		movs	r2, #100
- 274 0014 01A9     		add	r1, sp, #4
- 275 0016 0348     		ldr	r0, .L21
- 276 0018 FFF7FEFF 		bl	HAL_UART_Transmit
- 277              	.LVL10:
- 423:Core/Src/main.c **** }
- 278              		.loc 1 423 0
- 279 001c 1BB0     		add	sp, sp, #108
- 280              	.LCFI9:
- 281              		.cfi_def_cfa_offset 4
- 282              		@ sp needed
- 283 001e 5DF804FB 		ldr	pc, [sp], #4
- 284              	.L22:
- 285 0022 00BF     		.align	2
- 286              	.L21:
- 287 0024 00000000 		.word	huart2
- 288              		.cfi_endproc
- 289              	.LFE280:
- 291              		.section	.text.wifi_get_AP_settings,"ax",%progbits
- 292              		.align	1
- 293              		.global	wifi_get_AP_settings
- 294              		.syntax unified
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 14
+ 348:Core/Src/main.c ****   printf("\r * X-CUBE-WIFI1 Expansion Software v3.1.1               *\n");
+ 271              		.loc 1 348 0
+ 272 0010 2348     		ldr	r0, .L21+8
+ 273 0012 FFF7FEFF 		bl	puts
+ 274              	.LVL10:
+ 349:Core/Src/main.c ****   printf("\r * X-NUCLEO-IDW0xx1 Wi-Fi Mini-AP Configuration.        *\n");
+ 275              		.loc 1 349 0
+ 276 0016 2348     		ldr	r0, .L21+12
+ 277 0018 FFF7FEFF 		bl	puts
+ 278              	.LVL11:
+ 350:Core/Src/main.c ****   printf("\r * HTTP-Request Example                                 *\n");
+ 279              		.loc 1 350 0
+ 280 001c 2248     		ldr	r0, .L21+16
+ 281 001e FFF7FEFF 		bl	puts
+ 282              	.LVL12:
+ 351:Core/Src/main.c ****   printf("\r *                                                      *\n");
+ 283              		.loc 1 351 0
+ 284 0022 2046     		mov	r0, r4
+ 285 0024 FFF7FEFF 		bl	puts
+ 286              	.LVL13:
+ 352:Core/Src/main.c ****   printf("\r *******************************************************/\n");
+ 287              		.loc 1 352 0
+ 288 0028 2048     		ldr	r0, .L21+20
+ 289 002a FFF7FEFF 		bl	puts
+ 290              	.LVL14:
+ 353:Core/Src/main.c ****   fflush(stdout);
+ 291              		.loc 1 353 0
+ 292 002e 204B     		ldr	r3, .L21+24
+ 293 0030 1B68     		ldr	r3, [r3]
+ 294 0032 9868     		ldr	r0, [r3, #8]
+ 295 0034 FFF7FEFF 		bl	fflush
+ 296              	.LVL15:
+ 354:Core/Src/main.c ****   printf("\r\n\nModule will connect with default settings.");
+ 297              		.loc 1 354 0
+ 298 0038 1E48     		ldr	r0, .L21+28
+ 299 003a FFF7FEFF 		bl	printf
+ 300              	.LVL16:
+ 355:Core/Src/main.c ****   
+ 356:Core/Src/main.c ****   memcpy(console_ssid, (const char*)ssid, strlen((char*)ssid));
+ 301              		.loc 1 356 0
+ 302 003e 1E4B     		ldr	r3, .L21+32
+ 303 0040 1C68     		ldr	r4, [r3]
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 13
 
 
- 295              		.thumb
- 296              		.thumb_func
- 297              		.fpu fpv4-sp-d16
- 299              	wifi_get_AP_settings:
- 300              	.LFB279:
- 333:Core/Src/main.c ****   WiFi_Status_t status = WiFi_MODULE_SUCCESS;
- 301              		.loc 1 333 0
- 302              		.cfi_startproc
- 303              		@ args = 0, pretend = 0, frame = 0
- 304              		@ frame_needed = 0, uses_anonymous_args = 0
- 305 0000 10B5     		push	{r4, lr}
- 306              	.LCFI10:
- 307              		.cfi_def_cfa_offset 8
- 308              		.cfi_offset 4, -8
- 309              		.cfi_offset 14, -4
- 310              	.LVL11:
- 335:Core/Src/main.c ****   print("\r *                                                      *\n");
- 311              		.loc 1 335 0
- 312 0002 6148     		ldr	r0, .L40
- 313 0004 FFF7FEFF 		bl	print
- 314              	.LVL12:
- 336:Core/Src/main.c ****   print("\r * X-CUBE-WIFI1 Expansion Software v3.1.1               *\n");
- 315              		.loc 1 336 0
- 316 0008 604C     		ldr	r4, .L40+4
- 317 000a 2046     		mov	r0, r4
- 318 000c FFF7FEFF 		bl	print
- 319              	.LVL13:
- 337:Core/Src/main.c ****   print("\r * X-NUCLEO-IDW0xx1 Wi-Fi Mini-AP Configuration.        *\n");
- 320              		.loc 1 337 0
- 321 0010 5F48     		ldr	r0, .L40+8
- 322 0012 FFF7FEFF 		bl	print
- 323              	.LVL14:
- 338:Core/Src/main.c ****   print("\r * HTTP-Request Example                                 *\n");
- 324              		.loc 1 338 0
- 325 0016 5F48     		ldr	r0, .L40+12
- 326 0018 FFF7FEFF 		bl	print
- 327              	.LVL15:
- 339:Core/Src/main.c ****   print("\r *                                                      *\n");
- 328              		.loc 1 339 0
- 329 001c 5E48     		ldr	r0, .L40+16
- 330 001e FFF7FEFF 		bl	print
- 331              	.LVL16:
- 340:Core/Src/main.c ****   print("\r *******************************************************/\n");
- 332              		.loc 1 340 0
- 333 0022 2046     		mov	r0, r4
- 334 0024 FFF7FEFF 		bl	print
- 335              	.LVL17:
- 341:Core/Src/main.c ****   print("\r\nDo you want to setup SSID?(y/n):");
- 336              		.loc 1 341 0
- 337 0028 5C48     		ldr	r0, .L40+20
- 338 002a FFF7FEFF 		bl	print
- 339              	.LVL18:
- 342:Core/Src/main.c ****   fflush(stdout);
- 340              		.loc 1 342 0
- 341 002e 5C48     		ldr	r0, .L40+24
- 342 0030 FFF7FEFF 		bl	print
- 343              	.LVL19:
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 15
+ 304 0042 2046     		mov	r0, r4
+ 305 0044 FFF7FEFF 		bl	strlen
+ 306              	.LVL17:
+ 307 0048 0246     		mov	r2, r0
+ 308 004a 2146     		mov	r1, r4
+ 309 004c 1B48     		ldr	r0, .L21+36
+ 310 004e FFF7FEFF 		bl	memcpy
+ 311              	.LVL18:
+ 357:Core/Src/main.c ****   memcpy(console_psk, (const char*)seckey, strlen((char*)seckey));
+ 312              		.loc 1 357 0
+ 313 0052 1B4B     		ldr	r3, .L21+40
+ 314 0054 1C68     		ldr	r4, [r3]
+ 315 0056 2046     		mov	r0, r4
+ 316 0058 FFF7FEFF 		bl	strlen
+ 317              	.LVL19:
+ 318 005c 0246     		mov	r2, r0
+ 319 005e 2146     		mov	r1, r4
+ 320 0060 1848     		ldr	r0, .L21+44
+ 321 0062 FFF7FEFF 		bl	memcpy
+ 322              	.LVL20:
+ 358:Core/Src/main.c ****   memcpy(console_host, (const char*)hostname, strlen((char*)hostname));
+ 323              		.loc 1 358 0
+ 324 0066 184B     		ldr	r3, .L21+48
+ 325 0068 1C68     		ldr	r4, [r3]
+ 326 006a 2046     		mov	r0, r4
+ 327 006c FFF7FEFF 		bl	strlen
+ 328              	.LVL21:
+ 329 0070 0246     		mov	r2, r0
+ 330 0072 2146     		mov	r1, r4
+ 331 0074 1548     		ldr	r0, .L21+52
+ 332 0076 FFF7FEFF 		bl	memcpy
+ 333              	.LVL22:
+ 359:Core/Src/main.c ****   
+ 360:Core/Src/main.c ****   printf("\r\n/*************************************************************\r\n");
+ 334              		.loc 1 360 0
+ 335 007a 1548     		ldr	r0, .L21+56
+ 336 007c FFF7FEFF 		bl	puts
+ 337              	.LVL23:
+ 361:Core/Src/main.c ****   printf("\r\n * Configuration Complete                                     \r\n");
+ 338              		.loc 1 361 0
+ 339 0080 1448     		ldr	r0, .L21+60
+ 340 0082 FFF7FEFF 		bl	puts
+ 341              	.LVL24:
+ 362:Core/Src/main.c ****   printf("\r\n * Please make sure a Server is running at given hostname     \r\n");
+ 342              		.loc 1 362 0
+ 343 0086 1448     		ldr	r0, .L21+64
+ 344 0088 FFF7FEFF 		bl	puts
+ 345              	.LVL25:
+ 363:Core/Src/main.c ****   printf("\r\n *************************************************************\r\n");
+ 346              		.loc 1 363 0
+ 347 008c 1348     		ldr	r0, .L21+68
+ 348 008e FFF7FEFF 		bl	puts
+ 349              	.LVL26:
+ 364:Core/Src/main.c ****   
+ 365:Core/Src/main.c ****   return status;
+ 366:Core/Src/main.c **** }
+ 350              		.loc 1 366 0
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 14
 
 
- 343:Core/Src/main.c ****   scanf("%s",console_input);
- 344              		.loc 1 343 0
- 345 0034 5B4B     		ldr	r3, .L40+28
- 346 0036 1B68     		ldr	r3, [r3]
- 347 0038 9868     		ldr	r0, [r3, #8]
- 348 003a FFF7FEFF 		bl	fflush
- 349              	.LVL20:
- 344:Core/Src/main.c ****   //console_input[0] = 'n';
- 350              		.loc 1 344 0
- 351 003e 5A4C     		ldr	r4, .L40+32
- 352 0040 2146     		mov	r1, r4
- 353 0042 5A48     		ldr	r0, .L40+36
- 354 0044 FFF7FEFF 		bl	scanf
- 355              	.LVL21:
- 346:Core/Src/main.c **** 
- 356              		.loc 1 346 0
- 357 0048 5948     		ldr	r0, .L40+40
- 358 004a FFF7FEFF 		bl	print
- 359              	.LVL22:
- 349:Core/Src/main.c ****         {
- 360              		.loc 1 349 0
- 361 004e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 362 0050 792B     		cmp	r3, #121
- 363 0052 2ED0     		beq	.L36
- 403:Core/Src/main.c ****                 memcpy(console_ssid, (const char*)ssid, strlen((char*)ssid));
- 364              		.loc 1 403 0
- 365 0054 5748     		ldr	r0, .L40+44
- 366 0056 FFF7FEFF 		bl	print
- 367              	.LVL23:
- 404:Core/Src/main.c ****                 memcpy(console_psk, (const char*)seckey, strlen((char*)seckey));
- 368              		.loc 1 404 0
- 369 005a 574B     		ldr	r3, .L40+48
- 370 005c 1C68     		ldr	r4, [r3]
- 371 005e 2046     		mov	r0, r4
- 372 0060 FFF7FEFF 		bl	strlen
- 373              	.LVL24:
- 374 0064 0246     		mov	r2, r0
- 375 0066 2146     		mov	r1, r4
- 376 0068 5448     		ldr	r0, .L40+52
- 377 006a FFF7FEFF 		bl	memcpy
- 378              	.LVL25:
- 405:Core/Src/main.c ****                 memcpy(console_host, (const char*)hostname, strlen((char*)hostname));
- 379              		.loc 1 405 0
- 380 006e 544B     		ldr	r3, .L40+56
- 381 0070 1C68     		ldr	r4, [r3]
- 382 0072 2046     		mov	r0, r4
- 383 0074 FFF7FEFF 		bl	strlen
- 384              	.LVL26:
- 385 0078 0246     		mov	r2, r0
- 386 007a 2146     		mov	r1, r4
- 387 007c 5148     		ldr	r0, .L40+60
- 388 007e FFF7FEFF 		bl	memcpy
- 389              	.LVL27:
- 406:Core/Src/main.c ****             }
- 390              		.loc 1 406 0
- 391 0082 514B     		ldr	r3, .L40+64
- 392 0084 1C68     		ldr	r4, [r3]
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 16
-
-
- 393 0086 2046     		mov	r0, r4
- 394 0088 FFF7FEFF 		bl	strlen
- 395              	.LVL28:
- 396 008c 0246     		mov	r2, r0
- 397 008e 2146     		mov	r1, r4
- 398 0090 4E48     		ldr	r0, .L40+68
- 399 0092 FFF7FEFF 		bl	memcpy
- 400              	.LVL29:
- 401              	.L33:
- 409:Core/Src/main.c ****   print("\r\n * Configuration Complete                                     \r\n");
- 402              		.loc 1 409 0
- 403 0096 4E48     		ldr	r0, .L40+72
- 404 0098 FFF7FEFF 		bl	print
+ 351 0092 0020     		movs	r0, #0
+ 352 0094 10BD     		pop	{r4, pc}
+ 353              	.L22:
+ 354 0096 00BF     		.align	2
+ 355              	.L21:
+ 356 0098 00000000 		.word	.LC0
+ 357 009c 40000000 		.word	.LC1
+ 358 00a0 7C000000 		.word	.LC2
+ 359 00a4 B8000000 		.word	.LC3
+ 360 00a8 F4000000 		.word	.LC4
+ 361 00ac 30010000 		.word	.LC5
+ 362 00b0 00000000 		.word	_impure_ptr
+ 363 00b4 6C010000 		.word	.LC6
+ 364 00b8 00000000 		.word	.LANCHOR0
+ 365 00bc 00000000 		.word	console_ssid
+ 366 00c0 00000000 		.word	.LANCHOR1
+ 367 00c4 00000000 		.word	console_psk
+ 368 00c8 00000000 		.word	.LANCHOR2
+ 369 00cc 00000000 		.word	console_host
+ 370 00d0 9C010000 		.word	.LC7
+ 371 00d4 E0010000 		.word	.LC8
+ 372 00d8 24020000 		.word	.LC9
+ 373 00dc 68020000 		.word	.LC10
+ 374              		.cfi_endproc
+ 375              	.LFE279:
+ 377              		.section	.text.main,"ax",%progbits
+ 378              		.align	1
+ 379              		.global	main
+ 380              		.syntax unified
+ 381              		.thumb
+ 382              		.thumb_func
+ 383              		.fpu fpv4-sp-d16
+ 385              	main:
+ 386              	.LFB275:
+ 110:Core/Src/main.c **** 	
+ 387              		.loc 1 110 0
+ 388              		.cfi_startproc
+ 389              		@ args = 0, pretend = 0, frame = 0
+ 390              		@ frame_needed = 0, uses_anonymous_args = 0
+ 391 0000 10B5     		push	{r4, lr}
+ 392              	.LCFI8:
+ 393              		.cfi_def_cfa_offset 8
+ 394              		.cfi_offset 4, -8
+ 395              		.cfi_offset 14, -4
+ 396              	.LVL27:
+ 118:Core/Src/main.c ****   SystemClock_Config();
+ 397              		.loc 1 118 0
+ 398 0002 FFF7FEFF 		bl	HAL_Init
+ 399              	.LVL28:
+ 119:Core/Src/main.c **** 
+ 400              		.loc 1 119 0
+ 401 0006 FFF7FEFF 		bl	SystemClock_Config
+ 402              	.LVL29:
+ 122:Core/Src/main.c ****   MX_USART2_UART_Init();
+ 403              		.loc 1 122 0
+ 404 000a FFF7FEFF 		bl	MX_GPIO_Init
  405              	.LVL30:
- 410:Core/Src/main.c ****   print("\r\n * Please make sure a Server is running at given hostname     \r\n");
- 406              		.loc 1 410 0
- 407 009c 4D48     		ldr	r0, .L40+76
- 408 009e FFF7FEFF 		bl	print
- 409              	.LVL31:
- 411:Core/Src/main.c ****   print("\r\n *************************************************************\r\n");
- 410              		.loc 1 411 0
- 411 00a2 4D48     		ldr	r0, .L40+80
- 412 00a4 FFF7FEFF 		bl	print
- 413              	.LVL32:
- 412:Core/Src/main.c ****   
- 414              		.loc 1 412 0
- 415 00a8 4C48     		ldr	r0, .L40+84
- 416 00aa FFF7FEFF 		bl	print
- 417              	.LVL33:
- 414:Core/Src/main.c **** }
- 418              		.loc 1 414 0
- 419 00ae 0020     		movs	r0, #0
- 415:Core/Src/main.c **** 
- 420              		.loc 1 415 0
- 421 00b0 10BD     		pop	{r4, pc}
- 422              	.L36:
- 351:Core/Src/main.c ****               print("Enter the SSID:");
- 423              		.loc 1 351 0
- 424 00b2 0122     		movs	r2, #1
- 425 00b4 4A4B     		ldr	r3, .L40+88
- 426 00b6 1A70     		strb	r2, [r3]
- 352:Core/Src/main.c ****               fflush(stdout);
- 427              		.loc 1 352 0
- 428 00b8 4A48     		ldr	r0, .L40+92
- 429 00ba FFF7FEFF 		bl	print
- 430              	.LVL34:
- 353:Core/Src/main.c **** 
- 431              		.loc 1 353 0
- 432 00be 394B     		ldr	r3, .L40+28
- 433 00c0 1B68     		ldr	r3, [r3]
- 434 00c2 9868     		ldr	r0, [r3, #8]
- 435 00c4 FFF7FEFF 		bl	fflush
- 436              	.LVL35:
- 355:Core/Src/main.c ****               console_count=scanf("%s",console_ssid);
- 437              		.loc 1 355 0
- 438 00c8 474C     		ldr	r4, .L40+96
- 439 00ca 0023     		movs	r3, #0
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 17
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 15
 
 
- 440 00cc 2370     		strb	r3, [r4]
- 356:Core/Src/main.c ****               print("\r\n");
- 441              		.loc 1 356 0
- 442 00ce 3B49     		ldr	r1, .L40+52
- 443 00d0 3648     		ldr	r0, .L40+36
- 444 00d2 FFF7FEFF 		bl	scanf
- 445              	.LVL36:
- 446 00d6 2070     		strb	r0, [r4]
- 357:Core/Src/main.c **** 
- 447              		.loc 1 357 0
- 448 00d8 3548     		ldr	r0, .L40+40
- 449 00da FFF7FEFF 		bl	print
- 450              	.LVL37:
- 359:Core/Src/main.c ****                     {
- 451              		.loc 1 359 0
- 452 00de 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 453 00e0 272B     		cmp	r3, #39
- 454 00e2 31D0     		beq	.L37
- 366:Core/Src/main.c ****               fflush(stdout);
- 455              		.loc 1 366 0
- 456 00e4 4148     		ldr	r0, .L40+100
- 457 00e6 FFF7FEFF 		bl	print
- 458              	.LVL38:
- 367:Core/Src/main.c ****               console_count=0;
- 459              		.loc 1 367 0
- 460 00ea 2E4B     		ldr	r3, .L40+28
- 461 00ec 1B68     		ldr	r3, [r3]
- 462 00ee 9868     		ldr	r0, [r3, #8]
- 463 00f0 FFF7FEFF 		bl	fflush
- 464              	.LVL39:
- 368:Core/Src/main.c ****               
- 465              		.loc 1 368 0
- 466 00f4 3C4C     		ldr	r4, .L40+96
- 467 00f6 0023     		movs	r3, #0
- 468 00f8 2370     		strb	r3, [r4]
- 370:Core/Src/main.c ****               print("\r\n");
- 469              		.loc 1 370 0
- 470 00fa 3249     		ldr	r1, .L40+60
- 471 00fc 2B48     		ldr	r0, .L40+36
- 472 00fe FFF7FEFF 		bl	scanf
- 473              	.LVL40:
- 474 0102 2070     		strb	r0, [r4]
- 371:Core/Src/main.c ****               //print("entered =%s\r\n",console_psk);
- 475              		.loc 1 371 0
- 476 0104 2A48     		ldr	r0, .L40+40
- 477 0106 FFF7FEFF 		bl	print
- 478              	.LVL41:
- 373:Core/Src/main.c ****                     {
- 479              		.loc 1 373 0
- 480 010a 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 481 010c 132B     		cmp	r3, #19
- 482 010e 20D0     		beq	.L38
- 378:Core/Src/main.c ****               fflush(stdout);
- 483              		.loc 1 378 0
- 484 0110 3748     		ldr	r0, .L40+104
- 485 0112 FFF7FEFF 		bl	print
- 486              	.LVL42:
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 18
+ 123:Core/Src/main.c ****   
+ 406              		.loc 1 123 0
+ 407 000e FFF7FEFF 		bl	MX_USART2_UART_Init
+ 408              	.LVL31:
+ 125:Core/Src/main.c ****   
+ 409              		.loc 1 125 0
+ 410 0012 6048     		ldr	r0, .L46
+ 411 0014 FFF7FEFF 		bl	RetargetInit
+ 412              	.LVL32:
+ 127:Core/Src/main.c ****   /*while (1)
+ 413              		.loc 1 127 0
+ 414 0018 5F48     		ldr	r0, .L46+4
+ 415 001a FFF7FEFF 		bl	puts
+ 416              	.LVL33:
+ 134:Core/Src/main.c ****   if(status!=WiFi_MODULE_SUCCESS)
+ 417              		.loc 1 134 0
+ 418 001e FFF7FEFF 		bl	wifi_get_AP_settings
+ 419              	.LVL34:
+ 135:Core/Src/main.c ****   {
+ 420              		.loc 1 135 0
+ 421 0022 F0B9     		cbnz	r0, .L44
+ 141:Core/Src/main.c ****   printf("SSID: %s PASSCODE %s\r\n", console_ssid, console_psk);
+ 422              		.loc 1 141 0
+ 423 0024 5D48     		ldr	r0, .L46+8
+ 424              	.LVL35:
+ 425 0026 FFF7FEFF 		bl	puts
+ 426              	.LVL36:
+ 142:Core/Src/main.c ****   //UART_Configuration(baud_rate); 
+ 427              		.loc 1 142 0
+ 428 002a 5D4A     		ldr	r2, .L46+12
+ 429 002c 5D49     		ldr	r1, .L46+16
+ 430 002e 5E48     		ldr	r0, .L46+20
+ 431 0030 FFF7FEFF 		bl	printf
+ 432              	.LVL37:
+ 145:Core/Src/main.c ****   config.power_level=high;
+ 433              		.loc 1 145 0
+ 434 0034 5D4C     		ldr	r4, .L46+24
+ 435 0036 0023     		movs	r3, #0
+ 436 0038 6370     		strb	r3, [r4, #1]
+ 146:Core/Src/main.c ****   config.dhcp=on;//use DHCP IP address   
+ 437              		.loc 1 146 0
+ 438 003a 0223     		movs	r3, #2
+ 439 003c A370     		strb	r3, [r4, #2]
+ 147:Core/Src/main.c ****   config.mcu_baud_rate = baud_rate;
+ 440              		.loc 1 147 0
+ 441 003e 0122     		movs	r2, #1
+ 442 0040 E270     		strb	r2, [r4, #3]
+ 148:Core/Src/main.c ****   wifi_state = wifi_state_idle;
+ 443              		.loc 1 148 0
+ 444 0042 5B4A     		ldr	r2, .L46+28
+ 445 0044 1268     		ldr	r2, [r2]
+ 446 0046 6263     		str	r2, [r4, #52]
+ 149:Core/Src/main.c ****   
+ 447              		.loc 1 149 0
+ 448 0048 5A4A     		ldr	r2, .L46+32
+ 449 004a 1370     		strb	r3, [r2]
+ 151:Core/Src/main.c ****   
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 16
 
 
- 379:Core/Src/main.c ****              scanf("%s",console_input);
- 487              		.loc 1 379 0
- 488 0116 234B     		ldr	r3, .L40+28
- 489 0118 1B68     		ldr	r3, [r3]
- 490 011a 9868     		ldr	r0, [r3, #8]
- 491 011c FFF7FEFF 		bl	fflush
- 492              	.LVL43:
- 380:Core/Src/main.c ****              print("\r\n");
- 493              		.loc 1 380 0
- 494 0120 214C     		ldr	r4, .L40+32
- 495 0122 2146     		mov	r1, r4
- 496 0124 2148     		ldr	r0, .L40+36
- 497 0126 FFF7FEFF 		bl	scanf
- 498              	.LVL44:
- 381:Core/Src/main.c ****               //print("entered =%s\r\n",console_input);
- 499              		.loc 1 381 0
- 500 012a 2148     		ldr	r0, .L40+40
- 501 012c FFF7FEFF 		bl	print
- 502              	.LVL45:
- 383:Core/Src/main.c ****               {
- 503              		.loc 1 383 0
- 504 0130 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 505 0132 312B     		cmp	r3, #49
- 506 0134 20D0     		beq	.L29
- 507 0136 322B     		cmp	r3, #50
- 508 0138 22D0     		beq	.L30
- 509 013a 302B     		cmp	r3, #48
- 510 013c 0ED0     		beq	.L39
- 395:Core/Src/main.c ****                   return WiFi_NOT_SUPPORTED;              
- 511              		.loc 1 395 0
- 512 013e 2D48     		ldr	r0, .L40+108
- 513 0140 FFF7FEFF 		bl	print
- 514              	.LVL46:
- 396:Core/Src/main.c ****               }
- 515              		.loc 1 396 0
- 516 0144 0420     		movs	r0, #4
- 517 0146 10BD     		pop	{r4, pc}
- 518              	.L37:
- 361:Core/Src/main.c ****                         return WiFi_NOT_SUPPORTED;
- 519              		.loc 1 361 0
- 520 0148 2B48     		ldr	r0, .L40+112
- 521 014a FFF7FEFF 		bl	print
- 522              	.LVL47:
- 362:Core/Src/main.c ****                     }    
- 523              		.loc 1 362 0
- 524 014e 0420     		movs	r0, #4
- 525 0150 10BD     		pop	{r4, pc}
- 526              	.L38:
- 375:Core/Src/main.c ****                         return WiFi_NOT_SUPPORTED;
- 527              		.loc 1 375 0
- 528 0152 2A48     		ldr	r0, .L40+116
- 529 0154 FFF7FEFF 		bl	print
- 530              	.LVL48:
- 376:Core/Src/main.c ****                     }    
- 531              		.loc 1 376 0
- 532 0158 0420     		movs	r0, #4
- 533 015a 10BD     		pop	{r4, pc}
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 19
+ 450              		.loc 1 151 0
+ 451 004c 5A48     		ldr	r0, .L46+36
+ 452 004e FFF7FEFF 		bl	puts
+ 453              	.LVL38:
+ 154:Core/Src/main.c ****   if(status!=WiFi_MODULE_SUCCESS)
+ 454              		.loc 1 154 0
+ 455 0052 2046     		mov	r0, r4
+ 456 0054 FFF7FEFF 		bl	wifi_init
+ 457              	.LVL39:
+ 155:Core/Src/main.c ****   {
+ 458              		.loc 1 155 0
+ 459 0058 40B1     		cbz	r0, .L26
+ 157:Core/Src/main.c ****     return 0;
+ 460              		.loc 1 157 0
+ 461 005a 5848     		ldr	r0, .L46+40
+ 462              	.LVL40:
+ 463 005c FFF7FEFF 		bl	puts
+ 464              	.LVL41:
+ 158:Core/Src/main.c ****   }
+ 465              		.loc 1 158 0
+ 466 0060 02E0     		b	.L25
+ 467              	.LVL42:
+ 468              	.L44:
+ 137:Core/Src/main.c ****     return 0;
+ 469              		.loc 1 137 0
+ 470 0062 5748     		ldr	r0, .L46+44
+ 471              	.LVL43:
+ 472 0064 FFF7FEFF 		bl	puts
+ 473              	.LVL44:
+ 474              	.L25:
+ 254:Core/Src/main.c **** 
+ 475              		.loc 1 254 0
+ 476 0068 0020     		movs	r0, #0
+ 477 006a 10BD     		pop	{r4, pc}
+ 478              	.LVL45:
+ 479              	.L26:
+ 161:Core/Src/main.c ****   wifi_state = wifi_state_ready;
+ 480              		.loc 1 161 0
+ 481 006c 514C     		ldr	r4, .L46+32
+ 482 006e 2178     		ldrb	r1, [r4]	@ zero_extendqisi2
+ 483 0070 5448     		ldr	r0, .L46+48
+ 484              	.LVL46:
+ 485 0072 FFF7FEFF 		bl	printf
+ 486              	.LVL47:
+ 162:Core/Src/main.c **** 
+ 487              		.loc 1 162 0
+ 488 0076 0123     		movs	r3, #1
+ 489 0078 2370     		strb	r3, [r4]
+ 490 007a 02E0     		b	.L28
+ 491              	.L29:
+ 169:Core/Src/main.c ****         break;
+ 492              		.loc 1 169 0
+ 493 007c 5248     		ldr	r0, .L46+52
+ 494 007e FFF7FEFF 		bl	puts
+ 495              	.LVL48:
+ 496              	.L28:
+ 166:Core/Src/main.c ****     {
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 17
 
 
- 534              	.L39:
- 386:Core/Src/main.c ****                   break;
- 535              		.loc 1 386 0
- 536 015c 0022     		movs	r2, #0
- 537 015e 284B     		ldr	r3, .L40+120
- 538 0160 1A70     		strb	r2, [r3]
- 539              	.L32:
- 399:Core/Src/main.c ****               
- 540              		.loc 1 399 0
- 541 0162 194B     		ldr	r3, .L40+64
- 542 0164 1C68     		ldr	r4, [r3]
- 543 0166 2046     		mov	r0, r4
- 544 0168 FFF7FEFF 		bl	strlen
- 545              	.LVL49:
- 546 016c 0246     		mov	r2, r0
- 547 016e 2146     		mov	r1, r4
- 548 0170 1648     		ldr	r0, .L40+68
- 549 0172 FFF7FEFF 		bl	memcpy
- 550              	.LVL50:
- 551 0176 8EE7     		b	.L33
- 552              	.L29:
- 389:Core/Src/main.c ****                   break;
- 553              		.loc 1 389 0
- 554 0178 0122     		movs	r2, #1
- 555 017a 214B     		ldr	r3, .L40+120
- 556 017c 1A70     		strb	r2, [r3]
- 390:Core/Src/main.c ****                 case '2':
- 557              		.loc 1 390 0
- 558 017e F0E7     		b	.L32
- 559              	.L30:
- 392:Core/Src/main.c ****                   break;
- 560              		.loc 1 392 0
- 561 0180 0222     		movs	r2, #2
- 562 0182 1F4B     		ldr	r3, .L40+120
- 563 0184 1A70     		strb	r2, [r3]
- 393:Core/Src/main.c ****                 default:
- 564              		.loc 1 393 0
- 565 0186 ECE7     		b	.L32
- 566              	.L41:
- 567              		.align	2
- 568              	.L40:
- 569 0188 00000000 		.word	.LC0
- 570 018c 40000000 		.word	.LC1
- 571 0190 7C000000 		.word	.LC2
- 572 0194 B8000000 		.word	.LC3
- 573 0198 F4000000 		.word	.LC4
- 574 019c 30010000 		.word	.LC5
- 575 01a0 6C010000 		.word	.LC6
- 576 01a4 00000000 		.word	_impure_ptr
- 577 01a8 00000000 		.word	console_input
- 578 01ac 90010000 		.word	.LC7
- 579 01b0 94010000 		.word	.LC8
- 580 01b4 84020000 		.word	.LC15
- 581 01b8 00000000 		.word	.LANCHOR4
- 582 01bc 00000000 		.word	console_ssid
- 583 01c0 00000000 		.word	.LANCHOR5
- 584 01c4 00000000 		.word	console_psk
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 20
+ 497              		.loc 1 166 0
+ 498 0082 4C4B     		ldr	r3, .L46+32
+ 499 0084 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 500 0086 DBB2     		uxtb	r3, r3
+ 501 0088 082B     		cmp	r3, #8
+ 502 008a FAD8     		bhi	.L28
+ 503 008c 01A2     		adr	r2, .L30
+ 504 008e 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 505 0092 00BF     		.p2align 2
+ 506              	.L30:
+ 507 0094 7D000000 		.word	.L29+1
+ 508 0098 B9000000 		.word	.L31+1
+ 509 009c 7B010000 		.word	.L32+1
+ 510 00a0 D3000000 		.word	.L33+1
+ 511 00a4 83000000 		.word	.L28+1
+ 512 00a8 E1000000 		.word	.L34+1
+ 513 00ac EF000000 		.word	.L35+1
+ 514 00b0 43010000 		.word	.L36+1
+ 515 00b4 6D010000 		.word	.L37+1
+ 516              		.p2align 1
+ 517              	.L31:
+ 173:Core/Src/main.c ****         wifi_connect(console_ssid, console_psk, mode);
+ 518              		.loc 1 173 0
+ 519 00b8 4448     		ldr	r0, .L46+56
+ 520 00ba FFF7FEFF 		bl	puts
+ 521              	.LVL49:
+ 174:Core/Src/main.c ****         wifi_state = wifi_state_idle;
+ 522              		.loc 1 174 0
+ 523 00be 444B     		ldr	r3, .L46+60
+ 524 00c0 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 525 00c2 3749     		ldr	r1, .L46+12
+ 526 00c4 3748     		ldr	r0, .L46+16
+ 527 00c6 FFF7FEFF 		bl	wifi_connect
+ 528              	.LVL50:
+ 175:Core/Src/main.c ****         break;
+ 529              		.loc 1 175 0
+ 530 00ca 0222     		movs	r2, #2
+ 531 00cc 394B     		ldr	r3, .L46+32
+ 532 00ce 1A70     		strb	r2, [r3]
+ 176:Core/Src/main.c **** 
+ 533              		.loc 1 176 0
+ 534 00d0 D7E7     		b	.L28
+ 535              	.L33:
+ 179:Core/Src/main.c ****         wifi_state = wifi_state_activity;
+ 536              		.loc 1 179 0
+ 537 00d2 4048     		ldr	r0, .L46+64
+ 538 00d4 FFF7FEFF 		bl	puts
+ 539              	.LVL51:
+ 180:Core/Src/main.c ****         break;
+ 540              		.loc 1 180 0
+ 541 00d8 0622     		movs	r2, #6
+ 542 00da 364B     		ldr	r3, .L46+32
+ 543 00dc 1A70     		strb	r2, [r3]
+ 181:Core/Src/main.c **** 
+ 544              		.loc 1 181 0
+ 545 00de D0E7     		b	.L28
+ 546              	.L34:
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 18
 
 
- 585 01c8 00000000 		.word	.LANCHOR3
- 586 01cc 00000000 		.word	console_host
- 587 01d0 B4020000 		.word	.LC16
- 588 01d4 F8020000 		.word	.LC17
- 589 01d8 3C030000 		.word	.LC18
- 590 01dc 80030000 		.word	.LC19
- 591 01e0 00000000 		.word	.LANCHOR0
- 592 01e4 98010000 		.word	.LC9
- 593 01e8 00000000 		.word	.LANCHOR1
- 594 01ec D8010000 		.word	.LC11
- 595 01f0 18020000 		.word	.LC13
- 596 01f4 58020000 		.word	.LC14
- 597 01f8 A8010000 		.word	.LC10
- 598 01fc EC010000 		.word	.LC12
- 599 0200 00000000 		.word	.LANCHOR2
- 600              		.cfi_endproc
- 601              	.LFE279:
- 603              		.section	.text.main,"ax",%progbits
- 604              		.align	1
- 605              		.global	main
- 606              		.syntax unified
- 607              		.thumb
- 608              		.thumb_func
- 609              		.fpu fpv4-sp-d16
- 611              	main:
- 612              	.LFB275:
- 110:Core/Src/main.c ****   WiFi_Status_t status = WiFi_MODULE_SUCCESS;
- 613              		.loc 1 110 0
- 614              		.cfi_startproc
- 615              		@ args = 0, pretend = 0, frame = 0
- 616              		@ frame_needed = 0, uses_anonymous_args = 0
- 617 0000 38B5     		push	{r3, r4, r5, lr}
- 618              	.LCFI11:
- 619              		.cfi_def_cfa_offset 16
- 620              		.cfi_offset 3, -16
- 621              		.cfi_offset 4, -12
- 622              		.cfi_offset 5, -8
- 623              		.cfi_offset 14, -4
- 624              	.LVL51:
- 117:Core/Src/main.c ****   SystemClock_Config();
- 625              		.loc 1 117 0
- 626 0002 FFF7FEFF 		bl	HAL_Init
- 627              	.LVL52:
- 118:Core/Src/main.c **** 
- 628              		.loc 1 118 0
- 629 0006 FFF7FEFF 		bl	SystemClock_Config
- 630              	.LVL53:
- 121:Core/Src/main.c ****   MX_USART2_UART_Init();
- 631              		.loc 1 121 0
- 632 000a FFF7FEFF 		bl	MX_GPIO_Init
- 633              	.LVL54:
- 122:Core/Src/main.c **** 
- 634              		.loc 1 122 0
- 635 000e FFF7FEFF 		bl	MX_USART2_UART_Init
- 636              	.LVL55:
- 130:Core/Src/main.c ****   if(status!=WiFi_MODULE_SUCCESS)
- 637              		.loc 1 130 0
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 21
+ 184:Core/Src/main.c ****         wifi_state = wifi_state_reset;
+ 547              		.loc 1 184 0
+ 548 00e0 3D48     		ldr	r0, .L46+68
+ 549 00e2 FFF7FEFF 		bl	puts
+ 550              	.LVL52:
+ 185:Core/Src/main.c ****         break;
+ 551              		.loc 1 185 0
+ 552 00e6 0022     		movs	r2, #0
+ 553 00e8 324B     		ldr	r3, .L46+32
+ 554 00ea 1A70     		strb	r2, [r3]
+ 186:Core/Src/main.c **** 
+ 555              		.loc 1 186 0
+ 556 00ec C9E7     		b	.L28
+ 557              	.L35:
+ 189:Core/Src/main.c ****         status = wifi_get_IP_address((uint8_t*)wifi_ip_addr);
+ 558              		.loc 1 189 0
+ 559 00ee 3B48     		ldr	r0, .L46+72
+ 560 00f0 FFF7FEFF 		bl	puts
+ 561              	.LVL53:
+ 190:Core/Src/main.c ****         //print("\r\n>>IP address is %s\r\n", wifi_ip_addr);
+ 562              		.loc 1 190 0
+ 563 00f4 3A4C     		ldr	r4, .L46+76
+ 564 00f6 2046     		mov	r0, r4
+ 565 00f8 FFF7FEFF 		bl	wifi_get_IP_address
+ 566              	.LVL54:
+ 193:Core/Src/main.c ****         
+ 567              		.loc 1 193 0
+ 568 00fc 0023     		movs	r3, #0
+ 569 00fe 2360     		str	r3, [r4]	@ unaligned
+ 570 0100 6360     		str	r3, [r4, #4]	@ unaligned
+ 571 0102 A360     		str	r3, [r4, #8]	@ unaligned
+ 572 0104 E360     		str	r3, [r4, #12]	@ unaligned
+ 573 0106 2361     		str	r3, [r4, #16]	@ unaligned
+ 195:Core/Src/main.c ****         //print("\r\n>>model no is %s\r\n", wifi_ip_addr);
+ 574              		.loc 1 195 0
+ 575 0108 2146     		mov	r1, r4
+ 576 010a 364B     		ldr	r3, .L46+80
+ 577 010c 1868     		ldr	r0, [r3]
+ 578 010e FFF7FEFF 		bl	GET_Configuration_Value
+ 579              	.LVL55:
+ 198:Core/Src/main.c ****             wifi_state = wifi_state_inter;//do a HTTP-POST
+ 580              		.loc 1 198 0
+ 581 0112 354B     		ldr	r3, .L46+84
+ 582 0114 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 583 0116 1BB1     		cbz	r3, .L39
+ 199:Core/Src/main.c ****         else
+ 584              		.loc 1 199 0
+ 585 0118 0722     		movs	r2, #7
+ 586 011a 264B     		ldr	r3, .L46+32
+ 587 011c 1A70     		strb	r2, [r3]
+ 588 011e B0E7     		b	.L28
+ 589              	.L39:
+ 202:Core/Src/main.c ****         
+ 590              		.loc 1 202 0
+ 591 0120 3248     		ldr	r0, .L46+88
+ 592 0122 FFF7FEFF 		bl	puts
+ 593              	.LVL56:
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 19
 
 
- 638 0012 FFF7FEFF 		bl	wifi_get_AP_settings
- 639              	.LVL56:
- 131:Core/Src/main.c ****   {
- 640              		.loc 1 131 0
- 641 0016 20B1     		cbz	r0, .L43
- 133:Core/Src/main.c ****     return 0;
- 642              		.loc 1 133 0
- 643 0018 5048     		ldr	r0, .L62
- 644              	.LVL57:
- 645 001a FFF7FEFF 		bl	print
- 646              	.LVL58:
- 647              	.L44:
- 243:Core/Src/main.c **** 
- 648              		.loc 1 243 0
- 649 001e 0020     		movs	r0, #0
- 650 0020 38BD     		pop	{r3, r4, r5, pc}
- 651              	.LVL59:
- 652              	.L43:
- 137:Core/Src/main.c ****   
- 653              		.loc 1 137 0
- 654 0022 4F4D     		ldr	r5, .L62+4
- 655 0024 2868     		ldr	r0, [r5]
- 656              	.LVL60:
- 657 0026 FFF7FEFF 		bl	UART_Configuration
- 658              	.LVL61:
- 139:Core/Src/main.c ****   config.power_level=high;
- 659              		.loc 1 139 0
- 660 002a 4E4C     		ldr	r4, .L62+8
- 661 002c 0023     		movs	r3, #0
- 662 002e 6370     		strb	r3, [r4, #1]
- 140:Core/Src/main.c ****   config.dhcp=on;//use DHCP IP address   
- 663              		.loc 1 140 0
- 664 0030 0223     		movs	r3, #2
- 665 0032 A370     		strb	r3, [r4, #2]
- 141:Core/Src/main.c ****   config.mcu_baud_rate = baud_rate;
- 666              		.loc 1 141 0
- 667 0034 0122     		movs	r2, #1
- 668 0036 E270     		strb	r2, [r4, #3]
- 142:Core/Src/main.c ****   wifi_state = wifi_state_idle;
- 669              		.loc 1 142 0
- 670 0038 2A68     		ldr	r2, [r5]
- 671 003a 6263     		str	r2, [r4, #52]
- 143:Core/Src/main.c ****   
- 672              		.loc 1 143 0
- 673 003c 4A4A     		ldr	r2, .L62+12
- 674 003e 1370     		strb	r3, [r2]
- 145:Core/Src/main.c ****   
- 675              		.loc 1 145 0
- 676 0040 4A48     		ldr	r0, .L62+16
- 677 0042 FFF7FEFF 		bl	print
- 678              	.LVL62:
- 148:Core/Src/main.c ****   if(status!=WiFi_MODULE_SUCCESS)
- 679              		.loc 1 148 0
- 680 0046 2046     		mov	r0, r4
- 681 0048 FFF7FEFF 		bl	wifi_init
- 682              	.LVL63:
- 149:Core/Src/main.c ****   {
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 22
-
-
- 683              		.loc 1 149 0
- 684 004c 78B1     		cbz	r0, .L46
- 151:Core/Src/main.c ****     return 0;
- 685              		.loc 1 151 0
- 686 004e 4848     		ldr	r0, .L62+20
- 687              	.LVL64:
- 688 0050 FFF7FEFF 		bl	print
- 689              	.LVL65:
- 152:Core/Src/main.c ****   }
- 690              		.loc 1 152 0
- 691 0054 E3E7     		b	.L44
- 692              	.L47:
- 163:Core/Src/main.c ****         wifi_connect(console_ssid, console_psk, mode);
- 693              		.loc 1 163 0
- 694 0056 4748     		ldr	r0, .L62+24
- 695 0058 FFF7FEFF 		bl	print
- 696              	.LVL66:
- 164:Core/Src/main.c ****         wifi_state = wifi_state_idle;
- 697              		.loc 1 164 0
- 698 005c 464B     		ldr	r3, .L62+28
- 699 005e 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
- 700 0060 4649     		ldr	r1, .L62+32
- 701 0062 4748     		ldr	r0, .L62+36
- 702 0064 FFF7FEFF 		bl	wifi_connect
- 703              	.LVL67:
- 165:Core/Src/main.c ****         break;
- 704              		.loc 1 165 0
- 705 0068 0222     		movs	r2, #2
- 706 006a 3F4B     		ldr	r3, .L62+12
- 707 006c 1A70     		strb	r2, [r3]
- 708              	.L46:
- 157:Core/Src/main.c ****     {
- 709              		.loc 1 157 0
- 710 006e 3E4B     		ldr	r3, .L62+12
- 711 0070 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 712 0072 013B     		subs	r3, r3, #1
- 713 0074 072B     		cmp	r3, #7
- 714 0076 FAD8     		bhi	.L46
- 715 0078 01A2     		adr	r2, .L48
- 716 007a 52F823F0 		ldr	pc, [r2, r3, lsl #2]
- 717 007e 00BF     		.p2align 2
- 718              	.L48:
- 719 0080 57000000 		.word	.L47+1
- 720 0084 43010000 		.word	.L49+1
- 721 0088 A1000000 		.word	.L50+1
- 722 008c 6F000000 		.word	.L46+1
- 723 0090 AF000000 		.word	.L51+1
- 724 0094 B7000000 		.word	.L52+1
- 725 0098 0B010000 		.word	.L53+1
- 726 009c 35010000 		.word	.L54+1
- 727              		.p2align 1
- 728              	.L50:
- 169:Core/Src/main.c ****         wifi_state = wifi_state_activity;
- 729              		.loc 1 169 0
- 730 00a0 3848     		ldr	r0, .L62+40
- 731 00a2 FFF7FEFF 		bl	print
- 732              	.LVL68:
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 23
-
-
- 170:Core/Src/main.c ****         break;
- 733              		.loc 1 170 0
- 734 00a6 0622     		movs	r2, #6
- 735 00a8 2F4B     		ldr	r3, .L62+12
- 736 00aa 1A70     		strb	r2, [r3]
- 171:Core/Src/main.c **** 
- 737              		.loc 1 171 0
- 738 00ac DFE7     		b	.L46
- 739              	.L51:
- 174:Core/Src/main.c ****         break;
- 740              		.loc 1 174 0
- 741 00ae 0022     		movs	r2, #0
- 742 00b0 2D4B     		ldr	r3, .L62+12
- 743 00b2 1A70     		strb	r2, [r3]
- 175:Core/Src/main.c **** 
- 744              		.loc 1 175 0
- 745 00b4 DBE7     		b	.L46
- 746              	.L52:
- 179:Core/Src/main.c ****         //print("\r\n>>IP address is %s\r\n", wifi_ip_addr);
- 747              		.loc 1 179 0
- 748 00b6 344C     		ldr	r4, .L62+44
- 749 00b8 2046     		mov	r0, r4
- 750 00ba FFF7FEFF 		bl	wifi_get_IP_address
- 751              	.LVL69:
- 182:Core/Src/main.c ****         
- 752              		.loc 1 182 0
- 753 00be 0023     		movs	r3, #0
- 754 00c0 2360     		str	r3, [r4]	@ unaligned
- 755 00c2 6360     		str	r3, [r4, #4]	@ unaligned
- 756 00c4 A360     		str	r3, [r4, #8]	@ unaligned
- 757 00c6 E360     		str	r3, [r4, #12]	@ unaligned
- 758 00c8 2361     		str	r3, [r4, #16]	@ unaligned
- 184:Core/Src/main.c ****         //print("\r\n>>model no is %s\r\n", wifi_ip_addr);
- 759              		.loc 1 184 0
- 760 00ca 2146     		mov	r1, r4
- 761 00cc 2F4B     		ldr	r3, .L62+48
- 762 00ce 1868     		ldr	r0, [r3]
- 763 00d0 FFF7FEFF 		bl	GET_Configuration_Value
- 764              	.LVL70:
- 187:Core/Src/main.c ****             wifi_state = wifi_state_inter;//do a HTTP-POST
- 765              		.loc 1 187 0
- 766 00d4 2E4B     		ldr	r3, .L62+52
- 767 00d6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 768 00d8 1BB1     		cbz	r3, .L56
- 188:Core/Src/main.c ****         else
- 769              		.loc 1 188 0
- 770 00da 0722     		movs	r2, #7
- 771 00dc 224B     		ldr	r3, .L62+12
- 772 00de 1A70     		strb	r2, [r3]
- 773 00e0 C5E7     		b	.L46
- 774              	.L56:
- 191:Core/Src/main.c ****         
- 775              		.loc 1 191 0
- 776 00e2 2C48     		ldr	r0, .L62+56
- 777 00e4 FFF7FEFF 		bl	print
- 778              	.LVL71:
- 193:Core/Src/main.c ****       
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 24
-
-
- 779              		.loc 1 193 0
- 780 00e8 5022     		movs	r2, #80
- 781 00ea 2B49     		ldr	r1, .L62+60
- 782 00ec 2B48     		ldr	r0, .L62+64
- 783 00ee FFF7FEFF 		bl	wifi_http_get
- 784              	.LVL72:
- 195:Core/Src/main.c ****           {
- 785              		.loc 1 195 0
- 786 00f2 30B9     		cbnz	r0, .L57
- 197:Core/Src/main.c ****           }
- 787              		.loc 1 197 0
- 788 00f4 2A48     		ldr	r0, .L62+68
- 789              	.LVL73:
- 790 00f6 FFF7FEFF 		bl	print
- 791              	.LVL74:
- 792              	.L58:
- 203:Core/Src/main.c ****         }
- 793              		.loc 1 203 0
- 794 00fa 0222     		movs	r2, #2
- 795 00fc 1A4B     		ldr	r3, .L62+12
- 796 00fe 1A70     		strb	r2, [r3]
- 797 0100 B5E7     		b	.L46
- 798              	.LVL75:
- 799              	.L57:
- 201:Core/Src/main.c ****           }
- 800              		.loc 1 201 0
- 801 0102 2848     		ldr	r0, .L62+72
- 802              	.LVL76:
- 803 0104 FFF7FEFF 		bl	print
- 804              	.LVL77:
- 805 0108 F7E7     		b	.L58
- 806              	.L53:
- 210:Core/Src/main.c **** 
- 807              		.loc 1 210 0
- 808 010a 2748     		ldr	r0, .L62+76
- 809 010c FFF7FEFF 		bl	print
- 810              	.LVL78:
- 212:Core/Src/main.c **** 
- 811              		.loc 1 212 0
- 812 0110 5022     		movs	r2, #80
- 813 0112 2649     		ldr	r1, .L62+80
- 814 0114 264B     		ldr	r3, .L62+84
- 815 0116 1868     		ldr	r0, [r3]
- 816 0118 FFF7FEFF 		bl	wifi_http_post
- 817              	.LVL79:
- 214:Core/Src/main.c ****         {
- 818              		.loc 1 214 0
- 819 011c 30B9     		cbnz	r0, .L59
- 216:Core/Src/main.c ****         }
- 820              		.loc 1 216 0
- 821 011e 2548     		ldr	r0, .L62+88
- 822              	.LVL80:
- 823 0120 FFF7FEFF 		bl	print
- 824              	.LVL81:
- 825              	.L60:
- 223:Core/Src/main.c ****         break;
- 826              		.loc 1 223 0
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 25
-
-
- 827 0124 0222     		movs	r2, #2
- 828 0126 104B     		ldr	r3, .L62+12
- 829 0128 1A70     		strb	r2, [r3]
- 224:Core/Src/main.c **** 
- 830              		.loc 1 224 0
- 831 012a A0E7     		b	.L46
- 832              	.LVL82:
- 833              	.L59:
- 220:Core/Src/main.c ****         }        
- 834              		.loc 1 220 0
- 835 012c 2248     		ldr	r0, .L62+92
- 836              	.LVL83:
- 837 012e FFF7FEFF 		bl	print
- 838              	.LVL84:
- 839 0132 F7E7     		b	.L60
- 840              	.L54:
- 227:Core/Src/main.c **** 
- 841              		.loc 1 227 0
- 842 0134 2148     		ldr	r0, .L62+96
- 843 0136 FFF7FEFF 		bl	print
- 844              	.LVL85:
- 229:Core/Src/main.c **** 
- 845              		.loc 1 229 0
- 846 013a 0222     		movs	r2, #2
- 847 013c 0A4B     		ldr	r3, .L62+12
- 848 013e 1A70     		strb	r2, [r3]
- 231:Core/Src/main.c ****     case wifi_state_idle:        
- 849              		.loc 1 231 0
- 850 0140 95E7     		b	.L46
- 851              	.L49:
- 233:Core/Src/main.c ****         fflush(stdout);
- 852              		.loc 1 233 0
- 853 0142 1F48     		ldr	r0, .L62+100
- 854 0144 FFF7FEFF 		bl	print
- 855              	.LVL86:
- 234:Core/Src/main.c ****         HAL_Delay(500);
- 856              		.loc 1 234 0
- 857 0148 1E4B     		ldr	r3, .L62+104
- 858 014a 1B68     		ldr	r3, [r3]
- 859 014c 9868     		ldr	r0, [r3, #8]
- 860 014e FFF7FEFF 		bl	fflush
- 861              	.LVL87:
+ 204:Core/Src/main.c ****       
+ 594              		.loc 1 204 0
+ 595 0126 5022     		movs	r2, #80
+ 596 0128 3149     		ldr	r1, .L46+92
+ 597 012a 3248     		ldr	r0, .L46+96
+ 598 012c FFF7FEFF 		bl	wifi_http_get
+ 599              	.LVL57:
+ 206:Core/Src/main.c ****           {
+ 600              		.loc 1 206 0
+ 601 0130 18B1     		cbz	r0, .L45
+ 602              	.LVL58:
+ 603              	.L40:
+ 214:Core/Src/main.c ****         }
+ 604              		.loc 1 214 0
+ 605 0132 0222     		movs	r2, #2
+ 606 0134 1F4B     		ldr	r3, .L46+32
+ 607 0136 1A70     		strb	r2, [r3]
+ 608 0138 A3E7     		b	.L28
+ 609              	.LVL59:
+ 610              	.L45:
+ 208:Core/Src/main.c ****           }
+ 611              		.loc 1 208 0
+ 612 013a 2F48     		ldr	r0, .L46+100
+ 613              	.LVL60:
+ 614 013c FFF7FEFF 		bl	puts
+ 615              	.LVL61:
+ 616 0140 F7E7     		b	.L40
+ 617              	.L36:
+ 221:Core/Src/main.c **** 
+ 618              		.loc 1 221 0
+ 619 0142 2E48     		ldr	r0, .L46+104
+ 620 0144 FFF7FEFF 		bl	puts
+ 621              	.LVL62:
+ 223:Core/Src/main.c **** 
+ 622              		.loc 1 223 0
+ 623 0148 5022     		movs	r2, #80
+ 624 014a 2D49     		ldr	r1, .L46+108
+ 625 014c 2D4B     		ldr	r3, .L46+112
+ 626 014e 1868     		ldr	r0, [r3]
+ 627 0150 FFF7FEFF 		bl	wifi_http_post
+ 628              	.LVL63:
+ 225:Core/Src/main.c ****         {
+ 629              		.loc 1 225 0
+ 630 0154 30B9     		cbnz	r0, .L41
+ 227:Core/Src/main.c ****         }
+ 631              		.loc 1 227 0
+ 632 0156 2C48     		ldr	r0, .L46+116
+ 633              	.LVL64:
+ 634 0158 FFF7FEFF 		bl	puts
+ 635              	.LVL65:
+ 636              	.L42:
+ 234:Core/Src/main.c ****         break;
+ 637              		.loc 1 234 0
+ 638 015c 0222     		movs	r2, #2
+ 639 015e 154B     		ldr	r3, .L46+32
+ 640 0160 1A70     		strb	r2, [r3]
  235:Core/Src/main.c **** 
- 862              		.loc 1 235 0
- 863 0152 4FF4FA70 		mov	r0, #500
- 864 0156 FFF7FEFF 		bl	HAL_Delay
- 865              	.LVL88:
- 237:Core/Src/main.c **** 
- 866              		.loc 1 237 0
- 867 015a 88E7     		b	.L46
- 868              	.L63:
- 869              		.align	2
- 870              	.L62:
- 871 015c 00000000 		.word	.LC20
- 872 0160 00000000 		.word	.LANCHOR6
- 873 0164 00000000 		.word	config
- 874 0168 00000000 		.word	wifi_state
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 26
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 20
 
 
- 875 016c 18000000 		.word	.LC21
- 876 0170 3C000000 		.word	.LC22
- 877 0174 4C000000 		.word	.LC23
- 878 0178 00000000 		.word	.LANCHOR2
- 879 017c 00000000 		.word	console_psk
- 880 0180 00000000 		.word	console_ssid
- 881 0184 68000000 		.word	.LC24
- 882 0188 00000000 		.word	wifi_ip_addr
- 883 018c 00000000 		.word	.LANCHOR7
- 884 0190 00000000 		.word	.LANCHOR8
- 885 0194 7C000000 		.word	.LC25
- 886 0198 90000000 		.word	.LC26
- 887 019c 00000000 		.word	console_host
- 888 01a0 98000000 		.word	.LC27
- 889 01a4 A8000000 		.word	.LC28
- 890 01a8 BC000000 		.word	.LC29
- 891 01ac E8000000 		.word	.LC30
- 892 01b0 00000000 		.word	.LANCHOR9
- 893 01b4 24010000 		.word	.LC31
- 894 01b8 38010000 		.word	.LC32
- 895 01bc 00000000 		.word	user_buffer
- 896 01c0 4C010000 		.word	.LC33
- 897 01c4 00000000 		.word	_impure_ptr
- 898              		.cfi_endproc
- 899              	.LFE275:
- 901              		.section	.text.ind_wifi_on,"ax",%progbits
- 902              		.align	1
- 903              		.global	ind_wifi_on
- 904              		.syntax unified
- 905              		.thumb
- 906              		.thumb_func
- 907              		.fpu fpv4-sp-d16
- 909              	ind_wifi_on:
- 910              	.LFB281:
- 424:Core/Src/main.c **** 
- 425:Core/Src/main.c **** void ind_wifi_on()
- 426:Core/Src/main.c **** {
- 911              		.loc 1 426 0
- 912              		.cfi_startproc
- 913              		@ args = 0, pretend = 0, frame = 0
- 914              		@ frame_needed = 0, uses_anonymous_args = 0
- 915 0000 08B5     		push	{r3, lr}
- 916              	.LCFI12:
- 917              		.cfi_def_cfa_offset 8
- 918              		.cfi_offset 3, -8
- 919              		.cfi_offset 14, -4
- 427:Core/Src/main.c ****   print("\r\n\nwifi started and ready...\r\n");
- 920              		.loc 1 427 0
- 921 0002 0348     		ldr	r0, .L66
- 922 0004 FFF7FEFF 		bl	print
- 923              	.LVL89:
- 428:Core/Src/main.c ****   wifi_state = wifi_state_ready;
- 924              		.loc 1 428 0
- 925 0008 0122     		movs	r2, #1
- 926 000a 024B     		ldr	r3, .L66+4
- 927 000c 1A70     		strb	r2, [r3]
- 928 000e 08BD     		pop	{r3, pc}
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 27
+ 641              		.loc 1 235 0
+ 642 0162 8EE7     		b	.L28
+ 643              	.LVL66:
+ 644              	.L41:
+ 231:Core/Src/main.c ****         }        
+ 645              		.loc 1 231 0
+ 646 0164 2948     		ldr	r0, .L46+120
+ 647              	.LVL67:
+ 648 0166 FFF7FEFF 		bl	puts
+ 649              	.LVL68:
+ 650 016a F7E7     		b	.L42
+ 651              	.L37:
+ 238:Core/Src/main.c **** 
+ 652              		.loc 1 238 0
+ 653 016c 2848     		ldr	r0, .L46+124
+ 654 016e FFF7FEFF 		bl	printf
+ 655              	.LVL69:
+ 240:Core/Src/main.c **** 
+ 656              		.loc 1 240 0
+ 657 0172 0222     		movs	r2, #2
+ 658 0174 0F4B     		ldr	r3, .L46+32
+ 659 0176 1A70     		strb	r2, [r3]
+ 242:Core/Src/main.c ****     case wifi_state_idle:        
+ 660              		.loc 1 242 0
+ 661 0178 83E7     		b	.L28
+ 662              	.L32:
+ 244:Core/Src/main.c ****         fflush(stdout);
+ 663              		.loc 1 244 0
+ 664 017a 2E20     		movs	r0, #46
+ 665 017c FFF7FEFF 		bl	putchar
+ 666              	.LVL70:
+ 245:Core/Src/main.c ****         HAL_Delay(500);
+ 667              		.loc 1 245 0
+ 668 0180 244B     		ldr	r3, .L46+128
+ 669 0182 1B68     		ldr	r3, [r3]
+ 670 0184 9868     		ldr	r0, [r3, #8]
+ 671 0186 FFF7FEFF 		bl	fflush
+ 672              	.LVL71:
+ 246:Core/Src/main.c **** 
+ 673              		.loc 1 246 0
+ 674 018a 4FF4FA70 		mov	r0, #500
+ 675 018e FFF7FEFF 		bl	HAL_Delay
+ 676              	.LVL72:
+ 248:Core/Src/main.c **** 
+ 677              		.loc 1 248 0
+ 678 0192 76E7     		b	.L28
+ 679              	.L47:
+ 680              		.align	2
+ 681              	.L46:
+ 682 0194 00000000 		.word	huart2
+ 683 0198 00000000 		.word	.LC11
+ 684 019c 30000000 		.word	.LC13
+ 685 01a0 00000000 		.word	console_psk
+ 686 01a4 00000000 		.word	console_ssid
+ 687 01a8 50000000 		.word	.LC14
+ 688 01ac 00000000 		.word	config
+ 689 01b0 00000000 		.word	.LANCHOR3
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 21
 
 
- 929              	.L67:
- 930              		.align	2
- 931              	.L66:
- 932 0010 00000000 		.word	.LC34
- 933 0014 00000000 		.word	wifi_state
- 934              		.cfi_endproc
- 935              	.LFE281:
- 937              		.section	.text.ind_wifi_connected,"ax",%progbits
- 938              		.align	1
- 939              		.global	ind_wifi_connected
- 940              		.syntax unified
- 941              		.thumb
- 942              		.thumb_func
- 943              		.fpu fpv4-sp-d16
- 945              	ind_wifi_connected:
- 946              	.LFB282:
- 429:Core/Src/main.c **** }
- 430:Core/Src/main.c ****   
- 431:Core/Src/main.c **** void ind_wifi_connected()
- 432:Core/Src/main.c **** {
- 947              		.loc 1 432 0
- 948              		.cfi_startproc
- 949              		@ args = 0, pretend = 0, frame = 0
- 950              		@ frame_needed = 0, uses_anonymous_args = 0
- 951 0000 08B5     		push	{r3, lr}
- 952              	.LCFI13:
- 953              		.cfi_def_cfa_offset 8
- 954              		.cfi_offset 3, -8
- 955              		.cfi_offset 14, -4
- 433:Core/Src/main.c ****   print("\r\nwifi connected...\r\n");
- 956              		.loc 1 433 0
- 957 0002 0348     		ldr	r0, .L70
- 958 0004 FFF7FEFF 		bl	print
- 959              	.LVL90:
- 434:Core/Src/main.c ****   wifi_state = wifi_state_connected;
- 960              		.loc 1 434 0
- 961 0008 0322     		movs	r2, #3
- 962 000a 024B     		ldr	r3, .L70+4
- 963 000c 1A70     		strb	r2, [r3]
- 964 000e 08BD     		pop	{r3, pc}
- 965              	.L71:
- 966              		.align	2
- 967              	.L70:
- 968 0010 00000000 		.word	.LC35
- 969 0014 00000000 		.word	wifi_state
- 970              		.cfi_endproc
- 971              	.LFE282:
- 973              		.section	.text.ind_wifi_http_data_available,"ax",%progbits
- 974              		.align	1
- 975              		.global	ind_wifi_http_data_available
- 976              		.syntax unified
- 977              		.thumb
- 978              		.thumb_func
- 979              		.fpu fpv4-sp-d16
- 981              	ind_wifi_http_data_available:
- 982              	.LFB283:
- 435:Core/Src/main.c **** }
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 28
+ 690 01b4 00000000 		.word	wifi_state
+ 691 01b8 68000000 		.word	.LC15
+ 692 01bc 8C000000 		.word	.LC16
+ 693 01c0 18000000 		.word	.LC12
+ 694 01c4 A0000000 		.word	.LC17
+ 695 01c8 C0000000 		.word	.LC18
+ 696 01cc CC000000 		.word	.LC19
+ 697 01d0 00000000 		.word	.LANCHOR4
+ 698 01d4 E8000000 		.word	.LC20
+ 699 01d8 FC000000 		.word	.LC21
+ 700 01dc 10010000 		.word	.LC22
+ 701 01e0 00000000 		.word	wifi_ip_addr
+ 702 01e4 00000000 		.word	.LANCHOR5
+ 703 01e8 00000000 		.word	.LANCHOR6
+ 704 01ec 20010000 		.word	.LC23
+ 705 01f0 34010000 		.word	.LC24
+ 706 01f4 00000000 		.word	console_host
+ 707 01f8 3C010000 		.word	.LC25
+ 708 01fc 4C010000 		.word	.LC26
+ 709 0200 78010000 		.word	.LC27
+ 710 0204 00000000 		.word	.LANCHOR7
+ 711 0208 B4010000 		.word	.LC28
+ 712 020c C4010000 		.word	.LC29
+ 713 0210 00000000 		.word	user_buffer
+ 714 0214 00000000 		.word	_impure_ptr
+ 715              		.cfi_endproc
+ 716              	.LFE275:
+ 718              		.section	.text.print,"ax",%progbits
+ 719              		.align	1
+ 720              		.global	print
+ 721              		.syntax unified
+ 722              		.thumb
+ 723              		.thumb_func
+ 724              		.fpu fpv4-sp-d16
+ 726              	print:
+ 727              	.LFB280:
+ 367:Core/Src/main.c **** 
+ 368:Core/Src/main.c **** 
+ 369:Core/Src/main.c **** /******** Wi-Fi Indication User Callback *********/
+ 370:Core/Src/main.c **** void print(char msg[]) {
+ 728              		.loc 1 370 0
+ 729              		.cfi_startproc
+ 730              		@ args = 0, pretend = 0, frame = 0
+ 731              		@ frame_needed = 0, uses_anonymous_args = 0
+ 732              		@ link register save eliminated.
+ 733              	.LVL73:
+ 734 0000 7047     		bx	lr
+ 735              		.cfi_endproc
+ 736              	.LFE280:
+ 738              		.section	.text.ind_wifi_on,"ax",%progbits
+ 739              		.align	1
+ 740              		.global	ind_wifi_on
+ 741              		.syntax unified
+ 742              		.thumb
+ 743              		.thumb_func
+ 744              		.fpu fpv4-sp-d16
+ 746              	ind_wifi_on:
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 22
 
 
- 436:Core/Src/main.c **** 
- 437:Core/Src/main.c **** void ind_wifi_http_data_available(uint8_t * data_ptr, uint32_t message_size)
- 438:Core/Src/main.c **** {
- 983              		.loc 1 438 0
- 984              		.cfi_startproc
- 985              		@ args = 0, pretend = 0, frame = 0
- 986              		@ frame_needed = 0, uses_anonymous_args = 0
- 987              	.LVL91:
- 988 0000 70B5     		push	{r4, r5, r6, lr}
- 989              	.LCFI14:
- 990              		.cfi_def_cfa_offset 16
- 991              		.cfi_offset 4, -16
- 992              		.cfi_offset 5, -12
- 993              		.cfi_offset 6, -8
- 994              		.cfi_offset 14, -4
- 995 0002 0546     		mov	r5, r0
- 996 0004 0E46     		mov	r6, r1
- 439:Core/Src/main.c ****   //User is adviced to copy the data immediately to a user buffer memory as the data will be flushe
- 440:Core/Src/main.c ****   print("\r\nData Callback\r\n");
- 997              		.loc 1 440 0
- 998 0006 0848     		ldr	r0, .L74
- 999              	.LVL92:
- 1000 0008 FFF7FEFF 		bl	print
- 1001              	.LVL93:
- 441:Core/Src/main.c ****   memcpy(user_buffer, data_ptr, message_size);
- 1002              		.loc 1 441 0
- 1003 000c 074C     		ldr	r4, .L74+4
- 1004 000e 3246     		mov	r2, r6
- 1005 0010 2946     		mov	r1, r5
- 1006 0012 2046     		mov	r0, r4
- 1007 0014 FFF7FEFF 		bl	memcpy
- 1008              	.LVL94:
- 442:Core/Src/main.c ****   print((char*)user_buffer);
- 1009              		.loc 1 442 0
- 1010 0018 2046     		mov	r0, r4
- 1011 001a FFF7FEFF 		bl	print
- 1012              	.LVL95:
- 443:Core/Src/main.c ****   print("\r\n");
- 1013              		.loc 1 443 0
- 1014 001e 0448     		ldr	r0, .L74+8
- 1015 0020 FFF7FEFF 		bl	print
- 1016              	.LVL96:
- 1017 0024 70BD     		pop	{r4, r5, r6, pc}
- 1018              	.LVL97:
- 1019              	.L75:
- 1020 0026 00BF     		.align	2
- 1021              	.L74:
- 1022 0028 00000000 		.word	.LC36
- 1023 002c 00000000 		.word	user_buffer
- 1024 0030 94010000 		.word	.LC8
- 1025              		.cfi_endproc
- 1026              	.LFE283:
- 1028              		.global	baud_rate
- 1029              		.comm	wifi_ip_addr,20,4
- 1030              		.global	gcfg_key2
- 1031              		.global	gcfg_key1
- 1032              		.global	post_hostname
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 29
+ 747              	.LFB281:
+ 371:Core/Src/main.c **** 	//signed char message[MAX_MSG_SIZE];
+ 372:Core/Src/main.c **** 	//strncpy(message, msg, MAX_MSG_SIZE);
+ 373:Core/Src/main.c ****     //HAL_UART_Transmit(&huart2, message, MAX_MSG_SIZE, 1000);
+ 374:Core/Src/main.c **** }
+ 375:Core/Src/main.c **** 
+ 376:Core/Src/main.c **** void ind_wifi_on()
+ 377:Core/Src/main.c **** {
+ 748              		.loc 1 377 0
+ 749              		.cfi_startproc
+ 750              		@ args = 0, pretend = 0, frame = 0
+ 751              		@ frame_needed = 0, uses_anonymous_args = 0
+ 752              		@ link register save eliminated.
+ 378:Core/Src/main.c ****   print("\r\n\nwifi started and ready...\r\n");
+ 379:Core/Src/main.c ****   wifi_state = wifi_state_ready;
+ 753              		.loc 1 379 0
+ 754 0000 0122     		movs	r2, #1
+ 755 0002 014B     		ldr	r3, .L50
+ 756 0004 1A70     		strb	r2, [r3]
+ 757 0006 7047     		bx	lr
+ 758              	.L51:
+ 759              		.align	2
+ 760              	.L50:
+ 761 0008 00000000 		.word	wifi_state
+ 762              		.cfi_endproc
+ 763              	.LFE281:
+ 765              		.section	.text.ind_wifi_connected,"ax",%progbits
+ 766              		.align	1
+ 767              		.global	ind_wifi_connected
+ 768              		.syntax unified
+ 769              		.thumb
+ 770              		.thumb_func
+ 771              		.fpu fpv4-sp-d16
+ 773              	ind_wifi_connected:
+ 774              	.LFB282:
+ 380:Core/Src/main.c **** }
+ 381:Core/Src/main.c ****   
+ 382:Core/Src/main.c **** void ind_wifi_connected()
+ 383:Core/Src/main.c **** {
+ 775              		.loc 1 383 0
+ 776              		.cfi_startproc
+ 777              		@ args = 0, pretend = 0, frame = 0
+ 778              		@ frame_needed = 0, uses_anonymous_args = 0
+ 779              		@ link register save eliminated.
+ 384:Core/Src/main.c ****   print("\r\nwifi connected...\r\n");
+ 385:Core/Src/main.c ****   wifi_state = wifi_state_connected;
+ 780              		.loc 1 385 0
+ 781 0000 0322     		movs	r2, #3
+ 782 0002 014B     		ldr	r3, .L53
+ 783 0004 1A70     		strb	r2, [r3]
+ 784 0006 7047     		bx	lr
+ 785              	.L54:
+ 786              		.align	2
+ 787              	.L53:
+ 788 0008 00000000 		.word	wifi_state
+ 789              		.cfi_endproc
+ 790              	.LFE282:
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 23
 
 
- 1033              		.global	hostname
- 1034              		.global	mode
- 1035              		.global	seckey
- 1036              		.global	ssid
- 1037              		.comm	UART_MsgHandle,64,4
- 1038              		.comm	config,56,4
- 1039              		.comm	wifi_state,1,1
- 1040              		.global	set_AP_config
- 1041              		.comm	console_host,20,4
- 1042              		.comm	console_psk,20,4
- 1043              		.comm	console_ssid,40,4
- 1044              		.global	console_count
- 1045              		.comm	console_input,1,4
- 1046              		.global	http_post_request
- 1047              		.comm	http_char,1,1
- 1048              		.comm	user_buffer,1024,4
- 1049              		.comm	huart2,64,4
- 1050              		.section	.bss.console_count,"aw",%nobits
- 1051              		.set	.LANCHOR1,. + 0
- 1054              	console_count:
- 1055 0000 00       		.space	1
- 1056              		.section	.bss.http_post_request,"aw",%nobits
- 1057              		.set	.LANCHOR8,. + 0
- 1060              	http_post_request:
- 1061 0000 00       		.space	1
- 1062              		.section	.bss.set_AP_config,"aw",%nobits
- 1063              		.set	.LANCHOR0,. + 0
- 1066              	set_AP_config:
- 1067 0000 00       		.space	1
- 1068              		.section	.data.baud_rate,"aw",%progbits
- 1069              		.align	2
- 1070              		.set	.LANCHOR6,. + 0
- 1073              	baud_rate:
- 1074 0000 00C20100 		.word	115200
- 1075              		.section	.data.gcfg_key1,"aw",%progbits
- 1076              		.align	2
- 1079              	gcfg_key1:
- 1080 0000 0C000000 		.word	.LC38
- 1081              		.section	.data.gcfg_key2,"aw",%progbits
- 1082              		.align	2
- 1083              		.set	.LANCHOR7,. + 0
- 1086              	gcfg_key2:
- 1087 0000 00000000 		.word	.LC37
- 1088              		.section	.data.hostname,"aw",%progbits
- 1089              		.align	2
- 1090              		.set	.LANCHOR3,. + 0
- 1093              	hostname:
- 1094 0000 2C000000 		.word	.LC40
- 1095              		.section	.data.mode,"aw",%progbits
- 1096              		.set	.LANCHOR2,. + 0
- 1099              	mode:
- 1100 0000 02       		.byte	2
- 1101              		.section	.data.post_hostname,"aw",%progbits
- 1102              		.align	2
- 1103              		.set	.LANCHOR9,. + 0
- 1106              	post_hostname:
- 1107 0000 18000000 		.word	.LC39
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 30
+ 792              		.section	.text.ind_wifi_http_data_available,"ax",%progbits
+ 793              		.align	1
+ 794              		.global	ind_wifi_http_data_available
+ 795              		.syntax unified
+ 796              		.thumb
+ 797              		.thumb_func
+ 798              		.fpu fpv4-sp-d16
+ 800              	ind_wifi_http_data_available:
+ 801              	.LFB283:
+ 386:Core/Src/main.c **** }
+ 387:Core/Src/main.c **** 
+ 388:Core/Src/main.c **** void ind_wifi_http_data_available(uint8_t * data_ptr, uint32_t message_size)
+ 389:Core/Src/main.c **** {
+ 802              		.loc 1 389 0
+ 803              		.cfi_startproc
+ 804              		@ args = 0, pretend = 0, frame = 0
+ 805              		@ frame_needed = 0, uses_anonymous_args = 0
+ 806              	.LVL74:
+ 807 0000 08B5     		push	{r3, lr}
+ 808              	.LCFI9:
+ 809              		.cfi_def_cfa_offset 8
+ 810              		.cfi_offset 3, -8
+ 811              		.cfi_offset 14, -4
+ 390:Core/Src/main.c ****   //User is adviced to copy the data immediately to a user buffer memory as the data will be flushe
+ 391:Core/Src/main.c ****   print("\r\nData Callback\r\n");
+ 392:Core/Src/main.c ****   memcpy(user_buffer, data_ptr, message_size);
+ 812              		.loc 1 392 0
+ 813 0002 0A46     		mov	r2, r1
+ 814 0004 0146     		mov	r1, r0
+ 815              	.LVL75:
+ 816 0006 0248     		ldr	r0, .L57
+ 817              	.LVL76:
+ 818 0008 FFF7FEFF 		bl	memcpy
+ 819              	.LVL77:
+ 820 000c 08BD     		pop	{r3, pc}
+ 821              	.L58:
+ 822 000e 00BF     		.align	2
+ 823              	.L57:
+ 824 0010 00000000 		.word	user_buffer
+ 825              		.cfi_endproc
+ 826              	.LFE283:
+ 828              		.global	baud_rate
+ 829              		.comm	wifi_ip_addr,20,4
+ 830              		.global	gcfg_key2
+ 831              		.global	gcfg_key1
+ 832              		.global	post_hostname
+ 833              		.global	hostname
+ 834              		.global	mode
+ 835              		.global	seckey
+ 836              		.global	ssid
+ 837              		.comm	UART_MsgHandle,64,4
+ 838              		.comm	config,56,4
+ 839              		.comm	wifi_state,1,1
+ 840              		.global	set_AP_config
+ 841              		.comm	console_host,20,4
+ 842              		.comm	console_psk,20,4
+ 843              		.comm	console_ssid,40,4
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 24
 
 
- 1108              		.section	.data.seckey,"aw",%progbits
- 1109              		.align	2
- 1110              		.set	.LANCHOR5,. + 0
- 1113              	seckey:
- 1114 0000 38000000 		.word	.LC41
- 1115              		.section	.data.ssid,"aw",%progbits
- 1116              		.align	2
- 1117              		.set	.LANCHOR4,. + 0
- 1120              	ssid:
- 1121 0000 44000000 		.word	.LC42
- 1122              		.section	.rodata.ind_wifi_connected.str1.4,"aMS",%progbits,1
- 1123              		.align	2
- 1124              	.LC35:
- 1125 0000 0D0A7769 		.ascii	"\015\012wifi connected...\015\012\000"
- 1125      66692063 
- 1125      6F6E6E65 
- 1125      63746564 
- 1125      2E2E2E0D 
- 1126              		.section	.rodata.ind_wifi_http_data_available.str1.4,"aMS",%progbits,1
- 1127              		.align	2
- 1128              	.LC36:
- 1129 0000 0D0A4461 		.ascii	"\015\012Data Callback\015\012\000"
- 1129      74612043 
- 1129      616C6C62 
- 1129      61636B0D 
- 1129      0A00
- 1130              		.section	.rodata.ind_wifi_on.str1.4,"aMS",%progbits,1
- 1131              		.align	2
- 1132              	.LC34:
- 1133 0000 0D0A0A77 		.ascii	"\015\012\012wifi started and ready...\015\012\000"
- 1133      69666920 
- 1133      73746172 
- 1133      74656420 
- 1133      616E6420 
- 1134              		.section	.rodata.main.str1.4,"aMS",%progbits,1
- 1135              		.align	2
- 1136              	.LC20:
- 1137 0000 0D0A4572 		.ascii	"\015\012Error in AP Settings\000"
- 1137      726F7220 
- 1137      696E2041 
- 1137      50205365 
- 1137      7474696E 
- 1138 0017 00       		.space	1
- 1139              	.LC21:
- 1140 0018 0D0A0A49 		.ascii	"\015\012\012Initializing the wifi module...\000"
- 1140      6E697469 
- 1140      616C697A 
- 1140      696E6720 
- 1140      74686520 
- 1141 003b 00       		.space	1
- 1142              	.LC22:
- 1143 003c 4572726F 		.ascii	"Error in Config\000"
- 1143      7220696E 
- 1143      20436F6E 
- 1143      66696700 
- 1144              	.LC23:
- 1145 004c 0D0A203E 		.ascii	"\015\012 >>connecting to AP...\015\012\000"
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 31
+ 844              		.global	console_count
+ 845              		.comm	cin,1,4
+ 846              		.global	http_post_request
+ 847              		.comm	http_char,1,1
+ 848              		.comm	user_buffer,1024,4
+ 849              		.comm	huart2,64,4
+ 850              		.section	.bss.console_count,"aw",%nobits
+ 853              	console_count:
+ 854 0000 00       		.space	1
+ 855              		.section	.bss.http_post_request,"aw",%nobits
+ 856              		.set	.LANCHOR6,. + 0
+ 859              	http_post_request:
+ 860 0000 00       		.space	1
+ 861              		.section	.bss.set_AP_config,"aw",%nobits
+ 864              	set_AP_config:
+ 865 0000 00       		.space	1
+ 866              		.section	.data.baud_rate,"aw",%progbits
+ 867              		.align	2
+ 868              		.set	.LANCHOR3,. + 0
+ 871              	baud_rate:
+ 872 0000 00C20100 		.word	115200
+ 873              		.section	.data.gcfg_key1,"aw",%progbits
+ 874              		.align	2
+ 877              	gcfg_key1:
+ 878 0000 0C000000 		.word	.LC31
+ 879              		.section	.data.gcfg_key2,"aw",%progbits
+ 880              		.align	2
+ 881              		.set	.LANCHOR5,. + 0
+ 884              	gcfg_key2:
+ 885 0000 00000000 		.word	.LC30
+ 886              		.section	.data.hostname,"aw",%progbits
+ 887              		.align	2
+ 888              		.set	.LANCHOR2,. + 0
+ 891              	hostname:
+ 892 0000 2C000000 		.word	.LC33
+ 893              		.section	.data.mode,"aw",%progbits
+ 894              		.set	.LANCHOR4,. + 0
+ 897              	mode:
+ 898 0000 02       		.byte	2
+ 899              		.section	.data.post_hostname,"aw",%progbits
+ 900              		.align	2
+ 901              		.set	.LANCHOR7,. + 0
+ 904              	post_hostname:
+ 905 0000 18000000 		.word	.LC32
+ 906              		.section	.data.seckey,"aw",%progbits
+ 907              		.align	2
+ 908              		.set	.LANCHOR1,. + 0
+ 911              	seckey:
+ 912 0000 38000000 		.word	.LC34
+ 913              		.section	.data.ssid,"aw",%progbits
+ 914              		.align	2
+ 915              		.set	.LANCHOR0,. + 0
+ 918              	ssid:
+ 919 0000 7C000000 		.word	.LC35
+ 920              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+ 921              		.align	2
+ 922              	.LC11:
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 25
 
 
- 1145      3E636F6E 
- 1145      6E656374 
- 1145      696E6720 
- 1145      746F2041 
- 1146 0067 00       		.space	1
- 1147              	.LC24:
- 1148 0068 0D0A203E 		.ascii	"\015\012 >>connected...\015\012\000"
- 1148      3E636F6E 
- 1148      6E656374 
- 1148      65642E2E 
- 1148      2E0D0A00 
- 1149              	.LC25:
- 1150 007c 0D0A3E3E 		.ascii	"\015\012>>WiFi_HTTPGET\015\012\000"
- 1150      57694669 
- 1150      5F485454 
- 1150      50474554 
- 1150      0D0A00
- 1151 008f 00       		.space	1
- 1152              	.LC26:
- 1153 0090 2F676574 		.ascii	"/get\000"
- 1153      00
- 1154 0095 000000   		.space	3
- 1155              	.LC27:
- 1156 0098 0D0A4854 		.ascii	"\015\012HTTP GET OK\015\012\000"
- 1156      54502047 
- 1156      4554204F 
- 1156      4B0D0A00 
- 1157              	.LC28:
- 1158 00a8 0D0A4854 		.ascii	"\015\012HTTP GET Error\015\012\000"
- 1158      54502047 
- 1158      45542045 
- 1158      72726F72 
- 1158      0D0A00
- 1159 00bb 00       		.space	1
- 1160              	.LC29:
- 1161 00bc 0D0A3E3E 		.ascii	"\015\012>>Posting data to posttestserver.com..\015\012"
- 1161      506F7374 
- 1161      696E6720 
- 1161      64617461 
- 1161      20746F20 
- 1162 00e6 00       		.ascii	"\000"
- 1163 00e7 00       		.space	1
- 1164              	.LC30:
- 1165 00e8 2F706F73 		.ascii	"/post.php/name=demo&email=mymail&subject=subj&body="
- 1165      742E7068 
- 1165      702F6E61 
- 1165      6D653D64 
- 1165      656D6F26 
- 1166 011b 6D657373 		.ascii	"message\000"
- 1166      61676500 
- 1167 0123 00       		.space	1
- 1168              	.LC31:
- 1169 0124 0D0A4854 		.ascii	"\015\012HTTP POST OK\015\012\000"
- 1169      54502050 
- 1169      4F535420 
- 1169      4F4B0D0A 
- 1169      00
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 32
+ 923 0000 55415254 		.ascii	"UART Init complete!\015\000"
+ 923      20496E69 
+ 923      7420636F 
+ 923      6D706C65 
+ 923      7465210D 
+ 924 0015 000000   		.space	3
+ 925              	.LC12:
+ 926 0018 4572726F 		.ascii	"Error in AP Settings\015\000"
+ 926      7220696E 
+ 926      20415020 
+ 926      53657474 
+ 926      696E6773 
+ 927 002e 0000     		.space	2
+ 928              	.LC13:
+ 929 0030 57696669 		.ascii	"Wifi settings init complete!\015\000"
+ 929      20736574 
+ 929      74696E67 
+ 929      7320696E 
+ 929      69742063 
+ 930 004e 0000     		.space	2
+ 931              	.LC14:
+ 932 0050 53534944 		.ascii	"SSID: %s PASSCODE %s\015\012\000"
+ 932      3A202573 
+ 932      20504153 
+ 932      53434F44 
+ 932      45202573 
+ 933 0067 00       		.space	1
+ 934              	.LC15:
+ 935 0068 496E6974 		.ascii	"Initializing the wifi module...\015\000"
+ 935      69616C69 
+ 935      7A696E67 
+ 935      20746865 
+ 935      20776966 
+ 936 0089 000000   		.space	3
+ 937              	.LC16:
+ 938 008c 4572726F 		.ascii	"Error in Config\015\000"
+ 938      7220696E 
+ 938      20436F6E 
+ 938      6669670D 
+ 938      00
+ 939 009d 000000   		.space	3
+ 940              	.LC17:
+ 941 00a0 496E6974 		.ascii	"Init success, state code: %d\015\012\000"
+ 941      20737563 
+ 941      63657373 
+ 941      2C207374 
+ 941      61746520 
+ 942 00bf 00       		.space	1
+ 943              	.LC18:
+ 944 00c0 0D0A203E 		.ascii	"\015\012 >>RESET\015\000"
+ 944      3E524553 
+ 944      45540D00 
+ 945              	.LC19:
+ 946 00cc 0D0A203E 		.ascii	"\015\012 >>connecting to AP...\015\000"
+ 946      3E636F6E 
+ 946      6E656374 
+ 946      696E6720 
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 26
 
 
- 1170 0135 000000   		.space	3
- 1171              	.LC32:
- 1172 0138 0D0A4854 		.ascii	"\015\012HTTP POST Error\015\012\000"
- 1172      54502050 
- 1172      4F535420 
- 1172      4572726F 
- 1172      720D0A00 
- 1173              	.LC33:
- 1174 014c 2E00     		.ascii	".\000"
- 1175              		.section	.rodata.str1.4,"aMS",%progbits,1
- 1176              		.align	2
- 1177              	.LC37:
- 1178 0000 6E765F6D 		.ascii	"nv_model\000"
- 1178      6F64656C 
- 1178      00
- 1179 0009 000000   		.space	3
- 1180              	.LC38:
- 1181 000c 69705F69 		.ascii	"ip_ipaddr\000"
- 1181      70616464 
- 1181      7200
- 1182 0016 0000     		.space	2
- 1183              	.LC39:
- 1184 0018 706F7374 		.ascii	"posttestserver.com\000"
- 1184      74657374 
- 1184      73657276 
- 1184      65722E63 
- 1184      6F6D00
- 1185 002b 00       		.space	1
- 1186              	.LC40:
- 1187 002c 68747470 		.ascii	"httpbin.org\000"
- 1187      62696E2E 
- 1187      6F726700 
- 1188              	.LC41:
- 1189 0038 53544D64 		.ascii	"STMdemoPWD\000"
- 1189      656D6F50 
- 1189      574400
- 1190 0043 00       		.space	1
- 1191              	.LC42:
- 1192 0044 53544D00 		.ascii	"STM\000"
- 1193              		.section	.rodata.wifi_get_AP_settings.str1.4,"aMS",%progbits,1
- 1194              		.align	2
- 1195              	.LC0:
- 1196 0000 0D0A0A2F 		.ascii	"\015\012\012/**************************************"
- 1196      2A2A2A2A 
- 1196      2A2A2A2A 
- 1196      2A2A2A2A 
- 1196      2A2A2A2A 
- 1197 002a 2A2A2A2A 		.ascii	"******************\012\000"
- 1197      2A2A2A2A 
- 1197      2A2A2A2A 
- 1197      2A2A2A2A 
- 1197      2A2A0A00 
- 1198 003e 0000     		.space	2
- 1199              	.LC1:
- 1200 0040 0D202A20 		.ascii	"\015 *                                             "
- 1200      20202020 
- 1200      20202020 
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 33
+ 946      746F2041 
+ 947 00e6 0000     		.space	2
+ 948              	.LC20:
+ 949 00e8 0D0A203E 		.ascii	"\015\012 >>connected...\015\000"
+ 949      3E636F6E 
+ 949      6E656374 
+ 949      65642E2E 
+ 949      2E0D00
+ 950 00fb 00       		.space	1
+ 951              	.LC21:
+ 952 00fc 0D0A203E 		.ascii	"\015\012 >>Disconnected\015\000"
+ 952      3E446973 
+ 952      636F6E6E 
+ 952      65637465 
+ 952      640D00
+ 953 010f 00       		.space	1
+ 954              	.LC22:
+ 955 0110 0D0A203E 		.ascii	"\015\012 >>Activity\015\000"
+ 955      3E416374 
+ 955      69766974 
+ 955      790D00
+ 956 011f 00       		.space	1
+ 957              	.LC23:
+ 958 0120 0D0A3E3E 		.ascii	"\015\012>>WiFi_HTTPGET\015\000"
+ 958      57694669 
+ 958      5F485454 
+ 958      50474554 
+ 958      0D00
+ 959 0132 0000     		.space	2
+ 960              	.LC24:
+ 961 0134 2F676574 		.ascii	"/get\000"
+ 961      00
+ 962 0139 000000   		.space	3
+ 963              	.LC25:
+ 964 013c 0D0A4854 		.ascii	"\015\012HTTP GET OK\015\000"
+ 964      54502047 
+ 964      4554204F 
+ 964      4B0D00
+ 965 014b 00       		.space	1
+ 966              	.LC26:
+ 967 014c 0D0A3E3E 		.ascii	"\015\012>>Posting data to posttestserver.com..\015\000"
+ 967      506F7374 
+ 967      696E6720 
+ 967      64617461 
+ 967      20746F20 
+ 968 0176 0000     		.space	2
+ 969              	.LC27:
+ 970 0178 2F706F73 		.ascii	"/post.php/name=demo&email=mymail&subject=subj&body="
+ 970      742E7068 
+ 970      702F6E61 
+ 970      6D653D64 
+ 970      656D6F26 
+ 971 01ab 6D657373 		.ascii	"message\000"
+ 971      61676500 
+ 972 01b3 00       		.space	1
+ 973              	.LC28:
+ 974 01b4 0D0A4854 		.ascii	"\015\012HTTP POST OK\015\000"
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 27
 
 
- 1200      20202020 
- 1200      20202020 
- 1201 0070 20202020 		.ascii	"         *\012\000"
- 1201      20202020 
- 1201      202A0A00 
- 1202              	.LC2:
- 1203 007c 0D202A20 		.ascii	"\015 * X-CUBE-WIFI1 Expansion Software v3.1.1      "
- 1203      582D4355 
- 1203      42452D57 
- 1203      49464931 
- 1203      20457870 
- 1204 00ac 20202020 		.ascii	"         *\012\000"
- 1204      20202020 
- 1204      202A0A00 
- 1205              	.LC3:
- 1206 00b8 0D202A20 		.ascii	"\015 * X-NUCLEO-IDW0xx1 Wi-Fi Mini-AP Configuration"
- 1206      582D4E55 
- 1206      434C454F 
- 1206      2D494457 
- 1206      30787831 
- 1207 00e8 2E202020 		.ascii	".        *\012\000"
- 1207      20202020 
- 1207      202A0A00 
- 1208              	.LC4:
- 1209 00f4 0D202A20 		.ascii	"\015 * HTTP-Request Example                        "
- 1209      48545450 
- 1209      2D526571 
- 1209      75657374 
- 1209      20457861 
- 1210 0124 20202020 		.ascii	"         *\012\000"
- 1210      20202020 
- 1210      202A0A00 
- 1211              	.LC5:
- 1212 0130 0D202A2A 		.ascii	"\015 **********************************************"
- 1212      2A2A2A2A 
- 1212      2A2A2A2A 
- 1212      2A2A2A2A 
- 1212      2A2A2A2A 
- 1213 0160 2A2A2A2A 		.ascii	"*********/\012\000"
- 1213      2A2A2A2A 
- 1213      2A2F0A00 
- 1214              	.LC6:
- 1215 016c 0D0A446F 		.ascii	"\015\012Do you want to setup SSID?(y/n):\000"
- 1215      20796F75 
- 1215      2077616E 
- 1215      7420746F 
- 1215      20736574 
- 1216 018f 00       		.space	1
- 1217              	.LC7:
- 1218 0190 257300   		.ascii	"%s\000"
- 1219 0193 00       		.space	1
- 1220              	.LC8:
- 1221 0194 0D0A00   		.ascii	"\015\012\000"
- 1222 0197 00       		.space	1
- 1223              	.LC9:
- 1224 0198 456E7465 		.ascii	"Enter the SSID:\000"
- 1224      72207468 
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 34
+ 974      54502050 
+ 974      4F535420 
+ 974      4F4B0D00 
+ 975              	.LC29:
+ 976 01c4 0D0A4854 		.ascii	"\015\012HTTP POST Error\015\000"
+ 976      54502050 
+ 976      4F535420 
+ 976      4572726F 
+ 976      720D00
+ 977              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 978              		.align	2
+ 979              	.LC30:
+ 980 0000 6E765F6D 		.ascii	"nv_model\000"
+ 980      6F64656C 
+ 980      00
+ 981 0009 000000   		.space	3
+ 982              	.LC31:
+ 983 000c 69705F69 		.ascii	"ip_ipaddr\000"
+ 983      70616464 
+ 983      7200
+ 984 0016 0000     		.space	2
+ 985              	.LC32:
+ 986 0018 706F7374 		.ascii	"posttestserver.com\000"
+ 986      74657374 
+ 986      73657276 
+ 986      65722E63 
+ 986      6F6D00
+ 987 002b 00       		.space	1
+ 988              	.LC33:
+ 989 002c 68747470 		.ascii	"httpbin.org\000"
+ 989      62696E2E 
+ 989      6F726700 
+ 990              	.LC34:
+ 991 0038 61616430 		.ascii	"aad089f19eb3e374cd436f9adc99a4d8210b14eec9621d8d501"
+ 991      38396631 
+ 991      39656233 
+ 991      65333734 
+ 991      63643433 
+ 992 006b 31303739 		.ascii	"10797039cf906\000"
+ 992      37303339 
+ 992      63663930 
+ 992      3600
+ 993 0079 000000   		.space	3
+ 994              	.LC35:
+ 995 007c 4772696D 		.ascii	"Grimm\000"
+ 995      6D00
+ 996              		.section	.rodata.wifi_get_AP_settings.str1.4,"aMS",%progbits,1
+ 997              		.align	2
+ 998              	.LC0:
+ 999 0000 0D0A0A2F 		.ascii	"\015\012\012/**************************************"
+ 999      2A2A2A2A 
+ 999      2A2A2A2A 
+ 999      2A2A2A2A 
+ 999      2A2A2A2A 
+ 1000 002a 2A2A2A2A 		.ascii	"******************\000"
+ 1000      2A2A2A2A 
+ 1000      2A2A2A2A 
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 28
 
 
- 1224      65205353 
- 1224      49443A00 
- 1225              	.LC10:
- 1226 01a8 45786365 		.ascii	"Exceeded number of ssid characters permitted\000"
- 1226      65646564 
- 1226      206E756D 
- 1226      62657220 
- 1226      6F662073 
- 1227 01d5 000000   		.space	3
- 1228              	.LC11:
- 1229 01d8 456E7465 		.ascii	"Enter the password:\000"
- 1229      72207468 
- 1229      65207061 
- 1229      7373776F 
- 1229      72643A00 
- 1230              	.LC12:
- 1231 01ec 45786365 		.ascii	"Exceeded number of psk characters permitted\000"
- 1231      65646564 
- 1231      206E756D 
- 1231      62657220 
- 1231      6F662070 
- 1232              	.LC13:
- 1233 0218 456E7465 		.ascii	"Enter the encryption mode(0:Open, 1:WEP, 2:WPA2/WPA"
- 1233      72207468 
- 1233      6520656E 
- 1233      63727970 
- 1233      74696F6E 
- 1234 024b 322D5065 		.ascii	"2-Personal):\000"
- 1234      72736F6E 
- 1234      616C293A 
- 1234      00
- 1235              	.LC14:
- 1236 0258 0D0A5772 		.ascii	"\015\012Wrong Entry. Priv Mode is not compatible\012"
- 1236      6F6E6720 
- 1236      456E7472 
- 1236      792E2050 
- 1236      72697620 
- 1237 0283 00       		.ascii	"\000"
- 1238              	.LC15:
- 1239 0284 0D0A0A4D 		.ascii	"\015\012\012Module will connect with default settin"
- 1239      6F64756C 
- 1239      65207769 
- 1239      6C6C2063 
- 1239      6F6E6E65 
- 1240 02ae 67732E00 		.ascii	"gs.\000"
- 1241 02b2 0000     		.space	2
- 1242              	.LC16:
- 1243 02b4 0D0A2F2A 		.ascii	"\015\012/******************************************"
- 1243      2A2A2A2A 
- 1243      2A2A2A2A 
- 1243      2A2A2A2A 
- 1243      2A2A2A2A 
- 1244 02e1 2A2A2A2A 		.ascii	"*******************\015\012\000"
- 1244      2A2A2A2A 
- 1244      2A2A2A2A 
- 1244      2A2A2A2A 
- 1244      2A2A2A0D 
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 35
+ 1000      2A2A2A2A 
+ 1000      2A2A00
+ 1001 003d 000000   		.space	3
+ 1002              	.LC1:
+ 1003 0040 0D202A20 		.ascii	"\015 *                                             "
+ 1003      20202020 
+ 1003      20202020 
+ 1003      20202020 
+ 1003      20202020 
+ 1004 0070 20202020 		.ascii	"         *\000"
+ 1004      20202020 
+ 1004      202A00
+ 1005 007b 00       		.space	1
+ 1006              	.LC2:
+ 1007 007c 0D202A20 		.ascii	"\015 * X-CUBE-WIFI1 Expansion Software v3.1.1      "
+ 1007      582D4355 
+ 1007      42452D57 
+ 1007      49464931 
+ 1007      20457870 
+ 1008 00ac 20202020 		.ascii	"         *\000"
+ 1008      20202020 
+ 1008      202A00
+ 1009 00b7 00       		.space	1
+ 1010              	.LC3:
+ 1011 00b8 0D202A20 		.ascii	"\015 * X-NUCLEO-IDW0xx1 Wi-Fi Mini-AP Configuration"
+ 1011      582D4E55 
+ 1011      434C454F 
+ 1011      2D494457 
+ 1011      30787831 
+ 1012 00e8 2E202020 		.ascii	".        *\000"
+ 1012      20202020 
+ 1012      202A00
+ 1013 00f3 00       		.space	1
+ 1014              	.LC4:
+ 1015 00f4 0D202A20 		.ascii	"\015 * HTTP-Request Example                        "
+ 1015      48545450 
+ 1015      2D526571 
+ 1015      75657374 
+ 1015      20457861 
+ 1016 0124 20202020 		.ascii	"         *\000"
+ 1016      20202020 
+ 1016      202A00
+ 1017 012f 00       		.space	1
+ 1018              	.LC5:
+ 1019 0130 0D202A2A 		.ascii	"\015 **********************************************"
+ 1019      2A2A2A2A 
+ 1019      2A2A2A2A 
+ 1019      2A2A2A2A 
+ 1019      2A2A2A2A 
+ 1020 0160 2A2A2A2A 		.ascii	"*********/\000"
+ 1020      2A2A2A2A 
+ 1020      2A2F00
+ 1021 016b 00       		.space	1
+ 1022              	.LC6:
+ 1023 016c 0D0A0A4D 		.ascii	"\015\012\012Module will connect with default settin"
+ 1023      6F64756C 
+ 1023      65207769 
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 29
 
 
- 1245 02f7 00       		.space	1
- 1246              	.LC17:
- 1247 02f8 0D0A202A 		.ascii	"\015\012 * Configuration Complete                  "
- 1247      20436F6E 
- 1247      66696775 
- 1247      72617469 
- 1247      6F6E2043 
- 1248 0325 20202020 		.ascii	"                   \015\012\000"
- 1248      20202020 
- 1248      20202020 
- 1248      20202020 
- 1248      2020200D 
- 1249 033b 00       		.space	1
- 1250              	.LC18:
- 1251 033c 0D0A202A 		.ascii	"\015\012 * Please make sure a Server is running at "
- 1251      20506C65 
- 1251      61736520 
- 1251      6D616B65 
- 1251      20737572 
- 1252 0369 67697665 		.ascii	"given hostname     \015\012\000"
- 1252      6E20686F 
- 1252      73746E61 
- 1252      6D652020 
- 1252      2020200D 
- 1253 037f 00       		.space	1
- 1254              	.LC19:
- 1255 0380 0D0A202A 		.ascii	"\015\012 ******************************************"
- 1255      2A2A2A2A 
- 1255      2A2A2A2A 
- 1255      2A2A2A2A 
- 1255      2A2A2A2A 
- 1256 03ad 2A2A2A2A 		.ascii	"*******************\015\012\000"
- 1256      2A2A2A2A 
- 1256      2A2A2A2A 
- 1256      2A2A2A2A 
- 1256      2A2A2A0D 
- 1257              		.text
- 1258              	.Letext0:
- 1259              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
- 1260              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
- 1261              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 1262              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 1263              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
- 1264              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 1265              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 1266              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
- 1267              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
- 1268              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 1269              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 1270              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 1271              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 1272              		.file 15 "Core/Inc/main.h"
- 1273              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
- 1274              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
- 1275              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\lib\\gcc\\arm-none-ea
- 1276              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
- 1277              		.file 20 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 36
+ 1023      6C6C2063 
+ 1023      6F6E6E65 
+ 1024 0196 67732E00 		.ascii	"gs.\000"
+ 1025 019a 0000     		.space	2
+ 1026              	.LC7:
+ 1027 019c 0D0A2F2A 		.ascii	"\015\012/******************************************"
+ 1027      2A2A2A2A 
+ 1027      2A2A2A2A 
+ 1027      2A2A2A2A 
+ 1027      2A2A2A2A 
+ 1028 01c9 2A2A2A2A 		.ascii	"*******************\015\000"
+ 1028      2A2A2A2A 
+ 1028      2A2A2A2A 
+ 1028      2A2A2A2A 
+ 1028      2A2A2A0D 
+ 1029 01de 0000     		.space	2
+ 1030              	.LC8:
+ 1031 01e0 0D0A202A 		.ascii	"\015\012 * Configuration Complete                  "
+ 1031      20436F6E 
+ 1031      66696775 
+ 1031      72617469 
+ 1031      6F6E2043 
+ 1032 020d 20202020 		.ascii	"                   \015\000"
+ 1032      20202020 
+ 1032      20202020 
+ 1032      20202020 
+ 1032      2020200D 
+ 1033 0222 0000     		.space	2
+ 1034              	.LC9:
+ 1035 0224 0D0A202A 		.ascii	"\015\012 * Please make sure a Server is running at "
+ 1035      20506C65 
+ 1035      61736520 
+ 1035      6D616B65 
+ 1035      20737572 
+ 1036 0251 67697665 		.ascii	"given hostname     \015\000"
+ 1036      6E20686F 
+ 1036      73746E61 
+ 1036      6D652020 
+ 1036      2020200D 
+ 1037 0266 0000     		.space	2
+ 1038              	.LC10:
+ 1039 0268 0D0A202A 		.ascii	"\015\012 ******************************************"
+ 1039      2A2A2A2A 
+ 1039      2A2A2A2A 
+ 1039      2A2A2A2A 
+ 1039      2A2A2A2A 
+ 1040 0295 2A2A2A2A 		.ascii	"*******************\015\000"
+ 1040      2A2A2A2A 
+ 1040      2A2A2A2A 
+ 1040      2A2A2A2A 
+ 1040      2A2A2A0D 
+ 1041              		.text
+ 1042              	.Letext0:
+ 1043              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
+ 1044              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\include
+ 1045              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 1046              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 30
 
 
- 1278              		.file 21 "Middlewares/ST/STM32_SPWF0xSy/Inc/wifi_interface.h"
- 1279              		.file 22 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
- 1280              		.file 23 "Middlewares/ST/STM32_SPWF0xSy/Utils/event_buffer.h"
- 1281              		.file 24 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
- 1282              		.file 25 "Middlewares/ST/STM32_SPWF0xSy/Inc/wifi_module.h"
- 1283              		.file 26 "Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.h"
- 1284              		.file 27 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h"
- 1285              		.file 28 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
- 1286              		.file 29 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 37
+ 1047              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"
+ 1048              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 1049              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1050              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 1051              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 1052              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1053              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 1054              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 1055              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 1056              		.file 15 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
+ 1057              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
+ 1058              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\lib\\gcc\\arm-none-ea
+ 1059              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
+ 1060              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
+ 1061              		.file 20 "Core/Inc/main.h"
+ 1062              		.file 21 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 1063              		.file 22 "Middlewares/ST/STM32_SPWF0xSy/Inc/wifi_interface.h"
+ 1064              		.file 23 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
+ 1065              		.file 24 "Middlewares/ST/STM32_SPWF0xSy/Utils/event_buffer.h"
+ 1066              		.file 25 "Middlewares/ST/STM32_SPWF0xSy/Inc/wifi_module.h"
+ 1067              		.file 26 "Middlewares/ST/STM32_SPWF0xSy/Utils/wifi_globals.h"
+ 1068              		.file 27 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h"
+ 1069              		.file 28 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
+ 1070              		.file 29 "c:\\program files (x86)\\gnu tools arm embedded\\6 2017-q2-update\\arm-none-eabi\\includ
+ 1071              		.file 30 "Core/Inc/retarget.h"
+ 1072              		.file 31 "<built-in>"
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 31
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-D:\cygwin64\tmp\ccsyqgcK.s:18     .text.MX_GPIO_Init:00000000 $t
-D:\cygwin64\tmp\ccsyqgcK.s:24     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-D:\cygwin64\tmp\ccsyqgcK.s:57     .text.MX_GPIO_Init:00000020 $d
-D:\cygwin64\tmp\ccsyqgcK.s:62     .text.MX_USART2_UART_Init:00000000 $t
-D:\cygwin64\tmp\ccsyqgcK.s:68     .text.MX_USART2_UART_Init:00000000 MX_USART2_UART_Init
-D:\cygwin64\tmp\ccsyqgcK.s:115    .text.MX_USART2_UART_Init:0000002c $d
+D:\cygwin64\tmp\cci2TeQV.s:18     .text.MX_GPIO_Init:00000000 $t
+D:\cygwin64\tmp\cci2TeQV.s:24     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+D:\cygwin64\tmp\cci2TeQV.s:57     .text.MX_GPIO_Init:00000020 $d
+D:\cygwin64\tmp\cci2TeQV.s:62     .text.MX_USART2_UART_Init:00000000 $t
+D:\cygwin64\tmp\cci2TeQV.s:68     .text.MX_USART2_UART_Init:00000000 MX_USART2_UART_Init
+D:\cygwin64\tmp\cci2TeQV.s:115    .text.MX_USART2_UART_Init:0000002c $d
                             *COM*:00000040 huart2
-D:\cygwin64\tmp\ccsyqgcK.s:121    .text.SystemClock_Config:00000000 $t
-D:\cygwin64\tmp\ccsyqgcK.s:128    .text.SystemClock_Config:00000000 SystemClock_Config
-D:\cygwin64\tmp\ccsyqgcK.s:237    .text.SystemClock_Config:00000088 $d
-D:\cygwin64\tmp\ccsyqgcK.s:243    .text.print:00000000 $t
-D:\cygwin64\tmp\ccsyqgcK.s:250    .text.print:00000000 print
-D:\cygwin64\tmp\ccsyqgcK.s:287    .text.print:00000024 $d
-D:\cygwin64\tmp\ccsyqgcK.s:292    .text.wifi_get_AP_settings:00000000 $t
-D:\cygwin64\tmp\ccsyqgcK.s:299    .text.wifi_get_AP_settings:00000000 wifi_get_AP_settings
-D:\cygwin64\tmp\ccsyqgcK.s:569    .text.wifi_get_AP_settings:00000188 $d
-                            *COM*:00000001 console_input
+D:\cygwin64\tmp\cci2TeQV.s:121    .text.SystemClock_Config:00000000 $t
+D:\cygwin64\tmp\cci2TeQV.s:128    .text.SystemClock_Config:00000000 SystemClock_Config
+D:\cygwin64\tmp\cci2TeQV.s:237    .text.SystemClock_Config:00000088 $d
+D:\cygwin64\tmp\cci2TeQV.s:243    .text.wifi_get_AP_settings:00000000 $t
+D:\cygwin64\tmp\cci2TeQV.s:250    .text.wifi_get_AP_settings:00000000 wifi_get_AP_settings
+D:\cygwin64\tmp\cci2TeQV.s:356    .text.wifi_get_AP_settings:00000098 $d
                             *COM*:00000028 console_ssid
                             *COM*:00000014 console_psk
                             *COM*:00000014 console_host
-D:\cygwin64\tmp\ccsyqgcK.s:604    .text.main:00000000 $t
-D:\cygwin64\tmp\ccsyqgcK.s:611    .text.main:00000000 main
-D:\cygwin64\tmp\ccsyqgcK.s:719    .text.main:00000080 $d
-D:\cygwin64\tmp\ccsyqgcK.s:727    .text.main:000000a0 $t
-D:\cygwin64\tmp\ccsyqgcK.s:871    .text.main:0000015c $d
+D:\cygwin64\tmp\cci2TeQV.s:378    .text.main:00000000 $t
+D:\cygwin64\tmp\cci2TeQV.s:385    .text.main:00000000 main
+D:\cygwin64\tmp\cci2TeQV.s:507    .text.main:00000094 $d
+D:\cygwin64\tmp\cci2TeQV.s:516    .text.main:000000b8 $t
+D:\cygwin64\tmp\cci2TeQV.s:682    .text.main:00000194 $d
                             *COM*:00000038 config
                             *COM*:00000001 wifi_state
                             *COM*:00000014 wifi_ip_addr
                             *COM*:00000400 user_buffer
-D:\cygwin64\tmp\ccsyqgcK.s:902    .text.ind_wifi_on:00000000 $t
-D:\cygwin64\tmp\ccsyqgcK.s:909    .text.ind_wifi_on:00000000 ind_wifi_on
-D:\cygwin64\tmp\ccsyqgcK.s:932    .text.ind_wifi_on:00000010 $d
-D:\cygwin64\tmp\ccsyqgcK.s:938    .text.ind_wifi_connected:00000000 $t
-D:\cygwin64\tmp\ccsyqgcK.s:945    .text.ind_wifi_connected:00000000 ind_wifi_connected
-D:\cygwin64\tmp\ccsyqgcK.s:968    .text.ind_wifi_connected:00000010 $d
-D:\cygwin64\tmp\ccsyqgcK.s:974    .text.ind_wifi_http_data_available:00000000 $t
-D:\cygwin64\tmp\ccsyqgcK.s:981    .text.ind_wifi_http_data_available:00000000 ind_wifi_http_data_available
-D:\cygwin64\tmp\ccsyqgcK.s:1022   .text.ind_wifi_http_data_available:00000028 $d
-D:\cygwin64\tmp\ccsyqgcK.s:1073   .data.baud_rate:00000000 baud_rate
-D:\cygwin64\tmp\ccsyqgcK.s:1086   .data.gcfg_key2:00000000 gcfg_key2
-D:\cygwin64\tmp\ccsyqgcK.s:1079   .data.gcfg_key1:00000000 gcfg_key1
-D:\cygwin64\tmp\ccsyqgcK.s:1106   .data.post_hostname:00000000 post_hostname
-D:\cygwin64\tmp\ccsyqgcK.s:1093   .data.hostname:00000000 hostname
-D:\cygwin64\tmp\ccsyqgcK.s:1099   .data.mode:00000000 mode
-D:\cygwin64\tmp\ccsyqgcK.s:1113   .data.seckey:00000000 seckey
-D:\cygwin64\tmp\ccsyqgcK.s:1120   .data.ssid:00000000 ssid
+D:\cygwin64\tmp\cci2TeQV.s:719    .text.print:00000000 $t
+D:\cygwin64\tmp\cci2TeQV.s:726    .text.print:00000000 print
+D:\cygwin64\tmp\cci2TeQV.s:739    .text.ind_wifi_on:00000000 $t
+D:\cygwin64\tmp\cci2TeQV.s:746    .text.ind_wifi_on:00000000 ind_wifi_on
+D:\cygwin64\tmp\cci2TeQV.s:761    .text.ind_wifi_on:00000008 $d
+D:\cygwin64\tmp\cci2TeQV.s:766    .text.ind_wifi_connected:00000000 $t
+D:\cygwin64\tmp\cci2TeQV.s:773    .text.ind_wifi_connected:00000000 ind_wifi_connected
+D:\cygwin64\tmp\cci2TeQV.s:788    .text.ind_wifi_connected:00000008 $d
+D:\cygwin64\tmp\cci2TeQV.s:793    .text.ind_wifi_http_data_available:00000000 $t
+D:\cygwin64\tmp\cci2TeQV.s:800    .text.ind_wifi_http_data_available:00000000 ind_wifi_http_data_available
+D:\cygwin64\tmp\cci2TeQV.s:824    .text.ind_wifi_http_data_available:00000010 $d
+D:\cygwin64\tmp\cci2TeQV.s:871    .data.baud_rate:00000000 baud_rate
+D:\cygwin64\tmp\cci2TeQV.s:884    .data.gcfg_key2:00000000 gcfg_key2
+D:\cygwin64\tmp\cci2TeQV.s:877    .data.gcfg_key1:00000000 gcfg_key1
+D:\cygwin64\tmp\cci2TeQV.s:904    .data.post_hostname:00000000 post_hostname
+D:\cygwin64\tmp\cci2TeQV.s:891    .data.hostname:00000000 hostname
+D:\cygwin64\tmp\cci2TeQV.s:897    .data.mode:00000000 mode
+D:\cygwin64\tmp\cci2TeQV.s:911    .data.seckey:00000000 seckey
+D:\cygwin64\tmp\cci2TeQV.s:918    .data.ssid:00000000 ssid
                             *COM*:00000040 UART_MsgHandle
-D:\cygwin64\tmp\ccsyqgcK.s:1066   .bss.set_AP_config:00000000 set_AP_config
-D:\cygwin64\tmp\ccsyqgcK.s:1054   .bss.console_count:00000000 console_count
-D:\cygwin64\tmp\ccsyqgcK.s:1060   .bss.http_post_request:00000000 http_post_request
+D:\cygwin64\tmp\cci2TeQV.s:864    .bss.set_AP_config:00000000 set_AP_config
+D:\cygwin64\tmp\cci2TeQV.s:853    .bss.console_count:00000000 console_count
+                            *COM*:00000001 cin
+D:\cygwin64\tmp\cci2TeQV.s:859    .bss.http_post_request:00000000 http_post_request
                             *COM*:00000001 http_char
-D:\cygwin64\tmp\ccsyqgcK.s:1055   .bss.console_count:00000000 $d
-D:\cygwin64\tmp\ccsyqgcK.s:1061   .bss.http_post_request:00000000 $d
-D:\cygwin64\tmp\ccsyqgcK.s:1067   .bss.set_AP_config:00000000 $d
-D:\cygwin64\tmp\ccsyqgcK.s:1069   .data.baud_rate:00000000 $d
-ARM GAS  D:\cygwin64\tmp\ccsyqgcK.s 			page 38
+D:\cygwin64\tmp\cci2TeQV.s:854    .bss.console_count:00000000 $d
+D:\cygwin64\tmp\cci2TeQV.s:860    .bss.http_post_request:00000000 $d
+D:\cygwin64\tmp\cci2TeQV.s:865    .bss.set_AP_config:00000000 $d
+D:\cygwin64\tmp\cci2TeQV.s:867    .data.baud_rate:00000000 $d
+D:\cygwin64\tmp\cci2TeQV.s:874    .data.gcfg_key1:00000000 $d
+ARM GAS  D:\cygwin64\tmp\cci2TeQV.s 			page 32
 
 
-D:\cygwin64\tmp\ccsyqgcK.s:1076   .data.gcfg_key1:00000000 $d
-D:\cygwin64\tmp\ccsyqgcK.s:1082   .data.gcfg_key2:00000000 $d
-D:\cygwin64\tmp\ccsyqgcK.s:1089   .data.hostname:00000000 $d
-D:\cygwin64\tmp\ccsyqgcK.s:1102   .data.post_hostname:00000000 $d
-D:\cygwin64\tmp\ccsyqgcK.s:1109   .data.seckey:00000000 $d
-D:\cygwin64\tmp\ccsyqgcK.s:1116   .data.ssid:00000000 $d
-D:\cygwin64\tmp\ccsyqgcK.s:1123   .rodata.ind_wifi_connected.str1.4:00000000 $d
-D:\cygwin64\tmp\ccsyqgcK.s:1127   .rodata.ind_wifi_http_data_available.str1.4:00000000 $d
-D:\cygwin64\tmp\ccsyqgcK.s:1131   .rodata.ind_wifi_on.str1.4:00000000 $d
-D:\cygwin64\tmp\ccsyqgcK.s:1135   .rodata.main.str1.4:00000000 $d
-D:\cygwin64\tmp\ccsyqgcK.s:1176   .rodata.str1.4:00000000 $d
-D:\cygwin64\tmp\ccsyqgcK.s:1194   .rodata.wifi_get_AP_settings.str1.4:00000000 $d
+D:\cygwin64\tmp\cci2TeQV.s:880    .data.gcfg_key2:00000000 $d
+D:\cygwin64\tmp\cci2TeQV.s:887    .data.hostname:00000000 $d
+D:\cygwin64\tmp\cci2TeQV.s:900    .data.post_hostname:00000000 $d
+D:\cygwin64\tmp\cci2TeQV.s:907    .data.seckey:00000000 $d
+D:\cygwin64\tmp\cci2TeQV.s:914    .data.ssid:00000000 $d
+D:\cygwin64\tmp\cci2TeQV.s:921    .rodata.main.str1.4:00000000 $d
+D:\cygwin64\tmp\cci2TeQV.s:978    .rodata.str1.4:00000000 $d
+D:\cygwin64\tmp\cci2TeQV.s:997    .rodata.wifi_get_AP_settings.str1.4:00000000 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
@@ -2193,19 +1846,19 @@ Error_Handler
 memset
 HAL_RCC_OscConfig
 HAL_RCC_ClockConfig
-strncpy
-HAL_UART_Transmit
+puts
 fflush
-scanf
+printf
 strlen
 memcpy
 _impure_ptr
 HAL_Init
-UART_Configuration
+RetargetInit
 wifi_init
 wifi_connect
 wifi_get_IP_address
 GET_Configuration_Value
 wifi_http_get
 wifi_http_post
+putchar
 HAL_Delay

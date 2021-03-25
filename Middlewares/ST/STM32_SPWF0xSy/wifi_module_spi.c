@@ -37,6 +37,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "wifi_module.h"
 #include "wifi_globals.h"
+#include "stm32f4xx_hal_spi.h"
 #include "enum.h"
 
 /** @addtogroup MIDDLEWARES

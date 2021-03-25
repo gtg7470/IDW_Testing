@@ -1,4 +1,4 @@
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****              and HAL_UART_Receive_DMA() APIs):
   31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****             (+++) Declare a DMA handle structure for the Tx/Rx stream.
   32:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****             (+++) Enable the DMAx interface clock.
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 2
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 2
 
 
   33:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****             (+++) Configure the declared DMA handle structure with the required
@@ -118,7 +118,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
   87:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     This function takes as parameters the HAL peripheral handle, the Callback ID
   88:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     and a pointer to the user callback function.
   89:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 3
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 3
 
 
   90:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     [..]
@@ -178,7 +178,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  144:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****        (+) At transmission end of transfer HAL_UART_TxCpltCallback is executed and user can
  145:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****             add his own code by customization of function pointer HAL_UART_TxCpltCallback
  146:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****        (+) Receive an amount of data in non blocking mode using HAL_UART_Receive_IT()
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 4
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 4
 
 
  147:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****        (+) At reception end of transfer HAL_UART_RxCpltCallback is executed and user can
@@ -238,7 +238,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  201:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     |---------|-----------|---------------------------------------|
  202:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     |    1    |    1      |    | SB | 8 bit data | PB | STB |     |
  203:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     +-------------------------------------------------------------+
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 5
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 5
 
 
  204:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   ******************************************************************************
@@ -298,7 +298,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  258:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** static void UART_DMARxAbortCallback(DMA_HandleTypeDef *hdma);
  259:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** static void UART_DMATxOnlyAbortCallback(DMA_HandleTypeDef *hdma);
  260:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** static void UART_DMARxOnlyAbortCallback(DMA_HandleTypeDef *hdma);
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 6
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 6
 
 
  261:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** static HAL_StatusTypeDef UART_Transmit_IT(UART_HandleTypeDef *huart);
@@ -358,7 +358,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  315:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   * @retval HAL status
  316:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   */
  317:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** HAL_StatusTypeDef HAL_UART_Init(UART_HandleTypeDef *huart)
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 7
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 7
 
 
  318:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** {
@@ -418,7 +418,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  372:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****      - SCEN, HDSEL and IREN  bits in the USART_CR3 register.*/
  373:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   CLEAR_BIT(huart->Instance->CR2, (USART_CR2_LINEN | USART_CR2_CLKEN));
  374:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   CLEAR_BIT(huart->Instance->CR3, (USART_CR3_SCEN | USART_CR3_HDSEL | USART_CR3_IREN));
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 8
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 8
 
 
  375:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
@@ -478,7 +478,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  429:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
  430:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Disable the peripheral */
  431:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   __HAL_UART_DISABLE(huart);
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 9
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 9
 
 
  432:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
@@ -538,7 +538,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  486:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     huart->Lock = HAL_UNLOCKED;
  487:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
  488:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** #if (USE_HAL_UART_REGISTER_CALLBACKS == 1)
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 10
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 10
 
 
  489:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     UART_InitCallbacksToDefault(huart);
@@ -598,7 +598,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  543:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   *         This parameter can be one of the following values:
  544:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   *            @arg UART_WAKEUPMETHOD_IDLELINE: Wake-up by an idle line detection
  545:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   *            @arg UART_WAKEUPMETHOD_ADDRESSMARK: Wake-up by an address mark
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 11
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 11
 
 
  546:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   * @retval HAL status
@@ -658,7 +658,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  600:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Set the USART address node */
  601:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   CLEAR_BIT(huart->Instance->CR2, USART_CR2_ADD);
  602:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   SET_BIT(huart->Instance->CR2, Address);
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 12
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 12
 
 
  603:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
@@ -718,7 +718,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  657:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Process Unlock */
  658:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   __HAL_UNLOCK(huart);
  659:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 13
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 13
 
 
  660:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   return HAL_OK;
@@ -778,7 +778,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  714:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** {
  715:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   HAL_StatusTypeDef status = HAL_OK;
  716:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 14
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 14
 
 
  717:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   if (pCallback == NULL)
@@ -838,7 +838,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  771:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       default :
  772:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         /* Update the error code */
  773:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         huart->ErrorCode |= HAL_UART_ERROR_INVALID_CALLBACK;
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 15
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 15
 
 
  774:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
@@ -898,7 +898,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  828:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   *           @arg @ref HAL_UART_ABORT_TRANSMIT_COMPLETE_CB_ID Abort Transmit Complete Callback ID
  829:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   *           @arg @ref HAL_UART_ABORT_RECEIVE_COMPLETE_CB_ID Abort Receive Complete Callback ID
  830:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   *           @arg @ref HAL_UART_MSPINIT_CB_ID MspInit Callback ID
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 16
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 16
 
 
  831:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   *           @arg @ref HAL_UART_MSPDEINIT_CB_ID MspDeInit Callback ID
@@ -958,7 +958,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  885:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       default :
  886:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         /* Update the error code */
  887:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         huart->ErrorCode |= HAL_UART_ERROR_INVALID_CALLBACK;
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 17
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 17
 
 
  888:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
@@ -1018,7 +1018,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  942:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     This subsection provides a set of functions allowing to manage the UART asynchronous
  943:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     and Half duplex data transfers.
  944:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 18
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 18
 
 
  945:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     (#) There are two modes of transfer:
@@ -1078,7 +1078,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  999:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****            and HAL_UART_ErrorCallback() user callback is executed. Transfer is kept ongoing on UART
 1000:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****            If user wants to abort it, Abort services should be called by user.
 1001:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****        (+) Error is considered as Blocking : Transfer could not be completed properly and is aborte
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 19
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 19
 
 
 1002:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****            This concerns Overrun Error In Interrupt mode reception and all errors in DMA mode.
@@ -1138,7 +1138,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1056:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       {
 1057:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         if (UART_WaitOnFlagUntilTimeout(huart, UART_FLAG_TXE, RESET, tickstart, Timeout) != HAL_OK)
 1058:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         {
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 20
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 20
 
 
 1059:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****           return HAL_TIMEOUT;
@@ -1198,7 +1198,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1113:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   uint32_t tickstart = 0U;
 1114:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
 1115:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Check that a Rx process is not already ongoing */
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 21
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 21
 
 
 1116:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   if (huart->RxState == HAL_UART_STATE_READY)
@@ -1258,7 +1258,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1170:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         }
 1171:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         else
 1172:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         {
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 22
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 22
 
 
 1173:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****           *pData++ = (uint8_t)(huart->Instance->DR & (uint8_t)0x007F);
@@ -1318,7 +1318,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1227:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     return HAL_OK;
 1228:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   }
 1229:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   else
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 23
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 23
 
 
 1230:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   {
@@ -1378,7 +1378,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1284:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** }
 1285:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
 1286:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** /**
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 24
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 24
 
 
 1287:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   * @brief  Sends an amount of data in DMA mode.
@@ -1438,7 +1438,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1341:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     /* Enable the DMA transfer for transmit request by setting the DMAT bit
 1342:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****        in the UART CR3 register */
 1343:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     SET_BIT(huart->Instance->CR3, USART_CR3_DMAT);
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 25
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 25
 
 
 1344:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
@@ -1498,7 +1498,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1398:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     /* Enable the DMA stream */
 1399:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     tmp = (uint32_t *)&pData;
 1400:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     HAL_DMA_Start_IT(huart->hdmarx, (uint32_t)&huart->Instance->DR, *(uint32_t *)tmp, Size);
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 26
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 26
 
 
 1401:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
@@ -1558,7 +1558,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1455:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   }
 1456:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
 1457:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Process Unlocked */
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 27
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 27
 
 
 1458:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   __HAL_UNLOCK(huart);
@@ -1618,7 +1618,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1512:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****      */
 1513:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
 1514:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Stop UART DMA Tx request if ongoing */
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 28
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 28
 
 
 1515:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   dmarequest = HAL_IS_BIT_SET(huart->Instance->CR3, USART_CR3_DMAT);
@@ -1678,7 +1678,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1569:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     if (huart->hdmatx != NULL)
 1570:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     {
 1571:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       /* Set the UART DMA Abort callback to Null.
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 29
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 29
 
 
 1572:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****          No call back execution at end of DMA abort procedure */
@@ -1738,7 +1738,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1626:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
 1627:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** /**
 1628:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   * @brief  Abort ongoing Transmit transfer (blocking mode).
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 30
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 30
 
 
 1629:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   * @param  huart UART handle.
@@ -1798,7 +1798,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1683:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   *           - Disable UART Interrupts (Rx)
 1684:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   *           - Disable the DMA transfer in the peripheral register (if enabled)
 1685:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   *           - Abort DMA transfer by calling HAL_DMA_Abort (in case of transfer in DMA mode)
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 31
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 31
 
 
 1686:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   *           - Set handle State to READY
@@ -1858,7 +1858,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1740:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   * @note   This procedure is executed in Interrupt mode, meaning that abort procedure could be
 1741:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   *         considered as completed only when user abort complete callback is executed (not when ex
 1742:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   * @retval HAL status
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 32
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 32
 
 
 1743:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** */
@@ -1918,7 +1918,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1797:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       {
 1798:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         huart->hdmatx->XferAbortCallback = NULL;
 1799:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       }
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 33
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 33
 
 
 1800:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       else
@@ -1978,7 +1978,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1854:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
 1855:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   return HAL_OK;
 1856:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** }
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 34
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 34
 
 
 1857:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
@@ -2038,7 +2038,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1911:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** #endif /* USE_HAL_UART_REGISTER_CALLBACKS */
 1912:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     }
 1913:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   }
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 35
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 35
 
 
 1914:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   else
@@ -2098,7 +2098,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1968:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       if (HAL_DMA_Abort_IT(huart->hdmarx) != HAL_OK)
 1969:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       {
 1970:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         /* Call Directly huart->hdmarx->XferAbortCallback function in case of error */
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 36
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 36
 
 
 1971:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         huart->hdmarx->XferAbortCallback(huart->hdmarx);
@@ -2158,7 +2158,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2025:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   uint32_t dmarequest = 0x00U;
 2026:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
 2027:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* If no error occurs */
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 37
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 37
 
 
 2028:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   errorflags = (isrflags & (uint32_t)(USART_SR_PE | USART_SR_FE | USART_SR_ORE | USART_SR_NE));
@@ -2218,7 +2218,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2082:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****            Disable Rx Interrupts, and disable Rx DMA request, if ongoing */
 2083:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         UART_EndRxTransfer(huart);
 2084:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 38
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 38
 
 
 2085:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         /* Disable the UART DMA Rx request if enabled */
@@ -2278,7 +2278,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2139:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       }
 2140:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     }
 2141:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     return;
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 39
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 39
 
 
 2142:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   } /* End if some error occurs */
@@ -2338,7 +2338,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2196:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** {
 2197:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Prevent unused argument(s) compilation warning */
 2198:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   UNUSED(huart);
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 40
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 40
 
 
 2199:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* NOTE: This function should not be modified, when the callback is needed,
@@ -2398,7 +2398,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2253:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   */
 2254:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** __weak void HAL_UART_AbortTransmitCpltCallback(UART_HandleTypeDef *huart)
 2255:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** {
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 41
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 41
 
 
 2256:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Prevent unused argument(s) compilation warning */
@@ -2458,7 +2458,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2310:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Check the parameters */
 2311:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   assert_param(IS_UART_INSTANCE(huart->Instance));
 2312:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 42
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 42
 
 
 2313:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Process Locked */
@@ -2518,7 +2518,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2367:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Process Locked */
 2368:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   __HAL_LOCK(huart);
 2369:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 43
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 43
 
 
 2370:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   huart->gState = HAL_UART_STATE_BUSY;
@@ -2578,7 +2578,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2424:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** HAL_StatusTypeDef HAL_HalfDuplex_EnableReceiver(UART_HandleTypeDef *huart)
 2425:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** {
 2426:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   uint32_t tmpreg = 0x00U;
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 44
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 44
 
 
 2427:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
@@ -2638,7 +2638,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2481:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** HAL_UART_StateTypeDef HAL_UART_GetState(UART_HandleTypeDef *huart)
 2482:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** {
 2483:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   uint32_t temp1 = 0x00U, temp2 = 0x00U;
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 45
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 45
 
 
 2484:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   temp1 = huart->gState;
@@ -2698,7 +2698,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2538:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   * @retval None
 2539:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   */
 2540:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** static void UART_DMATransmitCplt(DMA_HandleTypeDef *hdma)
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 46
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 46
 
 
 2541:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** {
@@ -2758,7 +2758,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2595:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** {
 2596:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   UART_HandleTypeDef *huart = (UART_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
 2597:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* DMA Normal mode*/
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 47
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 47
 
 
 2598:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   if ((hdma->Instance->CR & DMA_SxCR_CIRC) == 0U)
@@ -2818,7 +2818,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2652:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Stop UART DMA Tx request if ongoing */
 2653:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   dmarequest = HAL_IS_BIT_SET(huart->Instance->CR3, USART_CR3_DMAT);
 2654:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   if ((huart->gState == HAL_UART_STATE_BUSY_TX) && dmarequest)
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 48
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 48
 
 
 2655:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   {
@@ -2878,7 +2878,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2709:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       }
 2710:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     }
 2711:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   }
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 49
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 49
 
 
 2712:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   return HAL_OK;
@@ -2938,7 +2938,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
   59              	.LVL1:
 2736:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Disable RXNE, PE and ERR (Frame error, noise error, overrun error) interrupts */
 2737:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   CLEAR_BIT(huart->Instance->CR1, (USART_CR1_RXNEIE | USART_CR1_PEIE));
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 50
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 50
 
 
   60              		.loc 1 2737 0
@@ -2998,7 +2998,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2768:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   *         (To be called at end of DMA Tx Abort procedure following user abort request).
 2769:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   * @note   When this callback is executed, User Abort complete call back is called only if no
 2770:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   *         Abort still ongoing for Rx DMA Handle.
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 51
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 51
 
 
 2771:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   * @param  hdma  Pointer to a DMA_HandleTypeDef structure that contains
@@ -3058,7 +3058,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2825:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
 2826:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Check if an Abort process is still ongoing */
 2827:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   if (huart->hdmatx != NULL)
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 52
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 52
 
 
 2828:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   {
@@ -3118,7 +3118,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2882:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** }
 2883:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
 2884:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** /**
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 53
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 53
 
 
 2885:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   * @brief  DMA UART Rx communication abort callback, when initiated by user by a call to
@@ -3178,7 +3178,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2928:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       huart->Instance->DR = (uint16_t)(*tmp & (uint16_t)0x01FF);
 2929:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       if (huart->Init.Parity == UART_PARITY_NONE)
 2930:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       {
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 54
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 54
 
 
 2931:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         huart->pTxBuffPtr += 2U;
@@ -3238,7 +3238,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  122              		.loc 1 2946 0
  123 002e 0268     		ldr	r2, [r0]
  124 0030 D368     		ldr	r3, [r2, #12]
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 55
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 55
 
 
  125 0032 23F08003 		bic	r3, r3, #128
@@ -3298,7 +3298,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  169              	.LFE181:
  171              		.global	__aeabi_uldivmod
  172              		.section	.text.UART_SetConfig,"ax",%progbits
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 56
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 56
 
 
  173              		.align	1
@@ -3358,7 +3358,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 3005:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       else
 3006:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       {
 3007:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         *tmp = (uint16_t)(huart->Instance->DR & (uint16_t)0x00FF);
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 57
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 57
 
 
 3008:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         huart->pRxBuffPtr += 1U;
@@ -3418,7 +3418,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 3062:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** {
  181              		.loc 1 3062 0
  182              		.cfi_startproc
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 58
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 58
 
 
  183              		@ args = 0, pretend = 0, frame = 0
@@ -3478,7 +3478,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  214 0022 CA68     		ldr	r2, [r1, #12]
  215 0024 22F41642 		bic	r2, r2, #38400
  216 0028 22F00C02 		bic	r2, r2, #12
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 59
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 59
 
 
  217 002c 1343     		orrs	r3, r3, r2
@@ -3538,7 +3538,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 3125:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** #if defined(USART6) && defined(UART9) && defined(UART10)
 3126:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     if ((huart->Instance == USART1) || (huart->Instance == USART6) || (huart->Instance == UART9) ||
 3127:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     {
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 60
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 60
 
 
 3128:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       pclk = HAL_RCC_GetPCLK2Freq();
@@ -3598,7 +3598,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  266 0088 A4FB0032 		umull	r3, r2, r4, r0
  267 008c 5109     		lsrs	r1, r2, #5
  268 008e 6422     		movs	r2, #100
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 61
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 61
 
 
  269 0090 02FB1102 		mls	r2, r2, r1, r0
@@ -3658,7 +3658,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  319 00f6 6422     		movs	r2, #100
  320 00f8 02FB1102 		mls	r2, r2, r1, r0
  321 00fc D300     		lsls	r3, r2, #3
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 62
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 62
 
 
  322 00fe 3233     		adds	r3, r3, #50
@@ -3718,7 +3718,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  374 0172 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
  375              	.LVL29:
  376              	.L17:
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 63
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 63
 
 
 3134:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       huart->Instance->BRR = UART_BRR_SAMPLING16(pclk, huart->Init.BaudRate);
@@ -3778,7 +3778,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  431              	UART_WaitOnFlagUntilTimeout:
  432              	.LFB173:
 2689:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Wait until flag is set */
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 64
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 64
 
 
  433              		.loc 1 2689 0
@@ -3838,7 +3838,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  481 003e 2A68     		ldr	r2, [r5]
  482 0040 5369     		ldr	r3, [r2, #20]
  483 0042 23F00103 		bic	r3, r3, #1
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 65
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 65
 
 
  484 0046 5361     		str	r3, [r2, #20]
@@ -3898,7 +3898,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  318:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Check the UART handle allocation */
  535              		.loc 1 318 0
  536              		.cfi_startproc
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 66
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 66
 
 
  537              		@ args = 0, pretend = 0, frame = 0
@@ -3958,7 +3958,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  581              		.loc 1 380 0
  582 0040 0020     		movs	r0, #0
  583 0042 E063     		str	r0, [r4, #60]
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 67
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 67
 
 
  381:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   huart->RxState = HAL_UART_STATE_READY;
@@ -4018,7 +4018,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  631 0004 10B5     		push	{r4, lr}
  632              	.LCFI4:
  633              		.cfi_def_cfa_offset 8
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 68
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 68
 
 
  634              		.cfi_offset 4, -8
@@ -4078,7 +4078,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  678 0050 2023     		movs	r3, #32
  679 0052 84F83930 		strb	r3, [r4, #57]
  451:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 69
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 69
 
 
  680              		.loc 1 451 0
@@ -4138,7 +4138,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  729              		.cfi_offset 5, -8
  730              		.cfi_offset 14, -4
  731 0006 0446     		mov	r4, r0
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 70
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 70
 
 
  732 0008 0D46     		mov	r5, r1
@@ -4198,7 +4198,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  526:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
  777              		.loc 1 526 0
  778 0058 2268     		ldr	r2, [r4]
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 71
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 71
 
 
  779 005a D368     		ldr	r3, [r2, #12]
@@ -4258,7 +4258,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  827              		@ args = 0, pretend = 0, frame = 0
  828              		@ frame_needed = 0, uses_anonymous_args = 0
  829              	.LVL61:
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 72
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 72
 
 
  551:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   {
@@ -4318,7 +4318,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  875 0042 23F00F03 		bic	r3, r3, #15
  876 0046 1361     		str	r3, [r2, #16]
  602:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 73
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 73
 
 
  877              		.loc 1 602 0
@@ -4378,7 +4378,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  922              		.cfi_restore 14
  553:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   }
  923              		.loc 1 553 0
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 74
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 74
 
 
  924 0086 0120     		movs	r0, #1
@@ -4438,7 +4438,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  639:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
  977              		.loc 1 639 0
  978 000c 0268     		ldr	r2, [r0]
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 75
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 75
 
 
  979 000e D368     		ldr	r3, [r2, #12]
@@ -4498,7 +4498,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1027              		.cfi_offset 4, -28
  1028              		.cfi_offset 5, -24
  1029              		.cfi_offset 6, -20
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 76
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 76
 
 
  1030              		.cfi_offset 7, -16
@@ -4558,7 +4558,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1077              		.loc 1 1038 0 is_stmt 0 discriminator 2
  1078 0036 0123     		movs	r3, #1
  1079 0038 80F83830 		strb	r3, [r0, #56]
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 77
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 77
 
 
 1040:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     huart->gState = HAL_UART_STATE_BUSY_TX;
@@ -4618,7 +4618,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1123              	.L78:
 1052:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     {
  1124              		.loc 1 1052 0
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 78
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 78
 
 
  1125 0080 E38C     		ldrh	r3, [r4, #38]
@@ -4678,7 +4678,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1084:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     }
  1173              		.loc 1 1084 0
  1174 00c8 0323     		movs	r3, #3
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 79
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 79
 
 
  1175 00ca A3E7     		b	.L77
@@ -4738,7 +4738,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1225              		.cfi_offset 9, -8
  1226              		.cfi_offset 14, -4
  1227 0004 83B0     		sub	sp, sp, #12
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 80
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 80
 
 
  1228              	.LCFI17:
@@ -4798,7 +4798,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1274              		.loc 1 1126 0 is_stmt 1 discriminator 2
  1275 003a 4FF00009 		mov	r9, #0
  1276 003e C0F83C90 		str	r9, [r0, #60]
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 81
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 81
 
 
 1127:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
@@ -4858,7 +4858,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1321 0084 DBB2     		uxtb	r3, r3
  1322 0086 25F8013B 		strh	r3, [r5], #1	@ movhi
  1323              	.LVL107:
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 82
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 82
 
 
  1324 008a 05E0     		b	.L98
@@ -4918,7 +4918,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1180:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
  1371              		.loc 1 1180 0
  1372 00d0 2023     		movs	r3, #32
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 83
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 83
 
 
  1373 00d2 84F83A30 		strb	r3, [r4, #58]
@@ -4978,7 +4978,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1422 000a 0220     		movs	r0, #2
  1423              	.LVL119:
  1424 000c 7047     		bx	lr
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 84
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 84
 
 
  1425              	.LVL120:
@@ -5038,7 +5038,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1467              	.LVL127:
  1468              	.L119:
  1469 0040 0120     		movs	r0, #1
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 85
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 85
 
 
  1470              	.LVL128:
@@ -5098,7 +5098,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1517              		.loc 1 1259 0 discriminator 2
  1518 001a 8162     		str	r1, [r0, #40]
 1260:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     huart->RxXferCount = Size;
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 86
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 86
 
 
  1519              		.loc 1 1260 0 discriminator 2
@@ -5158,7 +5158,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1564              	.LVL142:
  1565              	.L127:
 1257:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 87
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 87
 
 
  1566              		.loc 1 1257 0
@@ -5218,7 +5218,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1615 001c 012B     		cmp	r3, #1
  1616 001e 01D1     		bne	.L137
  1617 0020 0220     		movs	r0, #2
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 88
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 88
 
 
  1618              	.LVL147:
@@ -5278,7 +5278,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1660 0056 0432     		adds	r2, r2, #4
  1661 0058 206B     		ldr	r0, [r4, #48]
  1662 005a FFF7FEFF 		bl	HAL_DMA_Start_IT
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 89
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 89
 
 
  1663              	.LVL152:
@@ -5338,7 +5338,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1713 0000 30B5     		push	{r4, r5, lr}
  1714              	.LCFI21:
  1715              		.cfi_def_cfa_offset 12
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 90
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 90
 
 
  1716              		.cfi_offset 4, -12
@@ -5398,7 +5398,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1763              	.LVL163:
  1764 0030 80F83810 		strb	r1, [r0, #56]
 1380:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     huart->RxXferSize = Size;
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 91
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 91
 
 
  1765              		.loc 1 1380 0 is_stmt 1 discriminator 2
@@ -5458,7 +5458,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1809 0070 84F83850 		strb	r5, [r4, #56]
 1409:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
  1810              		.loc 1 1409 0 discriminator 2
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 92
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 92
 
 
  1811 0074 DA68     		ldr	r2, [r3, #12]
@@ -5518,7 +5518,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1862              	.LVL171:
 1437:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
  1863              		.loc 1 1437 0
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 93
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 93
 
 
  1864 0000 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
@@ -5578,7 +5578,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1909 0046 4B61     		str	r3, [r1, #20]
  1910 0048 EAE7     		b	.L153
  1911              	.L157:
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 94
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 94
 
 
 1447:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   {
@@ -5638,7 +5638,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  1960 0006 34D0     		beq	.L162
 1472:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
  1961              		.loc 1 1472 0 is_stmt 0 discriminator 2
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 95
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 95
 
 
  1962 0008 0123     		movs	r3, #1
@@ -5698,7 +5698,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  2007              		.loc 1 1486 0
  2008 004a DA68     		ldr	r2, [r3, #12]
  2009 004c 42F48072 		orr	r2, r2, #256
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 96
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 96
 
 
  2010 0050 DA60     		str	r2, [r3, #12]
@@ -5758,7 +5758,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  2059              		.cfi_def_cfa_offset 8
  2060              		.cfi_offset 4, -8
  2061              		.cfi_offset 14, -4
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 97
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 97
 
 
  2062 0002 0446     		mov	r4, r0
@@ -5818,7 +5818,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  2107              	.LVL196:
  2108              	.L172:
 1525:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   }
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 98
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 98
 
 
  2109              		.loc 1 1525 0
@@ -5878,7 +5878,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1560:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   CLEAR_BIT(huart->Instance->CR3, USART_CR3_EIE);
  2159              		.loc 1 1560 0
  2160 0004 0268     		ldr	r2, [r0]
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 99
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 99
 
 
  2161 0006 D368     		ldr	r3, [r2, #12]
@@ -5938,7 +5938,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  2205 0052 1A65     		str	r2, [r3, #80]
 1600:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       {
  2206              		.loc 1 1600 0
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 100
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 100
 
 
  2207 0054 606B     		ldr	r0, [r4, #52]
@@ -5998,7 +5998,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  2250 008e E363     		str	r3, [r4, #60]
 1607:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****         }
  2251              		.loc 1 1607 0
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 101
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 101
 
 
  2252 0090 0320     		movs	r0, #3
@@ -6058,7 +6058,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  2301 002a FFF7FEFF 		bl	HAL_DMA_Abort
  2302              	.LVL211:
  2303 002e 28B9     		cbnz	r0, .L189
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 102
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 102
 
 
  2304              	.L186:
@@ -6118,7 +6118,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  2352 0004 0268     		ldr	r2, [r0]
  2353 0006 D368     		ldr	r3, [r2, #12]
  2354 0008 23F49073 		bic	r3, r3, #288
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 103
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 103
 
 
  2355 000c D360     		str	r3, [r2, #12]
@@ -6178,7 +6178,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 1713:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
  2399              		.loc 1 1713 0
  2400 0050 1023     		movs	r3, #16
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 104
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 104
 
 
  2401 0052 E363     		str	r3, [r4, #60]
@@ -6238,7 +6238,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  2453 0006 1268     		ldr	r2, [r2]
  2454 0008 12F4807F 		tst	r2, #256
  2455 000c 0CD1     		bne	.L197
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 105
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 105
 
 
 2546:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
@@ -6298,7 +6298,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2971:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
  2506              		.loc 1 2971 0
  2507 000c 2023     		movs	r3, #32
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 106
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 106
 
 
  2508 000e 80F83930 		strb	r3, [r0, #57]
@@ -6358,7 +6358,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  2560 0002 806B     		ldr	r0, [r0, #56]
  2561              	.LVL231:
  2562 0004 FFF7FEFF 		bl	HAL_UART_TxHalfCpltCallback
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 107
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 107
 
 
  2563              	.LVL232:
@@ -6418,7 +6418,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2600:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
  2616              		.loc 1 2600 0
  2617 000e 0022     		movs	r2, #0
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 108
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 108
 
 
  2618 0010 DA85     		strh	r2, [r3, #46]	@ movhi
@@ -6478,7 +6478,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  2667 0002 90F83A30 		ldrb	r3, [r0, #58]	@ zero_extendqisi2
  2668 0006 DBB2     		uxtb	r3, r3
  2669 0008 222B     		cmp	r3, #34
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 109
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 109
 
 
  2670 000a 01D0     		beq	.L218
@@ -6538,7 +6538,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  2714 0040 5B68     		ldr	r3, [r3, #4]
  2715 0042 C3F30803 		ubfx	r3, r3, #0, #9
  2716 0046 1380     		strh	r3, [r2]	@ movhi
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 110
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 110
 
 
 3003:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****       }
@@ -6598,7 +6598,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 3042:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** #endif /* USE_HAL_UART_REGISTER_CALLBACKS */
  2763              		.loc 1 3042 0
  2764 0096 FFF7FEFF 		bl	HAL_UART_RxCpltCallback
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 111
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 111
 
 
  2765              	.LVL245:
@@ -6658,7 +6658,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  2818 0008 08BD     		pop	{r3, pc}
  2819              		.cfi_endproc
  2820              	.LFE171:
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 112
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 112
 
 
  2822              		.section	.text.HAL_UART_ErrorCallback,"ax",%progbits
@@ -6718,7 +6718,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  2873 000e 212B     		cmp	r3, #33
  2874 0010 10D0     		beq	.L229
  2875              	.LVL256:
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 113
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 113
 
 
  2876              	.L226:
@@ -6778,7 +6778,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  2921 004e E385     		strh	r3, [r4, #46]	@ movhi
 2665:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   }
  2922              		.loc 1 2665 0
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 114
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 114
 
 
  2923 0050 2046     		mov	r0, r4
@@ -6838,7 +6838,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2040:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   {
  2972              		.loc 1 2040 0 is_stmt 1
  2973 001e 0028     		cmp	r0, #0
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 115
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 115
 
 
  2974 0020 6AD0     		beq	.L234
@@ -6898,7 +6898,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3016 0062 13F0080F 		tst	r3, #8
  3017 0066 07D0     		beq	.L239
 2061:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     {
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 116
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 116
 
 
  3018              		.loc 1 2061 0 is_stmt 0 discriminator 1
@@ -6958,7 +6958,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2088:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
  3062              		.loc 1 2088 0
  3063 00ac 5A69     		ldr	r2, [r3, #20]
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 117
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 117
 
 
  3064 00ae 22F04002 		bic	r2, r2, #64
@@ -7018,7 +7018,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3109 00e4 2046     		mov	r0, r4
  3110 00e6 FFF7FEFF 		bl	HAL_UART_ErrorCallback
  3111              	.LVL286:
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 118
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 118
 
 
  3112 00ea 10BD     		pop	{r4, pc}
@@ -7078,7 +7078,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2155:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   }
  3157              		.loc 1 2155 0
  3158 0120 F6E7     		b	.L231
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 119
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 119
 
 
  3159              	.L253:
@@ -7138,7 +7138,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3211              		.cfi_startproc
  3212              		@ args = 0, pretend = 0, frame = 0
  3213              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 120
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 120
 
 
  3214              		@ link register save eliminated.
@@ -7198,7 +7198,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3263 0028 1A65     		str	r2, [r3, #80]
  3264              	.L258:
 1769:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   {
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 121
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 121
 
 
  3265              		.loc 1 1769 0
@@ -7258,7 +7258,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3309 0068 0022     		movs	r2, #0
  3310 006a 1A65     		str	r2, [r3, #80]
  3311 006c E6E7     		b	.L260
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 122
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 122
 
 
  3312              	.L265:
@@ -7318,7 +7318,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3355              		.loc 1 1802 0
  3356 009e 0022     		movs	r2, #0
  3357 00a0 E6E7     		b	.L262
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 123
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 123
 
 
  3358              	.LVL312:
@@ -7378,7 +7378,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3406              		.cfi_def_cfa_offset 8
  3407              		.cfi_offset 3, -8
  3408              		.cfi_offset 14, -4
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 124
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 124
 
 
 2822:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
@@ -7438,7 +7438,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2776:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   UART_HandleTypeDef *huart = (UART_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
  3455              		.loc 1 2776 0
  3456              		.cfi_startproc
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 125
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 125
 
 
  3457              		@ args = 0, pretend = 0, frame = 0
@@ -7498,7 +7498,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3502              		.section	.text.HAL_UART_AbortTransmitCpltCallback,"ax",%progbits
  3503              		.align	1
  3504              		.weak	HAL_UART_AbortTransmitCpltCallback
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 126
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 126
 
 
  3505              		.syntax unified
@@ -7558,7 +7558,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3556 001a 22F08002 		bic	r2, r2, #128
  3557 001e 5A61     		str	r2, [r3, #20]
 1883:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****     {
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 127
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 127
 
 
  3558              		.loc 1 1883 0
@@ -7618,7 +7618,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3602              		.loc 1 1928 0
  3603 0056 FFF7FEFF 		bl	HAL_UART_AbortTransmitCpltCallback
  3604              	.LVL334:
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 128
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 128
 
 
  3605 005a E9E7     		b	.L285
@@ -7678,7 +7678,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
 2270:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Prevent unused argument(s) compilation warning */
  3658              		.loc 1 2270 0
  3659              		.cfi_startproc
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 129
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 129
 
 
  3660              		@ args = 0, pretend = 0, frame = 0
@@ -7738,7 +7738,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3709              		.loc 1 1961 0
  3710 002a 436B     		ldr	r3, [r0, #52]
  3711 002c 5BB1     		cbz	r3, .L295
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 130
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 130
 
 
 1965:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
@@ -7798,7 +7798,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3756 0064 E9E7     		b	.L296
  3757              	.L300:
  3758 0066 00BF     		.align	2
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 131
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 131
 
 
  3759              	.L299:
@@ -7858,7 +7858,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3811              		@ args = 0, pretend = 0, frame = 0
  3812              		@ frame_needed = 0, uses_anonymous_args = 0
  3813              		@ link register save eliminated.
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 132
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 132
 
 
  3814              	.LVL351:
@@ -7918,7 +7918,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3860              		.loc 1 2336 0
  3861              		.cfi_startproc
  3862              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 133
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 133
 
 
  3863              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -7978,7 +7978,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3910              	.LFB163:
 2363:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   /* Check the parameters */
  3911              		.loc 1 2363 0
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 134
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 134
 
 
  3912              		.cfi_startproc
@@ -8038,7 +8038,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  3958              		.fpu fpv4-sp-d16
  3960              	HAL_HalfDuplex_EnableTransmitter:
  3961              	.LFB164:
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 135
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 135
 
 
 2390:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c ****   uint32_t tmpreg = 0x00U;
@@ -8098,7 +8098,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  4004              		.loc 1 2394 0
  4005 0032 0220     		movs	r0, #2
  4006              	.LVL371:
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 136
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 136
 
 
 2416:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
@@ -8158,7 +8158,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  4053 0024 80F83930 		strb	r3, [r0, #57]
  4054              	.LVL377:
 2448:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c **** 
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 137
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 137
 
 
  4055              		.loc 1 2448 0 discriminator 2
@@ -8218,7 +8218,7 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  4105              		.thumb
  4106              		.thumb_func
  4107              		.fpu fpv4-sp-d16
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 138
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 138
 
 
  4109              	HAL_UART_GetError:
@@ -8252,134 +8252,134 @@ ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 1
  4135              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
  4136              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
  4137              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 139
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 139
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_hal_uart.c
-D:\cygwin64\tmp\ccIP8oYk.s:18     .text.UART_EndTxTransfer:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:24     .text.UART_EndTxTransfer:00000000 UART_EndTxTransfer
-D:\cygwin64\tmp\ccIP8oYk.s:46     .text.UART_EndRxTransfer:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:52     .text.UART_EndRxTransfer:00000000 UART_EndRxTransfer
-D:\cygwin64\tmp\ccIP8oYk.s:78     .text.UART_Transmit_IT:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:84     .text.UART_Transmit_IT:00000000 UART_Transmit_IT
-D:\cygwin64\tmp\ccIP8oYk.s:173    .text.UART_SetConfig:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:179    .text.UART_SetConfig:00000000 UART_SetConfig
-D:\cygwin64\tmp\ccIP8oYk.s:419    .text.UART_SetConfig:000001cc $d
-D:\cygwin64\tmp\ccIP8oYk.s:425    .text.UART_WaitOnFlagUntilTimeout:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:431    .text.UART_WaitOnFlagUntilTimeout:00000000 UART_WaitOnFlagUntilTimeout
-D:\cygwin64\tmp\ccIP8oYk.s:506    .text.HAL_UART_MspInit:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:513    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
-D:\cygwin64\tmp\ccIP8oYk.s:526    .text.HAL_UART_Init:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:533    .text.HAL_UART_Init:00000000 HAL_UART_Init
-D:\cygwin64\tmp\ccIP8oYk.s:613    .text.HAL_HalfDuplex_Init:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:620    .text.HAL_HalfDuplex_Init:00000000 HAL_HalfDuplex_Init
-D:\cygwin64\tmp\ccIP8oYk.s:706    .text.HAL_LIN_Init:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:713    .text.HAL_LIN_Init:00000000 HAL_LIN_Init
-D:\cygwin64\tmp\ccIP8oYk.s:816    .text.HAL_MultiProcessor_Init:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:823    .text.HAL_MultiProcessor_Init:00000000 HAL_MultiProcessor_Init
-D:\cygwin64\tmp\ccIP8oYk.s:931    .text.HAL_UART_MspDeInit:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:938    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
-D:\cygwin64\tmp\ccIP8oYk.s:951    .text.HAL_UART_DeInit:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:958    .text.HAL_UART_DeInit:00000000 HAL_UART_DeInit
-D:\cygwin64\tmp\ccIP8oYk.s:1010   .text.HAL_UART_Transmit:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:1017   .text.HAL_UART_Transmit:00000000 HAL_UART_Transmit
-D:\cygwin64\tmp\ccIP8oYk.s:1203   .text.HAL_UART_Receive:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:1210   .text.HAL_UART_Receive:00000000 HAL_UART_Receive
-D:\cygwin64\tmp\ccIP8oYk.s:1401   .text.HAL_UART_Transmit_IT:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:1408   .text.HAL_UART_Transmit_IT:00000000 HAL_UART_Transmit_IT
-D:\cygwin64\tmp\ccIP8oYk.s:1483   .text.HAL_UART_Receive_IT:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:1490   .text.HAL_UART_Receive_IT:00000000 HAL_UART_Receive_IT
-D:\cygwin64\tmp\ccIP8oYk.s:1575   .text.HAL_UART_Transmit_DMA:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:1582   .text.HAL_UART_Transmit_DMA:00000000 HAL_UART_Transmit_DMA
-D:\cygwin64\tmp\ccIP8oYk.s:1692   .text.HAL_UART_Transmit_DMA:00000080 $d
-D:\cygwin64\tmp\ccIP8oYk.s:2435   .text.UART_DMATransmitCplt:00000000 UART_DMATransmitCplt
-D:\cygwin64\tmp\ccIP8oYk.s:2545   .text.UART_DMATxHalfCplt:00000000 UART_DMATxHalfCplt
-D:\cygwin64\tmp\ccIP8oYk.s:2849   .text.UART_DMAError:00000000 UART_DMAError
-D:\cygwin64\tmp\ccIP8oYk.s:1699   .text.HAL_UART_Receive_DMA:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:1706   .text.HAL_UART_Receive_DMA:00000000 HAL_UART_Receive_DMA
-D:\cygwin64\tmp\ccIP8oYk.s:1841   .text.HAL_UART_Receive_DMA:0000009c $d
-D:\cygwin64\tmp\ccIP8oYk.s:2595   .text.UART_DMAReceiveCplt:00000000 UART_DMAReceiveCplt
-D:\cygwin64\tmp\ccIP8oYk.s:2799   .text.UART_DMARxHalfCplt:00000000 UART_DMARxHalfCplt
-D:\cygwin64\tmp\ccIP8oYk.s:1848   .text.HAL_UART_DMAPause:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:1855   .text.HAL_UART_DMAPause:00000000 HAL_UART_DMAPause
-D:\cygwin64\tmp\ccIP8oYk.s:1942   .text.HAL_UART_DMAResume:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:1949   .text.HAL_UART_DMAResume:00000000 HAL_UART_DMAResume
-D:\cygwin64\tmp\ccIP8oYk.s:2043   .text.HAL_UART_DMAStop:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2050   .text.HAL_UART_DMAStop:00000000 HAL_UART_DMAStop
-D:\cygwin64\tmp\ccIP8oYk.s:2139   .text.HAL_UART_Abort:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2146   .text.HAL_UART_Abort:00000000 HAL_UART_Abort
-D:\cygwin64\tmp\ccIP8oYk.s:2258   .text.HAL_UART_AbortTransmit:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2265   .text.HAL_UART_AbortTransmit:00000000 HAL_UART_AbortTransmit
-D:\cygwin64\tmp\ccIP8oYk.s:2331   .text.HAL_UART_AbortReceive:00000000 $t
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 140
+D:\cygwin64\tmp\cc3fQgKg.s:18     .text.UART_EndTxTransfer:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:24     .text.UART_EndTxTransfer:00000000 UART_EndTxTransfer
+D:\cygwin64\tmp\cc3fQgKg.s:46     .text.UART_EndRxTransfer:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:52     .text.UART_EndRxTransfer:00000000 UART_EndRxTransfer
+D:\cygwin64\tmp\cc3fQgKg.s:78     .text.UART_Transmit_IT:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:84     .text.UART_Transmit_IT:00000000 UART_Transmit_IT
+D:\cygwin64\tmp\cc3fQgKg.s:173    .text.UART_SetConfig:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:179    .text.UART_SetConfig:00000000 UART_SetConfig
+D:\cygwin64\tmp\cc3fQgKg.s:419    .text.UART_SetConfig:000001cc $d
+D:\cygwin64\tmp\cc3fQgKg.s:425    .text.UART_WaitOnFlagUntilTimeout:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:431    .text.UART_WaitOnFlagUntilTimeout:00000000 UART_WaitOnFlagUntilTimeout
+D:\cygwin64\tmp\cc3fQgKg.s:506    .text.HAL_UART_MspInit:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:513    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
+D:\cygwin64\tmp\cc3fQgKg.s:526    .text.HAL_UART_Init:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:533    .text.HAL_UART_Init:00000000 HAL_UART_Init
+D:\cygwin64\tmp\cc3fQgKg.s:613    .text.HAL_HalfDuplex_Init:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:620    .text.HAL_HalfDuplex_Init:00000000 HAL_HalfDuplex_Init
+D:\cygwin64\tmp\cc3fQgKg.s:706    .text.HAL_LIN_Init:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:713    .text.HAL_LIN_Init:00000000 HAL_LIN_Init
+D:\cygwin64\tmp\cc3fQgKg.s:816    .text.HAL_MultiProcessor_Init:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:823    .text.HAL_MultiProcessor_Init:00000000 HAL_MultiProcessor_Init
+D:\cygwin64\tmp\cc3fQgKg.s:931    .text.HAL_UART_MspDeInit:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:938    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
+D:\cygwin64\tmp\cc3fQgKg.s:951    .text.HAL_UART_DeInit:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:958    .text.HAL_UART_DeInit:00000000 HAL_UART_DeInit
+D:\cygwin64\tmp\cc3fQgKg.s:1010   .text.HAL_UART_Transmit:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:1017   .text.HAL_UART_Transmit:00000000 HAL_UART_Transmit
+D:\cygwin64\tmp\cc3fQgKg.s:1203   .text.HAL_UART_Receive:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:1210   .text.HAL_UART_Receive:00000000 HAL_UART_Receive
+D:\cygwin64\tmp\cc3fQgKg.s:1401   .text.HAL_UART_Transmit_IT:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:1408   .text.HAL_UART_Transmit_IT:00000000 HAL_UART_Transmit_IT
+D:\cygwin64\tmp\cc3fQgKg.s:1483   .text.HAL_UART_Receive_IT:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:1490   .text.HAL_UART_Receive_IT:00000000 HAL_UART_Receive_IT
+D:\cygwin64\tmp\cc3fQgKg.s:1575   .text.HAL_UART_Transmit_DMA:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:1582   .text.HAL_UART_Transmit_DMA:00000000 HAL_UART_Transmit_DMA
+D:\cygwin64\tmp\cc3fQgKg.s:1692   .text.HAL_UART_Transmit_DMA:00000080 $d
+D:\cygwin64\tmp\cc3fQgKg.s:2435   .text.UART_DMATransmitCplt:00000000 UART_DMATransmitCplt
+D:\cygwin64\tmp\cc3fQgKg.s:2545   .text.UART_DMATxHalfCplt:00000000 UART_DMATxHalfCplt
+D:\cygwin64\tmp\cc3fQgKg.s:2849   .text.UART_DMAError:00000000 UART_DMAError
+D:\cygwin64\tmp\cc3fQgKg.s:1699   .text.HAL_UART_Receive_DMA:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:1706   .text.HAL_UART_Receive_DMA:00000000 HAL_UART_Receive_DMA
+D:\cygwin64\tmp\cc3fQgKg.s:1841   .text.HAL_UART_Receive_DMA:0000009c $d
+D:\cygwin64\tmp\cc3fQgKg.s:2595   .text.UART_DMAReceiveCplt:00000000 UART_DMAReceiveCplt
+D:\cygwin64\tmp\cc3fQgKg.s:2799   .text.UART_DMARxHalfCplt:00000000 UART_DMARxHalfCplt
+D:\cygwin64\tmp\cc3fQgKg.s:1848   .text.HAL_UART_DMAPause:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:1855   .text.HAL_UART_DMAPause:00000000 HAL_UART_DMAPause
+D:\cygwin64\tmp\cc3fQgKg.s:1942   .text.HAL_UART_DMAResume:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:1949   .text.HAL_UART_DMAResume:00000000 HAL_UART_DMAResume
+D:\cygwin64\tmp\cc3fQgKg.s:2043   .text.HAL_UART_DMAStop:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2050   .text.HAL_UART_DMAStop:00000000 HAL_UART_DMAStop
+D:\cygwin64\tmp\cc3fQgKg.s:2139   .text.HAL_UART_Abort:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2146   .text.HAL_UART_Abort:00000000 HAL_UART_Abort
+D:\cygwin64\tmp\cc3fQgKg.s:2258   .text.HAL_UART_AbortTransmit:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2265   .text.HAL_UART_AbortTransmit:00000000 HAL_UART_AbortTransmit
+D:\cygwin64\tmp\cc3fQgKg.s:2331   .text.HAL_UART_AbortReceive:00000000 $t
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 140
 
 
-D:\cygwin64\tmp\ccIP8oYk.s:2338   .text.HAL_UART_AbortReceive:00000000 HAL_UART_AbortReceive
-D:\cygwin64\tmp\ccIP8oYk.s:2409   .text.HAL_UART_TxCpltCallback:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2416   .text.HAL_UART_TxCpltCallback:00000000 HAL_UART_TxCpltCallback
-D:\cygwin64\tmp\ccIP8oYk.s:2429   .text.UART_DMATransmitCplt:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2483   .text.UART_EndTransmit_IT:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2489   .text.UART_EndTransmit_IT:00000000 UART_EndTransmit_IT
-D:\cygwin64\tmp\ccIP8oYk.s:2519   .text.HAL_UART_TxHalfCpltCallback:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2526   .text.HAL_UART_TxHalfCpltCallback:00000000 HAL_UART_TxHalfCpltCallback
-D:\cygwin64\tmp\ccIP8oYk.s:2539   .text.UART_DMATxHalfCplt:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2569   .text.HAL_UART_RxCpltCallback:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2576   .text.HAL_UART_RxCpltCallback:00000000 HAL_UART_RxCpltCallback
-D:\cygwin64\tmp\ccIP8oYk.s:2589   .text.UART_DMAReceiveCplt:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2648   .text.UART_Receive_IT:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2654   .text.UART_Receive_IT:00000000 UART_Receive_IT
-D:\cygwin64\tmp\ccIP8oYk.s:2773   .text.HAL_UART_RxHalfCpltCallback:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2780   .text.HAL_UART_RxHalfCpltCallback:00000000 HAL_UART_RxHalfCpltCallback
-D:\cygwin64\tmp\ccIP8oYk.s:2793   .text.UART_DMARxHalfCplt:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2823   .text.HAL_UART_ErrorCallback:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2830   .text.HAL_UART_ErrorCallback:00000000 HAL_UART_ErrorCallback
-D:\cygwin64\tmp\ccIP8oYk.s:2843   .text.UART_DMAError:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2931   .text.HAL_UART_IRQHandler:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:2938   .text.HAL_UART_IRQHandler:00000000 HAL_UART_IRQHandler
-D:\cygwin64\tmp\ccIP8oYk.s:3162   .text.HAL_UART_IRQHandler:00000124 $d
-D:\cygwin64\tmp\ccIP8oYk.s:3173   .text.UART_DMAAbortOnError:00000000 UART_DMAAbortOnError
-D:\cygwin64\tmp\ccIP8oYk.s:3167   .text.UART_DMAAbortOnError:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:3201   .text.HAL_UART_AbortCpltCallback:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:3208   .text.HAL_UART_AbortCpltCallback:00000000 HAL_UART_AbortCpltCallback
-D:\cygwin64\tmp\ccIP8oYk.s:3221   .text.HAL_UART_Abort_IT:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:3228   .text.HAL_UART_Abort_IT:00000000 HAL_UART_Abort_IT
-D:\cygwin64\tmp\ccIP8oYk.s:3385   .text.HAL_UART_Abort_IT:000000c0 $d
-D:\cygwin64\tmp\ccIP8oYk.s:3453   .text.UART_DMATxAbortCallback:00000000 UART_DMATxAbortCallback
-D:\cygwin64\tmp\ccIP8oYk.s:3397   .text.UART_DMARxAbortCallback:00000000 UART_DMARxAbortCallback
-D:\cygwin64\tmp\ccIP8oYk.s:3391   .text.UART_DMARxAbortCallback:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:3447   .text.UART_DMATxAbortCallback:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:3503   .text.HAL_UART_AbortTransmitCpltCallback:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:3510   .text.HAL_UART_AbortTransmitCpltCallback:00000000 HAL_UART_AbortTransmitCpltCallback
-D:\cygwin64\tmp\ccIP8oYk.s:3523   .text.HAL_UART_AbortTransmit_IT:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:3530   .text.HAL_UART_AbortTransmit_IT:00000000 HAL_UART_AbortTransmit_IT
-D:\cygwin64\tmp\ccIP8oYk.s:3609   .text.HAL_UART_AbortTransmit_IT:0000005c $d
-D:\cygwin64\tmp\ccIP8oYk.s:3620   .text.UART_DMATxOnlyAbortCallback:00000000 UART_DMATxOnlyAbortCallback
-D:\cygwin64\tmp\ccIP8oYk.s:3614   .text.UART_DMATxOnlyAbortCallback:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:3649   .text.HAL_UART_AbortReceiveCpltCallback:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:3656   .text.HAL_UART_AbortReceiveCpltCallback:00000000 HAL_UART_AbortReceiveCpltCallback
-D:\cygwin64\tmp\ccIP8oYk.s:3669   .text.HAL_UART_AbortReceive_IT:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:3676   .text.HAL_UART_AbortReceive_IT:00000000 HAL_UART_AbortReceive_IT
-D:\cygwin64\tmp\ccIP8oYk.s:3760   .text.HAL_UART_AbortReceive_IT:00000068 $d
-D:\cygwin64\tmp\ccIP8oYk.s:3771   .text.UART_DMARxOnlyAbortCallback:00000000 UART_DMARxOnlyAbortCallback
-D:\cygwin64\tmp\ccIP8oYk.s:3765   .text.UART_DMARxOnlyAbortCallback:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:3800   .text.HAL_LIN_SendBreak:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:3807   .text.HAL_LIN_SendBreak:00000000 HAL_LIN_SendBreak
-D:\cygwin64\tmp\ccIP8oYk.s:3851   .text.HAL_MultiProcessor_EnterMuteMode:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:3858   .text.HAL_MultiProcessor_EnterMuteMode:00000000 HAL_MultiProcessor_EnterMuteMode
-D:\cygwin64\tmp\ccIP8oYk.s:3902   .text.HAL_MultiProcessor_ExitMuteMode:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:3909   .text.HAL_MultiProcessor_ExitMuteMode:00000000 HAL_MultiProcessor_ExitMuteMode
-D:\cygwin64\tmp\ccIP8oYk.s:3953   .text.HAL_HalfDuplex_EnableTransmitter:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:3960   .text.HAL_HalfDuplex_EnableTransmitter:00000000 HAL_HalfDuplex_EnableTransmitter
-D:\cygwin64\tmp\ccIP8oYk.s:4013   .text.HAL_HalfDuplex_EnableReceiver:00000000 $t
-ARM GAS  D:\cygwin64\tmp\ccIP8oYk.s 			page 141
+D:\cygwin64\tmp\cc3fQgKg.s:2338   .text.HAL_UART_AbortReceive:00000000 HAL_UART_AbortReceive
+D:\cygwin64\tmp\cc3fQgKg.s:2409   .text.HAL_UART_TxCpltCallback:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2416   .text.HAL_UART_TxCpltCallback:00000000 HAL_UART_TxCpltCallback
+D:\cygwin64\tmp\cc3fQgKg.s:2429   .text.UART_DMATransmitCplt:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2483   .text.UART_EndTransmit_IT:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2489   .text.UART_EndTransmit_IT:00000000 UART_EndTransmit_IT
+D:\cygwin64\tmp\cc3fQgKg.s:2519   .text.HAL_UART_TxHalfCpltCallback:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2526   .text.HAL_UART_TxHalfCpltCallback:00000000 HAL_UART_TxHalfCpltCallback
+D:\cygwin64\tmp\cc3fQgKg.s:2539   .text.UART_DMATxHalfCplt:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2569   .text.HAL_UART_RxCpltCallback:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2576   .text.HAL_UART_RxCpltCallback:00000000 HAL_UART_RxCpltCallback
+D:\cygwin64\tmp\cc3fQgKg.s:2589   .text.UART_DMAReceiveCplt:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2648   .text.UART_Receive_IT:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2654   .text.UART_Receive_IT:00000000 UART_Receive_IT
+D:\cygwin64\tmp\cc3fQgKg.s:2773   .text.HAL_UART_RxHalfCpltCallback:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2780   .text.HAL_UART_RxHalfCpltCallback:00000000 HAL_UART_RxHalfCpltCallback
+D:\cygwin64\tmp\cc3fQgKg.s:2793   .text.UART_DMARxHalfCplt:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2823   .text.HAL_UART_ErrorCallback:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2830   .text.HAL_UART_ErrorCallback:00000000 HAL_UART_ErrorCallback
+D:\cygwin64\tmp\cc3fQgKg.s:2843   .text.UART_DMAError:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2931   .text.HAL_UART_IRQHandler:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:2938   .text.HAL_UART_IRQHandler:00000000 HAL_UART_IRQHandler
+D:\cygwin64\tmp\cc3fQgKg.s:3162   .text.HAL_UART_IRQHandler:00000124 $d
+D:\cygwin64\tmp\cc3fQgKg.s:3173   .text.UART_DMAAbortOnError:00000000 UART_DMAAbortOnError
+D:\cygwin64\tmp\cc3fQgKg.s:3167   .text.UART_DMAAbortOnError:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:3201   .text.HAL_UART_AbortCpltCallback:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:3208   .text.HAL_UART_AbortCpltCallback:00000000 HAL_UART_AbortCpltCallback
+D:\cygwin64\tmp\cc3fQgKg.s:3221   .text.HAL_UART_Abort_IT:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:3228   .text.HAL_UART_Abort_IT:00000000 HAL_UART_Abort_IT
+D:\cygwin64\tmp\cc3fQgKg.s:3385   .text.HAL_UART_Abort_IT:000000c0 $d
+D:\cygwin64\tmp\cc3fQgKg.s:3453   .text.UART_DMATxAbortCallback:00000000 UART_DMATxAbortCallback
+D:\cygwin64\tmp\cc3fQgKg.s:3397   .text.UART_DMARxAbortCallback:00000000 UART_DMARxAbortCallback
+D:\cygwin64\tmp\cc3fQgKg.s:3391   .text.UART_DMARxAbortCallback:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:3447   .text.UART_DMATxAbortCallback:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:3503   .text.HAL_UART_AbortTransmitCpltCallback:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:3510   .text.HAL_UART_AbortTransmitCpltCallback:00000000 HAL_UART_AbortTransmitCpltCallback
+D:\cygwin64\tmp\cc3fQgKg.s:3523   .text.HAL_UART_AbortTransmit_IT:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:3530   .text.HAL_UART_AbortTransmit_IT:00000000 HAL_UART_AbortTransmit_IT
+D:\cygwin64\tmp\cc3fQgKg.s:3609   .text.HAL_UART_AbortTransmit_IT:0000005c $d
+D:\cygwin64\tmp\cc3fQgKg.s:3620   .text.UART_DMATxOnlyAbortCallback:00000000 UART_DMATxOnlyAbortCallback
+D:\cygwin64\tmp\cc3fQgKg.s:3614   .text.UART_DMATxOnlyAbortCallback:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:3649   .text.HAL_UART_AbortReceiveCpltCallback:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:3656   .text.HAL_UART_AbortReceiveCpltCallback:00000000 HAL_UART_AbortReceiveCpltCallback
+D:\cygwin64\tmp\cc3fQgKg.s:3669   .text.HAL_UART_AbortReceive_IT:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:3676   .text.HAL_UART_AbortReceive_IT:00000000 HAL_UART_AbortReceive_IT
+D:\cygwin64\tmp\cc3fQgKg.s:3760   .text.HAL_UART_AbortReceive_IT:00000068 $d
+D:\cygwin64\tmp\cc3fQgKg.s:3771   .text.UART_DMARxOnlyAbortCallback:00000000 UART_DMARxOnlyAbortCallback
+D:\cygwin64\tmp\cc3fQgKg.s:3765   .text.UART_DMARxOnlyAbortCallback:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:3800   .text.HAL_LIN_SendBreak:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:3807   .text.HAL_LIN_SendBreak:00000000 HAL_LIN_SendBreak
+D:\cygwin64\tmp\cc3fQgKg.s:3851   .text.HAL_MultiProcessor_EnterMuteMode:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:3858   .text.HAL_MultiProcessor_EnterMuteMode:00000000 HAL_MultiProcessor_EnterMuteMode
+D:\cygwin64\tmp\cc3fQgKg.s:3902   .text.HAL_MultiProcessor_ExitMuteMode:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:3909   .text.HAL_MultiProcessor_ExitMuteMode:00000000 HAL_MultiProcessor_ExitMuteMode
+D:\cygwin64\tmp\cc3fQgKg.s:3953   .text.HAL_HalfDuplex_EnableTransmitter:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:3960   .text.HAL_HalfDuplex_EnableTransmitter:00000000 HAL_HalfDuplex_EnableTransmitter
+D:\cygwin64\tmp\cc3fQgKg.s:4013   .text.HAL_HalfDuplex_EnableReceiver:00000000 $t
+ARM GAS  D:\cygwin64\tmp\cc3fQgKg.s 			page 141
 
 
-D:\cygwin64\tmp\ccIP8oYk.s:4020   .text.HAL_HalfDuplex_EnableReceiver:00000000 HAL_HalfDuplex_EnableReceiver
-D:\cygwin64\tmp\ccIP8oYk.s:4073   .text.HAL_UART_GetState:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:4080   .text.HAL_UART_GetState:00000000 HAL_UART_GetState
-D:\cygwin64\tmp\ccIP8oYk.s:4102   .text.HAL_UART_GetError:00000000 $t
-D:\cygwin64\tmp\ccIP8oYk.s:4109   .text.HAL_UART_GetError:00000000 HAL_UART_GetError
+D:\cygwin64\tmp\cc3fQgKg.s:4020   .text.HAL_HalfDuplex_EnableReceiver:00000000 HAL_HalfDuplex_EnableReceiver
+D:\cygwin64\tmp\cc3fQgKg.s:4073   .text.HAL_UART_GetState:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:4080   .text.HAL_UART_GetState:00000000 HAL_UART_GetState
+D:\cygwin64\tmp\cc3fQgKg.s:4102   .text.HAL_UART_GetError:00000000 $t
+D:\cygwin64\tmp\cc3fQgKg.s:4109   .text.HAL_UART_GetError:00000000 HAL_UART_GetError
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
